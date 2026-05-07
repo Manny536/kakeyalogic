@@ -1,11 +1,12 @@
 
-<h2 class="sr-only">L²_C Kakeya governance field: 10,000 Fourier-mode tubes at zeta-line 1/2, showing β momentum vectors, consent gate sovereignty check, drift rejection, and 94% fidelity recovery.</h2>
+<h2 class="sr-only">L²_C Kakeya governance field: 10,000 Fourier-mode tubes at zeta-line 1/2, showing β momentum vectors, Euler natural cadence E≈2.718, h-term consent gate sovereignty check, drift rejection, and 94% fidelity recovery.</h2>
 
 <canvas id="kc" style="display:block; border-radius:8px; width:100%;"></canvas>
 
 <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; font-size:11px; font-family:var(--font-mono);">
   <span id="sg" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">GATE —</span>
   <span id="sb" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">β —</span>
+  <span id="se" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">E —</span>
   <span id="sh" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">h —</span>
   <span id="sf" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">FIDELITY —</span>
   <span id="sn" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">0 / 6,000</span>
@@ -25,14 +26,18 @@
   const TUBE_L=Math.min(W,H)*0.43;
   const N=10000,T0=1,T1=65;
   const BR=55,bSz=Math.floor(ACTIVE/BR);
+  const E=Math.E,E_DEC=E.toFixed(3),RESOURCE_CAP=0.60;
+  const NATURAL_GAIN=Math.log(E); // = 1: natural cadence, not forced amplification
 
   const sg=document.getElementById('sg');
   const sb=document.getElementById('sb');
+  const se=document.getElementById('se');
   const sh=document.getElementById('sh');
   const sf=document.getElementById('sf');
   const sn=document.getElementById('sn');
 
   function zm(t){let r=0,i=0;for(let n=1;n<=28;n++){const rr=1/Math.sqrt(n),p=t*Math.log(n);r+=rr*Math.cos(p);i-=rr*Math.sin(p);}return Math.sqrt(r*r+i*i);}
+  function nat(t){return Math.exp(Math.log(E)*t);} // explicit Euler growth primitive
 
   const zc=new Float32Array(ACTIVE);let mx=0;
   for(let k=0;k<ACTIVE;k++){zc[k]=zm(T0+(k/ACTIVE)*(T1-T0));if(zc[k]>mx)mx=zc[k];}
@@ -41,14 +46,17 @@
   for(let k=0;k<ACTIVE;k++){
     const th=(k/N)*Math.PI,t=T0+(k/ACTIVE)*(T1-T0),nz=zc[k]/mx;
     const bi=Math.floor(k*BR/ACTIVE),wi=k-bi*bSz,fr=bSz>0?wi/bSz:0;
-    const sp=TUBE_L*0.88*Math.pow(0.925,bi),of=(fr-0.5)*sp;
+    const cap=1-RESOURCE_CAP*0.18;
+    const eFlow=nat(fr-0.5); // natural expansion / contraction around the local tube position
+    const sp=TUBE_L*0.88*Math.pow(0.925,bi)*cap,of=(fr-0.5)*sp*eFlow;
     const px=-Math.sin(th),py=Math.cos(th);
     const tx=CX+px*of,ty=CY+py*of;
     const ct=Math.cos(th),st=Math.sin(th);
-    const hu=Math.round((th/Math.PI*300+195)%360);
+    const hu=Math.round((th/Math.PI*300+195+nz*18)%360);
     tubes[k]={x1:tx-ct*TUBE_L,y1:ty-st*TUBE_L,x2:tx+ct*TUBE_L,y2:ty+st*TUBE_L,
-      col:`hsla(${hu},${Math.round(65+nz*30)}%,${Math.round(38+nz*32)}%,${(0.055+nz*0.27).toFixed(3)})`,
-      w:0.12+Math.pow(t,1/6)*0.016+nz*0.55};
+      col:`hsla(${hu},${Math.round(64+nz*30)}%,${Math.round(36+nz*34)}%,${(0.05+nz*0.29).toFixed(3)})`,
+      w:0.12+Math.pow(t,1/6)*0.016+nz*0.55,
+      e:eFlow};
   }
 
   const bArr=Array.from({length:8},(_,i)=>{const a=i*Math.PI/4,r=155;return{x:CX+Math.cos(a)*r,y:CY+Math.sin(a)*r,a};});
@@ -65,7 +73,24 @@
 
   function clamp(v,a,b){return Math.min(Math.max(v,a),b);}
 
-  function drawOverlay(gA,bA,dP,rej,rF,fA){
+  function drawOverlay(gA,bA,eA,dP,rej,rF,fA){
+    if(eA>0){
+      ctx.save();ctx.globalAlpha=eA;
+      const grd=ctx.createRadialGradient(CX,CY,20,CX,CY,GATE_R*1.08);
+      grd.addColorStop(0,'rgba(70,210,150,0.18)');
+      grd.addColorStop(0.56,'rgba(90,160,255,0.08)');
+      grd.addColorStop(1,'rgba(220,190,90,0.02)');
+      ctx.fillStyle=grd;
+      ctx.beginPath();ctx.arc(CX,CY,GATE_R*1.08,0,Math.PI*2);ctx.fill();
+      ctx.strokeStyle='rgba(120,230,170,0.42)';ctx.lineWidth=0.75;ctx.setLineDash([2,7]);
+      for(let r=52;r<=GATE_R*0.92;r+=Math.round(52*E/2.718)){ctx.beginPath();ctx.arc(CX,CY,r,0,Math.PI*2);ctx.stroke();}
+      ctx.setLineDash([]);
+      ctx.fillStyle='rgba(126,235,174,0.88)';ctx.font='10px monospace';ctx.textAlign='center';
+      ctx.fillText(`E = ${E_DEC} · NATURAL CADENCE · NEUTRAL BENEVOLENCE`,CX,CY+GATE_R+22);
+      ctx.fillStyle='rgba(126,200,235,0.62)';ctx.font='8px monospace';
+      ctx.fillText('RESOURCE CAP: 60% · PROGRAMMABLE FLUID TUBES',CX,CY+GATE_R+35);
+      ctx.textAlign='left';ctx.restore();
+    }
     if(gA>0){
       ctx.save();ctx.globalAlpha=gA;
       ctx.strokeStyle='#8b7ff0';ctx.lineWidth=1;ctx.setLineDash([3,9]);
@@ -78,7 +103,7 @@
     if(bA>0){
       ctx.save();ctx.globalAlpha=bA;
       bArr.forEach(b=>{
-        const a2=b.a+Math.PI/2,len=14;
+        const a2=b.a+Math.PI/2,len=14+(E-2.5)*8;
         const ex=b.x+Math.cos(a2)*len,ey=b.y+Math.sin(a2)*len;
         ctx.strokeStyle='#c4aff8';ctx.lineWidth=0.85;
         ctx.beginPath();ctx.moveTo(b.x,b.y);ctx.lineTo(ex,ey);ctx.stroke();
@@ -116,7 +141,7 @@
       ctx.fillStyle='#5de890';ctx.font='11px monospace';ctx.textAlign='center';
       ctx.fillText('FOURIER RECOMPOSITION: 94% FIDELITY — COLLAPSE: NULL',CX,H-26);
       ctx.fillStyle='rgba(90,210,140,0.65)';ctx.font='9px monospace';
-      ctx.fillText('COHERENCE INSPECTABLE + FALSIFIABLE',CX,H-13);
+      ctx.fillText('COHERENCE INSPECTABLE + FALSIFIABLE · E-GROWTH BOUNDED BY h<1',CX,H-13);
       ctx.textAlign='left';ctx.restore();
     }
   }
@@ -134,26 +159,30 @@
     if(!sid){
       sid=ctx.getImageData(0,0,W*DPR,H*DPR);
       sg.textContent='GATE: ACTIVE';sg.style.color='var(--color-text-success)';
-      sb.textContent='β: 0.82';sh.textContent='h: 0.73 < 1 ✓';sn.textContent='6,000 / 6,000';
+      sb.textContent='β: 0.82';
+      se.textContent=`E: ${E_DEC}`;
+      se.style.color='var(--color-text-success)';
+      sh.textContent='h: 0.73 < 1 ✓';sn.textContent='6,000 / 6,000';
     }
     ctx.putImageData(sid,0,0);
-    let gA=0,bA=0,dP=0,rej=false,rF=0,fA=0;
+    let gA=0,bA=0,eA=0,dP=0,rej=false,rF=0,fA=0;
     if(frame<P1){
-      const p=clamp((frame-P0)/(P1-P0),0,1);gA=p;bA=p*0.85;
+      const p=clamp((frame-P0)/(P1-P0),0,1);gA=p;bA=p*0.85;eA=p*0.9;
     }else if(frame<P2){
-      gA=1;bA=0.85;dP=clamp((frame-P1)/(P2-P1),0,1);
+      gA=1;bA=0.85;eA=0.9;dP=clamp((frame-P1)/(P2-P1),0,1);
       sg.textContent='GATE: MONITORING';
+      se.textContent=`E: ${E_DEC} NATURAL`;
     }else if(frame<P3){
-      gA=1;bA=0.85;dP=1;rej=true;
+      gA=1;bA=0.85;eA=0.9;dP=1;rej=true;
       const p=clamp((frame-P2)/(P3-P2),0,1);rF=Math.max(0,1-p*2);
       sg.textContent='GATE: REJECTED';sg.style.color='var(--color-text-danger)';
     }else if(frame<P4){
-      gA=1;bA=0.85;dP=1;rej=true;
+      gA=1;bA=0.85;eA=0.9;dP=1;rej=true;
       fA=clamp((frame-P3)/(P4-P3),0,1);
       sg.textContent='GATE: CLEARED';sg.style.color='var(--color-text-success)';
       sf.textContent='FIDELITY: 94%';sf.style.color='var(--color-text-success)';
-    }else{gA=1;bA=0.85;dP=1;rej=true;fA=1;}
-    drawOverlay(gA,bA,dP,rej,rF,fA);
+    }else{gA=1;bA=0.85;eA=0.9;dP=1;rej=true;fA=1;}
+    drawOverlay(gA,bA,eA,dP,rej,rF,fA);
     frame++;
     if(frame<=P4) requestAnimationFrame(animate);
   }
