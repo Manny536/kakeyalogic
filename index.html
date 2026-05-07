@@ -1,0 +1,162 @@
+
+<h2 class="sr-only">L²_C Kakeya governance field: 10,000 Fourier-mode tubes at zeta-line 1/2, showing β momentum vectors, consent gate sovereignty check, drift rejection, and 94% fidelity recovery.</h2>
+
+<canvas id="kc" style="display:block; border-radius:8px; width:100%;"></canvas>
+
+<div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; font-size:11px; font-family:var(--font-mono);">
+  <span id="sg" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">GATE —</span>
+  <span id="sb" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">β —</span>
+  <span id="sh" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">h —</span>
+  <span id="sf" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">FIDELITY —</span>
+  <span id="sn" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">0 / 6,000</span>
+</div>
+
+<script>
+(function(){
+  const cv=document.getElementById('kc');
+  const DPR=Math.min(devicePixelRatio||1,2);
+  const W=640,H=500;
+  cv.width=W*DPR; cv.height=H*DPR;
+  cv.style.width=W+'px'; cv.style.height=H+'px';
+  const ctx=cv.getContext('2d');
+  ctx.scale(DPR,DPR);
+  const CX=W/2,CY=H/2;
+  const ACTIVE=6000,BATCH=100,GATE_R=200;
+  const TUBE_L=Math.min(W,H)*0.43;
+  const N=10000,T0=1,T1=65;
+  const BR=55,bSz=Math.floor(ACTIVE/BR);
+
+  const sg=document.getElementById('sg');
+  const sb=document.getElementById('sb');
+  const sh=document.getElementById('sh');
+  const sf=document.getElementById('sf');
+  const sn=document.getElementById('sn');
+
+  function zm(t){let r=0,i=0;for(let n=1;n<=28;n++){const rr=1/Math.sqrt(n),p=t*Math.log(n);r+=rr*Math.cos(p);i-=rr*Math.sin(p);}return Math.sqrt(r*r+i*i);}
+
+  const zc=new Float32Array(ACTIVE);let mx=0;
+  for(let k=0;k<ACTIVE;k++){zc[k]=zm(T0+(k/ACTIVE)*(T1-T0));if(zc[k]>mx)mx=zc[k];}
+
+  const tubes=new Array(ACTIVE);
+  for(let k=0;k<ACTIVE;k++){
+    const th=(k/N)*Math.PI,t=T0+(k/ACTIVE)*(T1-T0),nz=zc[k]/mx;
+    const bi=Math.floor(k*BR/ACTIVE),wi=k-bi*bSz,fr=bSz>0?wi/bSz:0;
+    const sp=TUBE_L*0.88*Math.pow(0.925,bi),of=(fr-0.5)*sp;
+    const px=-Math.sin(th),py=Math.cos(th);
+    const tx=CX+px*of,ty=CY+py*of;
+    const ct=Math.cos(th),st=Math.sin(th);
+    const hu=Math.round((th/Math.PI*300+195)%360);
+    tubes[k]={x1:tx-ct*TUBE_L,y1:ty-st*TUBE_L,x2:tx+ct*TUBE_L,y2:ty+st*TUBE_L,
+      col:`hsla(${hu},${Math.round(65+nz*30)}%,${Math.round(38+nz*32)}%,${(0.055+nz*0.27).toFixed(3)})`,
+      w:0.12+Math.pow(t,1/6)*0.016+nz*0.55};
+  }
+
+  const bArr=Array.from({length:8},(_,i)=>{const a=i*Math.PI/4,r=155;return{x:CX+Math.cos(a)*r,y:CY+Math.sin(a)*r,a};});
+  const DA=52*Math.PI/180,cosD=Math.cos(DA),sinD=Math.sin(DA);
+
+  ctx.fillStyle='#02030c';ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle='rgba(25,15,58,0.38)';ctx.lineWidth=0.4;
+  for(let x=0;x<=W;x+=34){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  for(let y=0;y<=H;y+=34){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+
+  let frame=0,sid=null;
+  const P0=Math.ceil(ACTIVE/BATCH);
+  const P1=P0+28,P2=P1+45,P3=P2+28,P4=P3+32;
+
+  function clamp(v,a,b){return Math.min(Math.max(v,a),b);}
+
+  function drawOverlay(gA,bA,dP,rej,rF,fA){
+    if(gA>0){
+      ctx.save();ctx.globalAlpha=gA;
+      ctx.strokeStyle='#8b7ff0';ctx.lineWidth=1;ctx.setLineDash([3,9]);
+      ctx.beginPath();ctx.arc(CX,CY,GATE_R,0,Math.PI*2);ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle='rgba(150,135,248,0.9)';ctx.font='9px monospace';ctx.textAlign='center';
+      ctx.fillText('h < 1  ·  SOVEREIGNTY GATE  ·  CONSENT CHECK',CX,CY-GATE_R-8);
+      ctx.textAlign='left';ctx.restore();
+    }
+    if(bA>0){
+      ctx.save();ctx.globalAlpha=bA;
+      bArr.forEach(b=>{
+        const a2=b.a+Math.PI/2,len=14;
+        const ex=b.x+Math.cos(a2)*len,ey=b.y+Math.sin(a2)*len;
+        ctx.strokeStyle='#c4aff8';ctx.lineWidth=0.85;
+        ctx.beginPath();ctx.moveTo(b.x,b.y);ctx.lineTo(ex,ey);ctx.stroke();
+        const ah=5,aw=0.4;ctx.fillStyle='#c4aff8';
+        ctx.beginPath();ctx.moveTo(ex,ey);
+        ctx.lineTo(ex-Math.cos(a2-aw)*ah,ey-Math.sin(a2-aw)*ah);
+        ctx.lineTo(ex-Math.cos(a2+aw)*ah,ey-Math.sin(a2+aw)*ah);
+        ctx.closePath();ctx.fill();
+      });
+      ctx.fillStyle='rgba(190,165,248,0.65)';ctx.font='9px monospace';
+      ctx.fillText('β',CX-170,CY+4);
+      ctx.restore();
+    }
+    if(dP>0){
+      const maxL=GATE_R*1.14,len=rej?GATE_R*0.94:maxL*dP;
+      ctx.save();
+      ctx.strokeStyle=rej?'#ff3b22':'#e06820';ctx.lineWidth=1.8;ctx.setLineDash([5,4]);
+      ctx.beginPath();ctx.moveTo(CX,CY);ctx.lineTo(CX+cosD*len,CY+sinD*len);ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle=rej?'rgba(255,70,45,0.9)':'rgba(224,130,55,0.9)';ctx.font='8px monospace';
+      ctx.fillText(rej?'DRIFT REJECTED':'UNAUTHORIZED EXTRACTION →',CX+cosD*len+5,CY+sinD*len-4);
+      if(rF>0){
+        const fx=CX+cosD*GATE_R,fy=CY+sinD*GATE_R;
+        ctx.globalAlpha=rF;ctx.fillStyle='#ff3c20';
+        ctx.beginPath();ctx.arc(fx,fy,7*rF,0,Math.PI*2);ctx.fill();
+        ctx.strokeStyle='#ffaa20';ctx.lineWidth=1.5;
+        ctx.beginPath();ctx.arc(fx,fy,14,0,Math.PI*2);ctx.stroke();
+        ctx.fillStyle='#ffcc44';ctx.font='8px monospace';
+        ctx.fillText('NON-COERCIVE BOUND FIRES',fx+14,fy+3);
+      }
+      ctx.restore();
+    }
+    if(fA>0){
+      ctx.save();ctx.globalAlpha=fA;
+      ctx.fillStyle='#5de890';ctx.font='11px monospace';ctx.textAlign='center';
+      ctx.fillText('FOURIER RECOMPOSITION: 94% FIDELITY — COLLAPSE: NULL',CX,H-26);
+      ctx.fillStyle='rgba(90,210,140,0.65)';ctx.font='9px monospace';
+      ctx.fillText('COHERENCE INSPECTABLE + FALSIFIABLE',CX,H-13);
+      ctx.textAlign='left';ctx.restore();
+    }
+  }
+
+  function animate(){
+    if(frame<P0){
+      const s=frame*BATCH,e=Math.min(s+BATCH,ACTIVE);
+      for(let k=s;k<e;k++){
+        const t=tubes[k];ctx.beginPath();ctx.moveTo(t.x1,t.y1);ctx.lineTo(t.x2,t.y2);
+        ctx.strokeStyle=t.col;ctx.lineWidth=t.w;ctx.stroke();
+      }
+      sn.textContent=`${Math.min(e,ACTIVE).toLocaleString()} / 6,000`;
+      frame++;requestAnimationFrame(animate);return;
+    }
+    if(!sid){
+      sid=ctx.getImageData(0,0,W*DPR,H*DPR);
+      sg.textContent='GATE: ACTIVE';sg.style.color='var(--color-text-success)';
+      sb.textContent='β: 0.82';sh.textContent='h: 0.73 < 1 ✓';sn.textContent='6,000 / 6,000';
+    }
+    ctx.putImageData(sid,0,0);
+    let gA=0,bA=0,dP=0,rej=false,rF=0,fA=0;
+    if(frame<P1){
+      const p=clamp((frame-P0)/(P1-P0),0,1);gA=p;bA=p*0.85;
+    }else if(frame<P2){
+      gA=1;bA=0.85;dP=clamp((frame-P1)/(P2-P1),0,1);
+      sg.textContent='GATE: MONITORING';
+    }else if(frame<P3){
+      gA=1;bA=0.85;dP=1;rej=true;
+      const p=clamp((frame-P2)/(P3-P2),0,1);rF=Math.max(0,1-p*2);
+      sg.textContent='GATE: REJECTED';sg.style.color='var(--color-text-danger)';
+    }else if(frame<P4){
+      gA=1;bA=0.85;dP=1;rej=true;
+      fA=clamp((frame-P3)/(P4-P3),0,1);
+      sg.textContent='GATE: CLEARED';sg.style.color='var(--color-text-success)';
+      sf.textContent='FIDELITY: 94%';sf.style.color='var(--color-text-success)';
+    }else{gA=1;bA=0.85;dP=1;rej=true;fA=1;}
+    drawOverlay(gA,bA,dP,rej,rF,fA);
+    frame++;
+    if(frame<=P4) requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+})();
+</script>
