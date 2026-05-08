@@ -3,7 +3,7 @@
 **CU:** add Euler natural cadence to Kakeya governance field  
 **Repo:** KakeyaLogic  
 **Field:** Excellence Engine v3  
-**Canon:** PeAIce.org / L²_C  
+**Canon:** PeAIce.org/eev3 
 **Constant:** e ≈ 2.718
 
 ## Summary
