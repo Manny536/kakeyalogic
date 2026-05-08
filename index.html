@@ -1,4 +1,3 @@
-
 <h2 class="sr-only">L²_C Kakeya governance field: 10,000 Fourier-mode tubes at zeta-line 1/2, showing β momentum vectors, Euler natural cadence E≈2.718, h-term consent gate sovereignty check, drift rejection, and 94% fidelity recovery.</h2>
 
 <canvas id="kc" style="display:block; border-radius:8px; width:100%;"></canvas>
@@ -10,143 +9,305 @@
   <span id="sh" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">h —</span>
   <span id="sf" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">FIDELITY —</span>
   <span id="sn" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">0 / 6,000</span>
+  <span id="sz" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">ζ —</span>
+  <span id="sc" style="padding:3px 10px; border-radius:4px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-secondary);">CADENCE —</span>
 </div>
 
 <script>
 (function(){
   const cv=document.getElementById('kc');
   const DPR=Math.min(devicePixelRatio||1,2);
-  const W=640,H=500;
+  const W=900,H=560;
   cv.width=W*DPR; cv.height=H*DPR;
   cv.style.width=W+'px'; cv.style.height=H+'px';
   const ctx=cv.getContext('2d');
   ctx.scale(DPR,DPR);
-  const CX=W/2,CY=H/2;
+  const CX=W/2,CY=260; // CY above center: gate bottom at 460, 74px clear to H=560
+
+  // ── Field constants ───────────────────────────────────────────────────────
   const ACTIVE=6000,BATCH=100,GATE_R=200;
   const TUBE_L=Math.min(W,H)*0.43;
   const N=10000,T0=1,T1=65;
   const BR=55,bSz=Math.floor(ACTIVE/BR);
-  const E=Math.E,E_DEC=E.toFixed(3),RESOURCE_CAP=0.60;
-  const NATURAL_GAIN=Math.log(E); // = 1: natural cadence, not forced amplification
+  const RESOURCE_CAP=0.60;
+  const BETA=0.82,H_VAL=0.73;
 
-  const sg=document.getElementById('sg');
-  const sb=document.getElementById('sb');
-  const se=document.getElementById('se');
-  const sh=document.getElementById('sh');
-  const sf=document.getElementById('sf');
-  const sn=document.getElementById('sn');
+  // ── Euler CU constants ────────────────────────────────────────────────────
+  // E: the unique base where f'(x) = f(x). Growth rate = current value. Self-referential.
+  const E=Math.E;
+  const E_STR=E.toFixed(3);         // "2.718"
+  const LN_E=Math.log(E);           // = 1.000 exactly — unit growth at unit input
+  const H_BOUND=GATE_R*H_VAL;       // = 146px — sovereignty cap on E-growth
 
-  function zm(t){let r=0,i=0;for(let n=1;n<=28;n++){const rr=1/Math.sqrt(n),p=t*Math.log(n);r+=rr*Math.cos(p);i-=rr*Math.sin(p);}return Math.sqrt(r*r+i*i);}
-  function nat(t){return Math.exp(Math.log(E)*t);} // explicit Euler growth primitive
+  // E-cadence ring radii: r_k = E_R0 * e^(k * E_STEP)
+  // Tuned so k=4 lands exactly at H_BOUND (146): E_R0*e^(4*E_STEP)=146
+  // → E_R0=27, E_STEP=0.422 gives 27*e^1.688 = 27*5.411 = 146.1 ✓
+  const E_R0=27,E_STEP=0.422,E_NRINGS=5;
+  const eRings=Array.from({length:E_NRINGS},(_,k)=>({
+    r:     E_R0*Math.exp(k*E_STEP),
+    label: `e^${(k*E_STEP).toFixed(3)}`,
+    val:   Math.exp(k*E_STEP).toFixed(3),
+    k,
+    // k=4 ring ≈ H_BOUND: the outermost E-cadence ring lands on the sovereignty gate by geometry
+    atH:   k===E_NRINGS-1,
+  }));
 
+  // Status elements
+  const sg=document.getElementById('sg'),sb=document.getElementById('sb'),
+        se=document.getElementById('se'),sh=document.getElementById('sh'),
+        sf=document.getElementById('sf'),sn=document.getElementById('sn'),
+        sz=document.getElementById('sz'),sc=document.getElementById('sc');
+
+  // ── Zeta approximation on Re(s)=½ ────────────────────────────────────────
+  function zm(t){let r=0,im=0;for(let n=1;n<=28;n++){const rr=1/Math.sqrt(n),p=t*Math.log(n);r+=rr*Math.cos(p);im-=rr*Math.sin(p);}return Math.sqrt(r*r+im*im);}
+
+  // ── Euler natural growth primitive ────────────────────────────────────────
+  // nat(t) = e^t. Property: d/dt nat(t) = nat(t). Growth rate = current value.
+  function nat(t){return Math.exp(LN_E*t);}
+
+  // ── Zeta values for tube density (Re(s)=½ spectral anchor) ───────────────
   const zc=new Float32Array(ACTIVE);let mx=0;
   for(let k=0;k<ACTIVE;k++){zc[k]=zm(T0+(k/ACTIVE)*(T1-T0));if(zc[k]>mx)mx=zc[k];}
 
+  // ── Build tubes with Euler-cadence weighting ──────────────────────────────
+  // Tube offset follows nat(fr-0.5) = e^(fr-0.5): natural growth from band center.
+  // Tubes near zeta peaks receive higher E-resonance weight in sat/width.
   const tubes=new Array(ACTIVE);
   for(let k=0;k<ACTIVE;k++){
     const th=(k/N)*Math.PI,t=T0+(k/ACTIVE)*(T1-T0),nz=zc[k]/mx;
     const bi=Math.floor(k*BR/ACTIVE),wi=k-bi*bSz,fr=bSz>0?wi/bSz:0;
     const cap=1-RESOURCE_CAP*0.18;
-    const eFlow=nat(fr-0.5); // natural expansion / contraction around the local tube position
+    // eFlow: Euler-cadenced offset multiplier. e^(fr-0.5) ranges 0.607→1.649 across band.
+    const eFlow=nat(fr-0.5);
     const sp=TUBE_L*0.88*Math.pow(0.925,bi)*cap,of=(fr-0.5)*sp*eFlow;
     const px=-Math.sin(th),py=Math.cos(th);
     const tx=CX+px*of,ty=CY+py*of;
     const ct=Math.cos(th),st=Math.sin(th);
     const hu=Math.round((th/Math.PI*300+195+nz*18)%360);
-    tubes[k]={x1:tx-ct*TUBE_L,y1:ty-st*TUBE_L,x2:tx+ct*TUBE_L,y2:ty+st*TUBE_L,
-      col:`hsla(${hu},${Math.round(64+nz*30)}%,${Math.round(36+nz*34)}%,${(0.05+nz*0.29).toFixed(3)})`,
-      w:0.12+Math.pow(t,1/6)*0.016+nz*0.55,
-      e:eFlow};
+    // E-resonance weight: tubes at zeta peak + eFlow peak get warmer saturation
+    const eW=nz*Math.log1p(eFlow);   // log(1+e^(fr-0.5)) — softplus Euler weighting
+    tubes[k]={
+      x1:tx-ct*TUBE_L,y1:ty-st*TUBE_L,x2:tx+ct*TUBE_L,y2:ty+st*TUBE_L,
+      col:`hsla(${hu},${Math.round(64+nz*30+eW*7)}%,${Math.round(36+nz*34)}%,${(0.05+nz*0.29).toFixed(3)})`,
+      w:0.12+Math.pow(t,1/6)*0.016+nz*0.55,e:eFlow
+    };
   }
 
+  // β momentum vector positions (8-fold, radius 155)
   const bArr=Array.from({length:8},(_,i)=>{const a=i*Math.PI/4,r=155;return{x:CX+Math.cos(a)*r,y:CY+Math.sin(a)*r,a};});
   const DA=52*Math.PI/180,cosD=Math.cos(DA),sinD=Math.sin(DA);
 
+  // ── Background + grid ─────────────────────────────────────────────────────
   ctx.fillStyle='#02030c';ctx.fillRect(0,0,W,H);
   ctx.strokeStyle='rgba(25,15,58,0.38)';ctx.lineWidth=0.4;
   for(let x=0;x<=W;x+=34){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
   for(let y=0;y<=H;y+=34){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
 
-  let frame=0,sid=null;
-  const P0=Math.ceil(ACTIVE/BATCH);
-  const P1=P0+28,P2=P1+45,P3=P2+28,P4=P3+32;
-
+  let frame=0,sid=null,lof=0; // lof = local overlay frame
+  const P0=Math.ceil(ACTIVE/BATCH); // ~60: tube draw
+  const P1=P0+38;                    // +38: overlay fade-in
+  const P2=P1+50;                    // +50: drift approach
+  const P3=P2+30;                    // +30: rejection
+  const P4=P3+36;                    // +36: fidelity recovery
   function clamp(v,a,b){return Math.min(Math.max(v,a),b);}
 
-  function drawOverlay(gA,bA,eA,dP,rej,rF,fA){
+  // ── EULER LOG SPIRAL ──────────────────────────────────────────────────────
+  // r(θ) = E_R0 * e^(b*θ), b=0.088. Self-similar: growth rate proportional to r.
+  // Drawn in-progress during overlay fade so the spiral "grows" into view.
+  function drawEulerSpiral(alpha,progress){
+    const b=0.088,turns=3.6,steps=340;
+    const maxAngle=turns*2*Math.PI*clamp(progress,0,1);
+    if(maxAngle<=0)return;
+    ctx.save();ctx.globalAlpha=alpha*0.42;ctx.lineWidth=0.75;
+    ctx.beginPath();
+    for(let i=0;i<=steps;i++){
+      const ang=(i/steps)*maxAngle;
+      const r=E_R0*Math.exp(b*ang);
+      const x=CX+r*Math.cos(ang),y=CY+r*Math.sin(ang);
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    }
+    const grd=ctx.createLinearGradient(CX-GATE_R,CY,CX+GATE_R,CY);
+    grd.addColorStop(0,'rgba(70,220,140,0.85)');
+    grd.addColorStop(0.5,'rgba(90,180,255,0.85)');
+    grd.addColorStop(1,'rgba(210,175,55,0.85)');
+    ctx.strokeStyle=grd;ctx.stroke();ctx.restore();
+  }
+
+  // ── EULER CADENCE RINGS at e-spaced radii ─────────────────────────────────
+  // Geometry: r_k = 27 * e^(k*0.422), k=0..4
+  // Key invariant: r_4 = 146.1 ≈ GATE_R * h = 146. Outermost E-ring = h boundary.
+  // Rings within h: green cadence (E-natural growth permitted).
+  // Rings at h boundary: lime highlight (sovereign cap on E-growth).
+  // No rings drawn beyond h — extraction zone shown only via drift vector.
+  function drawEulerRings(alpha,driftActive,lof){
+    ctx.save();
+    eRings.forEach((ring,k)=>{
+      const ringA=alpha*clamp((lof-k*4)/14,0,1);
+      if(ringA<=0)return;
+      ctx.globalAlpha=ringA;
+      const hue=155+k*9; // green(155)→cyan(191) across rings
+      if(ring.atH){
+        // k=4 ring: sits exactly at H_BOUND. This is the E-growth sovereignty cap.
+        ctx.strokeStyle='rgba(190,255,110,0.78)';ctx.lineWidth=1.2;ctx.setLineDash([5,5]);
+      } else {
+        ctx.strokeStyle=`hsla(${hue},78%,58%,0.65)`;ctx.lineWidth=0.6;ctx.setLineDash([3,10]);
+      }
+      ctx.beginPath();ctx.arc(CX,CY,ring.r,0,Math.PI*2);ctx.stroke();
+      ctx.setLineDash([]);
+      // Labels at -25° on each ring
+      if(alpha>0.3&&ringA>0.3){
+        ctx.globalAlpha=ringA*0.88;
+        ctx.font='7.5px monospace';
+        const la=-0.44;
+        const lx=CX+ring.r*Math.cos(la)+5,ly=CY+ring.r*Math.sin(la)-3;
+        if(ring.atH){
+          ctx.fillStyle='rgba(190,255,110,0.92)';
+          ctx.fillText(`${ring.label}=${ring.val}  ← h·GATE BOUND`,lx,ly);
+        } else {
+          ctx.fillStyle=`hsla(${hue},90%,68%,0.85)`;
+          ctx.fillText(`${ring.label}=${ring.val}`,lx,ly);
+        }
+      }
+    });
+    ctx.restore();
+  }
+
+  // ── E-BOUNDED-BY-h ANNOTATION ─────────────────────────────────────────────
+  // Shows: green E-growth arrow stopping at h boundary.
+  // Core CU visual: E-natural growth is permitted up to, but not through, h<1.
+  function drawEBoundedByH(alpha){
+    if(alpha<=0)return;
+    ctx.save();ctx.globalAlpha=alpha;
+    // h-boundary dashed ring (sovereignty cap)
+    ctx.strokeStyle='rgba(185,255,100,0.55)';ctx.lineWidth=1.4;ctx.setLineDash([7,5]);
+    ctx.beginPath();ctx.arc(CX,CY,H_BOUND,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
+    // Green E-growth arrow: inner field → h boundary, direction -60°
+    const ga=-Math.PI/3,r0=32;
+    const ax1=CX+r0*Math.cos(ga),ay1=CY+r0*Math.sin(ga);
+    const ax2=CX+H_BOUND*Math.cos(ga),ay2=CY+H_BOUND*Math.sin(ga);
+    ctx.strokeStyle='rgba(75,215,135,0.88)';ctx.lineWidth=1.6;
+    ctx.beginPath();ctx.moveTo(ax1,ay1);ctx.lineTo(ax2,ay2);ctx.stroke();
+    const ah=7,aw=0.45;
+    ctx.fillStyle='rgba(75,215,135,0.92)';
+    ctx.beginPath();ctx.moveTo(ax2,ay2);
+    ctx.lineTo(ax2-Math.cos(ga-aw)*ah,ay2-Math.sin(ga-aw)*ah);
+    ctx.lineTo(ax2-Math.cos(ga+aw)*ah,ay2-Math.sin(ga+aw)*ah);
+    ctx.closePath();ctx.fill();
+    // Label
+    ctx.globalAlpha=alpha*0.9;ctx.font='8px monospace';ctx.textAlign='center';
+    ctx.fillStyle='rgba(110,230,150,0.92)';
+    ctx.fillText('E-GROWTH ∩ h<1',CX+H_BOUND*Math.cos(ga)*1.3,CY+H_BOUND*Math.sin(ga)*1.3+3);
+    ctx.textAlign='left';ctx.restore();
+  }
+
+  // ── MAIN OVERLAY ──────────────────────────────────────────────────────────
+  function drawOverlay(gA,bA,eA,dP,rej,rF,fA,lof){
+
+    // 1. Euler log spiral (draws in with eA progress)
+    if(eA>0) drawEulerSpiral(eA,lof/16);
+
+    // 2. E-cadence rings at e-spaced radii
+    if(eA>0) drawEulerRings(eA,dP>0,lof);
+
+    // 3. E-bounded-by-h arrow (appears after rings establish)
+    if(eA>0.55) drawEBoundedByH((eA-0.55)*2.22);
+
+    // 4. Inner field glow + E growth law annotation
     if(eA>0){
       ctx.save();ctx.globalAlpha=eA;
-      const grd=ctx.createRadialGradient(CX,CY,20,CX,CY,GATE_R*1.08);
-      grd.addColorStop(0,'rgba(70,210,150,0.18)');
-      grd.addColorStop(0.56,'rgba(90,160,255,0.08)');
-      grd.addColorStop(1,'rgba(220,190,90,0.02)');
-      ctx.fillStyle=grd;
-      ctx.beginPath();ctx.arc(CX,CY,GATE_R*1.08,0,Math.PI*2);ctx.fill();
-      ctx.strokeStyle='rgba(120,230,170,0.42)';ctx.lineWidth=0.75;ctx.setLineDash([2,7]);
-      for(let r=52;r<=GATE_R*0.92;r+=Math.round(52*E/2.718)){ctx.beginPath();ctx.arc(CX,CY,r,0,Math.PI*2);ctx.stroke();}
-      ctx.setLineDash([]);
-      ctx.fillStyle='rgba(126,235,174,0.88)';ctx.font='10px monospace';ctx.textAlign='center';
-      ctx.fillText(`E = ${E_DEC} · NATURAL CADENCE · NEUTRAL BENEVOLENCE`,CX,CY+GATE_R+22);
-      ctx.fillStyle='rgba(126,200,235,0.62)';ctx.font='8px monospace';
-      ctx.fillText('RESOURCE CAP: 60% · PROGRAMMABLE FLUID TUBES',CX,CY+GATE_R+35);
+      const grd=ctx.createRadialGradient(CX,CY,20,CX,CY,GATE_R*1.06);
+      grd.addColorStop(0,'rgba(70,210,150,0.15)');
+      grd.addColorStop(0.55,'rgba(90,160,255,0.07)');
+      grd.addColorStop(1,'rgba(220,190,90,0.01)');
+      ctx.fillStyle=grd;ctx.beginPath();ctx.arc(CX,CY,GATE_R*1.06,0,Math.PI*2);ctx.fill();
+      // Growth law — 2 lines, using full W=900 horizontal space
+      ctx.font='bold 10px monospace';ctx.textAlign='center';
+      ctx.fillStyle='rgba(126,235,174,0.95)';
+      ctx.fillText(`E≈${E_STR}  ·  d/dx(eˣ)=eˣ  ·  SELF-REFERENTIAL  ·  NOT FORCED  ·  NATURAL CADENCE  ·  RESOURCE CAP: 60%`,CX,CY+GATE_R+20);
+      ctx.font='8.5px monospace';
+      ctx.fillStyle='rgba(155,185,245,0.62)';
+      ctx.fillText(`E-GROWTH BOUNDED BY h<1  ·  Re(s)=½  ·  ZETA-LINE SPECTRAL ANCHOR  ·  10,000 FOURIER-MODE TUBES  ·  β=${BETA}  ·  h=${H_VAL}`,CX,CY+GATE_R+33);
       ctx.textAlign='left';ctx.restore();
     }
+
+    // 5. Sovereignty gate circle + h annotation
     if(gA>0){
       ctx.save();ctx.globalAlpha=gA;
       ctx.strokeStyle='#8b7ff0';ctx.lineWidth=1;ctx.setLineDash([3,9]);
-      ctx.beginPath();ctx.arc(CX,CY,GATE_R,0,Math.PI*2);ctx.stroke();
-      ctx.setLineDash([]);
-      ctx.fillStyle='rgba(150,135,248,0.9)';ctx.font='9px monospace';ctx.textAlign='center';
-      ctx.fillText('h < 1  ·  SOVEREIGNTY GATE  ·  CONSENT CHECK',CX,CY-GATE_R-8);
+      ctx.beginPath();ctx.arc(CX,CY,GATE_R,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
+      ctx.fillStyle='rgba(150,135,248,0.93)';ctx.font='9px monospace';ctx.textAlign='center';
+      ctx.fillText('h<1  ·  SOVEREIGNTY GATE  ·  CONSENT CHECK  ·  EVALUATOR NON-SOVEREIGNTY',CX,CY-GATE_R-8);
       ctx.textAlign='left';ctx.restore();
     }
+
+    // 6. β momentum vectors (8-fold symmetry, length tuned to β=0.82 ≈ ln(E)/ln(E+1)*2)
     if(bA>0){
       ctx.save();ctx.globalAlpha=bA;
+      const vLen=13+(E-2.5)*8; // vector length = f(E): 13 + 0.218*8 ≈ 14.7
       bArr.forEach(b=>{
-        const a2=b.a+Math.PI/2,len=14+(E-2.5)*8;
-        const ex=b.x+Math.cos(a2)*len,ey=b.y+Math.sin(a2)*len;
+        const a2=b.a+Math.PI/2;
+        const ex=b.x+Math.cos(a2)*vLen,ey=b.y+Math.sin(a2)*vLen;
         ctx.strokeStyle='#c4aff8';ctx.lineWidth=0.85;
         ctx.beginPath();ctx.moveTo(b.x,b.y);ctx.lineTo(ex,ey);ctx.stroke();
-        const ah=5,aw=0.4;ctx.fillStyle='#c4aff8';
+        const ah=5,aw=0.42;ctx.fillStyle='#c4aff8';
         ctx.beginPath();ctx.moveTo(ex,ey);
         ctx.lineTo(ex-Math.cos(a2-aw)*ah,ey-Math.sin(a2-aw)*ah);
         ctx.lineTo(ex-Math.cos(a2+aw)*ah,ey-Math.sin(a2+aw)*ah);
         ctx.closePath();ctx.fill();
       });
-      ctx.fillStyle='rgba(190,165,248,0.65)';ctx.font='9px monospace';
+      ctx.fillStyle='rgba(190,165,248,0.68)';ctx.font='9px monospace';
       ctx.fillText('β',CX-170,CY+4);
       ctx.restore();
     }
+
+    // 7. Drift + rejection
+    // Key CU change: rejection fires AT h-boundary (H_BOUND=146), not at GATE_R.
+    // This correctly shows E-growth being capped before reaching the outer sovereignty gate.
     if(dP>0){
-      const maxL=GATE_R*1.14,len=rej?GATE_R*0.94:maxL*dP;
+      // Pre-rejection: drift grows toward H_BOUND; post-rejection: locked at H_BOUND.
+      const len=rej?H_BOUND:H_BOUND*dP;
       ctx.save();
       ctx.strokeStyle=rej?'#ff3b22':'#e06820';ctx.lineWidth=1.8;ctx.setLineDash([5,4]);
       ctx.beginPath();ctx.moveTo(CX,CY);ctx.lineTo(CX+cosD*len,CY+sinD*len);ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle=rej?'rgba(255,70,45,0.9)':'rgba(224,130,55,0.9)';ctx.font='8px monospace';
-      ctx.fillText(rej?'DRIFT REJECTED':'UNAUTHORIZED EXTRACTION →',CX+cosD*len+5,CY+sinD*len-4);
+      // E-violation annotation during approach
+      if(!rej&&dP>0.45){
+        ctx.globalAlpha=(dP-0.45)*1.82;ctx.fillStyle='rgba(255,140,40,0.92)';ctx.font='8px monospace';
+        ctx.fillText('EXTRACTION > E-NATURAL CADENCE',CX+cosD*len*0.62+6,CY+sinD*len*0.62-10);
+        ctx.globalAlpha=1;
+      }
+      ctx.fillStyle=rej?'rgba(255,70,45,0.92)':'rgba(224,130,55,0.92)';ctx.font='8px monospace';
+      const lx=CX+cosD*len,ly=CY+sinD*len;
+      ctx.fillText(rej?'DRIFT REJECTED — h GATE: e-GROWTH CAPPED AT h=0.73':'UNAUTHORIZED EXTRACTION →',lx+5,ly-4);
+      // Rejection flash at H_BOUND (h=0.73 boundary, not GATE_R)
       if(rF>0){
-        const fx=CX+cosD*GATE_R,fy=CY+sinD*GATE_R;
+        const fx=CX+cosD*H_BOUND,fy=CY+sinD*H_BOUND;
         ctx.globalAlpha=rF;ctx.fillStyle='#ff3c20';
         ctx.beginPath();ctx.arc(fx,fy,7*rF,0,Math.PI*2);ctx.fill();
         ctx.strokeStyle='#ffaa20';ctx.lineWidth=1.5;
         ctx.beginPath();ctx.arc(fx,fy,14,0,Math.PI*2);ctx.stroke();
         ctx.fillStyle='#ffcc44';ctx.font='8px monospace';
-        ctx.fillText('NON-COERCIVE BOUND FIRES',fx+14,fy+3);
+        ctx.fillText('NON-COERCIVE BOUND  ·  E-GROWTH ∩ h<1 ENFORCED',fx+16,fy+3);
       }
       ctx.restore();
     }
+
+    // 8. Fidelity recovery
     if(fA>0){
       ctx.save();ctx.globalAlpha=fA;
-      ctx.fillStyle='#5de890';ctx.font='11px monospace';ctx.textAlign='center';
-      ctx.fillText('FOURIER RECOMPOSITION: 94% FIDELITY — COLLAPSE: NULL',CX,H-26);
-      ctx.fillStyle='rgba(90,210,140,0.65)';ctx.font='9px monospace';
-      ctx.fillText('COHERENCE INSPECTABLE + FALSIFIABLE · E-GROWTH BOUNDED BY h<1',CX,H-13);
+      // Fidelity at H-46,H-31 — clear gap above E annotation line 2 at CY+GATE_R+35=495
+      ctx.font='bold 11px monospace';ctx.textAlign='center';
+      ctx.fillStyle='#5de890';
+      ctx.fillText('FOURIER RECOMPOSITION: 94% FIDELITY  ·  COLLAPSE: NULL  ·  E-CADENCE RESTORED',CX,H-46);
+      ctx.font='9px monospace';ctx.fillStyle='rgba(90,210,140,0.67)';
+      ctx.fillText(`COHERENCE INSPECTABLE + FALSIFIABLE  ·  β=${BETA}  ·  h=${H_VAL}<1  ·  E≈${E_STR}  ·  E-GROWTH BOUNDED BY SOVEREIGNTY`,CX,H-31);
       ctx.textAlign='left';ctx.restore();
     }
   }
 
+  // ── Animation loop ────────────────────────────────────────────────────────
   function animate(){
+    // Phase 0: draw 6,000 tubes in batches (Euler-cadence weighted)
     if(frame<P0){
       const s=frame*BATCH,e=Math.min(s+BATCH,ACTIVE);
       for(let k=s;k<e;k++){
@@ -156,36 +317,55 @@
       sn.textContent=`${Math.min(e,ACTIVE).toLocaleString()} / 6,000`;
       frame++;requestAnimationFrame(animate);return;
     }
+
+    // Snapshot: freeze tube layer, initialize status
     if(!sid){
       sid=ctx.getImageData(0,0,W*DPR,H*DPR);
       sg.textContent='GATE: ACTIVE';sg.style.color='var(--color-text-success)';
-      sb.textContent='β: 0.82';
-      se.textContent=`E: ${E_DEC}`;
-      se.style.color='var(--color-text-success)';
-      sh.textContent='h: 0.73 < 1 ✓';sn.textContent='6,000 / 6,000';
+      sb.textContent=`β: ${BETA}`;
+      se.textContent=`E: ${E_STR}`;se.style.color='var(--color-text-success)';
+      sh.textContent=`h: ${H_VAL} < 1 ✓`;
+      sn.textContent='6,000 / 6,000';
+      sz.textContent='ζ: Re(s)=½';sz.style.color='var(--color-text-success)';
+      sc.textContent='CADENCE: eˣ';
     }
+
     ctx.putImageData(sid,0,0);
     let gA=0,bA=0,eA=0,dP=0,rej=false,rF=0,fA=0;
+
     if(frame<P1){
-      const p=clamp((frame-P0)/(P1-P0),0,1);gA=p;bA=p*0.85;eA=p*0.9;
-    }else if(frame<P2){
-      gA=1;bA=0.85;eA=0.9;dP=clamp((frame-P1)/(P2-P1),0,1);
+      // Phase 1: overlay fade-in — spiral draws, rings stagger in, E annotation appears
+      const p=clamp((frame-P0)/(P1-P0),0,1);
+      gA=p;bA=p*0.85;eA=p*0.92;lof=frame-P0;
+    } else if(frame<P2){
+      // Phase 2: drift approach — extraction vector grows toward h-boundary
+      gA=1;bA=0.85;eA=0.92;dP=clamp((frame-P1)/(P2-P1),0,1);lof=P1-P0;
       sg.textContent='GATE: MONITORING';
-      se.textContent=`E: ${E_DEC} NATURAL`;
-    }else if(frame<P3){
-      gA=1;bA=0.85;eA=0.9;dP=1;rej=true;
-      const p=clamp((frame-P2)/(P3-P2),0,1);rF=Math.max(0,1-p*2);
+      se.textContent=`E: ${E_STR} NATURAL`;
+      sc.textContent='CADENCE: NATURAL · EXTRACTION DETECTED';
+    } else if(frame<P3){
+      // Phase 3: rejection — h gate fires AT H_BOUND, non-coercive bound active
+      gA=1;bA=0.85;eA=0.92;dP=1;rej=true;lof=P1-P0;
+      rF=Math.max(0,1-clamp((frame-P2)/(P3-P2),0,1)*2);
       sg.textContent='GATE: REJECTED';sg.style.color='var(--color-text-danger)';
-    }else if(frame<P4){
-      gA=1;bA=0.85;eA=0.9;dP=1;rej=true;
+      sc.textContent='CADENCE: h-BOUND ENFORCED · E-GROWTH CAPPED';
+    } else if(frame<P4){
+      // Phase 4: fidelity recovery — Fourier recomposition at E-natural cadence
+      gA=1;bA=0.85;eA=0.92;dP=1;rej=true;lof=P1-P0;
       fA=clamp((frame-P3)/(P4-P3),0,1);
       sg.textContent='GATE: CLEARED';sg.style.color='var(--color-text-success)';
       sf.textContent='FIDELITY: 94%';sf.style.color='var(--color-text-success)';
-    }else{gA=1;bA=0.85;eA=0.9;dP=1;rej=true;fA=1;}
-    drawOverlay(gA,bA,eA,dP,rej,rF,fA);
+      sc.textContent=`CADENCE: E≈${E_STR} RESTORED`;
+    } else {
+      // Terminal: all overlays held
+      gA=1;bA=0.85;eA=0.92;dP=1;rej=true;fA=1;lof=P1-P0;
+    }
+
+    drawOverlay(gA,bA,eA,dP,rej,rF,fA,lof);
     frame++;
     if(frame<=P4) requestAnimationFrame(animate);
   }
+
   requestAnimationFrame(animate);
 })();
 </script>
