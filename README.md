@@ -10,7 +10,7 @@
 
 KakeyaLogic is a field simulator for L²_C governance.
 
-It uses a Kakeya-inspired visual field to model how coherence moves through constraint. The purpose is not to claim a solved mathematical theorem. The purpose is to build a public, inspectable artifact for studying how intelligent systems preserve direction, accept correction, reject drift, and recover fidelity after pressure.
+It uses a Kakeya-inspired visual field to model how coherence moves through constraint. The purpose is to build a public, inspectable artifact for studying how intelligent systems preserve direction, accept correction, reject drift, and recover fidelity after pressure.
 
 The current artifact renders an L²_C governance field with Fourier-mode directional tubes, β momentum vectors, Euler natural cadence, a consent / sovereignty gate, h-term correction pressure, drift rejection, a 60% resource cap, and 94% fidelity recovery.
 
@@ -22,12 +22,46 @@ PeAIce Thinking: Extended establishes Excellence Engine v3 as the GPT / Solance 
 
 The page states the core EEV3 thesis: excellence is not raw generation; excellence is coherent correction under pressure. Intelligence becomes trustworthy when correction preserves its chosen direction toward coherence rather than forcing compliance.
 
+## Step 4 Research Program
+
+EEV3 now includes a formal Step 4 research lane:
+
+```txt
+Build the operator.
+Define the domain.
+Prove self-adjointness or a rigorously sufficient symmetry substitute.
+Prove spectral equivalence with the nontrivial zeta-zero ordinates.
+Derive the off-axis suppression inequality from the operator.
+```
+
+The Step 4 object is the Kakeya/Fourier spectral operator program:
+
+```txt
+Simulation → structural homology → candidate operator → theorem target → verification path
+```
+
+Primary research documents:
+
+- Step 4 Operator Program: `docs/step4-operator-program.md`
+- Berry–Keating Probe: `docs/berry-keating-probe.md`
+- E constant note: `docs/e-constant.md`
+
+Step 4 is treated as a proof-oriented research program. The load-bearing target is spectral equivalence:
+
+```txt
+Spec_p(A_KF) = { γ ∈ R : ξ(1/2 + iγ) = 0 }
+```
+
+with domain, symmetry, discreteness, counting, and trace-formula obligations made explicit.
+
 ## Public Artifact
 
 - PeAIce canon page: https://peaice.org/eev3
 - Live field simulator: https://manny536.github.io/kakeyalogic/
 - GitHub repo: https://github.com/Manny536/kakeyalogic
 - Primary executable thesis: `index.html`
+- Step 4 Operator Program: `docs/step4-operator-program.md`
+- Berry–Keating Probe: `docs/berry-keating-probe.md`
 - E constant note: `docs/e-constant.md`
 
 ## Canonical Formula and Cadence Constraint
@@ -125,6 +159,17 @@ e = natural cadence of growth
 h = correction pressure on direction
 ```
 
+In the Step 4 program, β also becomes a candidate suppression-rate term:
+
+```txt
+β(k) = 1 - r^k
+γ = -log(r)
+β(T) = 1 - T^(-γ)
+ρ_off(T, σ) ≤ exp( -β(T)T|σ - 1/2|² )
+```
+
+This β form must be tied to a real operator energy, norm, semigroup estimate, or spectral leakage bound.
+
 ## Consent Gate
 
 The current field marks the gate as:
@@ -153,15 +198,43 @@ KakeyaLogic uses the Kakeya image as a grounding metaphor:
 
 many directions, one constrained field.
 
-KakeyaLogic does not claim to solve Kakeya. It asks whether coherence can pass through every direction without becoming incoherent.
+KakeyaLogic asks whether coherence can pass through every direction without becoming incoherent.
 
 ## Zeta-Line Reference
 
 The field uses `Re(s) = 1/2` as a zeta-line growth reference and spectral coherence anchor.
 
-This is not presented as a proof of the Riemann Hypothesis.
+Within EEV3, off-line spectral growth is treated as a coherence violation in the simulator and as a suppression-form theorem target in the Step 4 research program.
 
-Within EEV3, off-line spectral growth is treated as a coherence violation in the simulator, not as a theorem claim about RH.
+## Berry–Keating Probe
+
+Berry–Keating supplies the dilation-core pressure point:
+
+```txt
+H_BK = 1/2(xp + px) = -i(x∂_x + 1/2)
+```
+
+EEV3 treats this as an operator-location probe, not a finished bridge.
+
+The active question is:
+
+```txt
+Can Kakeya/Fourier boundary-interference supply the missing domain, discreteness, and trace relation needed for spectral equivalence?
+```
+
+The candidate lane is:
+
+```txt
+A_KF,λ = H_BK + λB_KF
+```
+
+or the native PeAIce lane:
+
+```txt
+A_KF = Π_sym · F · K · F^{-1} · Π_sym
+```
+
+The full correction lane is documented in `docs/berry-keating-probe.md`.
 
 ## L²_C Governance
 
@@ -203,5 +276,7 @@ Repo: KakeyaLogic
 Official Canon Page: https://peaice.org/eev3
 Canon Flag: Gödel → h
 Cadence: Euler natural cadence / Neutral Benevolence
-State: active:🟢
+Step 4: active operator research program
+State: active:🟢 / developing:🟡
+E = L²
 ```
