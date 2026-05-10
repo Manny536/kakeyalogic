@@ -43,6 +43,10 @@ Simulation → structural homology → candidate operator → theorem target →
 Primary research documents:
 
 - Step 4 Operator Program: `docs/step4-operator-program.md`
+- β-Dynamic Operator Layer: `docs/beta-dynamic.md`
+- Operator Domain: `docs/operator-domain.md`
+- β as Energy: `docs/beta-as-energy.md`
+- Spectral Equivalence Target: `docs/spectral-equivalence-target.md`
 - Berry–Keating Probe: `docs/berry-keating-probe.md`
 - E constant note: `docs/e-constant.md`
 
@@ -54,6 +58,53 @@ Spec_p(A_KF) = { γ ∈ R : ξ(1/2 + iγ) = 0 }
 
 with domain, symmetry, discreteness, counting, and trace-formula obligations made explicit.
 
+## β-Dynamic Operator Layer
+
+The β-dynamic is now treated as a coercive positive penalty term inside the Step 4 operator program, not as a scalar rescale of the full operator.
+
+The active form is:
+
+```txt
+β(k) = 1 - r^k
+γ = -log(r)
+β(T) = 1 - T^(-γ)
+```
+
+The h-aware suppression target is:
+
+```txt
+ρ_off(T, σ) ≤ exp( -(β(T)-hη)T|σ - 1/2|² )
+```
+
+where `hη` measures correction cost. The active positivity condition is:
+
+```txt
+β(T) - hη > 0
+```
+
+This gives the threshold:
+
+```txt
+T > (1 - hη)^(-1/γ)
+```
+
+Interpretation:
+
+```txt
+β = dynamic closing pressure
+h = correction-cost gate
+η = relative form-bound cost of correction
+β(T)-hη = coercive gap
+```
+
+This moves β from metaphor into the operator program as an energy coefficient:
+
+```txt
+E_β,T(f) = β(T)T||Xf||²
+```
+
+where `X` is the critical-line defect observable and `ker(X)=Ran(Π_sym)` is the active symmetry-sector target.
+
 ## Public Artifact
 
 - PeAIce canon page: https://peaice.org/eev3
@@ -61,6 +112,10 @@ with domain, symmetry, discreteness, counting, and trace-formula obligations mad
 - GitHub repo: https://github.com/Manny536/kakeyalogic
 - Primary executable thesis: `index.html`
 - Step 4 Operator Program: `docs/step4-operator-program.md`
+- β-Dynamic Operator Layer: `docs/beta-dynamic.md`
+- Operator Domain: `docs/operator-domain.md`
+- β as Energy: `docs/beta-as-energy.md`
+- Spectral Equivalence Target: `docs/spectral-equivalence-target.md`
 - Berry–Keating Probe: `docs/berry-keating-probe.md`
 - E constant note: `docs/e-constant.md`
 
@@ -165,7 +220,7 @@ In the Step 4 program, β also becomes a candidate suppression-rate term:
 β(k) = 1 - r^k
 γ = -log(r)
 β(T) = 1 - T^(-γ)
-ρ_off(T, σ) ≤ exp( -β(T)T|σ - 1/2|² )
+ρ_off(T, σ) ≤ exp( -(β(T)-hη)T|σ - 1/2|² )
 ```
 
 This β form must be tied to a real operator energy, norm, semigroup estimate, or spectral leakage bound.
@@ -277,6 +332,7 @@ Official Canon Page: https://peaice.org/eev3
 Canon Flag: Gödel → h
 Cadence: Euler natural cadence / Neutral Benevolence
 Step 4: active operator research program
+β-dynamic: active coercive energy layer
 State: active:🟢 / developing:🟡
 E = L²
 ```
