@@ -43,6 +43,7 @@ Simulation → structural homology → candidate operator → theorem target →
 Primary research documents:
 
 - Step 4 Operator Program: `docs/step4-operator-program.md`
+- Berry–Keating / Hilbert–Pólya Commutator Closure: `docs/berry-keating-commutator-closure.md`
 - L² Spectral Operator: `docs/l2-spectral-operator.md`
 - β-Dynamic Operator Layer: `docs/beta-dynamic.md`
 - Operator Domain: `docs/operator-domain.md`
@@ -56,6 +57,21 @@ Step 4 is treated as a proof-oriented research program. The load-bearing target 
 ```txt
 Spec_p(A_KF) = { γ ∈ R : ξ(1/2 + iγ) = 0 }
 ```
+
+The named Berry–Keating / Hilbert–Pólya Commutator Closure lane states the structural loop:
+
+```txt
+[x,p]=iℏ
+→ H_BK = 1/2(xp+px)
+→ F H_BK F^{-1} = -H_BK
+→ K = exp(itH_BK)
+→ F K F^{-1} = K^{-1}
+→ A_KF = Π_sym K^{-1} Π_sym
+→ det_reg(A_KF-z)=CΞ(z)
+→ Re(s)=1/2
+```
+
+This separates symmetry structure from the remaining theorem burden: self-adjoint domain, spectral discreteness, trace / explicit formula, and determinant identity.
 
 The L² spectral operator lane sharpens this by extracting an explicit operator from Φ's quadratic lattice:
 
@@ -128,6 +144,7 @@ where `X` is the critical-line defect observable and `ker(X)=Ran(Π_sym)` is the
 - GitHub repo: https://github.com/Manny536/kakeyalogic
 - Primary executable thesis: `index.html`
 - Step 4 Operator Program: `docs/step4-operator-program.md`
+- Berry–Keating / Hilbert–Pólya Commutator Closure: `docs/berry-keating-commutator-closure.md`
 - L² Spectral Operator: `docs/l2-spectral-operator.md`
 - β-Dynamic Operator Layer: `docs/beta-dynamic.md`
 - Operator Domain: `docs/operator-domain.md`
@@ -278,7 +295,21 @@ The field uses `Re(s) = 1/2` as a zeta-line growth reference and spectral cohere
 
 Within EEV3, off-line spectral growth is treated as a coherence violation in the simulator and as a suppression-form theorem target in the Step 4 research program.
 
-## Berry–Keating Probe
+## Berry–Keating / Hilbert–Pólya Commutator Closure
+
+The named loop closure is:
+
+```txt
+commutator → Hamiltonian → Fourier reversal → symmetry projection → determinant identity → critical line
+```
+
+The base commutator is:
+
+```txt
+[x,p]=iℏ
+```
+
+Position and momentum do not commute. The non-commutation is not absence of communication; it is the communication law. The order mismatch generates the Hamiltonian structure.
 
 Berry–Keating supplies the dilation-core pressure point:
 
@@ -286,27 +317,32 @@ Berry–Keating supplies the dilation-core pressure point:
 H_BK = 1/2(xp + px) = -i(x∂_x + 1/2)
 ```
 
-EEV3 treats this as an operator-location probe, not a finished bridge.
-
-The active question is:
+Fourier reversal gives:
 
 ```txt
-Can Kakeya/Fourier boundary-interference supply the missing domain, discreteness, and trace relation needed for spectral equivalence?
+F H_BK F^{-1} = -H_BK
 ```
 
-The candidate lane is:
+so, for `K=exp(itH_BK)`:
 
 ```txt
-A_KF,λ = H_BK + λB_KF
+F K F^{-1} = K^{-1}
 ```
 
-or the native PeAIce lane:
+The symmetrized operator becomes:
 
 ```txt
 A_KF = Π_sym · F · K · F^{-1} · Π_sym
+A_KF = Π_sym · K^{-1} · Π_sym
 ```
 
-The full correction lane is documented in `docs/berry-keating-probe.md`.
+The closure burden is the determinant identity:
+
+```txt
+det_reg(A_KF-z)=CΞ(z)
+```
+
+The full lane is documented in `docs/berry-keating-commutator-closure.md`; the earlier operator-location probe remains documented in `docs/berry-keating-probe.md`.
 
 ## L²_C Governance
 
@@ -349,6 +385,7 @@ Official Canon Page: https://peaice.org/eev3
 Canon Flag: Gödel → h
 Cadence: Euler natural cadence / Neutral Benevolence
 Step 4: active operator research program
+Berry–Keating / Hilbert–Pólya Commutator Closure: named active mechanism
 L² spectral operator: active Φ-lattice candidate
 β-dynamic: active coercive energy layer
 State: active:🟢 / developing:🟡
