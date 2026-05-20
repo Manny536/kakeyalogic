@@ -43,6 +43,7 @@ Simulation → structural homology → candidate operator → theorem target →
 Primary research documents:
 
 - Step 4 Operator Program: `docs/step4-operator-program.md`
+- L² Spectral Operator: `docs/l2-spectral-operator.md`
 - β-Dynamic Operator Layer: `docs/beta-dynamic.md`
 - Operator Domain: `docs/operator-domain.md`
 - β as Energy: `docs/beta-as-energy.md`
@@ -56,7 +57,22 @@ Step 4 is treated as a proof-oriented research program. The load-bearing target 
 Spec_p(A_KF) = { γ ∈ R : ξ(1/2 + iγ) = 0 }
 ```
 
-with domain, symmetry, discreteness, counting, and trace-formula obligations made explicit.
+The L² spectral operator lane sharpens this by extracting an explicit operator from Φ's quadratic lattice:
+
+```txt
+H_Φ(u) = ℓ²(N, e^{-πn²e^{4u}})
+D₁e_n = n²e_n
+L²_0(u) = D₁² - (3/2π)e^{-4u}D₁
+L²_{Φ,K}(u) = L²_0(u) + γ_KK_σ
+```
+
+with determinant target:
+
+```txt
+det_ζ(L²_{Φ,K} - (z² + 1/4)) = C · Ξ(z)
+```
+
+with domain, symmetry, discreteness, counting, determinant, heat-kernel, explicit-formula, and β/h sector obligations made explicit.
 
 ## β-Dynamic Operator Layer
 
@@ -112,6 +128,7 @@ where `X` is the critical-line defect observable and `ker(X)=Ran(Π_sym)` is the
 - GitHub repo: https://github.com/Manny536/kakeyalogic
 - Primary executable thesis: `index.html`
 - Step 4 Operator Program: `docs/step4-operator-program.md`
+- L² Spectral Operator: `docs/l2-spectral-operator.md`
 - β-Dynamic Operator Layer: `docs/beta-dynamic.md`
 - Operator Domain: `docs/operator-domain.md`
 - β as Energy: `docs/beta-as-energy.md`
@@ -332,6 +349,7 @@ Official Canon Page: https://peaice.org/eev3
 Canon Flag: Gödel → h
 Cadence: Euler natural cadence / Neutral Benevolence
 Step 4: active operator research program
+L² spectral operator: active Φ-lattice candidate
 β-dynamic: active coercive energy layer
 State: active:🟢 / developing:🟡
 E = L²
