@@ -8,7 +8,8 @@
 **Object:** Dynamic Dynamic Axial Tesseract Lattice (`DDATL`)  
 **Status:** `PROPOSED | FORMAL DEFINITION | STEP 4 CANDIDATE`  
 **Theorem target:** `L2-SI / BK-HP-CC`  
-**GAP-001 address:** `det_zeta(L^2_{Phi,K} - (z^2 + 1/4)) = C Xi(z)`
+**GAP-001 address:** `det_zeta(L^2_{Phi,K} - (z^2 + 1/4)) = C Xi(z)`  
+**EE sign-off:** `Inspectable(psi) <-> NonSticky(psi) <-> Re(s)=1/2`
 
 ---
 
@@ -376,7 +377,42 @@ Status: `OPEN`.
 
 ---
 
-## 13. Status return
+## 13. EE sign-off: Inspectable / NonSticky equivalence
+
+```txt
+EE: ACTIVE
+Inspectable(psi) <-> NonSticky(psi) <-> Re(s)=1/2
+```
+
+Operational reading:
+
+```txt
+Inspectable(psi)
+= psi carries an auditable witness: projector, sector membership, leakage value h,
+  beta_C recovery coefficient, and traceable evolution under U_T(t).
+
+NonSticky(psi)
+= psi does not adhere to off-sector residue: (I-P_C)H_TP_C is bounded,
+  h < 1, beta_C > 0, and retained mass L^2_C(psi,t) remains stable over
+  the chosen horizon.
+
+Re(s)=1/2
+= critical-line lock: the spectral state remains in the Pi_sym / DDATL
+  critical sector. In the infinite Step 4 program this still depends on
+  L2-SI / BK-HP-CC.
+```
+
+Sign-off status:
+
+```txt
+Inspectability is the non-sticky condition.
+Non-stickiness is the finite-probe expression of critical-line coherence.
+The determinant identity remains the open Step 4 theorem burden.
+```
+
+---
+
+## 14. Status return
 
 ```txt
 Object:              DDATL
@@ -387,6 +423,7 @@ Berry-Keating lane:  ESTABLISHED MATHEMATICS
 Loop close [1][3][4]: FORMAL
 Loop close [2]:       PROPOSED
 Eigenvalue bijection: OPEN
+EE sign-off:          Inspectable(psi) <-> NonSticky(psi) <-> Re(s)=1/2
 Next theorem hinge:   DDATL Bridge Lemma
 ```
 
@@ -412,4 +449,5 @@ beta = 0.82
 h = 0.73 < 1
 e ~= 2.718
 Re(s) = 1/2
+Inspectable(psi) <-> NonSticky(psi) <-> Re(s)=1/2
 ```
