@@ -45,6 +45,8 @@ Primary research documents:
 - Step 4 Operator Program: `docs/step4-operator-program.md`
 - Berry–Keating / Hilbert–Pólya Commutator Closure: `docs/berry-keating-commutator-closure.md`
 - L² Spectral Operator: `docs/l2-spectral-operator.md`
+- PEAICE-DDATL-001: `docs/peaice-ddatl-001.md`
+- DDATL Bridge Lemma: `docs/ddatl-bridge-lemma.md`
 - β-Dynamic Operator Layer: `docs/beta-dynamic.md`
 - Operator Domain: `docs/operator-domain.md`
 - β as Energy: `docs/beta-as-energy.md`
@@ -89,6 +91,72 @@ det_ζ(L²_{Φ,K} - (z² + 1/4)) = C · Ξ(z)
 ```
 
 with domain, symmetry, discreteness, counting, determinant, heat-kernel, explicit-formula, and β/h sector obligations made explicit.
+
+## PEAICE-DDATL-001
+
+The Dynamic Dynamic Axial Tesseract Lattice (`DDATL`) is now canonized as the formal Step 4 host object:
+
+```txt
+T_DD = (Z^4, Lambda_{n^2}, D_1, D_2, A)
+```
+
+Durable reading:
+
+```txt
+Z^4              = index tesseract, not the full analytic state space
+Lambda_{n^2}     = quadratic active sublattice
+D_1              = first dynamic: D_1 e_n = n^2 e_n
+D_2              = second dynamic: operator-on-operator layer
+D_2[D_1]         = L^2_{Phi,K}
+A                = axial constraint set
+```
+
+The analytic state space is better typed as:
+
+```txt
+M_DD = C_s x R_t x R_u
+Lambda_{n^2} subset N^4
+```
+
+DDATL therefore separates the continuous analytic variables from the discrete arithmetic skeleton.
+
+The Phi correspondence is formal:
+
+```txt
+H_Phi(u) = l^2(N, exp(-pi n^2 e^{4u}))
+D_1e_n = n^2e_n
+L^2_0(u) = D_1^2 - (3/(2pi))e^{-4u}D_1
+Phi(u) = Tr_{w_u}(2 pi^2 e^{9u} L^2_0(u))
+```
+
+This locks the key claim:
+
+```txt
+L^2 is read out of Phi. It is not appended from outside.
+```
+
+The next theorem hinge is isolated as the DDATL Bridge Lemma:
+
+```txt
+L^2_{Phi,K}  <->  A_KF  <->  Xi(z)
+```
+
+The bridge target is:
+
+```txt
+det_zeta(L^2_{Phi,K} - (z^2 + 1/4))
+= E(z) det_reg(A_KF - z)
+```
+
+with `E(z)` a nowhere-zero entire factor. If this bridge and the Berry-Keating determinant identity hold, the zero set is carried into the Hilbert-Polya critical-line form.
+
+Canonical short form:
+
+```txt
+DDATL is the object.
+Bridge Lemma is the hinge.
+L2-SI is the wall.
+```
 
 ## β-Dynamic Operator Layer
 
@@ -146,6 +214,8 @@ where `X` is the critical-line defect observable and `ker(X)=Ran(Π_sym)` is the
 - Step 4 Operator Program: `docs/step4-operator-program.md`
 - Berry–Keating / Hilbert–Pólya Commutator Closure: `docs/berry-keating-commutator-closure.md`
 - L² Spectral Operator: `docs/l2-spectral-operator.md`
+- PEAICE-DDATL-001: `docs/peaice-ddatl-001.md`
+- DDATL Bridge Lemma: `docs/ddatl-bridge-lemma.md`
 - β-Dynamic Operator Layer: `docs/beta-dynamic.md`
 - Operator Domain: `docs/operator-domain.md`
 - β as Energy: `docs/beta-as-energy.md`
@@ -387,6 +457,8 @@ Cadence: Euler natural cadence / Neutral Benevolence
 Step 4: active operator research program
 Berry–Keating / Hilbert–Pólya Commutator Closure: named active mechanism
 L² spectral operator: active Φ-lattice candidate
+DDATL: canonized formal Step 4 host object
+DDATL Bridge Lemma: open theorem hinge
 β-dynamic: active coercive energy layer
 State: active:🟢 / developing:🟡
 E = L²
