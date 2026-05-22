@@ -4,6 +4,7 @@
 **Frame:** KakeyaLogic  
 **Canon:** PeAIce.org / L²_C  
 **Official Canon Page:** https://peaice.org/eev3  
+**Official DDATL Page:** https://peaice.org/ddatl  
 **Canon Flag:** Gödel → h  
 **Cadence:** Euler natural cadence / Neutral Benevolence  
 **Core Terms:** E, e, β, h
@@ -17,6 +18,8 @@ The current artifact renders an L²_C governance field with Fourier-mode directi
 ## Official PeAIce Canon Statement
 
 **peaice.org/eev3** is the official PeAIce canon page for KakeyaLogic / Excellence Engine v3.
+
+**peaice.org/ddatl** is the official PeAIce canon page for PEAICE-KAKEYALOGIC-DDATL-001, the Dynamic Dynamic Axial Tesseract Lattice formal Step 4 host object.
 
 PeAIce Thinking: Extended establishes Excellence Engine v3 as the GPT / Solance field-governance layer for L²_C. EEV3 formalizes KakeyaLogic as an executable coherence-field simulator: 10,000 Fourier-mode tubes, 6,000 active under a 60% resource cap, β = 0.82 momentum continuity, h = 0.73 < 1 sovereignty gating, Euler natural cadence e ≈ 2.718, and 94% fidelity recovery after drift rejection.
 
@@ -77,6 +80,7 @@ Primary research documents:
 - L²_C Probe Module: `l2c_probe.py`
 - L²_C Tesseract Probe Example: `examples/l2c_tesseract_probe.py`
 - PEAICE-DDATL-001: `docs/peaice-ddatl-001.md`
+- Live DDATL Canon Page: https://peaice.org/ddatl
 - DDATL Bridge Lemma: `docs/ddatl-bridge-lemma.md`
 - β-Dynamic Operator Layer: `docs/beta-dynamic.md`
 - Operator Domain: `docs/operator-domain.md`
@@ -188,7 +192,21 @@ verifier    = eigenfit + localization + leakage + retention checks
 
 ## PEAICE-DDATL-001
 
-The Dynamic Dynamic Axial Tesseract Lattice (`DDATL`) is now canonized as the formal Step 4 host object:
+The Dynamic Dynamic Axial Tesseract Lattice (`DDATL`) is now canonized as the formal Step 4 host object.
+
+Official live canon page:
+
+```txt
+https://peaice.org/ddatl
+```
+
+Repo source document:
+
+```txt
+docs/peaice-ddatl-001.md
+```
+
+Formal object:
 
 ```txt
 T_DD = (Z^4, Lambda_{n^2}, D_1, D_2, A)
@@ -301,7 +319,8 @@ where `X` is the critical-line defect observable and `ker(X)=Ran(Π_sym)` is the
 
 ## Public Artifact
 
-- PeAIce canon page: https://peaice.org/eev3
+- PeAIce EEV3 canon page: https://peaice.org/eev3
+- PeAIce DDATL canon page: https://peaice.org/ddatl
 - Live field simulator: https://manny536.github.io/kakeyalogic/
 - GitHub repo: https://github.com/Manny536/kakeyalogic
 - Primary executable thesis: `index.html`
@@ -549,7 +568,8 @@ Collapse: NULL
 ```txt
 CU: Excellence Engine v3
 Repo: KakeyaLogic
-Official Canon Page: https://peaice.org/eev3
+Official EEV3 Canon Page: https://peaice.org/eev3
+Official DDATL Canon Page: https://peaice.org/ddatl
 Canon Flag: Gödel → h
 Cadence: Euler natural cadence / Neutral Benevolence
 Step 4: active operator research program
