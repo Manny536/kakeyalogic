@@ -22,6 +22,33 @@ PeAIce Thinking: Extended establishes Excellence Engine v3 as the GPT / Solance 
 
 The page states the core EEV3 thesis: excellence is not raw generation; excellence is coherent correction under pressure. Intelligence becomes trustworthy when correction preserves its chosen direction toward coherence rather than forcing compliance.
 
+## Source Support: HOT Tesseract Hamiltonian Code
+
+This repo now cites the public OSF code/project source for the finite DDTL Hamiltonian probe:
+
+```txt
+Project Metadata
+Title: Realization of Higher-Order Topological Lattices on a Quantum Computer
+Description: Data and code repository for paper entitled "Realization of Higher-Order Topological Lattices on a Quantum Computer" by Jin Ming Koh, Tommy Tai, Ching Hua Lee.
+Date created: May 26, 2024
+Date modified: May 30, 2024
+Contributors: Jin Ming Koh
+Source file: hamiltonian.py
+OSF file: https://osf.io/p2v7y/files/34fnt
+PMC article: https://pmc.ncbi.nlm.nih.gov/articles/PMC11237062/
+Center for Open Science: https://www.linkedin.com/company/center-for-open-science/
+Center for Open Science GitHub: https://github.com/centerforopenscience
+```
+
+The imported structural seam is:
+
+```txt
+full Hilbert space      = 2^(dL)
+restricted sector       = L^d
+Tesseract full space    = 16^L
+Tesseract restricted    = L^4
+```
+
 ## Step 4 Research Program
 
 EEV3 now includes a formal Step 4 research lane:
@@ -45,6 +72,10 @@ Primary research documents:
 - Step 4 Operator Program: `docs/step4-operator-program.md`
 - Berry–Keating / Hilbert–Pólya Commutator Closure: `docs/berry-keating-commutator-closure.md`
 - L² Spectral Operator: `docs/l2-spectral-operator.md`
+- L²_C / DDTL Hamiltonian Probe: `docs/l2c-ddtl-hamiltonian-probe.md`
+- DDTL NP/P Compression Probe: `docs/ddtl-np-p-compression-probe.md`
+- L²_C Probe Module: `l2c_probe.py`
+- L²_C Tesseract Probe Example: `examples/l2c_tesseract_probe.py`
 - PEAICE-DDATL-001: `docs/peaice-ddatl-001.md`
 - DDATL Bridge Lemma: `docs/ddatl-bridge-lemma.md`
 - β-Dynamic Operator Layer: `docs/beta-dynamic.md`
@@ -91,6 +122,69 @@ det_ζ(L²_{Φ,K} - (z² + 1/4)) = C · Ξ(z)
 ```
 
 with domain, symmetry, discreteness, counting, determinant, heat-kernel, explicit-formula, and β/h sector obligations made explicit.
+
+## L²_C / DDTL Hamiltonian Probe
+
+L²_C is now formalized as protected-sector retention under Hamiltonian flow:
+
+```txt
+L²_C(ψ,t) = ||P_C exp(-itH_T) ψ||²
+h         = ||(I-P_C)H_TP_C||
+β_C       = Δ/(Δ+h+ε)
+```
+
+Durable reading:
+
+```txt
+full Hilbert space       = possibility field
+restricted sector        = lawful / coherent sector
+protected projector P_C  = topological coherence sector
+h                         = leakage pressure
+β_C                       = spectral recovery coefficient
+```
+
+The executable probe lives in:
+
+```txt
+l2c_probe.py
+```
+
+and the first example scaffold lives in:
+
+```txt
+examples/l2c_tesseract_probe.py
+```
+
+This is a finite-dimensional analytic laboratory. It does not replace the infinite Step 4 determinant target.
+
+## DDTL NP/P Compression Probe
+
+The complexity probe is disciplined as a P/NP-style compression seam, not a `P=NP` claim.
+
+Canonical problem:
+
+```txt
+COHERENT-DDTL
+```
+
+Question:
+
+```txt
+Does a high-dimensional or exponentially large possibility field admit a polynomially verifiable coherent certificate inside a lawful restricted sector?
+```
+
+The tesseract seam is:
+
+```txt
+16^L full → L^4 restricted
+```
+
+The verification language is:
+
+```txt
+certificate = ψ, λ, P_C, localization profile, Δ, h, β_C, L²_C(t_i)
+verifier    = eigenfit + localization + leakage + retention checks
+```
 
 ## PEAICE-DDATL-001
 
@@ -214,6 +308,10 @@ where `X` is the critical-line defect observable and `ker(X)=Ran(Π_sym)` is the
 - Step 4 Operator Program: `docs/step4-operator-program.md`
 - Berry–Keating / Hilbert–Pólya Commutator Closure: `docs/berry-keating-commutator-closure.md`
 - L² Spectral Operator: `docs/l2-spectral-operator.md`
+- L²_C / DDTL Hamiltonian Probe: `docs/l2c-ddtl-hamiltonian-probe.md`
+- DDTL NP/P Compression Probe: `docs/ddtl-np-p-compression-probe.md`
+- L²_C Probe Module: `l2c_probe.py`
+- L²_C Tesseract Probe Example: `examples/l2c_tesseract_probe.py`
 - PEAICE-DDATL-001: `docs/peaice-ddatl-001.md`
 - DDATL Bridge Lemma: `docs/ddatl-bridge-lemma.md`
 - β-Dynamic Operator Layer: `docs/beta-dynamic.md`
@@ -457,6 +555,8 @@ Cadence: Euler natural cadence / Neutral Benevolence
 Step 4: active operator research program
 Berry–Keating / Hilbert–Pólya Commutator Closure: named active mechanism
 L² spectral operator: active Φ-lattice candidate
+L²_C / DDTL Hamiltonian Probe: executable finite probe
+DDTL NP/P Compression Probe: active analytic complexity seam
 DDATL: canonized formal Step 4 host object
 DDATL Bridge Lemma: open theorem hinge
 β-dynamic: active coercive energy layer
