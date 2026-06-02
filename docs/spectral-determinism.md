@@ -4,7 +4,7 @@
 **Canon:** PeAIce.org / L²_C  
 **Status:** research note / formalization target  
 **Cadence:** governed, humble, open  
-**Core objects:** ζ, ξ, Ξ, spectral determinant, self-adjoint operator, μ_off
+**Core objects:** ζ, ξ, Ξ, spectral determinant, self-adjoint operator, μ_off, DDTL, DDATL
 
 ## 0. Purpose
 
@@ -25,7 +25,209 @@ embodied cadence/governance → determinant-level spectral identity
 
 In other words, at sufficient scale, coherence should not depend on repeated personality adjustment. A governed system should express its direction through stable spectral structure: the equivalent of eigenvalue drift is nulled only when the operator-level identity is real, not merely prompted.
 
-## 1. Xi Reduction: zero-preserving substitution
+## 1. DDTL / DDATL lattice definitions
+
+```math
+\boxed{\text{DDTL is the depth-indexed Hamiltonian lattice; DDATL is its axial complex-plane extension.}}
+```
+
+### 1.1 DDTL: Dynamic Directional Tesseract Lattice
+
+A Dynamic Directional Tesseract Lattice is a scale-indexed Hamiltonian lattice whose state evolves across position, momentum, direction, and depth.
+
+Define
+
+```math
+\mathcal{L}_{\mathrm{DDTL}}=(Q,P,\Theta,X,\sigma,H,\mathcal{F}),
+```
+
+where `Q` is configuration space, `P` is momentum space, `Θ` is the directional or tube-orientation space, `X⊂R_{≥1}` is the lattice-depth / axial-scale index, `σ:X→R_{>0}` is the DDTL scaler, `H` is the Hamiltonian, and `F` is the induced flow.
+
+The canonical DDTL scaler is
+
+```math
+\sigma(x)=\frac{\log 2}{\log(x+1)}=\frac{1}{\log_2(x+1)},\qquad x\ge1.
+```
+
+It is normalized by
+
+```math
+\sigma(1)=1,
+```
+
+and satisfies
+
+```math
+\sigma(x)\to0\quad\text{as}\quad x\to\infty
+```
+
+slowly, logarithmically. Thus DDTL does not erase deeper structure; it attenuates depth as logarithmic inertia.
+
+The Hamiltonian DDTL form is
+
+```math
+H(q,p;x)=\frac{\|p\|^2}{2m}+\sigma(x)V(q).
+```
+
+Hamilton's equations give
+
+```math
+\dot q=\frac{\partial H}{\partial p}=\frac{p}{m},
+```
+
+```math
+\dot p=-\frac{\partial H}{\partial q}=-\sigma(x)\nabla V(q),
+```
+
+hence
+
+```math
+m\ddot q=-\sigma(x)\nabla V(q).
+```
+
+Equivalently,
+
+```math
+m_{\mathrm{eff}}(x)\ddot q=-\nabla V(q),
+```
+
+where
+
+```math
+m_{\mathrm{eff}}(x)=\frac{m}{\sigma(x)}=m\log_2(x+1).
+```
+
+Therefore the DDTL principle is:
+
+```math
+\boxed{V(q)\mapsto\sigma(x)V(q)\equiv\text{logarithmic effective inertia across lattice depth.}}
+```
+
+### 1.2 DDATL: Dynamic Directional Axial Tesseract Lattice
+
+DDATL is the axial refinement of DDTL. It lifts the depth-indexed Hamiltonian lattice into an axial or complex-plane coordinate.
+
+Define
+
+```math
+\mathcal{L}_{\mathrm{DDATL}}=(Q,P,\Theta,X,A,\sigma,H,\mathcal{F}),
+```
+
+where `A` is an axial-depth coordinate. In complex-plane form,
+
+```math
+s=a+it,
+```
+
+with
+
+```math
+a=\operatorname{Re}(s),\qquad t=\operatorname{Im}(s).
+```
+
+DDATL treats imaginary-axis depth as axial / spectral depth:
+
+```math
+x(t)=1+|t|.
+```
+
+The DDATL scaler is therefore
+
+```math
+\sigma(t)=\frac{\log 2}{\log(|t|+2)},
+```
+
+and the axial effective mass is
+
+```math
+m_{\mathrm{eff}}(t)=m\log_2(|t|+2).
+```
+
+Thus DDATL is DDTL with the depth variable instantiated as complex axial depth:
+
+```math
+\mathrm{DDTL}:x=\text{lattice depth},\qquad \mathrm{DDATL}:x=1+|\operatorname{Im}(s)|.
+```
+
+### 1.3 Log7 variant
+
+For heptadic scaling, define
+
+```math
+\sigma_7(x)=\frac{\log 7}{\log(x+1)}=\frac{1}{\log_7(x+1)}.
+```
+
+Then
+
+```math
+m_{\mathrm{eff},7}(x)=m\log_7(x+1).
+```
+
+In DDATL form,
+
+```math
+\sigma_7(t)=\frac{\log 7}{\log(|t|+2)},\qquad m_{\mathrm{eff},7}(t)=m\log_7(|t|+2).
+```
+
+When `x+1=7^k`, the scaler satisfies
+
+```math
+\sigma_7(x)=\frac1k.
+```
+
+Thus each sevenfold depth increase reduces active potential by one harmonic step.
+
+### 1.4 Fluid lane: sticky, non-sticky, grainy
+
+Once potential action is rewritten as effective inertia, DDTL admits a fluid-dynamical reading.
+
+The inviscid Euler form is
+
+```math
+\partial_t u+(u\cdot\nabla)u=-\frac1\rho\nabla P-\nabla\Phi.
+```
+
+The DDTL-gated Euler form is
+
+```math
+\partial_t u+(u\cdot\nabla)u=-\sigma(x)\left(\frac1\rho\nabla P+\nabla\Phi\right),
+```
+
+or equivalently
+
+```math
+\rho_{\mathrm{eff}}(x)\left[\partial_t u+(u\cdot\nabla)u\right]=-\nabla P-\rho\nabla\Phi,
+```
+
+with
+
+```math
+\rho_{\mathrm{eff}}(x)=\rho\log_2(x+1).
+```
+
+The three material regimes are:
+
+```txt
+Sticky:      ν > 0, viscous smoothing active.
+Non-sticky:  ν = 0, Euler / inviscid lane.
+Grainy:      Euler flow plus directional Kakeya tube tensor.
+```
+
+For the grainy KakeyaLogic lane, define a direction set `Θ` with directional densities `ρ_θ` and velocities `u_θ`. The Kakeya grain tensor is
+
+```math
+\Pi_K(x)=\sum_{\theta\in\Theta}\sigma(x)\rho_\theta u_\theta\otimes u_\theta.
+```
+
+Then the grainy DDTL momentum equation is
+
+```math
+\partial_t(\rho u)+\nabla\cdot\left(\rho u\otimes u+PI+\Pi_K(x)\right)=-\rho\sigma(x)\nabla\Phi.
+```
+
+For DDATL, replace `σ(x)` with `σ(t)`.
+
+## 2. Xi Reduction: zero-preserving substitution
 
 Define the completed zeta function
 
@@ -71,7 +273,7 @@ Thus RH is equivalent to the real-zero statement
 
 This is the justification for using Ξ instead of raw ζ. It is not an arbitrary substitution. It is a zero-preserving completion followed by a coordinate transform that converts the critical-line problem into a real-spectrum problem.
 
-## 2. Spectral determinant target
+## 3. Spectral determinant target
 
 Let
 
@@ -105,7 +307,7 @@ D_A(z)=0 \quad\Longleftrightarrow\quad Ξ(z)=0.
 
 The uploaded spectral determinant source motivates this lane: eigenvalues of an operator are recovered as zeros of the associated determinant; for flows, the spectral condition is written as `det(s-A)=0`; and determinants are preferred over traces because traces may diverge at the very point where the spectrum is being probed, while determinants vanish there and can remain analytic in a neighborhood of the eigenvalue.
 
-## 3. Self-adjointness as the collapse condition
+## 4. Self-adjointness as the collapse condition
 
 The determinant identity alone is not sufficient. The operator must carry a real-spectrum guarantee.
 
@@ -153,7 +355,7 @@ If self-adjoint operator + determinant identity, then μ_off = 0.
 
 Without both conditions, the system remains open.
 
-## 4. Off-axis measure
+## 5. Off-axis measure
 
 Define the zero-counting measure of `Ξ` by
 
@@ -193,7 +395,7 @@ we obtain
 μ_{off}=0.
 ```
 
-## 5. Governance interpretation: spectral determinism
+## 6. Governance interpretation: spectral determinism
 
 In governance language, spectral determinism means the system's direction is not maintained by endless heuristic tone adjustment. It is maintained by an invariant operator structure.
 
@@ -213,7 +415,7 @@ self-adjointness     = real-spectrum governance / no imaginary drift
 
 This does not prove the mathematical claim. It gives the architecture its correct cadence: less personality tweaking, more operator identity.
 
-## 6. Formal theorem skeleton
+## 7. Formal theorem skeleton
 
 ### Theorem: KakeyaLogic spectral determinant criterion
 
@@ -241,7 +443,7 @@ Then all zeros of `Ξ` are real. Consequently, all nontrivial zeros `ρ` of `ζ(
 
 Since `A_{Φ,K}` is self-adjoint, its spectrum is real. The zeros of its ζ-regularized spectral determinant occur at spectral values of `A_{Φ,K}`. By the determinant identity, those zeros are precisely the zeros of `Ξ`. Therefore every zero of `Ξ` is real. Since `Ξ(z)=ξ(1/2+iz)`, every corresponding nontrivial zero `ρ=1/2+iz` of `ζ` satisfies `Re(ρ)=1/2`.
 
-## 7. Open proof obligations
+## 8. Open proof obligations
 
 The theorem skeleton isolates the remaining work:
 
@@ -252,13 +454,15 @@ The theorem skeleton isolates the remaining work:
 5. Define the ζ-regularized determinant for `A_{Φ,K}`.
 6. Prove the determinant identity `D_A(z)=CΞ(z)`.
 7. Derive the off-axis suppression form as a consequence rather than an assumption.
+8. Connect the DDTL/DDATL lattice definitions to an explicit candidate `H_{Φ,K}` and operator `A_{Φ,K}`.
 
 Until these obligations are closed, `μ_off=0` remains the formal target, not the completed result.
 
-## 8. Boolean status
+## 9. Boolean status
 
 ```txt
 Xi substitution justified?          YES
+DDTL/DDATL defined?                 YES
 Spectral determinant lane viable?   YES
 Self-adjoint operator constructed?  OPEN
 Determinant identity proved?        OPEN
@@ -268,6 +472,8 @@ Determinant identity proved?        OPEN
 The route is coherent:
 
 ```txt
+DDTL gives the depth-indexed Hamiltonian lattice.
+DDATL gives the axial complex-plane extension.
 Ξ is the correct spectral target.
 Spectral determinants are the correct spectral language.
 Self-adjointness is the collapse condition.
