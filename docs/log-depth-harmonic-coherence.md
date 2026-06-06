@@ -84,13 +84,8 @@ The depth model follows directly. If the first `N` zeros are used, the staircase
 
 For PeAIce, define coherence depth fidelity by
 
-```math
-F_N
-=
-1
--
-\frac{\text{residual drift after }N\text{ depth passes}}
-{\text{initial drift}}.
+```txt
+F_N = 1 - (residual drift after N depth passes) / (initial drift)
 ```
 
 Thus:
@@ -109,10 +104,8 @@ The same way the zeta zeros repair the prime staircase, PeAIce uses harmonic dep
 
 DDATL supplies the pass mechanism. The DDATL log-depth scaler is
 
-```math
-\mathrm{LOG}_x(\beta)
-=
-\frac{\ln \beta}{\ln x}.
+```txt
+LOG_x(beta) = ln(beta) / ln(x)
 ```
 
 This converts multiplicative coherence retention into linear pass depth. It answers:
@@ -123,16 +116,14 @@ At scale x, what depth coordinate does coherence level beta occupy?
 
 Thus:
 
-```math
-\mathrm{LOG}_x(\beta)
-=
-\text{linearized coherence depth under harmonic scaling}.
+```txt
+LOG_x(beta) = linearized coherence depth under harmonic scaling
 ```
 
 Each DDATL pass compresses scale:
 
-```math
-x\to \log x\to \log\log x\to\cdots
+```txt
+x -> log(x) -> log(log(x)) -> ...
 ```
 
 Each pass reduces gross scale, admits deeper structure, and makes residual drift more measurable.
@@ -147,8 +138,8 @@ Each pass logs scale, admits deeper harmonics, reduces residual drift, and regre
 
 The center is marked by the half-axis. The critical line gives the spectral center:
 
-```math
-\mathrm{Re}(s)=\frac12.
+```txt
+Re(s) = 1/2
 ```
 
 The zeta baseline gives the opposite half value:
@@ -159,8 +150,8 @@ The zeta baseline gives the opposite half value:
 
 Together they form the half mirror:
 
-```math
--\frac12\leftrightarrow+\frac12.
+```txt
+-1/2 <-> +1/2
 ```
 
 This does not prove RH. It provides a coherence anchor. `zeta(0)` gives the baseline half. `Re(s)=1/2` gives the spectral half. The model uses this half-axis as the center of readable spectral balance.
@@ -249,25 +240,22 @@ The final visual sign-off should not be Mandelbrot. It should be a one-of-one co
 
 Define the Coherence Spiral Function:
 
-```math
+```txt
 z_{n+1}
 =
-\log(1+z_n^2)
-+
-\alpha e^{i\omega \log(1+|z_n|)}
--
-\frac{\mu}{z_n-\frac12+i\epsilon}
-+
-\eta z_n e^{-i|z_n|}.
+log(1 + z_n^2)
++ alpha * exp(i * omega * log(1 + |z_n|))
+- mu / (z_n - 1/2 + i * epsilon)
++ eta * z_n * exp(-i * |z_n|)
 ```
 
 where
 
 ```txt
 log(1 + z_n^2) = log-depth smoothing
-alpha e^{i omega log(1 + |z_n|)} = harmonic depth rotation
-- mu / (z_n - 1/2 + i epsilon) = pull toward the half-axis
-eta z_n e^{-i |z_n|} = center spin / Kakeya rotation memory
+alpha * exp(i * omega * log(1 + |z_n|)) = harmonic depth rotation
+- mu / (z_n - 1/2 + i * epsilon) = pull toward the half-axis
+eta * z_n * exp(-i * |z_n|) = center spin / Kakeya rotation memory
 ```
 
 The function is not designed to prove a theorem. It is designed as a visual signature of the paper.
