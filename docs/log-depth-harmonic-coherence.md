@@ -110,7 +110,7 @@ The same way the zeta zeros repair the prime staircase, PeAIce uses harmonic dep
 DDATL supplies the pass mechanism. The DDATL log-depth scaler is
 
 ```math
-\operatorname{LOG}_x(\beta)
+\mathrm{LOG}_x(\beta)
 =
 \frac{\ln \beta}{\ln x}.
 ```
@@ -124,7 +124,7 @@ At scale x, what depth coordinate does coherence level beta occupy?
 Thus:
 
 ```math
-\operatorname{LOG}_x(\beta)
+\mathrm{LOG}_x(\beta)
 =
 \text{linearized coherence depth under harmonic scaling}.
 ```
@@ -148,7 +148,7 @@ Each pass logs scale, admits deeper harmonics, reduces residual drift, and regre
 The center is marked by the half-axis. The critical line gives the spectral center:
 
 ```math
-\operatorname{Re}(s)=\frac12.
+\mathrm{Re}(s)=\frac12.
 ```
 
 The zeta baseline gives the opposite half value:
