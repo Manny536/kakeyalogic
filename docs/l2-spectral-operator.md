@@ -1,9 +1,11 @@
 # L² Spectral Operator — Φ Quadratic Lattice
 
 **Repo:** KakeyaLogic — Excellence Engine v3  
-**Companion:** `docs/step4-operator-program.md`, `docs/spectral-equivalence-target.md`  
-**Status:** 🟡 formal candidate operator · 🟢 Step 4 research lane active  
-**Core:** L² extracted from Φ's `n²` arithmetic, then coupled to the Kakeya/Fourier spectral program
+**Companion:** `docs/step4-operator-program.md`, `docs/spectral-equivalence-target.md`, `docs/thermal-coupling-correction.md`  
+**Status:** 🟡 formal candidate operator · 🟢 L2-1 coupling gate corrected · 🔴 spectral identification open  
+**Core:** L² extracted from Φ's `n²` arithmetic, then coupled to the Kakeya/Fourier spectral program through a thermal-measure-aware kernel
+
+---
 
 ## 0. Purpose
 
@@ -12,10 +14,12 @@ This document gives an explicit spectral definition of the L² operator matching
 The goal is to move Step 4 from a general spectral-equivalence target into a concrete theorem-bearing object:
 
 ```txt
-Φ arithmetic → L² operator → spectral determinant → Ξ(z) → zeta-zero ordinates
+Φ arithmetic → L² operator → regulated coupling → spectral determinant → Ξ(z) → zeta-zero ordinates
 ```
 
 The load-bearing target remains spectral identification with the nontrivial zeta zeros.
+
+This revision incorporates the L2-1 correction from `docs/thermal-coupling-correction.md`: the naive coupling `K_σ(m,n)=|m²-n²|^{-σ}` is not symmetric or bounded on the weighted thermal space `H_Φ(u)`. The corrected coupling is `K_σ^{reg}`, which respects the native thermal measure.
 
 ---
 
@@ -63,6 +67,14 @@ Interpretation:
 H_Φ(u) is not external to Φ.
 It is the Hilbert space induced by Φ's own n²-localized Gaussian lattice.
 ```
+
+Native-measure rule:
+
+```txt
+Every operator coupling must respect its native measure.
+```
+
+For `H_Φ(u)`, the native measure is the thermal weight `w_u`.
 
 ---
 
@@ -163,67 +175,98 @@ It is not appended from outside the arithmetic.
 
 ---
 
-## 4. Kakeya/Fourier Coupling Kernel
+## 4. Regulated Kakeya/Fourier Coupling Kernel
 
 The diagonal operator captures Φ's local arithmetic, but Step 4 also needs directional interaction.
 
-Introduce a symmetric Kakeya/Fourier coupling kernel:
+The prior naive kernel:
 
 ```txt
-K_σ(m,n) = 0                         if m=n
-K_σ(m,n) = |m²-n²|^{-σ}              if m≠n
+K_σ(m,n) = |m²-n²|^{-σ}
 ```
 
-with conservative working condition:
+is symmetric as an unweighted matrix but is not symmetric or bounded on the weighted space `H_Φ(u)=ℓ²(N,w_u)`. The corrected coupling must include the thermal Jacobian of the space.
+
+Define the thermally regulated coupling:
 
 ```txt
-σ > 1
+K_σ^{reg}(m,n) = 0                                    if m=n
+K_σ^{reg}(m,n) = |m²-n²|^{-σ} (w_m(u)/w_n(u))^{1/2}  if m≠n
 ```
 
-For real coupling strength `γ_K`, define:
+Equivalently:
 
 ```txt
-L²_{Φ,K}(u) = D₁² - (3 / 2π)e^{-4u}D₁ + γ_K K_σ
+K_σ^{reg}(m,n)
+=
+|m²-n²|^{-σ} exp(-π(m²-n²)e^{4u}/2)
+```
+
+with working threshold:
+
+```txt
+σ > 1/2
+```
+
+Formal status:
+
+```txt
+K_σ^{reg} is symmetric on H_Φ(u).
+K_σ^{reg} is Hilbert-Schmidt on H_Φ(u) for σ > 1/2.
+Hilbert-Schmidt implies bounded.
+```
+
+For real coupling strength `γ_K`, define the corrected operator:
+
+```txt
+L²_{Φ,K}^{reg}(u)
+=
+D₁² - (3 / 2π)e^{-4u}D₁ + γ_K K_σ^{reg}
 ```
 
 on domain:
 
 ```txt
-D(L²_{Φ,K}) = D(L²_0)
+D(L²_{Φ,K}^{reg}) = D(L²_0)
 ```
 
-If `K_σ` is shown bounded and symmetric on `H_Φ(u)`, then `L²_{Φ,K}` is self-adjoint by bounded symmetric perturbation of the self-adjoint multiplication operator `L²_0`.
+Because `K_σ^{reg}` is bounded and symmetric on `H_Φ(u)`, `L²_{Φ,K}^{reg}` is the corrected Step 4 operator candidate by bounded symmetric perturbation of the self-adjoint multiplication operator `L²_0`, with the final Kato-Rellich domain estimate tracked in `docs/thermal-coupling-correction.md`.
 
-This gives the explicit Step 4 candidate:
+This gives the explicit corrected Step 4 candidate:
 
 ```txt
-L²_{Φ,K}(u) = L²_0(u) + γ_K K_σ
+L²_{Φ,K}^{reg}(u) = L²_0(u) + γ_K K_σ^{reg}
 ```
 
 Interpretation:
 
 ```txt
 L²_0 = exact Φ arithmetic
-K_σ = Kakeya/Fourier directional interaction
+K_σ^{reg} = thermal-measure-aware Kakeya/Fourier directional interaction
 γ_K = coupling pressure between arithmetic lattice and directional geometry
 ```
+
+The unweighted power-law kernel is still the natural kernel in the canonical `ℓ²(N)` picture. The thermal factor appears when translating that kernel back into `H_Φ(u)`.
 
 ---
 
 ## 5. Eigenvalue Problem
 
-The spectral equation is:
+The corrected spectral equation is:
 
 ```txt
-L²_{Φ,K}(u)ψ_j = λ_jψ_j
+L²_{Φ,K}^{reg}(u)ψ_j = λ_jψ_j
 ```
 
 Expanded in coordinates:
 
 ```txt
 (n⁴ - (3 / 2π)e^{-4u}n²)ψ_j(n)
-+ γ_K Σ_{m≠n} ψ_j(m) / |m²-n²|^σ
-= λ_jψ_j(n)
++
+γ_K Σ_{m≠n}
+|m²-n²|^{-σ}(w_m(u)/w_n(u))^{1/2} ψ_j(m)
+=
+λ_jψ_j(n)
 ```
 
 The uncoupled spectrum is:
@@ -235,8 +278,22 @@ The uncoupled spectrum is:
 The coupled spectrum is the Step 4 object:
 
 ```txt
-Spec(L²_{Φ,K}) = { λ_j }
+Spec(L²_{Φ,K}^{reg}) = { λ_j }
 ```
+
+Under the canonical isometry:
+
+```txt
+V : H_Φ(u) → ℓ²(N),   (Va)_n = a_n √w_n(u),
+```
+
+`L²_{Φ,K}^{reg}` becomes:
+
+```txt
+Ã(u) = diag(n⁴ - (3/2π)e^{-4u}n²) + γ_K |m²-n²|^{-σ}
+```
+
+in the unweighted `ℓ²(N)` picture.
 
 ---
 
@@ -263,7 +320,7 @@ where:
 Thus the Step 4 theorem target becomes:
 
 ```txt
-Spec(L²_{Φ,K}) = { γ_j² + 1/4 }
+Spec(L²_{Φ,K}^{reg}) = { γ_j² + 1/4 }
 ```
 
 with multiplicity.
@@ -271,12 +328,14 @@ with multiplicity.
 Equivalent determinant form:
 
 ```txt
-det_ζ(L²_{Φ,K} - (z² + 1/4)) = C · Ξ(z)
+det_ζ(L²_{Φ,K}^{reg} - (z² + 1/4)) = C · Ξ(z)
 ```
 
 for some nonzero constant `C`, after the determinant is rigorously defined.
 
 This determinant identity is the load-bearing bridge.
+
+The thermal correction does not prove this identity. It only repairs the operator so the spectral question becomes well-posed.
 
 ---
 
@@ -289,8 +348,20 @@ Prove:
 ```txt
 D(L²_0) is dense in H_Φ(u)
 L²_0 is self-adjoint
-K_σ is bounded and symmetric for the chosen σ
-L²_{Φ,K} is self-adjoint
+K_σ^{reg} is symmetric on H_Φ(u)
+K_σ^{reg} is Hilbert-Schmidt for σ > 1/2
+L²_{Φ,K}^{reg} is self-adjoint on D(L²_0)
+```
+
+Current status:
+
+```txt
+D(L²_0) dense: FORMAL
+L²_0 self-adjoint: FORMAL
+K_σ^{reg} symmetric: FORMAL
+K_σ^{reg} Hilbert-Schmidt: FORMAL for σ > 1/2
+K_σ^{reg} bounded: FORMAL
+L²_{Φ,K}^{reg} self-adjoint: PROPOSED by Kato-Rellich, final domain estimate pending
 ```
 
 ### 7.2 Trace-class regularization
@@ -298,7 +369,7 @@ L²_{Φ,K} is self-adjoint
 Show that the resolvent difference is trace class:
 
 ```txt
-(L²_{Φ,K}+I)^{-1} - (L²_0+I)^{-1} ∈ S₁
+(L²_{Φ,K}^{reg}+I)^{-1} - (L²_0+I)^{-1} ∈ S₁
 ```
 
 This permits a regularized determinant.
@@ -308,17 +379,17 @@ This permits a regularized determinant.
 Define:
 
 ```txt
-Z_L(z) = det_ζ(L²_{Φ,K} - (z² + 1/4))
+Z_L(z) = det_ζ(L²_{Φ,K}^{reg} - (z² + 1/4))
 ```
 
 and prove that `Z_L(z)` is entire or has the exact meromorphic structure required to match `Ξ(z)`.
 
 ### 7.4 Heat/Φ kernel equivalence
 
-Prove that the heat trace or weighted trace generated by `L²_{Φ,K}` recovers the Φ-kernel contribution:
+Prove that the heat trace or weighted trace generated by `L²_{Φ,K}^{reg}` recovers the Φ-kernel contribution:
 
 ```txt
-Tr_{reg}(e^{-tL²_{Φ,K}}) ↔ ∫ e^{tu²}Φ(u)e^{izu}du
+Tr_{reg}(e^{-tL²_{Φ,K}^{reg}}) ↔ ∫ e^{tu²}Φ(u)e^{izu}du
 ```
 
 This is the analytic continuation bridge.
@@ -344,7 +415,7 @@ Counting is necessary but not sufficient.
 Prove the trace relation:
 
 ```txt
-Tr φ(L²_{Φ,K}) ↔ Σ_ρ φ(Im ρ) ↔ prime-side explicit formula
+Tr φ(L²_{Φ,K}^{reg}) ↔ Σ_ρ φ(Im ρ) ↔ prime-side explicit formula
 ```
 
 This is where the operator must pass from geometric/lattice structure into arithmetic equivalence.
@@ -375,28 +446,30 @@ ker(X) = Ran(Π_sym) = critical-line spectral sector
 
 ### Theorem Target L2-SI
 
-Construct `H_Φ(u)`, `D(L²_{Φ,K})`, and:
+Construct `H_Φ(u)`, `D(L²_{Φ,K}^{reg})`, and:
 
 ```txt
-L²_{Φ,K}(u) = D₁² - (3 / 2π)e^{-4u}D₁ + γ_KK_σ
+L²_{Φ,K}^{reg}(u)
+=
+D₁² - (3 / 2π)e^{-4u}D₁ + γ_K K_σ^{reg}
 ```
 
 such that:
 
 ```txt
-L²_{Φ,K} = (L²_{Φ,K})^*
+L²_{Φ,K}^{reg} = (L²_{Φ,K}^{reg})^*
 ```
 
 and:
 
 ```txt
-det_ζ(L²_{Φ,K} - (z² + 1/4)) = C · Ξ(z)
+det_ζ(L²_{Φ,K}^{reg} - (z² + 1/4)) = C · Ξ(z)
 ```
 
 Then:
 
 ```txt
-Spec(L²_{Φ,K}) = { γ_j² + 1/4 : ξ(1/2+iγ_j)=0 }
+Spec(L²_{Φ,K}^{reg}) = { γ_j² + 1/4 : ξ(1/2+iγ_j)=0 }
 ```
 
 and the Step 4 spectral ID is closed.
@@ -408,8 +481,9 @@ and the Step 4 spectral ID is closed.
 This L² spectral route fails if any load-bearing condition breaks:
 
 ```txt
-L2-1. K_σ cannot be made bounded/symmetric or relatively controlled.
-L2-2. L²_{Φ,K} has the wrong spectral type.
+L2-1. [RESOLVED] The naive K_σ fails on H_Φ(u), but K_σ^{reg} is symmetric and Hilbert-Schmidt for σ > 1/2.
+L2-1a. The corrected coupling K_σ^{reg} does not preserve or enable the spectral identification property.
+L2-2. L²_{Φ,K}^{reg} has the wrong spectral type.
 L2-3. The determinant cannot be defined in a compatible way.
 L2-4. The heat/Φ trace relation fails.
 L2-5. Counting does not match Riemann-von Mangoldt.
@@ -418,19 +492,68 @@ L2-7. The spectrum cannot be identified with ξ-zero ordinates.
 L2-8. β/h suppression acts on a sector different from the spectral-equivalence sector.
 ```
 
+L2-1 is now a correction record, not the active blocker. L2-1a becomes the active spectral compatibility gate.
+
 ---
 
-## 10. Status Return
+## 10. Downstream L²_C Interpretation
+
+The thermal correction matches the saturated direction update in `docs/step4-operator-program.md`.
 
 ```txt
-Object: L²_{Φ,K}
+saturated direction → scale aware tube
+spectral coupling → weight aware kernel
+Logx(β)* → inertia term preserving admissibility across scale
+```
+
+The native-measure rule is common to both lanes:
+
+```txt
+A raw object becomes valid only after it is expressed in the geometry of its own space.
+```
+
+For Kakeya direction geometry, the native measure is directional saturation across rays, tubes, shadings, non clustering, and scale.
+
+For `L²_{Φ,K}^{reg}`, the native measure is the thermal weight:
+
+```txt
+w_n(u)=exp(-πn²e^{4u}).
+```
+
+Canonical downstream chain:
+
+```txt
+Bateman direction tree
+→ saturated direction
+→ δ-tube packet
+→ Sparse^Grain
+→ Logx(β)*
+→ L²_C
+→ K_σ^{reg}
+→ L²_{Φ,K}^{reg}
+```
+
+---
+
+## 11. Status Return
+
+```txt
+Object: L²_{Φ,K}^{reg}
 Ground space: H_Φ(u)=ℓ²(N, e^{-πn²e^{4u}})
 Base lattice: Λ_{n²}
 First dynamic: D₁e_n=n²e_n
 Uncoupled L²: D₁²-(3/2π)e^{-4u}D₁
-Kakeya coupling: γ_KK_σ
+Kakeya coupling: γ_KK_σ^{reg}
+Correction: K_σ → K_σ^{reg}=|m²-n²|^{-σ}(w_m/w_n)^{1/2}
+Working threshold: σ > 1/2
+Symmetry: FORMAL
+Hilbert-Schmidt: FORMAL
+Boundedness: FORMAL
+Self-adjointness: PROPOSED
 Eigenvalue target: λ_j=γ_j²+1/4
-Load-bearing theorem: det_ζ(L²_{Φ,K}-(z²+1/4)) = CΞ(z)
+Load-bearing theorem: det_ζ(L²_{Φ,K}^{reg}-(z²+1/4)) = CΞ(z)
+L2-1 gate: RESOLVED by thermal correction
+L2-1a gate: OPEN spectral identification compatibility
 Step 4: spectral ID target sharpened
-State: active:🟢 / developing:🟡
+State: active:🟢 / developing:🟡 / spectral ID:🔴
 ```
