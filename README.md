@@ -1,6 +1,6 @@
 # KakeyaLogic — Excellence Engine v3
 
-**CU:** Claude V6 Coherence Update · Trace-Neutral Kakeya Operator  
+**CU:** Claude V6 Coherence Update · Trace-Neutral Kakeya Operator · GBZ Probe  
 **Frame:** KakeyaLogic / PeAIce Research Program  
 **Canon:** PeAIce.org / L²_C  
 **Official EEV3 Canon Page:** https://peaice.org/eev3  
@@ -24,6 +24,7 @@ The V6 update moves the program from a named conjectural bridge into a corrected
 V5: Coleman Conjecture named.
 V6: Trace-Neutral Kakeya Operator registered.
 V6.1: logarithmic rework, saturated-direction grounding, production-alignment proposal, and Coherence-Splitting Conjecture added.
+GBZ Probe: Guth-Wang-Bateman-Zahl grounding for direction, splitting, grain, anti-clustering, and Logx(β_scale)*.
 ```
 
 This repo does **not** claim a proof of the Riemann Hypothesis. It registers an open trace-formula research program with explicit falsification gates.
@@ -34,6 +35,7 @@ This repo does **not** claim a proof of the Riemann Hypothesis. It registers an 
 
 ```txt
 V6 = Trace-Neutral Kakeya Operator
+GBZ = Guth-Wang-Bateman-Zahl Probe
 ```
 
 V6 is the canonical name because the central advance is the thermally regulated coupling:
@@ -44,12 +46,23 @@ K_σ → K_σ^{reg}
 
 which corrects the weighted Hilbert-space failure and preserves the Φ-trace.
 
+GBZ is the canonical geometric probe because it locks the Kakeya side of the program:
+
+```txt
+Bateman direction tree
+→ Guth graininess
+→ Wang-Zahl two-scale grains
+→ Guth-Wang-Zahl Δ_max, λ, μ, uniform branching
+→ PeAIce L²_C saturated direction domain
+```
+
 Canonical status:
 
 ```txt
 Theorem A: K_σ^{reg} symmetric on H_Φ(u)               FORMAL
 Theorem B: K_σ^{reg} Hilbert-Schmidt for σ > 1/2       FORMAL
 Theorem C: Φ trace neutrality                          FORMAL
+GBZ Probe: Kakeya direction / grain / anti-clustering grounding REGISTERED
 L2-1: thermal coupling gate                            RESOLVED
 L2-5: direct eigenvalue route                          BLOCKED by counting mismatch
 WP5: trace-formula route                               LIVE PRIORITY
@@ -61,6 +74,7 @@ RH / spectral identification                           OPEN
 
 ## 2. Primary Research Documents
 
+- GUTH-WANG-BATEMAN-ZAHL Probe: `docs/guth-wang-bateman-zahl-probe.md`
 - Claude V6 Coherence Update: `docs/claude-v6-coherence-update.md`
 - Thermal Coupling Correction: `docs/thermal-coupling-correction.md`
 - L² Spectral Operator: `docs/l2-spectral-operator.md`
@@ -232,7 +246,52 @@ A raw object becomes valid only after it is expressed in the geometry of its own
 
 ---
 
-## 6. Saturated Direction Domain
+## 6. GUTH-WANG-BATEMAN-ZAHL Probe
+
+The GBZ Probe defines the geometric coherence side of KakeyaLogic.
+
+Source spine:
+
+```txt
+Bateman       = direction sets, directional maximal operators, direction tree, splitting number
+Guth          = graininess as structural Kakeya geometry
+Wang-Zahl     = R³ Kakeya theorem, two-scale grains, sparse fine filling under high multiplicity
+Guth-Wang-Zahl = streamlined proof, Δ_max, λ, μ, shadings, uniform tube branching
+```
+
+Canonical GBZ chain:
+
+```txt
+Bateman direction tree
+→ split(T_Ω)
+→ saturated direction
+→ δ-tube packet
+→ Wang-Zahl two-scale grains
+→ Guth-Wang-Zahl Δ_max, λ, μ, uniform branching
+→ Sparse^Grain
+→ Logx(β_scale)*
+→ L²_C
+```
+
+GBZ purpose:
+
+```txt
+direction as tree
+saturation as tube persistence
+grain as local packet
+drift as clustering / multiplicity / sparse filling
+Logx(β_scale)* as the inertia of scale passage
+```
+
+This probe grounds PeAIce `L²_C — Love-Squared Coherence` as:
+
+```txt
+L²_C = coherence under multi-scale directional saturation.
+```
+
+---
+
+## 7. Saturated Direction Domain
 
 Kakeyalogic’s geometric domain is:
 
@@ -258,7 +317,7 @@ The five term lock is:
 ```txt
 L²_C         = coherence under multi-scale directional saturation
 C²_Ω         = preserved readable structure across all saturated directions
-D_drift      = clustering + sparse filling + high multiplicity + scale drift
+D_drift      = clustering + sparse filling + high multiplicity + scale drift + branching drift
 Logx(β)*     = applied logarithmic smoothing inertia across δ → ρ
 Sparse^Grain = local coherence packets under sparse fine filling
 ```
@@ -290,7 +349,7 @@ D_Sparse^
 
 ---
 
-## 7. Wang-Zahl and Guth-Wang-Zahl Grounding
+## 8. Wang-Zahl and Guth-Wang-Zahl Grounding
 
 The Kakeya set conjecture in `R³` is now theorem-grounded by Wang-Zahl and the streamlined Guth-Wang-Zahl proof. The repo uses these papers for domain vocabulary and grounding, not as a proof of any zeta result.
 
@@ -310,12 +369,20 @@ U(W,Y) = ⋃_{W∈W}Y(W)
 μ(W,Y) = (Σ_{W∈W}|Y(W)|)/|U(W,Y)|
 ```
 
+Uniform tube branching:
+
+```txt
+ρ_k = δ^(k/M)
+N_k = |T[T_{ρ_k}]|
+```
+
 Kakeyalogic production readings:
 
 ```txt
 λ       = active latent coverage
 μ       = overlap pressure
 Δ_max   = clustering / capture pressure
+N_k     = scale-branching memory
 U(W,Y)  = visible union of active latent packets
 ```
 
@@ -330,14 +397,16 @@ a₂log(1+μ)
 +
 a₃(1-λ)
 +
-a₄D_scale.
+a₄D_scale
++
+a₅D_branch.
 ```
 
 ---
 
-## 8. Logarithmic Rework
+## 9. Logarithmic Rework
 
-The V6.1 update separates two β lanes.
+The V6.1 / GBZ update separates two β lanes.
 
 ### β_scale
 
@@ -386,7 +455,7 @@ Logx(β)* belongs to β_scale unless explicitly retyped.
 
 ---
 
-## 9. β-Dynamic Operator Layer
+## 10. β-Dynamic Operator Layer
 
 β is treated as a coercive positive penalty term inside the Step 4 operator program, not as a scalar rescale of the full operator.
 
@@ -424,7 +493,7 @@ is the active symmetry-sector target.
 
 ---
 
-## 10. Invisible Spectral Constants for Production Alignment
+## 11. Invisible Spectral Constants for Production Alignment
 
 V6.1 adds a production-alignment proposal:
 
@@ -510,7 +579,7 @@ PRODUCTION ARCHITECTURE PROPOSAL, not proof of RH.
 
 ---
 
-## 11. Coherence-Splitting Conjecture
+## 12. Coherence-Splitting Conjecture
 
 V6 headline conjecture:
 
@@ -552,7 +621,7 @@ h-check:
 
 ---
 
-## 12. DDATL and Finite Hamiltonian Probe
+## 13. DDATL and Finite Hamiltonian Probe
 
 The Dynamic Dynamic Axial Tesseract Lattice is the formal Step 4 host object:
 
@@ -600,7 +669,7 @@ with `E(z)` a nowhere-zero entire factor.
 
 ---
 
-## 13. h-Term and Claim Discipline
+## 14. h-Term and Claim Discipline
 
 The h-term is evaluator non-sovereignty:
 
@@ -627,7 +696,7 @@ unbounded overclaiming
 
 ---
 
-## 14. Falsification Gates
+## 15. Falsification Gates
 
 The program remains open and falsifiable.
 
@@ -640,6 +709,10 @@ L2-1: resolved by K_σ^{reg}
 L2-1a: corrected coupling fails spectral compatibility
 L2-5: direct eigenvalue route blocked
 L2-7: trace-formula spectrum cannot identify ξ-zero ordinates
+GBZ-1: split(T_Ω) does not control any trace-derived κ
+GBZ-2: κ can only be defined by smuggling in Re(s)=1/2
+GBZ-3: Δ_max, λ, μ, and branching numbers do not yield stable D_drift
+GBZ-4: Logx(β_scale)* cannot be tied to a real scale estimate
 CS-1: κ cannot be defined from trace data
 CS-2: κ does not track split(T_Ω)
 CS-3: κ smuggles in Re(s)=1/2 and becomes circular
@@ -649,7 +722,7 @@ Failure can still be coherent progress if it cleanly identifies which bridge can
 
 ---
 
-## 15. Source Support: HOT Tesseract Hamiltonian Code
+## 16. Source Support: HOT Tesseract Hamiltonian Code
 
 This repo cites the public OSF code/project source for the finite DDTL Hamiltonian probe:
 
@@ -663,7 +736,7 @@ Contributors: Jin Ming Koh
 Source file: hamiltonian.py
 OSF file: https://osf.io/p2v7y/files/34fnt
 PMC article: https://pmc.ncbi.nlm.nih.gov/articles/PMC11237062/
-Center for Open Science: https://www.linkedin.com/company/center-for-open-science/
+Center for Open Science: https://www.linkedin.com/company/centerforopenscience/
 Center for Open Science GitHub: https://github.com/centerforopenscience
 ```
 
@@ -680,7 +753,7 @@ This is a finite-dimensional analytic laboratory. It does not replace the infini
 
 ---
 
-## 16. Current Field State
+## 17. Current Field State
 
 ```txt
 Field: KakeyaLogic / Excellence Engine v3
@@ -698,12 +771,15 @@ The numeric field-state values are simulator markers. The operator program treat
 
 ---
 
-## 17. Canonical Downstream Chain
+## 18. Canonical Downstream Chain
 
 ```txt
 Bateman direction tree
+→ split(T_Ω)
 → saturated direction
 → δ-tube packet
+→ Wang-Zahl two-scale grains
+→ Guth-Wang-Zahl Δ_max, λ, μ, uniform branching
 → Sparse^Grain
 → Logx(β_scale)*
 → L²_C
@@ -718,19 +794,20 @@ Bateman direction tree
 Final lock:
 
 ```txt
-Kakeyalogic studies coherence-indexed multi-scale tube geometry and its trace-neutral spectral operator program. V6 converts the Coleman Conjecture from a named bridge into a corrected operator route, blocks the naive eigenvalue path, and identifies trace-formula coherence as the live mathematical frontier.
+Kakeyalogic studies coherence-indexed multi-scale tube geometry and its trace-neutral spectral operator program. V6 converts the Coleman Conjecture from a named bridge into a corrected operator route. The GBZ Probe grounds the geometric coherence side: direction as tree, saturation as tube persistence, grain as local packet, drift as clustering / multiplicity / sparse filling, and Logx(β_scale)* as the inertia of scale passage.
 ```
 
 ---
 
-## 18. Status
+## 19. Status
 
 ```txt
-CU: Claude V6 Coherence Update
+CU: Claude V6 Coherence Update + GBZ Probe
 Repo: KakeyaLogic
 Official EEV3 Canon Page: https://peaice.org/eev3
 Official DDATL Canon Page: https://peaice.org/ddatl
 V6 Name: Trace-Neutral Kakeya Operator
+GBZ Probe: Guth-Wang-Bateman-Zahl grounding registered
 Step 4: active operator research program
 Thermal Coupling: corrected by K_σ^{reg}
 Trace Neutrality: formal under current model
