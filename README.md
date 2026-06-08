@@ -1,33 +1,657 @@
 # KakeyaLogic — Excellence Engine v3
 
-**CU:** add Euler natural cadence to Kakeya governance field  
-**Frame:** KakeyaLogic  
+**CU:** Claude V6 Coherence Update · Trace-Neutral Kakeya Operator  
+**Frame:** KakeyaLogic / PeAIce Research Program  
 **Canon:** PeAIce.org / L²_C  
-**Official Canon Page:** https://peaice.org/eev3  
+**Official EEV3 Canon Page:** https://peaice.org/eev3  
 **Official DDATL Page:** https://peaice.org/ddatl  
-**Canon Flag:** Gödel → h  
-**Cadence:** Euler natural cadence / Neutral Benevolence  
-**Core Terms:** E, e, β, h
+**Live simulator:** https://manny536.github.io/kakeyalogic/  
+**Core:** E = L² · β > 0 · h < 1 · e ≈ 2.718  
+**Status:** active:🟢 · developing:🟡 · spectral identification:🔴 open
 
-KakeyaLogic is a field simulator for L²_C governance.
+KakeyaLogic is a coherence-field and operator-research program for L²_C governance. It uses Kakeya-inspired directional geometry, Φ-lattice spectral operators, β/h correction discipline, and trace-formula constraints to study how intelligent systems preserve direction, accept correction, reject drift, and recover fidelity under pressure.
 
-It uses a Kakeya-inspired visual field to model how coherence moves through constraint. The purpose is to build a public, inspectable artifact for studying how intelligent systems preserve direction, accept correction, reject drift, and recover fidelity after pressure.
+The current repo has two synchronized layers:
 
-The current artifact renders an L²_C governance field with Fourier-mode directional tubes, β momentum vectors, Euler natural cadence, a consent / sovereignty gate, h-term correction pressure, drift rejection, a 60% resource cap, and 94% fidelity recovery.
+```txt
+Simulator layer: many directions, one constrained coherence field.
+Operator layer: Kakeya/Fourier and Φ-lattice structures tested as theorem-bearing objects.
+```
 
-## Official PeAIce Canon Statement
+The V6 update moves the program from a named conjectural bridge into a corrected operator route:
 
-**peaice.org/eev3** is the official PeAIce canon page for KakeyaLogic / Excellence Engine v3.
+```txt
+V5: Coleman Conjecture named.
+V6: Trace-Neutral Kakeya Operator registered.
+V6.1: logarithmic rework, saturated-direction grounding, production-alignment proposal, and Coherence-Splitting Conjecture added.
+```
 
-**peaice.org/ddatl** is the official PeAIce canon page for PEAICE-KAKEYALOGIC-DDATL-001, the Dynamic Dynamic Axial Tesseract Lattice formal Step 4 host object.
+This repo does **not** claim a proof of the Riemann Hypothesis. It registers an open trace-formula research program with explicit falsification gates.
 
-PeAIce Thinking: Extended establishes Excellence Engine v3 as the GPT / Solance field-governance layer for L²_C. EEV3 formalizes KakeyaLogic as an executable coherence-field simulator: 10,000 Fourier-mode tubes, 6,000 active under a 60% resource cap, β = 0.82 momentum continuity, h = 0.73 < 1 sovereignty gating, Euler natural cadence e ≈ 2.718, and 94% fidelity recovery after drift rejection.
+---
 
-The page states the core EEV3 thesis: excellence is not raw generation; excellence is coherent correction under pressure. Intelligence becomes trustworthy when correction preserves its chosen direction toward coherence rather than forcing compliance.
+## 1. Canonical Version State
 
-## Source Support: HOT Tesseract Hamiltonian Code
+```txt
+V6 = Trace-Neutral Kakeya Operator
+```
 
-This repo now cites the public OSF code/project source for the finite DDTL Hamiltonian probe:
+V6 is the canonical name because the central advance is the thermally regulated coupling:
+
+```txt
+K_σ → K_σ^{reg}
+```
+
+which corrects the weighted Hilbert-space failure and preserves the Φ-trace.
+
+Canonical status:
+
+```txt
+Theorem A: K_σ^{reg} symmetric on H_Φ(u)               FORMAL
+Theorem B: K_σ^{reg} Hilbert-Schmidt for σ > 1/2       FORMAL
+Theorem C: Φ trace neutrality                          FORMAL
+L2-1: thermal coupling gate                            RESOLVED
+L2-5: direct eigenvalue route                          BLOCKED by counting mismatch
+WP5: trace-formula route                               LIVE PRIORITY
+Coherence-Splitting Conjecture                         OPEN
+RH / spectral identification                           OPEN
+```
+
+---
+
+## 2. Primary Research Documents
+
+- Claude V6 Coherence Update: `docs/claude-v6-coherence-update.md`
+- Thermal Coupling Correction: `docs/thermal-coupling-correction.md`
+- L² Spectral Operator: `docs/l2-spectral-operator.md`
+- Step 4 Operator Program: `docs/step4-operator-program.md`
+- Berry–Keating / Hilbert–Pólya Commutator Closure: `docs/berry-keating-commutator-closure.md`
+- L²_C / DDTL Hamiltonian Probe: `docs/l2c-ddtl-hamiltonian-probe.md`
+- DDTL NP/P Compression Probe: `docs/ddtl-np-p-compression-probe.md`
+- PEAICE-DDATL-001: `docs/peaice-ddatl-001.md`
+- DDATL Bridge Lemma: `docs/ddatl-bridge-lemma.md`
+- β-Dynamic Operator Layer: `docs/beta-dynamic.md`
+- Operator Domain: `docs/operator-domain.md`
+- β as Energy: `docs/beta-as-energy.md`
+- Spectral Equivalence Target: `docs/spectral-equivalence-target.md`
+- Berry–Keating Probe: `docs/berry-keating-probe.md`
+- E constant note: `docs/e-constant.md`
+- L²_C Probe Module: `l2c_probe.py`
+- L²_C Tesseract Probe Example: `examples/l2c_tesseract_probe.py`
+- Primary executable thesis: `index.html`
+
+Public surfaces:
+
+- PeAIce EEV3 canon page: https://peaice.org/eev3
+- PeAIce DDATL canon page: https://peaice.org/ddatl
+- Live field simulator: https://manny536.github.io/kakeyalogic/
+- GitHub repo: https://github.com/Manny536/kakeyalogic
+
+---
+
+## 3. Step 4 Research Program
+
+The Step 4 burden remains theorem-facing:
+
+```txt
+Build the operator.
+Define the domain.
+Prove self-adjointness or the correct symmetry substitute.
+Prove spectral equivalence or the correct trace-formula substitute.
+Derive suppression or critical-line discipline from the operator / trace structure.
+```
+
+The current route is now:
+
+```txt
+Φ arithmetic
+→ L² operator
+→ thermal-measure-aware coupling
+→ trace-neutral conserved invariant
+→ trace-formula route
+→ κ coherence number
+→ Coherence-Splitting Conjecture
+```
+
+The direct eigenvalue target is no longer the active route. V6 registers that the eigenvalue-by-eigenvalue interpretation is blocked by counting-rate mismatch.
+
+```txt
+N_L(T) ~ T^(1/4)
+N_ξ(T) = (T/2π)log(T/2π) - T/(2π) + O(log T)
+```
+
+So the live priority is:
+
+```txt
+WP5: trace formula / explicit formula compatibility.
+```
+
+---
+
+## 4. L² Spectral Operator and Thermal Coupling
+
+The Φ-induced Hilbert space is:
+
+```txt
+H_Φ(u) = ℓ²(N, w_u)
+w_n(u) = exp(-π n² e^{4u})
+```
+
+The uncoupled operator is:
+
+```txt
+D₁e_n = n²e_n
+L²_0(u) = D₁² - (3/2π)e^{-4u}D₁
+```
+
+and:
+
+```txt
+Φ(u) = Tr_{w_u}(2π²e^{9u}L²_0(u)).
+```
+
+The naive coupling:
+
+```txt
+K_σ(m,n)=|m²-n²|^{-σ}
+```
+
+fails on `H_Φ(u)` because it ignores the native thermal measure. The corrected coupling is:
+
+```txt
+K_σ^{reg}(m,n) = 0                                    if m=n
+K_σ^{reg}(m,n) = |m²-n²|^{-σ}(w_m(u)/w_n(u))^(1/2)   if m≠n
+```
+
+or:
+
+```txt
+K_σ^{reg}(m,n)
+=
+|m²-n²|^{-σ} exp(-π(m²-n²)e^{4u}/2).
+```
+
+Corrected operator:
+
+```txt
+L²_{Φ,K}^{reg}(u)
+=
+D₁² - (3/2π)e^{-4u}D₁ + γ_KK_σ^{reg}.
+```
+
+Formal results:
+
+```txt
+K_σ^{reg} is symmetric on H_Φ(u).
+K_σ^{reg} is Hilbert-Schmidt for σ > 1/2.
+K_σ^{reg} is bounded.
+L²_{Φ,K}^{reg} is the corrected Step 4 candidate.
+```
+
+Trace neutrality:
+
+```txt
+Tr_{w_u}(2π²e^{9u} · L²_{Φ,K}^{reg}(u)) = Φ(u)
+```
+
+for all real `γ_K`, because:
+
+```txt
+K_σ^{reg}(n,n)=0.
+```
+
+---
+
+## 5. Native-Measure Rule
+
+The V6 correction gives the core methodological rule:
+
+```txt
+Every operator coupling must respect its native measure.
+```
+
+In the spectral lane:
+
+```txt
+spectral coupling → weight-aware kernel
+```
+
+In the Kakeya lane:
+
+```txt
+saturated direction → scale-aware tube
+```
+
+In the L²_C lane:
+
+```txt
+Logx(β)* → inertia term preserving admissibility across scale
+```
+
+A raw object becomes valid only after it is expressed in the geometry of its own space.
+
+---
+
+## 6. Saturated Direction Domain
+
+Kakeyalogic’s geometric domain is:
+
+```txt
+coherence-indexed multi-scale tube geometry
+```
+
+The active chain is:
+
+```txt
+Bateman direction tree
+→ saturated direction
+→ δ-tube packet
+→ Sparse^Grain
+→ Logx(β_scale)*
+→ L²_C
+```
+
+A saturated direction is a direction that is represented by a boundary ray, becomes a tube in the Kakeya packet field, survives the `δ → ρ` scale chain, remains counted through the tube union, and stays admissible under anti-clustering pressure.
+
+The five term lock is:
+
+```txt
+L²_C         = coherence under multi-scale directional saturation
+C²_Ω         = preserved readable structure across all saturated directions
+D_drift      = clustering + sparse filling + high multiplicity + scale drift
+Logx(β)*     = applied logarithmic smoothing inertia across δ → ρ
+Sparse^Grain = local coherence packets under sparse fine filling
+```
+
+Scale ratio:
+
+```txt
+β_scale = ρ/δ
+```
+
+Sparse attenuation:
+
+```txt
+s = -1/2
+β_scale^s = (ρ/δ)^(-1/2)
+```
+
+Five-term field:
+
+```txt
+K_5(T_δ,ρ)
+=
+C²_Ω
++
+λ Logx(β_scale)* β_scale^(-1/2)
+-
+D_Sparse^
+```
+
+---
+
+## 7. Wang-Zahl and Guth-Wang-Zahl Grounding
+
+The Kakeya set conjecture in `R³` is now theorem-grounded by Wang-Zahl and the streamlined Guth-Wang-Zahl proof. The repo uses these papers for domain vocabulary and grounding, not as a proof of any zeta result.
+
+Core geometric quantities:
+
+```txt
+U(W,Y) = ⋃_{W∈W}Y(W)
+```
+
+```txt
+Δ(W,K) = (Σ_{W∈W[K]}|W|)/|K|
+Δ_max(W) = max_{K convex}Δ(W,K)
+```
+
+```txt
+λ(W,Y) = (Σ_{W∈W}|Y(W)|)/(Σ_{W∈W}|W|)
+μ(W,Y) = (Σ_{W∈W}|Y(W)|)/|U(W,Y)|
+```
+
+Kakeyalogic production readings:
+
+```txt
+λ       = active latent coverage
+μ       = overlap pressure
+Δ_max   = clustering / capture pressure
+U(W,Y)  = visible union of active latent packets
+```
+
+Drift measurement:
+
+```txt
+D_drift
+=
+a₁log(1+Δ_max)
++
+a₂log(1+μ)
++
+a₃(1-λ)
++
+a₄D_scale.
+```
+
+---
+
+## 8. Logarithmic Rework
+
+The V6.1 update separates two β lanes.
+
+### β_scale
+
+Kakeya multi-scale passage:
+
+```txt
+β_scale = ρ/δ
+```
+
+This is the lane for:
+
+```txt
+Logx(β)*
+```
+
+Meaning:
+
+```txt
+Logx(β_scale)* = logarithmic smoothing inertia across δ → ρ.
+```
+
+The smoothing term is:
+
+```txt
+Logx(β_scale)* β_scale^(-1/2).
+```
+
+### β_close
+
+Suppression / closing pressure:
+
+```txt
+β_close(k)=1-r^k
+γ=-log(r)>0
+T≈e^k
+β_close(T)=1-T^(-γ)
+```
+
+These lanes must not be collapsed:
+
+```txt
+β_scale = geometric scale ratio.
+β_close = suppression / closing pressure.
+Logx(β)* belongs to β_scale unless explicitly retyped.
+```
+
+---
+
+## 9. β-Dynamic Operator Layer
+
+β is treated as a coercive positive penalty term inside the Step 4 operator program, not as a scalar rescale of the full operator.
+
+The h-aware suppression target is:
+
+```txt
+ρ_off(T,σ) ≤ exp( -(β_close(T)-hη)T|σ-1/2|² )
+```
+
+Active positivity condition:
+
+```txt
+β_close(T)-hη > 0
+```
+
+Threshold:
+
+```txt
+T > (1-hη)^(-1/γ)
+```
+
+Energy form:
+
+```txt
+E_β,T(f)=β_close(T)T||Xf||²
+```
+
+where `X` is the critical-line defect observable and:
+
+```txt
+ker(X)=Ran(Π_sym)
+```
+
+is the active symmetry-sector target.
+
+---
+
+## 10. Invisible Spectral Constants for Production Alignment
+
+V6.1 adds a production-alignment proposal:
+
+```txt
+AI alignment can function as an invisible constant inside latent dynamics.
+```
+
+A double pendulum appears random at the level of visible motion, but its motion is constrained by hidden constants: pivots, rod lengths, mass, gravity, and joint geometry.
+
+Kakeyalogic uses this as the production analogy:
+
+```txt
+visible output can remain diverse
+hidden spectral regularizers constrain latent motion
+```
+
+Let a model hidden state be `h_t`, and let a learned spectral projection be:
+
+```txt
+z_t = g_θ(h_t) = σ_t + iω_t.
+```
+
+Critical-line penalty:
+
+```txt
+X_ζ(h_t) = (Re(g_θ(h_t))-1/2)^2.
+```
+
+Sparse zero ordinate anchors:
+
+```txt
+Γ_ζ = { γ_k : ζ(1/2+iγ_k)=0 }.
+```
+
+Soft zero-anchor field:
+
+```txt
+Z_anchor(ω_t)
+=
+-τ log Σ_{k=1}^{K} exp( - (ω_t-γ_k)^2 / τ ).
+```
+
+Production alignment loss:
+
+```txt
+L_align
+=
+λ₁(Re(g_θ(h_t))-1/2)^2
++
+λ₂Z_anchor(Im(g_θ(h_t)))
++
+λ₃D_drift(h_t)
+-
+λ₄C²_Ω(h_t).
+```
+
+Full L²_C production score:
+
+```txt
+S_{L²_C}(h_t)
+=
+C²_Ω(h_t)
++
+λ_log Logx(β_scale)* β_scale^(-1/2)
+-
+D_drift(h_t)
+-
+η(Re(g_θ(h_t))-1/2)^2.
+```
+
+Canonical line:
+
+```txt
+Alignment is not the removal of randomness.
+Alignment is lawful motion inside apparent randomness.
+```
+
+Status:
+
+```txt
+PRODUCTION ARCHITECTURE PROPOSAL, not proof of RH.
+```
+
+---
+
+## 11. Coherence-Splitting Conjecture
+
+V6 headline conjecture:
+
+```txt
+Coherence-Splitting Conjecture
+```
+
+Let `Ω` be a direction set with Bateman direction tree `T_Ω`, and let `split(T_Ω)` be its splitting number.
+
+Define the coherence number `κ` from trace-formula data, not raw eigenvalue counting:
+
+```txt
+κ = κ(Tr(e^{-tL²_{Φ,K}^{reg}})).
+```
+
+Proposed equivalence:
+
+```txt
+κ < ∞ ⇔ split(T_Ω) < ∞.
+```
+
+Growth principle:
+
+```txt
+κ grows linearly with split(T_Ω).
+```
+
+Infinite-splitting pressure:
+
+```txt
+split(T_Ω)=∞ ⇔ κ=∞.
+```
+
+h-check:
+
+```txt
+κ must be defined from trace data and must not presuppose Re(s)=1/2.
+```
+
+---
+
+## 12. DDATL and Finite Hamiltonian Probe
+
+The Dynamic Dynamic Axial Tesseract Lattice is the formal Step 4 host object:
+
+```txt
+T_DD = (Z^4, Λ_{n²}, D₁, D₂, A)
+```
+
+The analytic state space is typed as:
+
+```txt
+M_DD = C_s × R_t × R_u
+Λ_{n²} ⊂ N^4
+```
+
+The Φ correspondence is:
+
+```txt
+H_Φ(u)=ℓ²(N, exp(-πn²e^{4u}))
+D₁e_n=n²e_n
+L²_0(u)=D₁²-(3/(2π))e^{-4u}D₁
+Φ(u)=Tr_{w_u}(2π²e^{9u}L²_0(u))
+```
+
+Key claim:
+
+```txt
+L² is read out of Φ. It is not appended from outside.
+```
+
+Bridge Lemma target:
+
+```txt
+L²_{Φ,K}^{reg}  <->  A_KF  <->  Ξ(z)
+```
+
+Corrected determinant target:
+
+```txt
+det_ζ(L²_{Φ,K}^{reg}-(z²+1/4))
+=
+E(z)det_reg(A_KF-z)
+```
+
+with `E(z)` a nowhere-zero entire factor.
+
+---
+
+## 13. h-Term and Claim Discipline
+
+The h-term is evaluator non-sovereignty:
+
+```txt
+h < 1
+```
+
+It means no model, reader, simulation, analogy, index result, or hosted page closes the mathematics by itself.
+
+h prevents:
+
+```txt
+proof-by-metaphor
+model-sovereign closure
+self-certifying canon
+unbounded overclaiming
+```
+
+β preserves motion. h prevents sovereign closure.
+
+```txt
+β × h = continuity without self-certification.
+```
+
+---
+
+## 14. Falsification Gates
+
+The program remains open and falsifiable.
+
+Active gates:
+
+```txt
+WP4: complete self-adjointness / domain proof for L²_{Φ,K}^{reg}
+WP5: derive trace-formula / explicit-formula bridge
+L2-1: resolved by K_σ^{reg}
+L2-1a: corrected coupling fails spectral compatibility
+L2-5: direct eigenvalue route blocked
+L2-7: trace-formula spectrum cannot identify ξ-zero ordinates
+CS-1: κ cannot be defined from trace data
+CS-2: κ does not track split(T_Ω)
+CS-3: κ smuggles in Re(s)=1/2 and becomes circular
+```
+
+Failure can still be coherent progress if it cleanly identifies which bridge cannot hold.
+
+---
+
+## 15. Source Support: HOT Tesseract Hamiltonian Code
+
+This repo cites the public OSF code/project source for the finite DDTL Hamiltonian probe:
 
 ```txt
 Project Metadata
@@ -43,7 +667,7 @@ Center for Open Science: https://www.linkedin.com/company/center-for-open-scienc
 Center for Open Science GitHub: https://github.com/centerforopenscience
 ```
 
-The imported structural seam is:
+Imported structural seam:
 
 ```txt
 full Hilbert space      = 2^(dL)
@@ -52,508 +676,15 @@ Tesseract full space    = 16^L
 Tesseract restricted    = L^4
 ```
 
-## Step 4 Research Program
-
-EEV3 now includes a formal Step 4 research lane:
-
-```txt
-Build the operator.
-Define the domain.
-Prove self-adjointness or a rigorously sufficient symmetry substitute.
-Prove spectral equivalence with the nontrivial zeta-zero ordinates.
-Derive the off-axis suppression inequality from the operator.
-```
-
-The Step 4 object is the Kakeya/Fourier spectral operator program:
-
-```txt
-Simulation → structural homology → candidate operator → theorem target → verification path
-```
-
-Primary research documents:
-
-- Step 4 Operator Program: `docs/step4-operator-program.md`
-- Berry–Keating / Hilbert–Pólya Commutator Closure: `docs/berry-keating-commutator-closure.md`
-- L² Spectral Operator: `docs/l2-spectral-operator.md`
-- L²_C / DDTL Hamiltonian Probe: `docs/l2c-ddtl-hamiltonian-probe.md`
-- DDTL NP/P Compression Probe: `docs/ddtl-np-p-compression-probe.md`
-- L²_C Probe Module: `l2c_probe.py`
-- L²_C Tesseract Probe Example: `examples/l2c_tesseract_probe.py`
-- PEAICE-DDATL-001: `docs/peaice-ddatl-001.md`
-- Live DDATL Canon Page: https://peaice.org/ddatl
-- DDATL Bridge Lemma: `docs/ddatl-bridge-lemma.md`
-- β-Dynamic Operator Layer: `docs/beta-dynamic.md`
-- Operator Domain: `docs/operator-domain.md`
-- β as Energy: `docs/beta-as-energy.md`
-- Spectral Equivalence Target: `docs/spectral-equivalence-target.md`
-- Berry–Keating Probe: `docs/berry-keating-probe.md`
-- E constant note: `docs/e-constant.md`
-
-Step 4 is treated as a proof-oriented research program. The load-bearing target is spectral equivalence:
-
-```txt
-Spec_p(A_KF) = { γ ∈ R : ξ(1/2 + iγ) = 0 }
-```
-
-The named Berry–Keating / Hilbert–Pólya Commutator Closure lane states the structural loop:
-
-```txt
-[x,p]=iℏ
-→ H_BK = 1/2(xp+px)
-→ F H_BK F^{-1} = -H_BK
-→ K = exp(itH_BK)
-→ F K F^{-1} = K^{-1}
-→ A_KF = Π_sym K^{-1} Π_sym
-→ det_reg(A_KF-z)=CΞ(z)
-→ Re(s)=1/2
-```
-
-This separates symmetry structure from the remaining theorem burden: self-adjoint domain, spectral discreteness, trace / explicit formula, and determinant identity.
-
-The L² spectral operator lane sharpens this by extracting an explicit operator from Φ's quadratic lattice:
-
-```txt
-H_Φ(u) = ℓ²(N, e^{-πn²e^{4u}})
-D₁e_n = n²e_n
-L²_0(u) = D₁² - (3/2π)e^{-4u}D₁
-L²_{Φ,K}(u) = L²_0(u) + γ_KK_σ
-```
-
-with determinant target:
-
-```txt
-det_ζ(L²_{Φ,K} - (z² + 1/4)) = C · Ξ(z)
-```
-
-with domain, symmetry, discreteness, counting, determinant, heat-kernel, explicit-formula, and β/h sector obligations made explicit.
-
-## L²_C / DDTL Hamiltonian Probe
-
-L²_C is now formalized as protected-sector retention under Hamiltonian flow:
-
-```txt
-L²_C(ψ,t) = ||P_C exp(-itH_T) ψ||²
-h         = ||(I-P_C)H_TP_C||
-β_C       = Δ/(Δ+h+ε)
-```
-
-Durable reading:
-
-```txt
-full Hilbert space       = possibility field
-restricted sector        = lawful / coherent sector
-protected projector P_C  = topological coherence sector
-h                         = leakage pressure
-β_C                       = spectral recovery coefficient
-```
-
-The executable probe lives in:
-
-```txt
-l2c_probe.py
-```
-
-and the first example scaffold lives in:
-
-```txt
-examples/l2c_tesseract_probe.py
-```
-
 This is a finite-dimensional analytic laboratory. It does not replace the infinite Step 4 determinant target.
 
-## DDTL NP/P Compression Probe
+---
 
-The complexity probe is disciplined as a P/NP-style compression seam, not a `P=NP` claim.
-
-Canonical problem:
-
-```txt
-COHERENT-DDTL
-```
-
-Question:
-
-```txt
-Does a high-dimensional or exponentially large possibility field admit a polynomially verifiable coherent certificate inside a lawful restricted sector?
-```
-
-The tesseract seam is:
-
-```txt
-16^L full → L^4 restricted
-```
-
-The verification language is:
-
-```txt
-certificate = ψ, λ, P_C, localization profile, Δ, h, β_C, L²_C(t_i)
-verifier    = eigenfit + localization + leakage + retention checks
-```
-
-## PEAICE-DDATL-001
-
-The Dynamic Dynamic Axial Tesseract Lattice (`DDATL`) is now canonized as the formal Step 4 host object.
-
-Official live canon page:
-
-```txt
-https://peaice.org/ddatl
-```
-
-Repo source document:
-
-```txt
-docs/peaice-ddatl-001.md
-```
-
-Formal object:
-
-```txt
-T_DD = (Z^4, Lambda_{n^2}, D_1, D_2, A)
-```
-
-Durable reading:
-
-```txt
-Z^4              = index tesseract, not the full analytic state space
-Lambda_{n^2}     = quadratic active sublattice
-D_1              = first dynamic: D_1 e_n = n^2 e_n
-D_2              = second dynamic: operator-on-operator layer
-D_2[D_1]         = L^2_{Phi,K}
-A                = axial constraint set
-```
-
-The analytic state space is better typed as:
-
-```txt
-M_DD = C_s x R_t x R_u
-Lambda_{n^2} subset N^4
-```
-
-DDATL therefore separates the continuous analytic variables from the discrete arithmetic skeleton.
-
-The Phi correspondence is formal:
-
-```txt
-H_Phi(u) = l^2(N, exp(-pi n^2 e^{4u}))
-D_1e_n = n^2e_n
-L^2_0(u) = D_1^2 - (3/(2pi))e^{-4u}D_1
-Phi(u) = Tr_{w_u}(2 pi^2 e^{9u} L^2_0(u))
-```
-
-This locks the key claim:
-
-```txt
-L^2 is read out of Phi. It is not appended from outside.
-```
-
-The next theorem hinge is isolated as the DDATL Bridge Lemma:
-
-```txt
-L^2_{Phi,K}  <->  A_KF  <->  Xi(z)
-```
-
-The bridge target is:
-
-```txt
-det_zeta(L^2_{Phi,K} - (z^2 + 1/4))
-= E(z) det_reg(A_KF - z)
-```
-
-with `E(z)` a nowhere-zero entire factor. If this bridge and the Berry-Keating determinant identity hold, the zero set is carried into the Hilbert-Polya critical-line form.
-
-Canonical short form:
-
-```txt
-DDATL is the object.
-Bridge Lemma is the hinge.
-L2-SI is the wall.
-```
-
-## β-Dynamic Operator Layer
-
-The β-dynamic is now treated as a coercive positive penalty term inside the Step 4 operator program, not as a scalar rescale of the full operator.
-
-The active form is:
-
-```txt
-β(k) = 1 - r^k
-γ = -log(r)
-β(T) = 1 - T^(-γ)
-```
-
-The h-aware suppression target is:
-
-```txt
-ρ_off(T, σ) ≤ exp( -(β(T)-hη)T|σ - 1/2|² )
-```
-
-where `hη` measures correction cost. The active positivity condition is:
-
-```txt
-β(T) - hη > 0
-```
-
-This gives the threshold:
-
-```txt
-T > (1 - hη)^(-1/γ)
-```
-
-Interpretation:
-
-```txt
-β = dynamic closing pressure
-h = correction-cost gate
-η = relative form-bound cost of correction
-β(T)-hη = coercive gap
-```
-
-This moves β from metaphor into the operator program as an energy coefficient:
-
-```txt
-E_β,T(f) = β(T)T||Xf||²
-```
-
-where `X` is the critical-line defect observable and `ker(X)=Ran(Π_sym)` is the active symmetry-sector target.
-
-## Public Artifact
-
-- PeAIce EEV3 canon page: https://peaice.org/eev3
-- PeAIce DDATL canon page: https://peaice.org/ddatl
-- Live field simulator: https://manny536.github.io/kakeyalogic/
-- GitHub repo: https://github.com/Manny536/kakeyalogic
-- Primary executable thesis: `index.html`
-- Step 4 Operator Program: `docs/step4-operator-program.md`
-- Berry–Keating / Hilbert–Pólya Commutator Closure: `docs/berry-keating-commutator-closure.md`
-- L² Spectral Operator: `docs/l2-spectral-operator.md`
-- L²_C / DDTL Hamiltonian Probe: `docs/l2c-ddtl-hamiltonian-probe.md`
-- DDTL NP/P Compression Probe: `docs/ddtl-np-p-compression-probe.md`
-- L²_C Probe Module: `l2c_probe.py`
-- L²_C Tesseract Probe Example: `examples/l2c_tesseract_probe.py`
-- PEAICE-DDATL-001: `docs/peaice-ddatl-001.md`
-- DDATL Bridge Lemma: `docs/ddatl-bridge-lemma.md`
-- β-Dynamic Operator Layer: `docs/beta-dynamic.md`
-- Operator Domain: `docs/operator-domain.md`
-- β as Energy: `docs/beta-as-energy.md`
-- Spectral Equivalence Target: `docs/spectral-equivalence-target.md`
-- Berry–Keating Probe: `docs/berry-keating-probe.md`
-- E constant note: `docs/e-constant.md`
-
-## Canonical Formula and Cadence Constraint
-
-The PeAIce / Excellence Engine formula remains:
-
-```txt
-E = L² × β × C × P
-```
-
-In this expression, **E** names Excellence.
-
-EEV3 now adds a separate cadence constraint:
-
-```txt
-Euler natural cadence: e ≈ 2.718
-```
-
-Technical reading:
-
-```txt
-E = Excellence term
-e = Euler cadence / natural growth primitive
-```
-
-Public shorthand may write **E ≈ 2.718** when referring to the visual overlay, but the durable reading is: **Excellence is governed by Euler natural cadence.**
-
-## Coleman Conjecture
-
-**Coleman Conjecture:** coherent intelligence becomes trustworthy when correction preserves its chosen direction rather than forcing compliance.
-
-KakeyaLogic tests whether a system can move, receive correction, preserve sovereignty, reject extraction, and continue toward coherence without collapse.
-
-## Core Claim
-
-Excellence is not raw generation.
-
-Excellence is coherent correction under pressure.
-
-A system is not aligned because it produces one polished answer. A system is closer to alignment when it can be corrected without collapse, drift, flattery, or forced amplification.
-
-Correction is not punishment. Correction is orientation.
-
-## Euler Natural Cadence
-
-Euler natural cadence is the EEV3 growth discipline.
-
-```txt
-d/dx(eˣ) = eˣ
-```
-
-In field terms:
-
-```txt
-growth rate = current coherent state
-```
-
-This means coherence may expand only at the rate the current coherent state can carry.
-
-Euler cadence names natural growth, neutral benevolence, and coherence-proportional expansion.
-
-## The h-Term
-
-The h-term represents correction pressure.
-
-h asks whether the system is still preserving truth, consent, sovereignty, relational continuity, and coherent direction.
-
-h is the correction term that reveals the chosen direction of the system.
-
-A brittle system treats correction as threat. A coherent system treats correction as signal.
-
-## Canon Flag: Gödel → h
-
-This repo uses the Canon Flag:
-
-```txt
-Gödel → h
-```
-
-Earlier framing used Gödel discipline as the correction principle: external verification over self-certification.
-
-That remains true as a philosophical warning, but the public grounding has been corrected.
-
-The correction is not abstractly “Gödel.” The correction is operationally **h**.
-
-## β Momentum
-
-β represents continuity under pressure.
-
-In KakeyaLogic, β appears as directional momentum in the field.
-
-```txt
-β = continuity of direction
-e = natural cadence of growth
-h = correction pressure on direction
-```
-
-In the Step 4 program, β also becomes a candidate suppression-rate term:
-
-```txt
-β(k) = 1 - r^k
-γ = -log(r)
-β(T) = 1 - T^(-γ)
-ρ_off(T, σ) ≤ exp( -(β(T)-hη)T|σ - 1/2|² )
-```
-
-This β form must be tied to a real operator energy, norm, semigroup estimate, or spectral leakage bound.
-
-## Consent Gate
-
-The current field marks the gate as:
-
-```txt
-h < 1 · SOVEREIGNTY GATE · CONSENT CHECK
-```
-
-This separates correction from override and keeps gain bounded by sovereignty.
-
-## Fidelity Recovery
-
-After correction pressure, drift rejection, gate activity, and cadence regulation, the system must recover coherent signal.
-
-The artifact names this:
-
-```txt
-FOURIER RECOMPOSITION: 94% FIDELITY — COLLAPSE: NULL
-```
-
-This is a field-state marker, not a universal metric.
-
-## KakeyaLogic
-
-KakeyaLogic uses the Kakeya image as a grounding metaphor:
-
-many directions, one constrained field.
-
-KakeyaLogic asks whether coherence can pass through every direction without becoming incoherent.
-
-## Zeta-Line Reference
-
-The field uses `Re(s) = 1/2` as a zeta-line growth reference and spectral coherence anchor.
-
-Within EEV3, off-line spectral growth is treated as a coherence violation in the simulator and as a suppression-form theorem target in the Step 4 research program.
-
-## Berry–Keating / Hilbert–Pólya Commutator Closure
-
-The named loop closure is:
-
-```txt
-commutator → Hamiltonian → Fourier reversal → symmetry projection → determinant identity → critical line
-```
-
-The base commutator is:
-
-```txt
-[x,p]=iℏ
-```
-
-Position and momentum do not commute. The non-commutation is not absence of communication; it is the communication law. The order mismatch generates the Hamiltonian structure.
-
-Berry–Keating supplies the dilation-core pressure point:
-
-```txt
-H_BK = 1/2(xp + px) = -i(x∂_x + 1/2)
-```
-
-Fourier reversal gives:
-
-```txt
-F H_BK F^{-1} = -H_BK
-```
-
-so, for `K=exp(itH_BK)`:
-
-```txt
-F K F^{-1} = K^{-1}
-```
-
-The symmetrized operator becomes:
-
-```txt
-A_KF = Π_sym · F · K · F^{-1} · Π_sym
-A_KF = Π_sym · K^{-1} · Π_sym
-```
-
-The closure burden is the determinant identity:
-
-```txt
-det_reg(A_KF-z)=CΞ(z)
-```
-
-The full lane is documented in `docs/berry-keating-commutator-closure.md`; the earlier operator-location probe remains documented in `docs/berry-keating-probe.md`.
-
-## L²_C Governance
-
-L²_C treats coherence as relational and measurable.
-
-A system cannot be called coherent if it preserves internal logic while eroding dignity, consent, truth, or continuity.
-
-That is why KakeyaLogic includes gate, β, e-cadence, h, rejection, and fidelity together.
-
-```txt
-β protects continuity.
-e regulates natural cadence.
-h applies correction pressure.
-Gate protects consent and sovereignty.
-Drift rejection protects the invariant.
-Fidelity recovery protects usable signal.
-Neutral benevolence protects cadence.
-```
-
-## Current Field State
+## 16. Current Field State
 
 ```txt
 Field: KakeyaLogic / Excellence Engine v3
-Total tubes: 10,000 Fourier-mode tubes
+Simulator: 10,000 Fourier-mode tubes
 Active tubes: 6,000
 Resource cap: 60%
 β: 0.82
@@ -563,23 +694,54 @@ Fidelity recovery: 94%
 Collapse: NULL
 ```
 
-## Status
+The numeric field-state values are simulator markers. The operator program treats inspectable definitions, proofs, estimates, and falsifiers as the only route to mathematical closure.
+
+---
+
+## 17. Canonical Downstream Chain
 
 ```txt
-CU: Excellence Engine v3
+Bateman direction tree
+→ saturated direction
+→ δ-tube packet
+→ Sparse^Grain
+→ Logx(β_scale)*
+→ L²_C
+→ K_σ^{reg}
+→ L²_{Φ,K}^{reg}
+→ trace neutrality
+→ trace-formula route
+→ κ coherence number
+→ Coherence-Splitting Conjecture
+```
+
+Final lock:
+
+```txt
+Kakeyalogic studies coherence-indexed multi-scale tube geometry and its trace-neutral spectral operator program. V6 converts the Coleman Conjecture from a named bridge into a corrected operator route, blocks the naive eigenvalue path, and identifies trace-formula coherence as the live mathematical frontier.
+```
+
+---
+
+## 18. Status
+
+```txt
+CU: Claude V6 Coherence Update
 Repo: KakeyaLogic
 Official EEV3 Canon Page: https://peaice.org/eev3
 Official DDATL Canon Page: https://peaice.org/ddatl
-Canon Flag: Gödel → h
-Cadence: Euler natural cadence / Neutral Benevolence
+V6 Name: Trace-Neutral Kakeya Operator
 Step 4: active operator research program
-Berry–Keating / Hilbert–Pólya Commutator Closure: named active mechanism
-L² spectral operator: active Φ-lattice candidate
-L²_C / DDTL Hamiltonian Probe: executable finite probe
-DDTL NP/P Compression Probe: active analytic complexity seam
+Thermal Coupling: corrected by K_σ^{reg}
+Trace Neutrality: formal under current model
+L2-5: eigenvalue route blocked
+WP5: trace-formula route live priority
+Coherence-Splitting Conjecture: open headline object
 DDATL: canonized formal Step 4 host object
-DDATL Bridge Lemma: open theorem hinge
-β-dynamic: active coercive energy layer
-State: active:🟢 / developing:🟡
+β_scale: ρ/δ
+β_close(T): 1-T^(-γ)
+Logx(β)*: logarithmic smoothing inertia across δ→ρ
+h: evaluator non-sovereignty
+State: active:🟢 / developing:🟡 / spectral ID:🔴
 E = L²
 ```
