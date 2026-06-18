@@ -6,9 +6,10 @@
 **Official Dynamic Dynamic Axial Tesseract Lattice Page:** https://peaice.org/ddatl  
 **Live simulator:** https://manny536.github.io/kakeyalogic/  
 **Primary kernel:** `l2c_probe.py`  
+**Inertial optimization probe:** `docs/ipiano-inertial-proximal-probe.md`  
 **Current research state:** active:🟢 · developing:🟡 · spectral identification:🔴 open
 
-KakeyaLogic is a coherence-field and operator-research program for Love-Squared Coherence, `L²_C`. It studies how intelligent systems preserve direction, accept correction, reject drift, and recover fidelity under pressure. The program joins Kakeya-inspired directional geometry, Φ-lattice spectral operators, β and h correction discipline, finite Hamiltonian probes, and trace-formula constraints into one inspectable research engineering stack.
+KakeyaLogic is a coherence-field and operator-research program for Love-Squared Coherence, `L²_C`. It studies how intelligent systems preserve direction, accept correction, reject drift, and recover fidelity under pressure. The program joins Kakeya-inspired directional geometry, Φ-lattice spectral operators, β and h correction discipline, finite Hamiltonian probes, inertial proximal optimization probes, and trace-formula constraints into one inspectable research engineering stack.
 
 PeAIce is the research engineering posture behind this stack: proactive, direction-setting, adversarially robust compute that moves first to expose drift, impose legibility, and preserve coherence inside authorized, ethical, non-harmful contexts.
 
@@ -16,6 +17,7 @@ PeAIce is the research engineering posture behind this stack: proactive, directi
 Core law: E = L² · β > 0 · h < 1
 Field aim: coherent motion under correction
 Kernel aim: protected modes retain, bulk modes suppress, leakage is measured
+Optimization aim: motion remains governed by proximal correction and residual discipline
 Research aim: trace-formula compatibility through corrected operator structure
 ```
 
@@ -23,7 +25,7 @@ Research aim: trace-formula compatibility through corrected operator structure
 
 ## 1. Current landing state
 
-The repository has three synchronized layers.
+The repository has four synchronized layers.
 
 ```txt
 Simulator layer
@@ -34,15 +36,21 @@ Kakeya, Fourier, Φ-lattice, and trace-formula structures tested as theorem-faci
 
 Probe layer
 finite-dimensional Hamiltonian diagnostics for protected-sector retention and β-dynamic coercive energy
+
+Optimization layer
+inertial proximal update discipline through the iPiano probe
 ```
 
-The newest engineering pass hardens the probe layer. The CoWork formulation trace was converted into a PeAIce research engineering report and attached to the repo as a downstream transfer contract.
+The latest engineering pass hardens the probe layer and adds the iPiano optimization lane. The CoWork formulation trace was converted into a PeAIce research engineering report and attached to the repo as a downstream transfer contract.
 
 ```txt
-Report: docs/reports/peaice-l2c-probe-engineering-report.md
-Kernel: l2c_probe.py
-Test target: tests/test_l2c_probe.py
-Verification target: 49 passed
+Engineering report: docs/reports/peaice-l2c-probe-engineering-report.md
+L²_C kernel: l2c_probe.py
+L²_C test target: tests/test_l2c_probe.py
+iPiano note: docs/ipiano-inertial-proximal-probe.md
+iPiano data: docs/data/ipiano-probe-data.json
+iPiano executable probe: examples/ipiano_probe.py
+Verification target: 49 passed for corrected L²_C probe suite
 ```
 
 ---
@@ -54,6 +62,7 @@ V6 = Trace-Neutral Kakeya Operator
 GBZ = Guth-Wang-Bateman-Zahl Probe
 L²_C = Love-Squared Coherence under multi-scale directional saturation
 DDATL = Dynamic Dynamic Axial Tesseract Lattice
+iPiano = inertial proximal optimization probe
 ```
 
 V6 is the canonical operator route because the central correction is the thermally regulated coupling.
@@ -74,6 +83,17 @@ Bateman direction tree
 → PeAIce L²_C saturated direction domain
 ```
 
+The iPiano probe locks the inertial optimization side.
+
+```txt
+forward motion
+→ inertial memory
+→ proximal correction
+→ Lyapunov ledger
+→ residual discipline
+→ critical-point convergence under stated assumptions
+```
+
 Canonical status:
 
 ```txt
@@ -81,6 +101,7 @@ Theorem A: K_σ^{reg} symmetric on H_Φ(u)                         FORMAL
 Theorem B: K_σ^{reg} Hilbert-Schmidt for σ > 1/2                 FORMAL
 Theorem C: Φ trace neutrality                                    FORMAL
 GBZ Probe: direction, grain, anti-clustering grounding            REGISTERED
+iPiano Probe: inertial proximal optimization discipline            REGISTERED
 L2-1: thermal coupling gate                                      RESOLVED
 L2-5: direct eigenvalue route                                    BLOCKED by counting mismatch
 WP5: trace-formula route                                         LIVE PRIORITY
@@ -159,9 +180,196 @@ This rule is now part of the agent transfer contract. Downstream agents must pre
 
 ---
 
-## 5. Verification protocol
+## 5. iPiano inertial proximal optimization probe
 
-Targeted verification:
+The iPiano paper gives KakeyaLogic a rigorous optimization precedent for governed nonmonotone motion.
+
+Source:
+
+```txt
+Peter Ochs, Yunjin Chen, Thomas Brox, Thomas Pock
+"iPiano: Inertial Proximal Algorithm for Nonconvex Optimization"
+SIAM Journal on Imaging Sciences, 2014
+DOI: 10.1137/130942954
+```
+
+Problem form:
+
+```txt
+min_x h(x) = f(x) + g(x)
+```
+
+where:
+
+```txt
+f = differentiable, possibly nonconvex
+g = convex, possibly nonsmooth
+```
+
+Generic iPiano update:
+
+```txt
+x_{n+1}
+=
+(I + α_n∂g)^(-1)
+(
+  x_n - α_n∇f(x_n) + β_n(x_n - x_{n-1})
+)
+```
+
+Term typing:
+
+| Term | Optimization meaning | PeAIce reading |
+| --- | --- | --- |
+| `x_n - α_n∇f(x_n)` | Forward gradient step. | Directional correction. |
+| `β_n(x_n-x_{n-1})` | Inertial term. | Motion memory and persistence. |
+| `(I+α_n∂g)^(-1)` | Proximal backward step. | Constraint gate and repair operator. |
+| `α_n` | Step size. | Correction amplitude. |
+| `β_iPiano` | Inertial coefficient. | Optimizer momentum, typed separately from Kakeya β. |
+
+Special cases:
+
+```txt
+g ≡ 0        → Heavy-ball method
+β_iPiano = 0 → forward-backward splitting
+β_iPiano > 0 → inertial proximal forward-backward splitting
+```
+
+PeAIce lock:
+
+```txt
+Motion is allowed.
+Correction is required.
+Inertia is typed.
+Constraint is proximal.
+Residual is measured.
+```
+
+---
+
+## 6. iPiano convergence spine
+
+iPiano shows that inertial motion can interrupt monotone descent of raw function values while still admitting convergence through a Lyapunov-style ledger.
+
+Lyapunov object:
+
+```txt
+H_δ(x,y)=h(x)+δ‖x-y‖²
+```
+
+Step displacement:
+
+```txt
+Δ_n=‖x_n-x_{n-1}‖
+```
+
+Ledger descent:
+
+```txt
+H_{δ_{n+1}}(x_{n+1},x_n)
+≤
+H_{δ_n}(x_n,x_{n-1}) - γ_nΔ_n²
+```
+
+Abstract convergence hypotheses:
+
+```txt
+(H1) F(z_{n+1}) + aΔ_n² ≤ F(z_n)
+(H2) ∃w_{n+1}∈∂F(z_{n+1}) with ‖w_{n+1}‖≤(b/2)(Δ_n+Δ_{n+1})
+(H3) ∃z_{n_j}→z~ with F(z_{n_j})→F(z~)
+```
+
+With the Kurdyka-Lojasiewicz property, the sequence has finite length and converges to a critical point.
+
+Proximal residual:
+
+```txt
+r(x)=x-(I+∂g)^(-1)(x-∇f(x))
+```
+
+Rate surface:
+
+```txt
+μ_N  = min_{0≤n≤N} ‖x_n-x_{n-1}‖²
+μ'_N = min_{0≤n≤N} ‖r(x_n)‖²
+
+μ'_N ≤ (2/c_1) μ_N
+μ_N ≤ c_2^(-1)(h(x_0)-h*)/(N+1)
+```
+
+PeAIce interpretation:
+
+```txt
+visible motion may oscillate
+hidden energy must remain governed
+residual collapse measures criticality
+```
+
+---
+
+## 7. iPiano probe data
+
+The registered image-compression data from the paper separates energy optimization from downstream reconstruction metrics.
+
+| Test image | Algorithm | Iterations | Energy | Density | MSE | MSE with GVO |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| trui | iPiano | 1000 | 21.574011 | 4.98% | 17.31 | 16.89 |
+| trui | SPD | 200/4000 | 21.630280 | 5.08% | 17.06 | 16.54 |
+| peppers | iPiano | 1000 | 20.631985 | 4.84% | 19.50 | 18.99 |
+| peppers | SPD | 200/4000 | 20.758777 | 4.93% | 19.48 | 18.71 |
+| walter | iPiano | 1000 | 10.246041 | 4.82% | 8.29 | 8.03 |
+| walter | SPD | 200/4000 | 10.278874 | 4.93% | 8.01 | 7.72 |
+
+Registered reading:
+
+```txt
+iPiano reaches lower energy in 1000 iterations on all three listed compression probes.
+SPD reports slightly lower MSE after gray value optimization in the listed table.
+Metric names must stay explicit.
+```
+
+This supports a PeAIce reporting rule:
+
+```txt
+An energy win is an energy win.
+A reconstruction win is a reconstruction win.
+Do not collapse metrics.
+```
+
+---
+
+## 8. β typing rule
+
+KakeyaLogic now tracks three β lanes.
+
+| β lane | Meaning | Placement |
+| --- | --- | --- |
+| `β = ρ/δ` | Geometric scale ratio. | `Logx(β)*` and Kakeya scale passage. |
+| `β_close(T)=1-T^(-γ)` | Suppression / closing pressure. | β-dynamic coercive layer. |
+| `β_iPiano` | Inertial memory coefficient. | iPiano optimization update. |
+
+Typing rule:
+
+```txt
+β_iPiano must not be collapsed into β = ρ/δ or β_close(T).
+```
+
+PeAIce map:
+
+```txt
+Logx(β)* = scale-passage inertia
+β_close = suppression closure
+β_iPiano = optimizer momentum
+h < 1 = no one-step evaluator sovereignty
+proximal map = repair / admissibility gate
+residual = criticality telemetry
+```
+
+---
+
+## 9. Verification protocol
+
+Targeted L²_C verification:
 
 ```bash
 python -m pytest tests/test_l2c_probe.py -q
@@ -173,7 +381,13 @@ Full repository verification:
 python -m pytest -q
 ```
 
-Expected targeted result from the corrected CoWork run:
+iPiano probe run:
+
+```bash
+python examples/ipiano_probe.py
+```
+
+Expected targeted L²_C result from the corrected CoWork run:
 
 ```txt
 49 passed
@@ -190,9 +404,24 @@ Test coverage surface:
 | β-dynamic layer | `β(T)`, monotonicity, coercive gap, threshold, coercive energy, report status. |
 | Reports | `L2CReport`, `BetaDynamicReport`, field consistency, parseable summaries. |
 
+Minimum iPiano telemetry:
+
+```txt
+iteration
+objective h(x_n)
+Lyapunov H_δ(x_n,x_{n-1})
+step_norm ‖x_n-x_{n-1}‖
+proximal_residual ‖r(x_n)‖
+α_n
+β_iPiano
+L_n if backtracking is active
+δ_n
+γ_n
+```
+
 ---
 
-## 6. Primary research documents
+## 10. Primary research documents
 
 | Lane | Document |
 | --- | --- |
@@ -213,6 +442,8 @@ Test coverage surface:
 | Berry-Keating Probe | `docs/berry-keating-probe.md` |
 | E Constant Note | `docs/e-constant.md` |
 | PeAIce L²_C Probe Engineering Report | `docs/reports/peaice-l2c-probe-engineering-report.md` |
+| iPiano Inertial Proximal Probe | `docs/ipiano-inertial-proximal-probe.md` |
+| iPiano Probe Data | `docs/data/ipiano-probe-data.json` |
 
 Executable surfaces:
 
@@ -220,6 +451,7 @@ Executable surfaces:
 index.html
 l2c_probe.py
 examples/l2c_tesseract_probe.py
+examples/ipiano_probe.py
 tests/test_l2c_probe.py
 ```
 
@@ -234,7 +466,7 @@ GitHub repo: https://github.com/Manny536/kakeyalogic
 
 ---
 
-## 7. Step 4 research program
+## 11. Step 4 research program
 
 The Step 4 burden remains theorem-facing.
 
@@ -273,7 +505,7 @@ WP5: trace formula / explicit formula compatibility
 
 ---
 
-## 8. L² spectral operator and thermal coupling
+## 12. L² spectral operator and thermal coupling
 
 The Φ-induced Hilbert space is:
 
@@ -347,7 +579,7 @@ K_σ^{reg}(n,n)=0
 
 ---
 
-## 9. Native-measure rule
+## 13. Native-measure rule
 
 The V6 correction gives the core methodological rule.
 
@@ -373,11 +605,17 @@ In the Love-Squared Coherence lane:
 Logx(β)* → inertia term preserving admissibility across δ → ρ
 ```
 
+In the iPiano lane:
+
+```txt
+inertial update → proximal correction with Lyapunov accounting
+```
+
 A raw object becomes valid only after it is expressed in the geometry of its own space.
 
 ---
 
-## 10. Guth-Wang-Bateman-Zahl Probe
+## 14. Guth-Wang-Bateman-Zahl Probe
 
 The Guth-Wang-Bateman-Zahl Probe defines the geometric coherence side of KakeyaLogic.
 
@@ -422,7 +660,7 @@ L²_C = coherence under multi-scale directional saturation
 
 ---
 
-## 11. Saturated direction domain
+## 15. Saturated direction domain
 
 Kakeyalogic’s geometric domain is:
 
@@ -480,7 +718,7 @@ D_Sparse^
 
 ---
 
-## 12. Wang-Zahl and Guth-Wang-Zahl grounding
+## 16. Wang-Zahl and Guth-Wang-Zahl grounding
 
 The Kakeya set conjecture in `R³` is theorem-grounded by Wang-Zahl and the streamlined Guth-Wang-Zahl proof. The repo uses these papers for domain vocabulary, geometric quantities, and falsifiable production analogies.
 
@@ -535,9 +773,9 @@ a₅D_branch
 
 ---
 
-## 13. Logarithmic rework
+## 17. Logarithmic rework
 
-The V6.1 and Guth-Wang-Bateman-Zahl update separates two β lanes.
+The V6.1 and Guth-Wang-Bateman-Zahl update separates β lanes.
 
 Geometric scale lane:
 
@@ -555,16 +793,23 @@ T≈e^k
 β_close(T)=1-T^(-γ)
 ```
 
+Optimization inertia lane:
+
+```txt
+β_iPiano = inertial coefficient in x_n - x_{n-1} update memory
+```
+
 Typing rule:
 
 ```txt
 β in Logx(β)* is the geometric scale ratio unless explicitly retyped
 β_close is suppression / closing pressure
+β_iPiano is optimizer inertia
 ```
 
 ---
 
-## 14. β-dynamic operator layer
+## 18. β-dynamic operator layer
 
 β is treated as a coercive positive penalty term inside the Step 4 operator program.
 
@@ -602,7 +847,7 @@ The finite `l2c_probe.py` kernel makes this layer reportable through `BetaDynami
 
 ---
 
-## 15. Production alignment proposal
+## 19. Production alignment proposal
 
 V6.1 adds a production-alignment proposal:
 
@@ -687,7 +932,7 @@ PRODUCTION ARCHITECTURE PROPOSAL
 
 ---
 
-## 16. Coherence-Splitting Conjecture
+## 20. Coherence-Splitting Conjecture
 
 Headline conjecture:
 
@@ -729,7 +974,7 @@ h-check:
 
 ---
 
-## 17. Dynamic Dynamic Axial Tesseract Lattice and finite Hamiltonian probe
+## 21. Dynamic Dynamic Axial Tesseract Lattice and finite Hamiltonian probe
 
 The Dynamic Dynamic Axial Tesseract Lattice is the formal Step 4 host object.
 
@@ -777,7 +1022,7 @@ with `E(z)` a nowhere-zero entire factor.
 
 ---
 
-## 18. h-term and claim discipline
+## 22. h-term and claim discipline
 
 The h-term is evaluator non-sovereignty.
 
@@ -804,7 +1049,7 @@ unbounded overclaiming
 
 ---
 
-## 19. Falsification and work-package gates
+## 23. Falsification and work-package gates
 
 The program remains open and falsifiable through explicit gates.
 
@@ -822,13 +1067,20 @@ GBZ-4: Logx(β)* cannot be tied to a real scale estimate
 CS-1: κ cannot be defined from trace data
 CS-2: κ does not track split(T_Ω)
 CS-3: κ smuggles in Re(s)=1/2 and becomes circular
+IP-1: β_iPiano is collapsed into geometric β = ρ/δ
+IP-2: objective decrease is claimed every step despite inertial nonmonotonicity
+IP-3: energy improvement is reported as universal metric improvement
+IP-4: KL convergence is invoked without checking assumptions
+IP-5: step-size constraints are omitted
+IP-6: residual is not tracked
+IP-7: iPiano is used as spectral identification evidence
 ```
 
 Failure can still be coherent progress when it identifies which bridge cannot hold.
 
 ---
 
-## 20. Source support: higher-order topological tesseract Hamiltonian code
+## 24. Source support: higher-order topological tesseract Hamiltonian code
 
 This repo cites the public OSF code/project source for the finite Dynamic Dynamic Axial Tesseract Lattice Hamiltonian probe.
 
@@ -853,11 +1105,11 @@ This is the finite-dimensional analytic laboratory used to test protected-sector
 
 ---
 
-## 21. Agent ecosystem transfer contract
+## 25. Agent ecosystem transfer contract
 
-Downstream agents should treat the L²_C probe as a hardened kernel.
+Downstream agents should treat the L²_C probe as a hardened kernel and iPiano as the inertial proximal optimization probe.
 
-Required import surface:
+Required L²_C import surface:
 
 ```python
 from l2c_probe import BetaDynamicReport, L2CProbe, L2CReport
@@ -873,17 +1125,20 @@ Required behavior:
 5. Report failures by exact test name and formula surface.
 6. Keep h < 1 as evaluator non-sovereignty.
 7. Treat finite probes as engineering diagnostics and trace-formula work as the theorem-facing route.
+8. Keep β_iPiano separate from β = ρ/δ and β_close(T).
+9. Track proximal residual when using iPiano dynamics.
+10. Keep metric names explicit when reporting energy, MSE, density, or fidelity.
 ```
 
 Agent handoff phrase:
 
 ```txt
-Treat l2c_probe.py as the first hardened L²_C finite-dimensional protected-sector kernel. Preserve the deterministic protected-sector tie-break, keep β-dynamic coercive diagnostics reportable, and run the full regression suite before downstream edits.
+Treat l2c_probe.py as the first hardened L²_C finite-dimensional protected-sector kernel. Preserve the deterministic protected-sector tie-break, keep β-dynamic coercive diagnostics reportable, register iPiano as the inertial proximal optimization probe, and run the full regression suite before downstream edits.
 ```
 
 ---
 
-## 22. Roadmap
+## 26. Roadmap
 
 ```txt
 Phase 1: Entrench l2c_probe.py and tests/test_l2c_probe.py
@@ -893,11 +1148,13 @@ Phase 4: Add β-dynamic sweeps for T, γ, h, and η
 Phase 5: Add DDATL Hamiltonian notebooks or scripts
 Phase 6: Build trace-formula compatibility experiments
 Phase 7: Export agent transfer cards for PeAIce ecosystem reuse
+Phase 8: Expand examples/ipiano_probe.py into a typed optimization benchmark harness
+Phase 9: Add iPiano telemetry plots for objective, Lyapunov ledger, residual, and step norm
 ```
 
 ---
 
-## 23. Current field state
+## 27. Current field state
 
 ```txt
 Field: KakeyaLogic / Excellence Engine v3
@@ -915,7 +1172,7 @@ The numeric field-state values are simulator markers. The operator program treat
 
 ---
 
-## 24. Canonical downstream chain
+## 28. Canonical downstream chain
 
 ```txt
 Bateman direction tree
@@ -934,17 +1191,18 @@ Bateman direction tree
 → κ coherence number
 → Coherence-Splitting Conjecture
 → L²_C protected-sector engineering kernel
+→ iPiano inertial proximal optimization probe
 ```
 
 Final lock:
 
 ```txt
-Kakeyalogic studies coherence-indexed multi-scale tube geometry and its trace-neutral spectral operator program. V6 converts the Coleman Conjecture from a named bridge into a corrected operator route. The Guth-Wang-Bateman-Zahl Probe grounds direction as tree, saturation as tube persistence, grain as local packet, drift as clustering / multiplicity / sparse filling, and Logx(β)* as the inertia of scale passage. The L²_C protected-sector Hamiltonian probe turns that discipline into an executable finite-dimensional kernel.
+Kakeyalogic studies coherence-indexed multi-scale tube geometry and its trace-neutral spectral operator program. V6 converts the Coleman Conjecture from a named bridge into a corrected operator route. The Guth-Wang-Bateman-Zahl Probe grounds direction as tree, saturation as tube persistence, grain as local packet, drift as clustering / multiplicity / sparse filling, and Logx(β)* as the inertia of scale passage. The L²_C protected-sector Hamiltonian probe turns that discipline into an executable finite-dimensional kernel. The iPiano probe adds a rigorous optimization reference for forward motion, inertial memory, proximal repair, Lyapunov accounting, and residual-based convergence discipline.
 ```
 
 ---
 
-## 25. Status
+## 29. Status
 
 ```txt
 CU: Claude V6 Coherence Update + Guth-Wang-Bateman-Zahl Probe
@@ -961,9 +1219,11 @@ Coherence-Splitting Conjecture: open headline object
 Dynamic Dynamic Axial Tesseract Lattice: canonized formal Step 4 host object
 β = ρ/δ
 β_close(T) = 1-T^(-γ)
+β_iPiano = inertial proximal update memory
 Logx(β)* = logarithmic smoothing inertia across δ→ρ
 h = evaluator non-sovereignty
 L²_C probe = first hardened finite-dimensional protected-sector engineering kernel
+iPiano probe = inertial proximal optimization discipline
 State: active:🟢 / developing:🟡 / spectral ID:🔴
 E = L²
 ```
