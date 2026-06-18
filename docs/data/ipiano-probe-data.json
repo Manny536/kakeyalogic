@@ -1,0 +1,144 @@
+{
+  "probe_id": "ipiano-inertial-proximal-probe",
+  "status": "registered",
+  "source": {
+    "title": "iPiano: Inertial Proximal Algorithm for Nonconvex Optimization",
+    "authors": ["Peter Ochs", "Yunjin Chen", "Thomas Brox", "Thomas Pock"],
+    "venue": "SIAM Journal on Imaging Sciences",
+    "year": 2014,
+    "volume": 7,
+    "issue": 2,
+    "pages": "1388-1419",
+    "doi": "10.1137/130942954",
+    "role_in_kakeyalogic": "inertial proximal optimization probe for governed nonmonotone motion under correction"
+  },
+  "problem_form": {
+    "objective": "min_x h(x) = f(x) + g(x)",
+    "f": "differentiable, possibly nonconvex, L-Lipschitz gradient on dom(g)",
+    "g": "convex, possibly nonsmooth, efficiently computable proximal map",
+    "criticality": "0 in partial h(x*) equivalent to -grad f(x*) in partial g(x*)"
+  },
+  "algorithm": {
+    "name": "iPiano",
+    "update": "x_{n+1} = (I + alpha_n partial g)^(-1)(x_n - alpha_n grad f(x_n) + beta_n(x_n - x_{n-1}))",
+    "components": {
+      "forward_step": "x_n - alpha_n grad f(x_n)",
+      "inertial_term": "beta_n(x_n - x_{n-1})",
+      "backward_step": "(I + alpha_n partial g)^(-1)",
+      "heavy_ball_limit": "g == 0",
+      "forward_backward_limit": "beta == 0"
+    }
+  },
+  "step_size_rules": {
+    "constant": {
+      "beta": "beta in [0,1)",
+      "alpha": "alpha < 2(1-beta)/L"
+    },
+    "general": {
+      "delta_n": "1/alpha_n - L_n/2 - beta_n/(2 alpha_n)",
+      "gamma_n": "1/alpha_n - L_n/2 - beta_n/alpha_n",
+      "constraint": "delta_n >= gamma_n >= c2 and delta_n monotonically decreasing"
+    },
+    "backtracking_condition": "f(x_{n+1}) <= f(x_n) + <grad f(x_n), x_{n+1}-x_n> + (L_n/2)||x_{n+1}-x_n||^2"
+  },
+  "convergence_spine": {
+    "lyapunov": "H_delta(x,y) = h(x) + delta ||x-y||^2",
+    "step_norm": "Delta_n = ||x_n - x_{n-1}||",
+    "sufficient_decrease": "F(z_{n+1}) + a Delta_n^2 <= F(z_n)",
+    "relative_error": "exists w_{n+1} in partial F(z_{n+1}) with ||w_{n+1}|| <= (b/2)(Delta_n + Delta_{n+1})",
+    "continuity_condition": "exists subsequence z_{n_j} -> z~ and F(z_{n_j}) -> F(z~)",
+    "kl_role": "Kurdyka-Lojasiewicz property yields finite length and full sequence convergence to critical point"
+  },
+  "rate_surface": {
+    "proximal_residual": "r(x) = x - (I + partial g)^(-1)(x - grad f(x))",
+    "mu_N": "min_{0<=n<=N} ||x_n - x_{n-1}||^2",
+    "mu_prime_N": "min_{0<=n<=N} ||r(x_n)||^2",
+    "bound_1": "mu_prime_N <= (2/c1) mu_N",
+    "bound_2": "mu_N <= c2^(-1)(h(x0)-h*)/(N+1)"
+  },
+  "benchmark_table_image_compression": [
+    {
+      "test_image": "trui",
+      "algorithm": "iPiano",
+      "iterations": "1000",
+      "energy": 21.574011,
+      "density_percent": 4.98,
+      "mse": 17.31,
+      "mse_with_gvo": 16.89
+    },
+    {
+      "test_image": "trui",
+      "algorithm": "SPD",
+      "iterations": "200/4000",
+      "energy": 21.630280,
+      "density_percent": 5.08,
+      "mse": 17.06,
+      "mse_with_gvo": 16.54
+    },
+    {
+      "test_image": "peppers",
+      "algorithm": "iPiano",
+      "iterations": "1000",
+      "energy": 20.631985,
+      "density_percent": 4.84,
+      "mse": 19.50,
+      "mse_with_gvo": 18.99
+    },
+    {
+      "test_image": "peppers",
+      "algorithm": "SPD",
+      "iterations": "200/4000",
+      "energy": 20.758777,
+      "density_percent": 4.93,
+      "mse": 19.48,
+      "mse_with_gvo": 18.71
+    },
+    {
+      "test_image": "walter",
+      "algorithm": "iPiano",
+      "iterations": "1000",
+      "energy": 10.246041,
+      "density_percent": 4.82,
+      "mse": 8.29,
+      "mse_with_gvo": 8.03
+    },
+    {
+      "test_image": "walter",
+      "algorithm": "SPD",
+      "iterations": "200/4000",
+      "energy": 10.278874,
+      "density_percent": 4.93,
+      "mse": 8.01,
+      "mse_with_gvo": 7.72
+    }
+  ],
+  "peaice_mapping": {
+    "beta_ipiano": "inertial memory coefficient in two-step proximal update",
+    "beta_scale": "geometric scale ratio beta = rho/delta for Logx(beta)*",
+    "beta_close": "suppression closing pressure beta_close(T)=1-T^(-gamma)",
+    "typing_rule": "beta_ipiano must not be collapsed into beta_scale or beta_close",
+    "h_discipline": "nonmonotone visible motion is governed by Lyapunov energy and residual tracking",
+    "probe_role": "optimization discipline, not spectral proof object"
+  },
+  "minimum_telemetry": [
+    "iteration",
+    "objective_h",
+    "lyapunov_H_delta",
+    "step_norm",
+    "proximal_residual",
+    "alpha_n",
+    "beta_ipiano",
+    "L_n",
+    "delta_n",
+    "gamma_n"
+  ],
+  "falsification_gates": {
+    "IP-1": "beta_ipiano is treated as beta = rho/delta",
+    "IP-2": "objective decrease is claimed every step despite inertial nonmonotonicity",
+    "IP-3": "energy improvement is reported as universal metric improvement",
+    "IP-4": "KL convergence is invoked without checking assumptions",
+    "IP-5": "step-size constraints are omitted",
+    "IP-6": "residual is not tracked",
+    "IP-7": "iPiano is used as RH evidence"
+  }
+}
