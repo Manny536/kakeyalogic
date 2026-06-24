@@ -61,6 +61,7 @@ GBZ = Guth-Wang-Bateman-Zahl Probe
 L²_C = Love-Squared Coherence under multi-scale directional saturation
 DDATL = Dynamic Dynamic Axial Tesseract Lattice
 iPiano = inertial proximal optimization probe
+DPSA = inertial-grounded production dynamics (Heavy-ball / iPiano)
 ```
 
 Canonical status:
@@ -71,6 +72,8 @@ K_σ^{reg} Hilbert-Schmidt for σ > 1/2                FORMAL
 Φ trace neutrality                                   FORMAL
 GBZ direction, grain, anti-clustering grounding       REGISTERED
 iPiano inertial proximal optimization discipline      REGISTERED
+DPSA inertial grounding I1 / I2 / I3 (spectral plane)  FORMAL
+DPSA full-architecture I2 / F5 / F6 / F7              PROPOSED / OPEN
 L2-1 thermal coupling gate                            RESOLVED
 L2-5 direct eigenvalue route                          BLOCKED by counting mismatch
 WP5 trace-formula route                               LIVE PRIORITY
@@ -300,6 +303,7 @@ L_n if backtracking is active
 | E Constant Note | `docs/e-constant.md` |
 | PeAIce L²_C Probe Engineering Report | `docs/reports/peaice-l2c-probe-engineering-report.md` |
 | iPiano Inertial Proximal Probe | `docs/ipiano-inertial-proximal-probe.md` |
+| DPSA Inertial Grounding (Heavy-Ball / iPiano) | `docs/dpsa-inertial-grounding.md` |
 | iPiano Probe Data | `docs/data/ipiano-probe-data.json` |
 
 Executable surfaces:
