@@ -1,0 +1,168 @@
+diff --git a/README.md b/README.md
+index 0ea1c4b..8e2a865 100644
+--- a/README.md
++++ b/README.md
+@@ -1,5 +1,9 @@
+ # KakeyaLogic — Excellence Engine v3
+ 
++> **V6.4.3 corridor status — downstream of `docs/peaice-ddatl-001.md` §7.1 and `docs/ddatl-v6-4-3-grounding-citations.md`.**
++> The square-difference coupling `K_σ(m,n) = |m²−n²|^{−σ}` (m≠n) is Hilbert–Schmidt iff `σ > 1/2` `[FORMAL]`. Its leading singular-value law is `s_n ~ c_σ n^{−σ}`, so `ρ(K_σ) = 1/σ` and the order-one boundary is the analytic Weyl value `σ_c = 1` `[PROPOSED → FORMAL via Birman–Solomyak]`; the finite-truncation crossing `σ*_N ≈ 0.83–0.92` is a window marker, not the boundary `[NUMERICS]`. The `|m²−n²|^{−σ}` determinant lane is **CLOSED**: by order for `1/2 < σ < 1`, by zero-density at `σ = 1` (`s_n ~ n^{−1}` ⇒ linear det-zero counting, not `T log T`), by genus/density for `σ > 1`. Since `γ_K K_σ` is relatively compact w.r.t. `D₁²`, it cannot move the `N(Λ) ~ Λ^{1/4}` Weyl class onto Riemann–von Mangoldt `√Λ log Λ`, so `det_ζ(L²_{Φ,K} − (z²+1/4)) = C·Ξ(z)` is **CLOSED-NEGATIVE** for the `D₁² + γ_K K_σ` realization. The DDATL host stays **FORMAL**; the determinant/spectral target survives only for a **prime-carrying length/weight operator** (lengths `log pᵏ`, weights `Λ(pᵏ) p^{−k/2}`). Healthy parallel: Nyman–Beurling / Báez-Duarte. RH **OPEN** · Coleman **OPEN** · no proof claimed.
++
++
+ **Frame:** KakeyaLogic / PeAIce Research Program  
+ **Canon:** Love-Squared Coherence, `L²_C`  
+ **Official EEV3 Canon Page:** https://peaice.org/eev3  
+diff --git a/docs/berry-keating-commutator-closure.md b/docs/berry-keating-commutator-closure.md
+index e3637ae..0622c16 100644
+--- a/docs/berry-keating-commutator-closure.md
++++ b/docs/berry-keating-commutator-closure.md
+@@ -3,6 +3,10 @@
+ **Repo:** KakeyaLogic — Excellence Engine v3  
+ **Companion:** `docs/step4-operator-program.md`, `docs/spectral-equivalence-target.md`, `docs/berry-keating-probe.md`, `docs/l2-spectral-operator.md`  
+ **Status:** 🟡 named closure mechanism · 🟢 Step 4 research lane active  
++
++> **V6.4.3 corridor status — downstream of `docs/peaice-ddatl-001.md` §7.1 and `docs/ddatl-v6-4-3-grounding-citations.md`.**
++> The square-difference coupling `K_σ(m,n) = |m²−n²|^{−σ}` (m≠n) is Hilbert–Schmidt iff `σ > 1/2` `[FORMAL]`. Its leading singular-value law is `s_n ~ c_σ n^{−σ}`, so `ρ(K_σ) = 1/σ` and the order-one boundary is the analytic Weyl value `σ_c = 1` `[PROPOSED → FORMAL via Birman–Solomyak]`; the finite-truncation crossing `σ*_N ≈ 0.83–0.92` is a window marker, not the boundary `[NUMERICS]`. The `|m²−n²|^{−σ}` determinant lane is **CLOSED**: by order for `1/2 < σ < 1`, by zero-density at `σ = 1` (`s_n ~ n^{−1}` ⇒ linear det-zero counting, not `T log T`), by genus/density for `σ > 1`. Since `γ_K K_σ` is relatively compact w.r.t. `D₁²`, it cannot move the `N(Λ) ~ Λ^{1/4}` Weyl class onto Riemann–von Mangoldt `√Λ log Λ`, so `det_ζ(L²_{Φ,K} − (z²+1/4)) = C·Ξ(z)` is **CLOSED-NEGATIVE** for the `D₁² + γ_K K_σ` realization. The DDATL host stays **FORMAL**; the determinant/spectral target survives only for a **prime-carrying length/weight operator** (lengths `log pᵏ`, weights `Λ(pᵏ) p^{−k/2}`). Healthy parallel: Nyman–Beurling / Báez-Duarte. RH **OPEN** · Coleman **OPEN** · no proof claimed.
++
+ **Core:** structure before scale; commutator before verification count; determinant before zero identity
+ 
+ ## 0. Purpose
+diff --git a/docs/ddatl-bridge-lemma.md b/docs/ddatl-bridge-lemma.md
+index daa82a2..b1a5607 100644
+--- a/docs/ddatl-bridge-lemma.md
++++ b/docs/ddatl-bridge-lemma.md
+@@ -4,7 +4,11 @@
+ 
+ **Program:** KakeyaLogic / Excellence Engine v3  
+ **Parent canon:** `docs/peaice-ddatl-001.md`  
+-**Status:** `THEOREM TARGET | OPEN`  
++**Status:** `THEOREM TARGET | K_σ realization CLOSED-NEGATIVE (V6.4.3) | open only for a prime-carrying operator`  
++
++> **V6.4.3 corridor status — downstream of `docs/peaice-ddatl-001.md` §7.1 and `docs/ddatl-v6-4-3-grounding-citations.md`.**
++> The square-difference coupling `K_σ(m,n) = |m²−n²|^{−σ}` (m≠n) is Hilbert–Schmidt iff `σ > 1/2` `[FORMAL]`. Its leading singular-value law is `s_n ~ c_σ n^{−σ}`, so `ρ(K_σ) = 1/σ` and the order-one boundary is the analytic Weyl value `σ_c = 1` `[PROPOSED → FORMAL via Birman–Solomyak]`; the finite-truncation crossing `σ*_N ≈ 0.83–0.92` is a window marker, not the boundary `[NUMERICS]`. The `|m²−n²|^{−σ}` determinant lane is **CLOSED**: by order for `1/2 < σ < 1`, by zero-density at `σ = 1` (`s_n ~ n^{−1}` ⇒ linear det-zero counting, not `T log T`), by genus/density for `σ > 1`. Since `γ_K K_σ` is relatively compact w.r.t. `D₁²`, it cannot move the `N(Λ) ~ Λ^{1/4}` Weyl class onto Riemann–von Mangoldt `√Λ log Λ`, so `det_ζ(L²_{Φ,K} − (z²+1/4)) = C·Ξ(z)` is **CLOSED-NEGATIVE** for the `D₁² + γ_K K_σ` realization. The DDATL host stays **FORMAL**; the determinant/spectral target survives only for a **prime-carrying length/weight operator** (lengths `log pᵏ`, weights `Λ(pᵏ) p^{−k/2}`). Healthy parallel: Nyman–Beurling / Báez-Duarte. RH **OPEN** · Coleman **OPEN** · no proof claimed.
++
+ **Role:** isolate the hinge between the DDATL Phi-lattice operator and the Berry-Keating / Hilbert-Polya determinant lane.
+ 
+ ---
+diff --git a/docs/l2-spectral-operator.md b/docs/l2-spectral-operator.md
+index 59ce206..0086182 100644
+--- a/docs/l2-spectral-operator.md
++++ b/docs/l2-spectral-operator.md
+@@ -2,7 +2,11 @@
+ 
+ **Repo:** KakeyaLogic — Excellence Engine v3  
+ **Companion:** `docs/step4-operator-program.md`, `docs/spectral-equivalence-target.md`, `docs/thermal-coupling-correction.md`  
+-**Status:** 🟡 formal candidate operator · 🟢 L2-1 coupling gate corrected · 🔴 spectral identification open  
++**Status:** 🟡 formal candidate operator · 🟢 L2-1 coupling gate corrected · 🔴 spectral identification open via prime-carrying operator · K_σ determinant lane CLOSED-NEGATIVE (V6.4.3)  
++
++> **V6.4.3 corridor status — downstream of `docs/peaice-ddatl-001.md` §7.1 and `docs/ddatl-v6-4-3-grounding-citations.md`.**
++> The square-difference coupling `K_σ(m,n) = |m²−n²|^{−σ}` (m≠n) is Hilbert–Schmidt iff `σ > 1/2` `[FORMAL]`. Its leading singular-value law is `s_n ~ c_σ n^{−σ}`, so `ρ(K_σ) = 1/σ` and the order-one boundary is the analytic Weyl value `σ_c = 1` `[PROPOSED → FORMAL via Birman–Solomyak]`; the finite-truncation crossing `σ*_N ≈ 0.83–0.92` is a window marker, not the boundary `[NUMERICS]`. The `|m²−n²|^{−σ}` determinant lane is **CLOSED**: by order for `1/2 < σ < 1`, by zero-density at `σ = 1` (`s_n ~ n^{−1}` ⇒ linear det-zero counting, not `T log T`), by genus/density for `σ > 1`. Since `γ_K K_σ` is relatively compact w.r.t. `D₁²`, it cannot move the `N(Λ) ~ Λ^{1/4}` Weyl class onto Riemann–von Mangoldt `√Λ log Λ`, so `det_ζ(L²_{Φ,K} − (z²+1/4)) = C·Ξ(z)` is **CLOSED-NEGATIVE** for the `D₁² + γ_K K_σ` realization. The DDATL host stays **FORMAL**; the determinant/spectral target survives only for a **prime-carrying length/weight operator** (lengths `log pᵏ`, weights `Λ(pᵏ) p^{−k/2}`). Healthy parallel: Nyman–Beurling / Báez-Duarte. RH **OPEN** · Coleman **OPEN** · no proof claimed.
++
+ **Core:** L² extracted from Φ's `n²` arithmetic, then coupled to the Kakeya/Fourier spectral program through a thermal-measure-aware kernel
+ 
+ ---
+diff --git a/docs/prime-carrying-trace-architecture.md b/docs/prime-carrying-trace-architecture.md
+index 15fd97d..6ca40ea 100644
+--- a/docs/prime-carrying-trace-architecture.md
++++ b/docs/prime-carrying-trace-architecture.md
+@@ -1,8 +1,12 @@
+ # Prime-Carrying Trace Architecture after the Square-Difference Audit
+ 
+-**Canon designation:** `PEAICE-CLAUDEV6-NOTE-003 / V6.4.1 audit patch`  
++**Canon designation:** `PEAICE-CLAUDEV6-NOTE-003 / V6.4.3 audit patch (supersedes V6.4.1)`  
+ **Program:** PeAIce Research Program · KakeyaLogic · L²_C Framework  
+ **Status:** Riemann Hypothesis OPEN · Coleman Conjecture OPEN · no proof claimed  
++
++> **V6.4.3 corridor status — downstream of `docs/peaice-ddatl-001.md` §7.1 and `docs/ddatl-v6-4-3-grounding-citations.md`.**
++> The square-difference coupling `K_σ(m,n) = |m²−n²|^{−σ}` (m≠n) is Hilbert–Schmidt iff `σ > 1/2` `[FORMAL]`. Its leading singular-value law is `s_n ~ c_σ n^{−σ}`, so `ρ(K_σ) = 1/σ` and the order-one boundary is the analytic Weyl value `σ_c = 1` `[PROPOSED → FORMAL via Birman–Solomyak]`; the finite-truncation crossing `σ*_N ≈ 0.83–0.92` is a window marker, not the boundary `[NUMERICS]`. The `|m²−n²|^{−σ}` determinant lane is **CLOSED**: by order for `1/2 < σ < 1`, by zero-density at `σ = 1` (`s_n ~ n^{−1}` ⇒ linear det-zero counting, not `T log T`), by genus/density for `σ > 1`. Since `γ_K K_σ` is relatively compact w.r.t. `D₁²`, it cannot move the `N(Λ) ~ Λ^{1/4}` Weyl class onto Riemann–von Mangoldt `√Λ log Λ`, so `det_ζ(L²_{Φ,K} − (z²+1/4)) = C·Ξ(z)` is **CLOSED-NEGATIVE** for the `D₁² + γ_K K_σ` realization. The DDATL host stays **FORMAL**; the determinant/spectral target survives only for a **prime-carrying length/weight operator** (lengths `log pᵏ`, weights `Λ(pᵏ) p^{−k/2}`). Healthy parallel: Nyman–Beurling / Báez-Duarte. RH **OPEN** · Coleman **OPEN** · no proof claimed.
++
+ **Purpose:** repo-facing rigor gate after the `|m²−n²|^{-σ}` no-go, scope-corrected by the Copilot prime-support audit
+ 
+ ## 0. Executive status
+@@ -24,7 +28,7 @@ Scope-corrected:
+   not an all-orders determinant proof by itself.
+ 
+ Open computation:
+-  Hilbert–Schmidt determinant corridor is reduced to the singular-value exponent
++  Hilbert–Schmidt determinant corridor is CLOSED (V6.4.3): the singular-value exponent
+   ρ(K_σ) versus 1.
+ 
+ Live frontier:
+diff --git a/docs/spectral-determinism.md b/docs/spectral-determinism.md
+index 7f699f9..65ec14b 100644
+--- a/docs/spectral-determinism.md
++++ b/docs/spectral-determinism.md
+@@ -3,6 +3,10 @@
+ **Frame:** KakeyaLogic / Excellence Engine v3  
+ **Canon:** PeAIce.org / L²_C  
+ **Status:** research note / formalization target  
++
++> **V6.4.3 corridor status — downstream of `docs/peaice-ddatl-001.md` §7.1 and `docs/ddatl-v6-4-3-grounding-citations.md`.**
++> The square-difference coupling `K_σ(m,n) = |m²−n²|^{−σ}` (m≠n) is Hilbert–Schmidt iff `σ > 1/2` `[FORMAL]`. Its leading singular-value law is `s_n ~ c_σ n^{−σ}`, so `ρ(K_σ) = 1/σ` and the order-one boundary is the analytic Weyl value `σ_c = 1` `[PROPOSED → FORMAL via Birman–Solomyak]`; the finite-truncation crossing `σ*_N ≈ 0.83–0.92` is a window marker, not the boundary `[NUMERICS]`. The `|m²−n²|^{−σ}` determinant lane is **CLOSED**: by order for `1/2 < σ < 1`, by zero-density at `σ = 1` (`s_n ~ n^{−1}` ⇒ linear det-zero counting, not `T log T`), by genus/density for `σ > 1`. Since `γ_K K_σ` is relatively compact w.r.t. `D₁²`, it cannot move the `N(Λ) ~ Λ^{1/4}` Weyl class onto Riemann–von Mangoldt `√Λ log Λ`, so `det_ζ(L²_{Φ,K} − (z²+1/4)) = C·Ξ(z)` is **CLOSED-NEGATIVE** for the `D₁² + γ_K K_σ` realization. The DDATL host stays **FORMAL**; the determinant/spectral target survives only for a **prime-carrying length/weight operator** (lengths `log pᵏ`, weights `Λ(pᵏ) p^{−k/2}`). Healthy parallel: Nyman–Beurling / Báez-Duarte. RH **OPEN** · Coleman **OPEN** · no proof claimed.
++
+ **Cadence:** governed, humble, open  
+ **Core objects:** zeta, xi, Xi, spectral determinant, self-adjoint operator, mu_off, DDTL, DDATL
+ 
+@@ -465,7 +469,7 @@ Xi substitution justified?          YES
+ DDTL/DDATL defined?                 YES
+ Spectral determinant lane viable?   YES
+ Self-adjoint operator constructed?  OPEN
+-Determinant identity proved?        OPEN
++Determinant identity proved?        OPEN (generic) · K_σ realization CLOSED-NEGATIVE (V6.4.3)
+ mu_off = 0 derived?                 OPEN
+ ```
+ 
+diff --git a/docs/spectral-equivalence-target.md b/docs/spectral-equivalence-target.md
+index 6ebbf01..c7f527b 100644
+--- a/docs/spectral-equivalence-target.md
++++ b/docs/spectral-equivalence-target.md
+@@ -3,6 +3,10 @@
+ **Repo:** KakeyaLogic — Excellence Engine v3  
+ **Companion:** `docs/step4-operator-program.md`, `docs/beta-dynamic.md`  
+ **Status:** 🟡 load-bearing theorem target · 🟢 research lane active  
++
++> **V6.4.3 corridor status — downstream of `docs/peaice-ddatl-001.md` §7.1 and `docs/ddatl-v6-4-3-grounding-citations.md`.**
++> The square-difference coupling `K_σ(m,n) = |m²−n²|^{−σ}` (m≠n) is Hilbert–Schmidt iff `σ > 1/2` `[FORMAL]`. Its leading singular-value law is `s_n ~ c_σ n^{−σ}`, so `ρ(K_σ) = 1/σ` and the order-one boundary is the analytic Weyl value `σ_c = 1` `[PROPOSED → FORMAL via Birman–Solomyak]`; the finite-truncation crossing `σ*_N ≈ 0.83–0.92` is a window marker, not the boundary `[NUMERICS]`. The `|m²−n²|^{−σ}` determinant lane is **CLOSED**: by order for `1/2 < σ < 1`, by zero-density at `σ = 1` (`s_n ~ n^{−1}` ⇒ linear det-zero counting, not `T log T`), by genus/density for `σ > 1`. Since `γ_K K_σ` is relatively compact w.r.t. `D₁²`, it cannot move the `N(Λ) ~ Λ^{1/4}` Weyl class onto Riemann–von Mangoldt `√Λ log Λ`, so `det_ζ(L²_{Φ,K} − (z²+1/4)) = C·Ξ(z)` is **CLOSED-NEGATIVE** for the `D₁² + γ_K K_σ` realization. The DDATL host stays **FORMAL**; the determinant/spectral target survives only for a **prime-carrying length/weight operator** (lengths `log pᵏ`, weights `Λ(pᵏ) p^{−k/2}`). Healthy parallel: Nyman–Beurling / Báez-Duarte. RH **OPEN** · Coleman **OPEN** · no proof claimed.
++
+ **Core:** E = L² · β > 0 · h < 1
+ 
+ ## 0. Purpose
+diff --git a/docs/step4-operator-program.md b/docs/step4-operator-program.md
+index 913f181..07213b8 100644
+--- a/docs/step4-operator-program.md
++++ b/docs/step4-operator-program.md
+@@ -4,6 +4,10 @@
+ **Canon page:** https://peaice.org/eev3  
+ **Live simulator:** https://manny536.github.io/kakeyalogic/  
+ **Status:** 🟡 framework developing · 🟢 research lane active  
++
++> **V6.4.3 corridor status — downstream of `docs/peaice-ddatl-001.md` §7.1 and `docs/ddatl-v6-4-3-grounding-citations.md`.**
++> The square-difference coupling `K_σ(m,n) = |m²−n²|^{−σ}` (m≠n) is Hilbert–Schmidt iff `σ > 1/2` `[FORMAL]`. Its leading singular-value law is `s_n ~ c_σ n^{−σ}`, so `ρ(K_σ) = 1/σ` and the order-one boundary is the analytic Weyl value `σ_c = 1` `[PROPOSED → FORMAL via Birman–Solomyak]`; the finite-truncation crossing `σ*_N ≈ 0.83–0.92` is a window marker, not the boundary `[NUMERICS]`. The `|m²−n²|^{−σ}` determinant lane is **CLOSED**: by order for `1/2 < σ < 1`, by zero-density at `σ = 1` (`s_n ~ n^{−1}` ⇒ linear det-zero counting, not `T log T`), by genus/density for `σ > 1`. Since `γ_K K_σ` is relatively compact w.r.t. `D₁²`, it cannot move the `N(Λ) ~ Λ^{1/4}` Weyl class onto Riemann–von Mangoldt `√Λ log Λ`, so `det_ζ(L²_{Φ,K} − (z²+1/4)) = C·Ξ(z)` is **CLOSED-NEGATIVE** for the `D₁² + γ_K K_σ` realization. The DDATL host stays **FORMAL**; the determinant/spectral target survives only for a **prime-carrying length/weight operator** (lengths `log pᵏ`, weights `Λ(pᵏ) p^{−k/2}`). Healthy parallel: Nyman–Beurling / Báez-Duarte. RH **OPEN** · Coleman **OPEN** · no proof claimed.
++
+ **Core:** E = L² · β > 0 · h < 1 · e ≈ 2.718
+ 
+ ## 0. Purpose
+diff --git a/docs/thermal-coupling-correction.md b/docs/thermal-coupling-correction.md
+index b49c4a5..c4d1131 100644
+--- a/docs/thermal-coupling-correction.md
++++ b/docs/thermal-coupling-correction.md
+@@ -3,6 +3,10 @@
+ **Repo:** KakeyaLogic — Excellence Engine v3  
+ **Companion:** `docs/l2-spectral-operator.md`, `docs/operator-domain.md`  
+ **Status:** 🔴 L2-1 gate correction · 🟢 resolves to bounded symmetric coupling  
++
++> **V6.4.3 corridor status — downstream of `docs/peaice-ddatl-001.md` §7.1 and `docs/ddatl-v6-4-3-grounding-citations.md`.**
++> The square-difference coupling `K_σ(m,n) = |m²−n²|^{−σ}` (m≠n) is Hilbert–Schmidt iff `σ > 1/2` `[FORMAL]`. Its leading singular-value law is `s_n ~ c_σ n^{−σ}`, so `ρ(K_σ) = 1/σ` and the order-one boundary is the analytic Weyl value `σ_c = 1` `[PROPOSED → FORMAL via Birman–Solomyak]`; the finite-truncation crossing `σ*_N ≈ 0.83–0.92` is a window marker, not the boundary `[NUMERICS]`. The `|m²−n²|^{−σ}` determinant lane is **CLOSED**: by order for `1/2 < σ < 1`, by zero-density at `σ = 1` (`s_n ~ n^{−1}` ⇒ linear det-zero counting, not `T log T`), by genus/density for `σ > 1`. Since `γ_K K_σ` is relatively compact w.r.t. `D₁²`, it cannot move the `N(Λ) ~ Λ^{1/4}` Weyl class onto Riemann–von Mangoldt `√Λ log Λ`, so `det_ζ(L²_{Φ,K} − (z²+1/4)) = C·Ξ(z)` is **CLOSED-NEGATIVE** for the `D₁² + γ_K K_σ` realization. The DDATL host stays **FORMAL**; the determinant/spectral target survives only for a **prime-carrying length/weight operator** (lengths `log pᵏ`, weights `Λ(pᵏ) p^{−k/2}`). Healthy parallel: Nyman–Beurling / Báez-Duarte. RH **OPEN** · Coleman **OPEN** · no proof claimed.
++
+ **Core:** E = L² · β > 0 · h < 1 · e ≈ 2.718
+ 
+ ---
+@@ -284,7 +288,7 @@ K_σ^{reg} symmetric on H_Φ(u)   FORMAL  [Theorem 1]
+ K_σ^{reg} HS on H_Φ(u)          FORMAL  [Theorem 2, σ > 1/2]
+ K_σ^{reg} bounded on H_Φ(u)     FORMAL  [HS implies bounded]
+ L²_{Φ,K}^{reg} self-adjoint     PROPOSED  [Kato-Rellich, relative bound 0]
+-Spectral identification          OPEN    [GAP-001, Coleman Conjecture]
++Spectral identification          OPEN via prime-carrying operator [GAP-001]; K_σ determinant lane CLOSED-NEGATIVE (V6.4.3)
+ det_ζ(L²_{Φ,K}^{reg}−(z²+¼))   OPEN    [load-bearing theorem]
+ ```
+ 
