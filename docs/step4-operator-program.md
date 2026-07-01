@@ -3,7 +3,7 @@
 **Repo:** KakeyaLogic — Excellence Engine v3  
 **Canon page:** https://peaice.org/eev3  
 **Live simulator:** https://manny536.github.io/kakeyalogic/  
-**Status:** 🟡 framework developing · 🟢 research lane active  
+**Status:** 🟡 framework developing · 🟢 research lane active · ⛔ square-difference operator lane CLOSED (V6.4.3)  
 **Core:** E = L² · β > 0 · h < 1 · e ≈ 2.718
 
 ## 0. Purpose
@@ -25,6 +25,26 @@ EEV3 does not treat model agreement as closure. Closure must occur through a the
 The object is the **Kakeya/Fourier spectral operator**.
 
 ---
+
+> **V6.4.3 DOWNSTREAM CLOSURE NOTE — propagated 25 June 2026.**
+> The `|m^2 - n^2|^{-sigma}` `K_sigma` realization of the Step-4 determinant target is **`CLOSED-NEGATIVE`**.
+> `det_zeta(L^2_{Phi,K} - (z^2 + 1/4)) = C * Xi(z)` cannot hold for the `D_1^2 + gamma_K K_sigma` operator:
+> `gamma_K K_sigma` is relatively compact w.r.t. `D_1^2` (`K_sigma in S_2` for `sigma > 1/2`), so by
+> Weyl-class invariance the counting stays `N(Lambda) ~ Lambda^{1/4}` and never reaches Riemann-von Mangoldt
+> `sqrt(Lambda) log Lambda` (**counting**); below `sigma*` the `det_2` order exceeds 1 (**order**); above `sigma*`
+> the determinant is genus 0 vs genus-1 Xi (**genus**); at `sigma*` the power-law spectrum gives linear
+> zero-density, not `T log T` (**density**).
+> The finite-window crossing `sigma*_N ~ 0.83-0.92` is demoted; the analytic Weyl boundary is `sigma_c = 1`
+> (`s_n(K_sigma) ~ n^{-sigma}` to leading order).
+> **Canonical:** `docs/peaice-ddatl-001.md` Section 7.1 and `docs/ddatl-v6-4-3-grounding-citations.md`.
+> **Any determinant-identity, eigenvalue-bijection, or "load-bearing OPEN" claim below that reads as live for
+> the square-difference kernel is superseded by this note.** The DDATL host object stays `FORMAL`; the gap is
+> relocated to a prime-carrying length/weight operator (`docs/prime-carrying-trace-architecture.md`) and the
+> Nyman-Beurling / Baez-Duarte distance program.
+> RH `OPEN` · Coleman Conjecture `OPEN` · no proof claimed.
+
+---
+
 
 ## 1. Research Claim Discipline
 

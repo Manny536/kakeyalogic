@@ -1,9 +1,14 @@
 # Prime-Carrying Trace Architecture after the Square-Difference Audit
 
-**Canon designation:** `PEAICE-CLAUDEV6-NOTE-003 / V6.4.1 audit patch`  
+**Canon designation:** `PEAICE-CLAUDEV6-NOTE-003 / V6.4.3 audit patch (relocation target)`  
 **Program:** PeAIce Research Program · KakeyaLogic · L²_C Framework  
 **Status:** Riemann Hypothesis OPEN · Coleman Conjecture OPEN · no proof claimed  
 **Purpose:** repo-facing rigor gate after the `|m²−n²|^{-σ}` no-go, scope-corrected by the Copilot prime-support audit
+
+> **V6.4.3 RELOCATION TARGET — live frontier.** GAP-001 moved *here* from the closed
+> `|m^2 - n^2|^{-sigma}` square-difference lane (see `docs/peaice-ddatl-001.md` Section 7.1).
+> This is the only open operator route: lengths `log(p^k)`, weights `Lambda(p^k) p^{-k/2}`,
+> archimedean `Gamma`-density giving `T log T`, reality via self-adjointness. RH `OPEN`.
 
 ## 0. Executive status
 
@@ -57,7 +62,7 @@ K_\sigma\in S_2 \quad\Longleftrightarrow\quad \sigma>\frac12.
 
 Thus, for `σ > 1/2`, `K_σ` is Hilbert–Schmidt, compact, and self-adjoint, with real discrete spectrum tending to zero. This brick remains valid.
 
-What changes in V6.4.1 is not Theorem B. What changes is the determinant-level no-go language.
+What changes in V6.4.3 is not Theorem B. What changes is the determinant-level no-go language.
 
 ---
 
@@ -516,7 +521,7 @@ A proposed RH-side operator, approximation, determinant, or spectral bridge must
 ### Canon status block
 
 ```text
-PEAICE RIGOR GATE — V6.4.1 AUDIT PATCH
+PEAICE RIGOR GATE — V6.4.3 AUDIT PATCH
 
 Preserved:
 The corrected |m²−n²|^{-σ} kernel verifies a compact Hilbert–Schmidt threshold:

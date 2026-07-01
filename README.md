@@ -6,7 +6,7 @@
 **Official DDATL Page:** https://peaice.org/ddatl  
 **Live simulator:** https://manny536.github.io/kakeyalogic/  
 **Primary kernel:** `l2c_probe.py`  
-**Current research state:** active:🟢 · developing:🟡 · spectral identification:🔴 open
+**Current research state (V6.4.3):** active:🟢 · developing:🟡 · spectral identification:🔴 open · square-difference `K_σ` determinant lane:⛔ CLOSED (order/genus/density) · gap relocated to `docs/prime-carrying-trace-architecture.md` · CC antecedent: `docs/coleman-conjecture-antecedent.md` · full rigor deck: `PEAICE-Prime-Carrying-Trace-Architecture_Full.pptx` (Love Labs Research corpus)
 
 KakeyaLogic is a coherence-field and operator-research program for `L²_C`. It studies how systems preserve direction, accept correction, reject drift, and recover fidelity under pressure. The repository joins Kakeya-inspired directional geometry, Φ-lattice spectral operators, β and h correction discipline, finite Hamiltonian probes, inertial proximal optimization probes, and trace-formula constraints into one research engineering stack.
 
