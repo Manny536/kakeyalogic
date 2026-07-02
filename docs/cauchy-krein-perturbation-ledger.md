@@ -2,11 +2,16 @@
 
 **Repo:** KakeyaLogic — Excellence Engine v3  
 **Frame:** PeAIce / L²_C / Inspectable Intelligence  
-**Status:** 🟡 research addendum · 🟢 operator-compatible checkpoint · 🔴 Riemann / spectral identification open · note: K_σ relative-compactness closure is the canonical perturbation result (V6.4.3)  
+**Status:** 🟡 research addendum · 🟢 operator-compatible checkpoint · 🔴 Riemann / spectral identification open · note: K_σ relative-compactness closure (V6.4.3) · Krein SSF boundedness closure (V6.5, Theorem H / WP5-OBS-2)
 **Canonical object:** Non-Sticky Spectral Ecology (a perturbation environment in which spectral components remain separable under interaction, enabling traceable phase shifts and coherence diagnostics) and Perturbed Flow  
 **Companion lanes:** `l2c_probe.py`, `docs/l2c-ddtl-hamiltonian-probe.md`, `docs/ipiano-inertial-proximal-probe.md`, `docs/guth-wang-bateman-zahl-probe.md`, `docs/claude-v6-coherence-update.md`
 
 ---
+
+> **V6.5 DOWNSTREAM CLOSURE NOTE — propagated 1 July 2026.**
+> WP5b bounded lane: Krein SSF `ξ(λ)` uniformly bounded (Theorem H); relative-determinant route
+> **CLOSED-NEGATIVE** (`WP5-OBS-2`). Complements V6.4.3 HS-corridor closure. Prime-carrying L3 forced.
+> Canon: claude-v6 `docs/canon/v6-theorems.md`. RH `OPEN`.
 
 > **V6.4.3 DOWNSTREAM CLOSURE NOTE — propagated 25 June 2026.**
 > The `|m^2 - n^2|^{-sigma}` `K_sigma` realization of the Step-4 determinant target is **`CLOSED-NEGATIVE`**.

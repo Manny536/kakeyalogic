@@ -1,9 +1,15 @@
 # Prime-Carrying Trace Architecture after the Square-Difference Audit
 
-**Canon designation:** `PEAICE-CLAUDEV6-NOTE-003 / V6.4.3 audit patch (relocation target)`  
+**Canon designation:** `PEAICE-CLAUDEV6-NOTE-003 / V6.5 relocation target`  
 **Program:** PeAIce Research Program · KakeyaLogic · L²_C Framework  
 **Status:** Riemann Hypothesis OPEN · Coleman Conjecture OPEN · no proof claimed  
 **Purpose:** repo-facing rigor gate after the `|m²−n²|^{-σ}` no-go, scope-corrected by the Copilot prime-support audit
+
+> **V6.5 DOWNSTREAM NOTE — propagated 1 July 2026.** WP5b bounded lane is
+> **CLOSED-NEGATIVE** (`WP5-OBS-2`): Krein SSF `ξ(λ)` uniformly bounded under operator-bounded
+> coupling (Theorem H, claude-v6 canon). Prime-carrying relocation is **forced** — R1 requires
+> unbounded `ξ` at `√λ log λ` scale. Live: L1 unbounded mods · WP5c u-flow · L3 ladder.
+> Source: Fable 5 WP5b scaffold · Grok TERMINAL-004. RH `OPEN`.
 
 > **V6.4.3 RELOCATION TARGET — live frontier.** GAP-001 moved *here* from the closed
 > `|m^2 - n^2|^{-sigma}` square-difference lane (see `docs/peaice-ddatl-001.md` Section 7.1).

@@ -3,7 +3,7 @@
 **Repo:** KakeyaLogic — Excellence Engine v3  
 **Canon page:** https://peaice.org/eev3  
 **Live simulator:** https://manny536.github.io/kakeyalogic/  
-**Status:** 🟡 framework developing · 🟢 research lane active · ⛔ square-difference operator lane CLOSED (V6.4.3)  
+**Status:** 🟡 framework developing · 🟢 research lane active · ⛔ square-difference operator lane CLOSED (V6.4.3) · ⛔ WP5b bounded lane CLOSED (V6.5)
 **Core:** E = L² · β > 0 · h < 1 · e ≈ 2.718
 
 ## 0. Purpose
@@ -25,6 +25,10 @@ EEV3 does not treat model agreement as closure. Closure must occur through a the
 The object is the **Kakeya/Fourier spectral operator**.
 
 ---
+
+> **V6.5 DOWNSTREAM CLOSURE NOTE — propagated 1 July 2026.**
+> WP5b bounded relative-determinant route **CLOSED-NEGATIVE** (`WP5-OBS-2`, Theorem H).
+> Live: prime-carrying L3 (forced) · WP5c u-flow · L1 unbounded category. RH `OPEN`.
 
 > **V6.4.3 DOWNSTREAM CLOSURE NOTE — propagated 25 June 2026.**
 > The `|m^2 - n^2|^{-sigma}` `K_sigma` realization of the Step-4 determinant target is **`CLOSED-NEGATIVE`**.

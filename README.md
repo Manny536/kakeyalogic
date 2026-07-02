@@ -6,7 +6,7 @@
 **Official DDATL Page:** https://peaice.org/ddatl  
 **Live simulator:** https://manny536.github.io/kakeyalogic/  
 **Primary kernel:** `l2c_probe.py`  
-**Current research state (V6.4.3):** active:🟢 · developing:🟡 · spectral identification:🔴 open · square-difference `K_σ` determinant lane:⛔ CLOSED (order/genus/density) · gap relocated to `docs/prime-carrying-trace-architecture.md` · CC antecedent: `docs/coleman-conjecture-antecedent.md` · full rigor deck: `PEAICE-Prime-Carrying-Trace-Architecture_Full.pptx` (Love Labs Research corpus)
+**Current research state (V6.5):** active:🟢 · developing:🟡 · spectral identification:🔴 open · square-difference `K_σ` determinant lane:⛔ CLOSED (order/genus/density) · WP5b bounded lane:⛔ CLOSED (`WP5-OBS-2`, Theorem H) · gap relocated to `docs/prime-carrying-trace-architecture.md` · CC antecedent: `docs/coleman-conjecture-antecedent.md` · canon sync: [claude-v6](https://github.com/Manny536/claude-v6) V6.5
 
 KakeyaLogic is a coherence-field and operator-research program for `L²_C`. It studies how systems preserve direction, accept correction, reject drift, and recover fidelity under pressure. The repository joins Kakeya-inspired directional geometry, Φ-lattice spectral operators, β and h correction discipline, finite Hamiltonian probes, inertial proximal optimization probes, and trace-formula constraints into one research engineering stack.
 
@@ -76,6 +76,9 @@ DPSA inertial grounding I1 / I2 / I3 (spectral plane)  FORMAL
 DPSA full-architecture I2 / F5 / F6 / F7              PROPOSED / OPEN
 L2-1 thermal coupling gate                            RESOLVED
 L2-5 direct eigenvalue route                          BLOCKED by counting mismatch
+WP5b bounded relative-determinant lane                CLOSED (WP5-OBS-2, V6.5)
+WP5c u-flow trace route                               LIVE
+Prime-carrying ξ spec (L3)                            LIVE · FORCED
 WP5 trace-formula route                               LIVE PRIORITY
 L²_C protected-sector Hamiltonian probe               ENGINEERING KERNEL
 Coherence-Splitting Conjecture                        OPEN

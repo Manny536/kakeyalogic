@@ -2,11 +2,20 @@
 
 **Repo:** KakeyaLogic — Excellence Engine v3  
 **Frame:** PeAIce Research Program · L²_C Framework  
-**Status:** 🟡 V6 canon update · 🟢 operator corrected · 🔴 RH / spectral identification open · ⛔ K_σ determinant lane CLOSED (superseded by V6.4.2/6.4.3)  
+**Status:** 🟡 V6 canon update · 🟢 operator corrected · 🔴 RH / spectral identification open · ⛔ K_σ determinant lane CLOSED (V6.4.3) · ⛔ WP5b bounded lane CLOSED (V6.5)  
 **Canonical name:** V6 = Trace-Neutral Kakeya Operator  
 **Primary downstream:** `docs/l2-spectral-operator.md`, `docs/thermal-coupling-correction.md`, `docs/step4-operator-program.md`
 
 ---
+
+> **V6.5 DOWNSTREAM CLOSURE NOTE — propagated 1 July 2026.**
+> WP5b bounded-coupling relative-determinant route is **CLOSED-NEGATIVE** (`WP5-OBS-2`).
+> Theorem H (Weyl-window law): Krein SSF `ξ(λ) = N_D(λ) − N_A(λ)` is uniformly bounded with
+> thin support; heat · relative zeta · perturbation det = Laplace · Mellin · Cauchy transforms of `ξ`.
+> **Load-bearing qualifier:** operator-boundedness (`γ_K K_σ^{reg}`, `σ > ½`). Does NOT close
+> unbounded mods (L1), WP5c u-flow (L2), or changed free operator. Prime-carrying L3 is **forced**.
+> Canon: [claude-v6](https://github.com/Manny536/claude-v6) `docs/canon/v6-theorems.md` ·
+> `docs/research/wp5b-bounded-lane-closure.md`. RH `OPEN` · Coleman `OPEN` · no proof claimed.
 
 > **V6.4.3 DOWNSTREAM CLOSURE NOTE — propagated 25 June 2026.**
 > The `|m^2 - n^2|^{-sigma}` `K_sigma` realization of the Step-4 determinant target is **`CLOSED-NEGATIVE`**.
