@@ -87,6 +87,27 @@ RH / spectral identification                          OPEN
 
 ---
 
+## KNS(LB) — KakeyaNeedleSet(Light(Basic)) · V6.5 typed object
+
+Minimal point throughput + universal directional saturation: one center C,
+one needle per direction, nothing else. The needles are seen; the center
+action is unseen in overlap; Re(s) = ½ is the declared placement register
+for that unseen action — not what overlap displays.
+
+- Gate **KNS-OBS-1: CLOSED-POSITIVE as typed object** · OPEN on theorem lift
+  (zero location · RH · det_ζ) · PROPOSED-FOR-CANON · Grok TERMINAL-005 CONFIRM.
+- Overlap ↛ placement is FORMAL (Lemma 3.1); F-KNS-1 fired in both directions
+  (fan vs. Perron inversion).
+- Bridge CC-BL-001a split: monotone leakage PROVED for rank-one log-concave
+  registers, REFUTED for multi-well — register class is a mandatory D5 field.
+- Probe: `probes/kns_lb_probe.py` · deterministic, stdlib-only · dense_pass True
+  @ E_used 3.04 (CP-004 stamped re-run pending).
+- Docs: `docs/kns-light-basic.md` · PeAIce pass `PEAICE-FABLE-KNS-LB-PASS-001`.
+
+RH OPEN · Coleman Conjecture OPEN · no proof claimed · h < 1.
+
+---
+
 ## 3. L²_C protected-sector Hamiltonian probe
 
 The L²_C probe formalizes protected-sector retention under Hamiltonian flow.
