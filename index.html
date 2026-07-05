@@ -20,6 +20,8 @@
       <span class="chip green">G₀ FORMAL RESIDUAL OBJECT</span>
       <span class="chip gold">RESIDUAL VANISHING TARGET</span>
       <span class="chip violet">KAKEYA R³ ANCHOR</span>
+      <span class="chip green">GWZ 2601.14411 IN HAND</span>
+      <span class="chip gold">002.A SPLIT · WEAK / STRONG</span>
       <span class="chip red">ζ(0) SECOND-STAGE ONLY</span>
       <span class="chip">RH OPEN</span>
       <span class="chip">h &lt; 1</span>
@@ -42,6 +44,12 @@
       <a class="toc-l2" href="#obstacles">7. Obstacles</a>
       <a class="toc-l2" href="#operators">8. Operator candidates</a>
       <a class="toc-l2" href="#firewall">9. ζ(0) firewall</a>
+      <a href="#gwz">GWZ 2601.14411 integration</a>
+      <a class="toc-l2" href="#gwz-receipt">Source receipt</a>
+      <a class="toc-l2" href="#gwz-carriers">Carrier pinning</a>
+      <a class="toc-l2" href="#gwz-split">002.A split</a>
+      <a class="toc-l2" href="#gwz-channels">Error channels</a>
+      <a class="toc-l2" href="#gwz-symbols">Symbol firewall</a>
       <a href="#links">Repository links</a>
       <a href="#status">Status seal</a>
     </nav>
@@ -50,11 +58,13 @@
     <section class="panel" id="plain">
       <h2>Plain state</h2>
       <p class="plain"><strong>DDATL 002 moves the page off V6.4.3 and onto Grain Zero.</strong> Grain Zero is defined as the residual overlap measure left after Kakeya factorization into grains, slabs, prisms, planks, sticky packets, and convex carriers. The first target is residual vanishing. Zeta-regularization at <code>s = 0</code> is second-stage and conditional.</p>
+      <p class="plain"><strong>Patched 2026-07-05:</strong> the Guth–Wang–Zahl streamlined source (arXiv:2601.14411) is in hand and read in full. The carrier menu <code>C_{δ,ρ}</code> is now pinned to source addresses, broad/narrow is retired at the reduction stage, and Theorem Target 002.A splits into a weak form (assemblable from the source) and a strong form (open — the program's genuine burden). See the <a href="#gwz">GWZ integration</a> section.</p>
       <div class="grid">
         <article class="card"><div class="card-badge">FORMAL</div><h3>G₀ object</h3><p>Residual overlap after recognized Kakeya structure is extracted.</p></article>
         <article class="card"><div class="card-badge">PRIMARY TARGET</div><h3>Vanishing</h3><p>Show normalized residual mass tends to zero under the Wang–Zahl reduction.</p></article>
         <article class="card"><div class="card-badge">SECOND STAGE</div><h3>Operator</h3><p>Only after vanishing, build a residual operator, kernel, counting function, or defect measure.</p></article>
         <article class="card"><div class="card-badge">FIREWALL</div><h3>ζ(0)</h3><p>Not in the Kakeya proof. It is a conditional regularization question.</p></article>
+        <article class="card"><div class="card-badge">PATCH 2026-07-05</div><h3>GWZ pinned</h3><p>Carrier menu instantiated from arXiv:2601.14411. 002.A-weak assemblable; 002.A-strong open.</p></article>
       </div>
       <div class="callout success"><strong>Core seal:</strong> Kakeya gives the structure. Grain Zero names the remainder. ζ(0) is second-stage and conditional.</div>
     </section>
@@ -107,12 +117,14 @@ e_δ(x)    := (m_δ(x) - 1)_+</code></pre>
       <p>For measurable <code>A ⊂ R³</code>:</p>
       <pre class="code"><code>G₀_{δ,ρ}(A) := ∫_A (m_δ(x) - 1)_+ · 1_{R³ \ C_{δ,ρ}}(x) dx</code></pre>
       <p><strong>Meaning:</strong> <code>G₀</code> is the overlap left unaccounted for after all recognized Kakeya structure has been extracted.</p>
+      <div class="callout"><strong>Patch 2026-07-05:</strong> the schematic list above is superseded at the reduction stage by the source-pinned carrier table in the <a href="#gwz-carriers">GWZ integration</a>. In the streamlined proof there are no broad/narrow refinements and no named "grains" — grains belong to the sticky-lane ancestry. The original text is retained as the historical record.</div>
 
       <h2 id="target">5. Primary theorem target</h2>
       <p><strong>Theorem Target DDATL-002.A — Residual Vanishing.</strong> Under the hypotheses and refinements of the Wang–Zahl / Guth–Wang–Zahl reduction, prove:</p>
       <pre class="code"><code>G₀_{δ,ρ}(R³) / Σ_{T∈T_δ} |Y(T)|  →  0</code></pre>
       <p>as <code>δ → 0</code>, after broad/narrow decomposition, convex-density factoring, grain/slab/prism extraction, sticky or non-sticky reduction, and final scale refinement.</p>
       <div class="callout"><strong>PeAIce seal:</strong> No point in space can lie inside too many grains without the overlap becoming structure or becoming negligible.</div>
+      <div class="callout danger"><strong>Calibration patch 2026-07-05:</strong> the streamlined proof does <em>not</em> deliver 002.A as stated. Its refinement calculus captures a <code>δ^{o(1)}</code> fraction of shading mass inside structure — never <code>1 − o(1)</code>. Target 002.A therefore splits: <strong>002.A-weak</strong> (structured <code>δ^{o(1)}</code>-mass carrier — assemblable from the source, PROPOSED) and <strong>002.A-strong</strong> (residual fraction → 0 — OPEN, the program's own theorem burden). Details in <a href="#gwz-split">GWZ integration §002.A split</a>.</div>
 
       <h2 id="lemmas">6. Lemma chain</h2>
       <table class="matrix"><thead><tr><th>Lemma</th><th>Target</th></tr></thead><tbody>
@@ -148,24 +160,87 @@ Candidate 4: Z_{G₀}(s) = ∫_0^1 δ^{s-1} R(δ)dδ,
 G₀ definition → residual vanishing → operator encoding → analytic continuation → s=0 question</code></pre>
     </article>
 
+    <article class="doc" id="gwz">
+      <h2 id="gwz-receipt">GWZ 2601.14411 integration — source receipt</h2>
+      <p><strong>Designation:</strong> <code>PEAICE-KAKEYALOGIC-DDATL-002-GWZ-001</code> · <strong>Date:</strong> 2026-07-05 · <strong>Terminal:</strong> Claude Fable 5 · <strong>Supersession:</strong> <code>DDATL 002 &gt; 001</code> confirmed — 001 remains the closed-lane ledger and host object; 002 is the live Kakeya-side lane.</p>
+      <pre class="code"><code>Guth · Wang · Zahl — "A Streamlined Proof of the Kakeya Set Conjecture in R³"
+arXiv:2601.14411v1 [math.CA] · 20 Jan 2026 · READ IN FULL
+sha256  1bc7df83c394cb74038af673c4a25e98b3e018039c75f3b26501ed496028dce9
+Deep input: sticky Kakeya only (Thm 7.3 ← JAMS 39(2) 2026 · Invent. Math. 241(1) 2025)
+Removed vs arXiv:2502.17655: polynomial partitioning
+Absent from the reduction: broad/narrow · named "grains"
+Grok: public-space confirmation · consensus @neutral (source verification only)</code></pre>
+      <div class="callout"><strong>Governance:</strong> structural claims GZ-D1–GZ-D5 are <code>PROPOSED-FOR-CANON</code> pending Grok TERMINAL cross-derivation. The @neutral consensus event certifies source existence, not the claims.</div>
+
+      <h2 id="gwz-carriers">Carrier pinning — C<sub>δ,ρ</sub> instantiated</h2>
+      <table class="matrix"><thead><tr><th>DDATL-002 schematic</th><th>GWZ address</th><th>Verdict</th></tr></thead><tbody>
+        <tr><td>grains</td><td>not defined in the reduction; sticky-lane ancestry ([5],[6])</td><td><strong>RETIRE</strong> at reduction stage; keep for <code>G₀^sticky</code></td></tr>
+        <tr><td>slabs</td><td><code>θ×1×1</code> slabs; Córdoba <code>L²</code> estimate (Lemma 6.8); slab families <code>S</code>, <code>S_dens</code> (§9.5)</td><td>PINNED</td></tr>
+        <tr><td>prisms / planks</td><td><code>a×b×1</code> planks (§6.2); thickened <code>P_θ</code> (Def 6.10); boxes <code>Q</code>; tube segments <code>T_B</code>; <code>r₁</code>-balls (§9.3)</td><td>PINNED</td></tr>
+        <tr><td>convex carriers</td><td>factoring families <code>W</code>: Lemma 4.1; biased Lemma 9.2 (<code>η_bias</code> smaller-volume tie-break)</td><td>PINNED</td></tr>
+        <tr><td>Katz–Tao / Frostman packets</td><td>Defs 3.1 / 3.2: <code>Δ_max ≤ C</code>, <code>C_F ≤ C</code></td><td>PINNED · exact match</td></tr>
+        <tr><td>sticky packets</td><td>Frostman / Katz–Tao at every scale (Def 7.1)</td><td>PINNED</td></tr>
+        <tr><td>scale envelopes</td><td>uniform families, branching <code>N_k</code> (Defs 2.1–2.2); telescoping <code>Δ_max</code> (Lemma 7.4); dichotomy (Lemma 7.7)</td><td>PINNED</td></tr>
+        <tr><td>high-multiplicity regions</td><td>cells <code>Ω(μ_inner, μ_outer, μ̃)</code> (Prop 5.1); dense boxes <code>D(Q)</code> (Lemma 6.13); induced shadings (Def 5.7)</td><td>PINNED</td></tr>
+        <tr><td>broad/narrow refinements</td><td>absent from the source</td><td><strong>RETIRE</strong></td></tr>
+      </tbody></table>
+      <p>Multiplicity dictionary (FORMAL): <code>m_δ(x) = μ(T,Y)(x)</code>, and</p>
+      <pre class="code"><code>∫ (m_δ − 1)₊ dx = Σ_T |Y(T)| − |U(T,Y)| = (1 − μ(T,Y)⁻¹) · Σ_T |Y(T)|</code></pre>
+      <p>At the endpoint <code>KKT(0)</code>, <code>μ ≤ C_ε δ^{-ε}</code> still permits poly-log growth, so the <em>raw</em> normalized excess does not vanish. The carrier subtraction in <code>G₀</code> is load-bearing — as 002 anticipated.</p>
+
+      <h2 id="gwz-split">The 002.A split — calibration verdict</h2>
+      <div class="callout success"><strong>GZ-D1 (FORMAL, by inspection):</strong> every retained refinement in the source keeps a <code>⪆1</code> fraction of shading mass — poly-log to quasi-poly-log retention (§2.2 pigeonholing; uniformity; Prop 5.1 items 1–2; Lemma 5.11; Lemma 6.13 "good refinements"; §9.3 chain). The source also grants a <code>δⁿ</code> small-shading discard license (§2.2).</div>
+      <div class="callout success"><strong>GZ-D2 · 002.A-weak (PROPOSED · assembly obligation):</strong> a stage-indexed carrier capturing <code>≥ δ^{o(1)} · Σ|Y(T)|</code> of mass, with overlap organized by the product bounds <code>μ(V) ⪅ μ(W′)·μ(V_W)</code> (Prop 5.1(5)) and Lemma 5.11 (25), is assemblable from the source by bookkeeping. Falsifier: a retention step below quasi-poly-log.</div>
+      <div class="callout danger"><strong>GZ-D3 · 002.A-strong (OPEN · primary target):</strong> residual fraction → 0 is <em>not</em> delivered. The proof shows discarded mass is unnecessary, never small. Gap typed exactly: <code>δ^{o(1)}</code> capture (delivered) vs <code>1 − o(1)</code> capture (required). This is now DDATL-002's own theorem burden, with the attack surface enumerated.</div>
+      <div class="callout success"><strong>GZ-D4 (FORMAL, by inspection):</strong> the reduction is arithmetic-free — no primes, <code>ζ(s)</code>, L-functions, trace formulas, or determinants. The only <code>ζ</code> in the paper is Lemma 9.1's density-surplus exponent. The ζ(0) firewall is upgraded from policy to source-verified fact over the reduction; the Kakeya→ζ bridge stays <code>CLOSED-NEGATIVE</code>, sharpened. Scope caveat: the sticky papers are cited, not audited; their arithmetic-adjacent ancestry is the Katz–Tao sum-product outline — additive-combinatorial, not zeta-spectral.</div>
+      <div class="callout"><strong>GZ-D5 (FORMAL, by inspection):</strong> no contact with operator lanes. DDATL-001 closures, Theorem H, KNS(LB), and the forced prime-carrying L3 route are all unchanged by this source.</div>
+
+      <h2 id="gwz-channels">Error-channel retype (Lemma 2 upgrade)</h2>
+      <pre class="code"><code>E_pigeonhole   dyadic pigeonholing losses (§2.2 i–iv)
+E_refine       ⪆1-refinement discards (Prop 5.1 · L5.11 · L6.13)
+E_smallshade   δⁿ discard license (§2.2)
+E_prob         Chernoff regularization tails ≲ (ρ/δ)^{O(1)} e^{-A}  (App. A)
+E_sticky       external: sticky-lane internals (cited, not audited)
+E_broad/narrow RETIRED — not present in the streamlined reduction</code></pre>
+
+      <h2 id="gwz-symbols">Symbol-collapse firewall additions</h2>
+      <pre class="code"><code>β_GWZ  multiplicity exponent (1 → 0)  ≠ β-Protocol ≠ β=ρ/δ ≠ β_close(T) ≠ β_iPiano   [fourth β lane]
+ζ_GWZ  Lemma 9.1 density surplus      ≠ ζ(s) ≠ ζ(0)
+λ_GWZ  shading density λ(T,Y)         ≠ eigenvalue λ ≠ Λ(p^k)
+μ_GWZ  multiplicity μ(T,Y)            ≠ KNS placement measure μ ≠ Möbius μ
+W      convex carrier family          ≠ WP5 work packages
+KF     Kakeya–Frostman statement      ≠ Krein anything
+G₀     Grain Zero residual            ≠ sticky-lane "grains"</code></pre>
+      <p>Full register, toolkit table, exponent menagerie, Q-RETURN, and the paste-ready Grok cross-derivation block live in <code>docs/ddatl-002-gwz-streamline-integration.md</code>.</p>
+    </article>
+
     <section class="panel" id="links">
       <h2>Repository links</h2>
       <p>Dense white paper path: <code>docs/whitepapers/ddatl-002-grain-zero-whitepaper.md</code></p>
       <p>Research register path: <code>docs/ddatl-002-grain-zero.md</code></p>
+      <p>GWZ streamline integration: <code>docs/ddatl-002-gwz-streamline-integration.md</code> · mirrored at <a href="https://github.com/Manny536/claude-v6">claude-v6</a><code>/docs/</code></p>
+      <p>Source: arXiv:2601.14411 · Guth–Wang–Zahl streamlined proof · sha256 <code>1bc7df83…28dce9</code></p>
     </section>
 
     <section class="panel" id="status">
       <h2>Status seal</h2>
-      <pre class="code"><code>DDATL 002 = LIVE RESEARCH PROGRAM
+      <pre class="code"><code>DDATL 002 = LIVE RESEARCH PROGRAM · DDATL 002 &gt; 001 CONFIRMED
 G₀ = FORMAL RESIDUAL OBJECT
-Residual vanishing = PRIMARY PROOF TARGET
-ζ(0) = CONDITIONAL SECOND-STAGE QUESTION
+GWZ 2601.14411 = SOURCE IN HAND · READ IN FULL · sha256 1bc7df83…28dce9
+Carrier menu C_{δ,ρ} = PINNED to source addresses
+broad/narrow · polynomial partitioning = RETIRED at reduction stage
+002.A-weak = PROPOSED (assembly obligation)
+002.A-strong = OPEN · PRIMARY PROOF TARGET
+ζ(0) = CONDITIONAL SECOND-STAGE · firewall SOURCE-VERIFIED over the reduction
+Kakeya → ζ bridge = CLOSED-NEGATIVE · SHARPENED
+β_GWZ = fourth β lane · registered
+GZ-D1–GZ-D5 = PROPOSED-FOR-CANON · Grok TERMINAL owed
 RH = OPEN
 Kakeya R³ theorem = EXTERNAL MATHEMATICAL ANCHOR
 h &lt; 1</code></pre>
     </section>
   </main>
 </div>
-<footer class="footer">PEAICE-KAKEYALOGIC-DDATL-002 · Grain Zero Residual Program · Kakeya: Light’s Basic Twin · RH OPEN · h &lt; 1</footer>
+<footer class="footer">PEAICE-KAKEYALOGIC-DDATL-002 · Grain Zero Residual Program · Kakeya: Light’s Basic Twin · GWZ integration 2026-07-05 · RH OPEN · h &lt; 1</footer>
 </body>
 </html>
