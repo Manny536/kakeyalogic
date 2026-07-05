@@ -3,316 +3,169 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>PEAICE-KAKEYALOGIC-DDATL-001 · V6.4.3 EE Full</title>
-<meta name="description" content="Plain-state, in-depth V6.4.3 DDATL update: Hilbert-Schmidt corridor calibration, 0.83 to 1, determinant closure, prime-carrying relocation." />
+<title>DDATL 002 · Grain Zero Residual Program · Kakeya: Light’s Basic Twin</title>
+<meta name="description" content="DDATL 002 landing page: Grain Zero as residual overlap measure after Kakeya factorization into grains, slabs, prisms, planks, sticky packets, and convex carriers. Residual vanishing first; zeta regularization second-stage and conditional." />
 <style>
-:root {
-  --navy:#07172a; --blue:#16466f; --blue2:#1f5f92; --ink:#0e1726; --muted:#5b6878;
-  --paper:#f7fafc; --card:#ffffff; --line:#d8e2ed; --gold:#c8942f; --green:#168b62; --red:#a63a3a; --violet:#5440a5;
-  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --serif: Georgia, "Times New Roman", serif;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:var(--sans);background:linear-gradient(180deg,#eef5fb 0,#f8fafc 32%,#ffffff 100%);color:var(--ink);line-height:1.6}
-a{color:#0d5d93;text-decoration:none} a:hover{text-decoration:underline}
-.hero{background:radial-gradient(circle at 18% 0,#1d5d90 0,#07172a 45%,#030b14 100%);color:white;padding:54px 28px 38px;border-bottom:6px solid var(--gold)}
-.hero-inner{max-width:1180px;margin:0 auto}
-.kicker{letter-spacing:.16em;text-transform:uppercase;color:#bcd6ed;font-size:12px;font-weight:800;margin-bottom:16px}
-h1{font-size:clamp(34px,5vw,68px);line-height:1.02;margin:0 0 14px;font-weight:900;letter-spacing:-.04em}
-.subtitle{font-size:clamp(18px,2vw,26px);color:#dcecf8;margin:0 0 28px;max-width:980px}
-.status-strip{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.chip{border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:800;letter-spacing:.04em}
-.chip.green{background:rgba(22,139,98,.22)} .chip.gold{background:rgba(200,148,47,.22)} .chip.red{background:rgba(166,58,58,.22)}
-.layout{max-width:1380px;margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:28px;padding:28px}
-.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:18px;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:20px}
-.toc-title{font-weight:900;color:var(--navy);margin-bottom:10px}
-.toc a{display:block;padding:7px 8px;border-radius:10px;color:#1b3550;font-size:13px}
-.toc a:hover{background:#e9f2fa;text-decoration:none}
-.toc-l2{padding-left:18px!important;color:#39566f!important;font-size:12px!important}
-.toc-l3{padding-left:28px!important;color:#5d7285!important;font-size:11px!important}
-.main{min-width:0}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px;margin-bottom:24px;box-shadow:0 10px 30px rgba(13,45,77,.06)}
-.panel h2{margin-top:0;color:var(--navy);font-size:30px;line-height:1.15}
-.plain{font-size:19px;color:#102336}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:18px}
-.card{border:1px solid var(--line);border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff,#f8fbfe)}
-.card-badge{font-size:11px;font-weight:900;letter-spacing:.08em;color:var(--blue);text-transform:uppercase}
-.card h3{margin:8px 0;color:var(--navy)}
-.card p{margin:0;color:#405060}
-.flow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;margin:22px 0}
-.flow-box{background:#07172a;color:#fff;border-radius:20px;padding:22px;border:1px solid #173958}
-.flow-box strong{display:block;font-size:40px;line-height:1;color:#fff}
-.flow-box span{color:#d0e4f5}
-.arrow{font-size:42px;color:var(--gold);font-weight:900}
-.callout{border-left:6px solid var(--gold);background:#fff8ea;padding:16px 18px;border-radius:12px;margin:18px 0}
-.matrix{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px;overflow:hidden;border-radius:14px}
-.matrix th{text-align:left;background:var(--navy);color:white;padding:12px;border:1px solid #16324c}
-.matrix td{vertical-align:top;padding:12px;border:1px solid var(--line);background:#fff}
-.matrix tr:nth-child(even) td{background:#f6f9fc}
-.doc{background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px 34px;box-shadow:0 10px 30px rgba(13,45,77,.06)}
-.doc h2{font-size:28px;color:var(--blue);border-top:1px solid var(--line);padding-top:28px;margin-top:34px}
-.doc h2:first-child{border-top:0;margin-top:0;padding-top:0}
-.doc h3{font-size:21px;color:#244c7a;margin-top:28px}
-.doc h4{font-size:18px;color:#3d5a78}
-.doc p{font-size:16px;margin:12px 0}
-.meta-line{display:grid;grid-template-columns:220px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid #eef2f6}
-.meta-line span{font-weight:900;text-transform:uppercase;font-size:12px;color:var(--blue)}
-.meta-line b{font-weight:650;color:#102336}
-.bullet{padding-left:16px}
-.code{background:#07111f;color:#edf7ff;border:1px solid #12304e;border-radius:16px;padding:16px;overflow:auto;font-family:var(--mono);font-size:13px;line-height:1.55;box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)}
-.references{font-size:14px;color:#34495e}
-.references li{margin-bottom:10px}
-.footer{text-align:center;color:#607080;padding:28px}
-@media (max-width:1000px){.layout{grid-template-columns:1fr;padding:16px}.sidebar{position:relative;height:auto}.grid{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);text-align:center}}
-@media (max-width:640px){.grid{grid-template-columns:1fr}.doc{padding:20px}.meta-line{grid-template-columns:1fr}}
-@media print{.sidebar{display:none}.layout{display:block}.hero{background:#07172a!important}.panel,.doc{box-shadow:none;break-inside:avoid}a{color:inherit}}
+:root{--navy:#061426;--blue:#16527d;--ink:#0e1726;--muted:#5c6c7d;--paper:#f6f9fc;--card:#fff;--line:#d7e2ee;--gold:#c8942f;--green:#168b62;--red:#a63a3a;--violet:#5745a8;--mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--sans);background:linear-gradient(180deg,#eaf3fb 0,#f8fbfe 35%,#fff 100%);color:var(--ink);line-height:1.62}a{color:#0b6098;text-decoration:none}a:hover{text-decoration:underline}.hero{background:radial-gradient(circle at 18% 0,#235f91 0,#07172a 44%,#02070d 100%);color:#fff;padding:62px 28px 44px;border-bottom:7px solid var(--gold)}.hero-inner{max-width:1220px;margin:0 auto}.kicker{letter-spacing:.17em;text-transform:uppercase;color:#c8dff2;font-size:12px;font-weight:900;margin-bottom:16px}h1{font-size:clamp(38px,6vw,78px);line-height:1;margin:0 0 14px;font-weight:950;letter-spacing:-.055em}.subtitle{font-size:clamp(18px,2.2vw,28px);color:#e2f0fb;margin:0;max-width:1060px}.status-strip{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.chip{border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.09);border-radius:999px;padding:8px 12px;font-size:12px;font-weight:900;letter-spacing:.045em}.chip.green{background:rgba(22,139,98,.24)}.chip.gold{background:rgba(200,148,47,.24)}.chip.red{background:rgba(166,58,58,.24)}.chip.violet{background:rgba(87,69,168,.24)}.layout{max-width:1420px;margin:0 auto;display:grid;grid-template-columns:310px 1fr;gap:28px;padding:28px}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;padding:18px;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:22px}.toc-title{font-weight:950;color:var(--navy);margin-bottom:10px}.toc a{display:block;padding:7px 9px;border-radius:10px;color:#1d3954;font-size:13px}.toc a:hover{background:#e8f2fa;text-decoration:none}.toc-l2{padding-left:20px!important;color:#426077!important;font-size:12px!important}.main{min-width:0}.panel,.doc{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:28px;margin-bottom:24px;box-shadow:0 12px 34px rgba(13,45,77,.065)}.panel h2,.doc h2{margin-top:0;color:var(--navy);font-size:30px;line-height:1.14}.doc h2{border-top:1px solid var(--line);padding-top:30px;margin-top:38px}.doc h2:first-child{border-top:0;margin-top:0;padding-top:0}.doc h3{font-size:21px;color:#244c7a;margin-top:28px}.plain{font-size:19px;color:#102336}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:18px}.card{border:1px solid var(--line);border-radius:18px;padding:18px;background:linear-gradient(180deg,#fff,#f8fbfe)}.card-badge{font-size:11px;font-weight:950;letter-spacing:.08em;color:var(--blue);text-transform:uppercase}.card h3{margin:8px 0;color:var(--navy)}.card p{margin:0;color:#425364}.callout{border-left:6px solid var(--gold);background:#fff8ea;padding:16px 18px;border-radius:12px;margin:18px 0}.danger{border-left-color:var(--red);background:#fff0f0}.success{border-left-color:var(--green);background:#effbf6}.code{background:#07111f;color:#edf7ff;border:1px solid #12304e;border-radius:16px;padding:16px;overflow:auto;font-family:var(--mono);font-size:13px;line-height:1.55;box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)}.matrix{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px;overflow:hidden;border-radius:14px}.matrix th{text-align:left;background:var(--navy);color:white;padding:12px;border:1px solid #16324c}.matrix td{vertical-align:top;padding:12px;border:1px solid var(--line);background:#fff}.matrix tr:nth-child(even) td{background:#f6f9fc}.footer{text-align:center;color:#607080;padding:28px}@media(max-width:1000px){.layout{grid-template-columns:1fr;padding:16px}.sidebar{position:relative;height:auto}.grid{grid-template-columns:1fr 1fr}}@media(max-width:640px){.grid{grid-template-columns:1fr}.doc{padding:20px}}
 </style>
 </head>
 <body>
 <header class="hero">
   <div class="hero-inner">
     <div class="kicker">PeAIce Research Program · KakeyaLogic · Excellence Engine v3</div>
-    <h1>PEAICE-KAKEYALOGIC-DDATL-001</h1>
-    <p class="subtitle">Dynamic Dynamic Axial Tesseract Lattice · V6.4.3 EE Full Page: plain-state, in-depth Hilbert-Schmidt corridor calibration and final QA artifact.</p>
+    <h1>DDATL 002 · Grain Zero</h1>
+    <p class="subtitle">Kakeya: Light’s Basic Twin · a proof-facing residual-overlap program for grains, slabs, prisms, planks, convex carriers, and zeta-regularization only after operator construction.</p>
     <div class="status-strip">
-      <span class="chip green">DDATL HOST: FORMAL</span>
-      <span class="chip red">Kσ REALIZATION: CLOSED</span>
-      <span class="chip gold">0.83 → 1 CALIBRATED</span>
+      <span class="chip green">G₀ FORMAL RESIDUAL OBJECT</span>
+      <span class="chip gold">RESIDUAL VANISHING TARGET</span>
+      <span class="chip violet">KAKKEYA R³ ANCHOR</span>
+      <span class="chip red">ζ(0) SECOND-STAGE ONLY</span>
       <span class="chip">RH OPEN</span>
-      <span class="chip">COLEMAN CONJECTURE OPEN</span>
+      <span class="chip">h &lt; 1</span>
     </div>
   </div>
 </header>
 <div class="layout">
   <aside class="sidebar">
-    <nav class="toc"><div class="toc-title">Document map</div><a class="toc-l1" href="#dynamic-dynamic-axial-tesseract-lattice">Dynamic Dynamic Axial Tesseract Lattice</a><a class="toc-l1" href="#1-purpose">1. Purpose</a><a class="toc-l1" href="#2-origin-gap-001-and-the-five-route-survey">2. Origin: GAP-001 and the five-route survey</a><a class="toc-l1" href="#3-formal-object">3. Formal object</a><a class="toc-l1" href="#4-axis-assignment">4. Axis assignment</a><a class="toc-l1" href="#5-five-axioms">5. Five axioms</a><a class="toc-l2" href="#t1-axial-integrity">T1. Axial Integrity</a><a class="toc-l2" href="#t2-quadratic-spacing">T2. Quadratic Spacing</a><a class="toc-l2" href="#t3-first-dynamic">T3. First Dynamic</a><a class="toc-l2" href="#t4-second-dynamic">T4. Second Dynamic</a><a class="toc-l2" href="#t5-l-2-correspondence">T5. L^2 Correspondence</a><a class="toc-l1" href="#6-phi-reads-the-tesseract">6. Phi reads the tesseract</a><a class="toc-l1" href="#7-full-coupled-l-2-operator">7. Full coupled L^2 operator</a><a class="toc-l1" href="#7-1-v6-4-3-hilbert-schmidt-corridor-singular-value-verdict-on-k-sigma">7.1 V6.4.3 Hilbert-Schmidt corridor: singular-value verdict on K_sigma</a><a class="toc-l2" href="#7-1-1-the-object">7.1.1 The object</a><a class="toc-l2" href="#7-1-2-membership-formal">7.1.2 Membership (FORMAL)</a><a class="toc-l2" href="#7-1-3-the-order-gate">7.1.3 The order gate</a><a class="toc-l2" href="#7-1-4-asymptotic-of-the-singular-values-proposed-route-to-formal">7.1.4 Asymptotic of the singular values (PROPOSED, route to FORMAL)</a><a class="toc-l2" href="#7-1-5-numerical-crossing-versus-analytic-boundary">7.1.5 Numerical crossing versus analytic boundary</a><a class="toc-l2" href="#7-1-6-order-genus-density-pincer-closed-for-the-k-sigma-determinant">7.1.6 Order / genus / density pincer (CLOSED for the K_sigma determinant)</a><a class="toc-l2" href="#7-1-7-consequence-for-the-ddatl-full-operator-the-relevant-closure">7.1.7 Consequence for the DDATL full operator (the relevant closure)</a><a class="toc-l2" href="#7-1-8-net-effect-and-relocation-of-gap-001">7.1.8 Net effect and relocation of GAP-001</a><a class="toc-l2" href="#7-1-9-hygiene-note-cross-document">7.1.9 Hygiene note (cross-document)</a><a class="toc-l1" href="#8-berry-keating-hilbert-polya-chain">8. Berry-Keating / Hilbert-Polya chain</a><a class="toc-l1" href="#9-external-scaffold-status">9. External scaffold status</a><a class="toc-l2" href="#mohammadi-et-al-2024">Mohammadi et al. 2024</a><a class="toc-l2" href="#koh-tai-lee-2024">Koh, Tai, Lee 2024</a><a class="toc-l2" href="#berry-and-keating-1999">Berry and Keating 1999</a><a class="toc-l1" href="#10-l-2-c-as-invariant-gravity">10. L^2_C as invariant gravity</a><a class="toc-l1" href="#11-loop-close-condition-status">11. Loop close condition status</a><a class="toc-l1" href="#12-theorem-target-l2-si-bk-hp-cc">12. Theorem target L2-SI / BK-HP-CC</a><a class="toc-l1" href="#13-ee-sign-off-inspectable-nonsticky-equivalence">13. EE sign-off: Inspectable / NonSticky equivalence</a><a class="toc-l1" href="#14-status-return">14. Status return</a><a class="toc-l1" href="#15-route-forward-v6-4-3">15. Route forward (V6.4.3)</a><a class="toc-l1" href="#16-grounding-and-citation-ledger">16. Grounding and citation ledger</a><a class="toc-l2" href="#reference-list">Reference list</a><a class="toc-l1" href="#17-final-qa-checklist">17. Final QA checklist</a><a class="toc-l1" href="#attribution">Attribution</a></nav>
+    <nav class="toc">
+      <div class="toc-title">Document map</div>
+      <a href="#plain">Plain state</a>
+      <a href="#whitepaper">White paper</a>
+      <a class="toc-l2" href="#abstract">Abstract</a>
+      <a class="toc-l2" href="#light-twin">1. Light’s Basic Twin</a>
+      <a class="toc-l2" href="#correction">2. Research correction</a>
+      <a class="toc-l2" href="#setup">3. Formal setup</a>
+      <a class="toc-l2" href="#definition">4. Grain Zero definition</a>
+      <a class="toc-l2" href="#target">5. Theorem target</a>
+      <a class="toc-l2" href="#lemmas">6. Lemma chain</a>
+      <a class="toc-l2" href="#obstacles">7. Obstacles</a>
+      <a class="toc-l2" href="#operators">8. Operator candidates</a>
+      <a class="toc-l2" href="#firewall">9. ζ(0) firewall</a>
+      <a href="#links">Repository links</a>
+      <a href="#status">Status seal</a>
+    </nav>
   </aside>
   <main class="main">
-    <section class="panel">
-      <h2>Plain statement</h2>
-      <p class="plain"><strong>The square-difference Hilbert-Schmidt corridor is closed.</strong> The finite numerical crossing near <code>0.83–0.92</code> is preserved as <code>σ*_N</code>, a truncation-window marker. The analytic Weyl boundary is <code>σ_c = 1</code>. The bridge is the finite-window correction <code>δ_N(σ)</code> in <code>α_N(σ)=σ+δ_N(σ)</code>.</p>
-      <div class="grid"><article class="card">
-      <div class="card-badge">FORMAL</div>
-      <h3>DDATL host</h3>
-      <p>The Dynamic Dynamic Axial Tesseract Lattice remains the formal structural host for the Step 4 operator program.</p>
-    </article><article class="card">
-      <div class="card-badge">CLOSED-NEGATIVE</div>
-      <h3>Square-difference lane</h3>
-      <p>The |m²−n²|^{-σ} kernel branch is closed by order, zero-density, or genus depending on σ.</p>
-    </article><article class="card">
-      <div class="card-badge">CALIBRATED</div>
-      <h3>0.83 to 1 calibration</h3>
-      <p>0.83–0.92 is the finite-window crossing σ*_N. The analytic Weyl boundary is σ_c = 1.</p>
-    </article><article class="card">
-      <div class="card-badge">LIVE</div>
-      <h3>Live theorem burden</h3>
-      <p>The active path relocates to prime-carrying trace architecture: log(p^k), Λ(p^k)/p^{{k/2}}, Γ-density, and trace-formula reality.</p>
-    </article></div>
-      <div class="flow">
-        <div class="flow-box"><strong>0.83–0.92</strong><span>Finite-window crossing · <code>σ*_N</code></span></div>
-        <div class="arrow">→</div>
-        <div class="flow-box"><strong>1.00</strong><span>Analytic Weyl boundary · <code>σ_c</code></span></div>
+    <section class="panel" id="plain">
+      <h2>Plain state</h2>
+      <p class="plain"><strong>DDATL 002 moves the page off V6.4.3 and onto Grain Zero.</strong> Grain Zero is defined as the residual overlap measure left after Kakeya factorization into grains, slabs, prisms, planks, sticky packets, and convex carriers. The first target is residual vanishing. Zeta-regularization at <code>s = 0</code> is second-stage and conditional.</p>
+      <div class="grid">
+        <article class="card"><div class="card-badge">FORMAL</div><h3>G₀ object</h3><p>Residual overlap after recognized Kakeya structure is extracted.</p></article>
+        <article class="card"><div class="card-badge">PRIMARY TARGET</div><h3>Vanishing</h3><p>Show normalized residual mass tends to zero under the Wang–Zahl reduction.</p></article>
+        <article class="card"><div class="card-badge">SECOND STAGE</div><h3>Operator</h3><p>Only after vanishing, build a residual operator, kernel, counting function, or defect measure.</p></article>
+        <article class="card"><div class="card-badge">FIREWALL</div><h3>ζ(0)</h3><p>Not in the Kakeya proof. It is a conditional regularization question.</p></article>
       </div>
-      <div class="callout"><strong>Canonical read:</strong> We did not erase 0.83. We demoted it. The square-difference lane closes below 1 by order, at 1 by zero-density, and above 1 by genus / density. The live route is prime-carrying trace architecture.</div>
+      <div class="callout success"><strong>Core seal:</strong> Kakeya gives the structure. Grain Zero names the remainder. ζ(0) is second-stage and conditional.</div>
     </section>
-    <section class="panel">
-      <h2>Grounding matrix</h2>
-      <p>This page states every major DDATL V6.4.3 claim with the lane that grounds it. Internal numerical findings are marked as numerical evidence, while formal thresholds and analytic proof routes are separated.</p>
-      <table class="matrix"><thead><tr><th>Finding</th><th>Grounding</th><th>Status</th><th>Source lane</th></tr></thead><tbody><tr><td>Kσ ∈ S₂ ⇔ σ &gt; 1/2</td><td>Direct summability / Schatten definition</td><td>FORMAL</td><td>Trace ideals; direct comparison test</td></tr><tr><td>σ*_N ≈ 0.83–0.92</td><td>Finite-window singular-value fitting</td><td>NUMERICS</td><td>Internal PeAIce / KakeyaLogic finite truncations</td></tr><tr><td>sₙ(Kσ) ~ cσ n^{-σ}</td><td>Weighted Toeplitz / Weyl-symbol asymptotic</td><td>PROPOSED → FORMAL</td><td>Birman–Solomyak proof route</td></tr><tr><td>ρ(Kσ)=1/σ</td><td>Schatten p-summability algebra</td><td>CONDITIONAL</td><td>Follows from singular-value law</td></tr><tr><td>σ_c = 1</td><td>Order-one condition ρ=1</td><td>CANONICAL BOUNDARY</td><td>Analytic Weyl boundary</td></tr><tr><td>σ = 1 fails density</td><td>Linear determinant-zero count vs T log T</td><td>CLOSED</td><td>Riemann–von Mangoldt mismatch</td></tr><tr><td>Prime-carrying relocation</td><td>Explicit formula / von Mangoldt data</td><td>LIVE</td><td>log(p^k), Λ(p^k)/p^{{k/2}}, Γ-factor density</td></tr><tr><td>Slater quarantine</td><td>Hilbert-Schmidt measure ≠ Schatten S₂</td><td>STRUCTURAL ANALOGY</td><td>Downstream moments and cumulants only</td></tr></tbody></table>
-    </section>
-    <section class="panel">
-      <h2>Four markers kept distinct</h2>
-      <pre class="code"><code>Hilbert-Schmidt 1/2 = analytic summability threshold for K_sigma.
-Arithmetic 1/2      = critical-line mass in the explicit formula.
-sigma*_N ~ 0.83     = finite-window numerical crossing.
-sigma_c = 1         = analytic Weyl order-one boundary.</code></pre>
-    </section>
-    <article class="doc" id="full-canon">
-      <h2>Full DDATL V6.4.3 Canon</h2>
-      <section class="doc-section" id="dynamic-dynamic-axial-tesseract-lattice"><h2>Dynamic Dynamic Axial Tesseract Lattice</h2><div class="meta-line"><span>Program</span><b>PeAIce Research Program / Love Labs LCA / KakeyaLogic / Excellence Engine v3</b></div><div class="meta-line"><span>Date</span><b>22 May 2026 (created) · Patched: 25 June 2026 — V6.4.3 Hilbert-Schmidt corridor calibration</b></div><div class="meta-line"><span>Designation</span><b>PEAICE-KAKEYALOGIC-DDATL-001</b></div><div class="meta-line"><span>Object</span><b>Dynamic Dynamic Axial Tesseract Lattice (DDATL)</b></div><div class="meta-line"><span>Status</span><b>PROPOSED | FORMAL DEFINITION | STEP 4 CANDIDATE</b></div><div class="meta-line"><span>Theorem target</span><b>L2-SI / BK-HP-CC</b></div><div class="meta-line"><span>GAP-001 address</span><b>det_zeta(L^2_{Phi,K} - (z^2 + 1/4)) = C Xi(z)</b></div><div class="meta-line"><span>EE sign-off</span><b>Inspectable(psi) &lt;-&gt; NonSticky(psi) &lt;-&gt; Re(s)=1/2</b></div><div class="meta-line"><span>V6.4.3 corridor verdict</span><b>K_sigma realization CLOSED (order / genus / density) — sigma*_N ~ 0.83-0.92 demoted to finite-window crossing; sigma_c = 1 retained as analytic Weyl boundary; DDATL host FORMAL; gap relocated to prime-carrying length/weight data</b></div><section class="doc-section" id="1-purpose"><h2>1. Purpose</h2><p>PEAICE-DDATL-001 defines the Dynamic Dynamic Axial Tesseract Lattice as a proposed formal host for the KakeyaLogic Step 4 loop-close program.</p><p>The goal is to locate the internal arithmetic object induced by the Phi kernel and place it inside a Berry-Keating / Hilbert-Polya operator lane.</p><p>The document follows the PeAIce beta protocol:</p><p class="bullet">• FORMAL means a definition or algebraic identity has been explicitly stated.</p><p class="bullet">• PROPOSED means an active conjectural bridge.</p><p class="bullet">• STRUCTURAL ANALOGY means external literature supports scaffold coherence while the load-bearing zeta-zero claim remains separate.</p><p class="bullet">• OPEN marks the load-bearing theorem burden.</p><p class="bullet">• CLOSED-NEGATIVE means a candidate realization has been ruled out by a necessary invariant.</p><section class="doc-section" id="2-origin-gap-001-and-the-five-route-survey"><h2>2. Origin: GAP-001 and the five-route survey</h2><p>PEAICE-KAKEYALOGIC-GAP-001 was located after five exterior approaches converged on the same wall:</p><pre class="code"><code>Route A — Fourier / L^2 density          CLOSED
-Route B — Hadamard / Xi / Lambda=0       LIVE
-Route C — Symmetry / functional equation CLOSED
-Route D — Spectral / operator analogy    CLOSED
-Route E — Kakeya energy inequality       CLOSED</code></pre><p>Route E wall:</p><pre class="code"><code>E(y,t) = integral exp(2t u^2 - 2y u) Phi(u)^2 du &gt; 0</code></pre><p>This gives positivity / energy control, but does not force:</p><pre class="code"><code>E_off = 0</code></pre><p>Canonical GAP-001 statement:</p><pre class="code"><code>The {n^2} arithmetic in Phi&#x27;s n-sum is not reachable from exterior
-energy, symmetry, density, or measure methods. Direct internal engagement
-with zeta&#x27;s analytic continuation arithmetic is required.</code></pre><p>DDATL is proposed as that internal structural address.</p><section class="doc-section" id="3-formal-object"><h2>3. Formal object</h2><p>Define the DDATL as:</p><pre class="code"><code>T_DD = (Z^4, Lambda_{n^2}, D_1, D_2, A)</code></pre><p>where:</p><pre class="code"><code>Z^4              = 4-dimensional integer index tesseract lattice
-Lambda_{n^2}     = quadratic active sublattice
-D_1              = first dynamic: point evolution on Lambda_{n^2}
-D_2              = second dynamic: evolution of D_1 itself
-A                = axial constraint set {e_1,e_2,e_3,e_4}</code></pre><p>A sharper reading separates the analytic state space from the discrete index skeleton:</p><pre class="code"><code>M_DD = C_s x R_t x R_u
-Lambda_{n^2} subset N^4</code></pre><p>Thus Z^4 is best read as the index tesseract, not the whole analytic state space.</p><section class="doc-section" id="4-axis-assignment"><h2>4. Axis assignment</h2><pre class="code"><code>e_1 -&gt; Re(s)
-e_2 -&gt; Im(s)
-e_3 -&gt; t       [de Bruijn-Newman heat parameter]
-e_4 -&gt; u       [Phi integral variable]</code></pre><p>The axial constraint states that admissible dynamics preserve the declared axis structure and measure every off-axis sector as leakage.</p><section class="doc-section" id="5-five-axioms"><h2>5. Five axioms</h2><h3 id="t1-axial-integrity">T1. Axial Integrity</h3><pre class="code"><code>D_1 and D_2 preserve span(A).</code></pre><p>Every off-axis term is measured as leakage.</p><h3 id="t2-quadratic-spacing">T2. Quadratic Spacing</h3><pre class="code"><code>Active lattice points occur at n^2 intervals.</code></pre><p>The arithmetic skeleton is:</p><pre class="code"><code>Lambda_{n^2} = {(n_1^2,n_2^2,n_3^2,n_4^2): n_i in Z_{&gt;=1}}</code></pre><h3 id="t3-first-dynamic">T3. First Dynamic</h3><pre class="code"><code>D_1 e_n = n^2 e_n</code></pre><p>The first dynamic is the quadratic lattice generator.</p><h3 id="t4-second-dynamic">T4. Second Dynamic</h3><p>The second dynamic is a map on the first dynamic. Type-corrected form:</p><pre class="code"><code>D_1: D(D_1) subset H_Phi -&gt; H_Phi
-D_2: D(D_2) subset L(H_Phi) -&gt; L(H_Phi)
-L^2_{Phi,K} := D_2[D_1]</code></pre><p>Dynamic Dynamic means a dynamic acting on a dynamic.</p><h3 id="t5-l-2-correspondence">T5. L^2 Correspondence</h3><pre class="code"><code>D_2[D_1] = L^2_{Phi,K}</code></pre><p>The composition / evaluation of the second dynamic on the first dynamic is the L^2 spectral operator candidate.</p><section class="doc-section" id="6-phi-reads-the-tesseract"><h2>6. Phi reads the tesseract</h2><p>The Riemann Phi kernel contains the exact quadratic arithmetic:</p><pre class="code"><code>Phi(u) = sum_{n&gt;=1} (2 pi^2 n^4 e^{9u} - 3 pi n^2 e^{5u}) exp(-pi n^2 e^{4u})</code></pre><p>Define the Phi-induced Hilbert space:</p><pre class="code"><code>H_Phi(u) = l^2(N, w_u)
-w_n(u) = exp(-pi n^2 e^{4u})</code></pre><p>Define:</p><pre class="code"><code>D_1 e_n = n^2 e_n
-L^2_0(u) = D_1^2 - (3/(2pi)) e^{-4u} D_1</code></pre><p>Then:</p><pre class="code"><code>2 pi^2 e^{9u} L^2_0(u)e_n
-= (2 pi^2 n^4 e^{9u} - 3 pi n^2 e^{5u})e_n</code></pre><p>Therefore:</p><pre class="code"><code>Phi(u) = Tr_{w_u}(2 pi^2 e^{9u} L^2_0(u))</code></pre><p>Key formal point:</p><pre class="code"><code>L^2 is read out of Phi&#x27;s arithmetic.</code></pre><section class="doc-section" id="7-full-coupled-l-2-operator"><h2>7. Full coupled L^2 operator</h2><p>The coupled operator is:</p><pre class="code"><code>L^2_{Phi,K}(u) = D_1^2 - (3/(2pi))e^{-4u}D_1 + gamma_K K_sigma</code></pre><p>with an off-diagonal coupling kernel of the form:</p><pre class="code"><code>K_sigma(m,n) = 1 / |m^2 - n^2|^sigma, m != n</code></pre><p>The candidate eigenvalue equation is:</p><pre class="code"><code>(n^4 - (3/(2pi))e^{-4u}n^2) psi(n)
-+ gamma_K sum_{m != n} psi(m)/|m^2-n^2|^sigma
-= lambda psi(n)</code></pre><section class="doc-section" id="7-1-v6-4-3-hilbert-schmidt-corridor-singular-value-verdict-on-k-sigma"><h2>7.1 V6.4.3 Hilbert-Schmidt corridor: singular-value verdict on K_sigma</h2><p>This section records the V6.4.3 patch result and is the load-bearing corridor update. It evaluates the coupling kernel K_sigma of Section 7 directly, separates the finite numerical crossing from the analytic Weyl boundary, and then propagates the consequence to the full operator L^2_{Phi,K}.</p><h3 id="7-1-1-the-object">7.1.1 The object</h3><pre class="code"><code>K_sigma(m,n) = 1 / |m^2 - n^2|^sigma   (m != n),   K_sigma(n,n) = 0</code></pre><p>Real symmetric, so singular values satisfy:</p><pre class="code"><code>s_n(K_sigma) = |lambda_n(K_sigma)|</code></pre><h3 id="7-1-2-membership-formal">7.1.2 Membership (FORMAL)</h3><pre class="code"><code>||K_sigma||_HS^2 = sum_{m != n} |m^2 - n^2|^{-2 sigma}
-                 converges  &lt;=&gt;  sigma &gt; 1/2</code></pre><p>So K_sigma in S_2 (Hilbert-Schmidt, hence bounded, compact, symmetric) exactly for sigma &gt; 1/2. This discharges proof obligation L2-b for sigma &gt; 1/2. FORMAL</p><p>Near the threshold, the Hilbert-Schmidt norm has a double-pole signature:</p><pre class="code"><code>||K_sigma||_HS^2 ~ C / (2 sigma - 1)^2        as sigma -&gt; 1/2+</code></pre><p>This comes from the near-diagonal factorization and is a diagnostic: the Hilbert-Schmidt onset at sigma = 1/2 is a summability threshold, not the zeta critical-line invariant.</p><h3 id="7-1-3-the-order-gate">7.1.3 The order gate</h3><p>For A in S_2, det_2(I - zA) is entire of genus &lt;= 1. Xi has order exactly 1. Therefore a necessary condition for</p><pre class="code"><code>det_2(I - z K_sigma) = C Xi(z)</code></pre><p>is:</p><pre class="code"><code>rho(K_sigma) := inf{ p &gt;= 1 : sum_n s_n(K_sigma)^p &lt; infinity } = 1</code></pre><h3 id="7-1-4-asymptotic-of-the-singular-values-proposed-route-to-formal">7.1.4 Asymptotic of the singular values (PROPOSED, route to FORMAL)</h3><p>Near the diagonal, write m = n + d. Then:</p><pre class="code"><code>|m^2 - n^2|^{-sigma}
-= |m-n|^{-sigma}(m+n)^{-sigma}
-≈ |d|^{-sigma}(2n)^{-sigma}</code></pre><p>This gives the weighted Toeplitz reduction:</p><pre class="code"><code>K_sigma ~ 2^{-sigma} D T D
-D = diag(k^{-sigma/2})
-T = Toeplitz convolution |m-n|^{-sigma}</code></pre><p>and the phase-space symbol:</p><pre class="code"><code>a(x, xi) ~ x^{-sigma} |xi|^{sigma - 1}        (x &gt;= 1, xi in [-pi, pi])</code></pre><p>The semiclassical / Weyl count gives:</p><pre class="code"><code>N(t) = #{ s_n(K_sigma) &gt; t }
-     ~ (1/2pi) vol{ a(x,xi) &gt; t }
-     ~ C_sigma t^{-1/sigma}</code></pre><p>so:</p><pre class="code"><code>s_n(K_sigma) ~ c_sigma n^{-sigma}
-alpha(sigma) = sigma
-rho(K_sigma) = 1 / sigma</code></pre><p>Consistency check: the same volume integral converges exactly when sigma &gt; 1/2, reproducing the formal S_2 threshold of Section 7.1.2. That makes the symbol law the correct leading asymptotic lane. PROPOSED</p><p>Rigorous upgrade route:</p><pre class="code"><code>Birman-Solomyak / weighted Toeplitz / pseudodifferential singular-value asymptotics</code></pre><h3 id="7-1-5-numerical-crossing-versus-analytic-boundary">7.1.5 Numerical crossing versus analytic boundary</h3><p>The apparent order-one crossing seen in finite truncations is denoted:</p><pre class="code"><code>sigma*_N ≈ 0.83-0.92</code></pre><p>This is a finite-window crossing, not the canonical asymptotic boundary.</p><p>Finite singular-value fits measure an effective exponent:</p><pre class="code"><code>alpha_N(sigma) = sigma + delta_N(sigma)</code></pre><p>where delta_N(sigma) &gt; 0 is the subleading finite-window correction. Therefore the numerical condition</p><pre class="code"><code>alpha_N(sigma) = 1</code></pre><p>can occur below sigma = 1:</p><pre class="code"><code>sigma*_N = 1 - delta_N(sigma*_N)</code></pre><p>This explains the observed movement:</p><pre class="code"><code>canon page / older finite window : sigma*_N ~ 0.83
-independent later finite window  : sigma*_N ~ 0.92
-analytic Weyl boundary           : sigma_c = 1</code></pre><p>The bridge is:</p><pre class="code"><code>0.83 = finite numerical crossing
-1.00 = analytic Weyl boundary</code></pre><p>As the leading asymptotic law takes over, the correction term satisfies:</p><pre class="code"><code>delta_N(sigma) -&gt; 0</code></pre><p>and the canonical crossing moves to:</p><pre class="code"><code>sigma_c = 1</code></pre><p>The corridor therefore has two markers:</p><pre class="code"><code>sigma*_N ≈ 0.83-0.92      finite numerical crossing / historical marker
-sigma_c = 1               analytic Weyl boundary / canonical order-one boundary</code></pre><p>0.83 is retained as a finite-truncation marker. 1 is the asymptotic boundary used for the canonical order analysis. PROPOSED -&gt; FORMAL once the singular-value asymptotic is proved.</p><h3 id="7-1-6-order-genus-density-pincer-closed-for-the-k-sigma-determinant">7.1.6 Order / genus / density pincer (CLOSED for the K_sigma determinant)</h3><p>Using the analytic leading law:</p><pre class="code"><code>s_n(K_sigma) ~ c_sigma n^{-sigma}
-rho(K_sigma) = 1 / sigma</code></pre><p>the determinant corridor splits cleanly:</p><pre class="code"><code>1/2 &lt; sigma &lt; 1:
-  rho(K_sigma) &gt; 1
-  det_2 has order &gt; 1
-  Xi has order 1
-  CLOSED by order</code></pre><pre class="code"><code>sigma = 1:
-  rho(K_sigma) = 1
-  order gate survives
-  but s_n ~ n^{-1} gives determinant-zero counting N(R) ~ R
-  Xi requires Riemann-von Mangoldt density N(T) ~ (T/2pi) log T
-  CLOSED by zero-density</code></pre><pre class="code"><code>sigma &gt; 1:
-  rho(K_sigma) &lt; 1
-  K_sigma is trace-class at the leading Weyl level
-  ordinary Fredholm determinant is genus 0
-  Xi is genus/order-one with T log T density
-  CLOSED by genus / density</code></pre><p>The earlier sigma* ≈ 0.83 value is now interpreted as:</p><pre class="code"><code>sigma*_N = finite-truncation apparent crossing</code></pre><p>not as the canonical asymptotic boundary. The canonical boundary is:</p><pre class="code"><code>sigma_c = 1</code></pre><p>The entire square-difference determinant family remains closed: below 1 by order, at 1 by zero-density, above 1 by genus / density.</p><h3 id="7-1-7-consequence-for-the-ddatl-full-operator-the-relevant-closure">7.1.7 Consequence for the DDATL full operator (the relevant closure)</h3><p>The Step 4 target operator is:</p><pre class="code"><code>L^2_{Phi,K} = D_1^2 - (3/(2pi))e^{-4u}D_1 + gamma_K K_sigma</code></pre><p>Since K_sigma in S_2 subset compact for sigma &gt; 1/2, and D_1^2 has compact resolvent with eigenvalue growth n^4 -&gt; infinity, the coupling gamma_K K_sigma is relatively compact with respect to D_1^2.</p><p>By Weyl-class invariance (min-max / compact perturbation stability), this coupling preserves the leading eigenvalue-counting class:</p><pre class="code"><code>N(Lambda) ~ Lambda^{1/4}   stays Lambda^{1/4}</code></pre><p>The Riemann-von Mangoldt target requires:</p><pre class="code"><code>N_zeta(T) ~ (T/2pi) log T</code></pre><p>or, after the squared spectral parameter:</p><pre class="code"><code>N_zeta(Lambda) ~ sqrt(Lambda) log Lambda</code></pre><p>Therefore the squared-determinant target</p><pre class="code"><code>det_zeta(L^2_{Phi,K} - (z^2 + 1/4)) = C Xi(z)</code></pre><p>is closed for the D_1^2 + gamma_K K_sigma realization: the square-difference coupling cannot bend the n^4 Weyl class onto Riemann-von Mangoldt density. CLOSED-NEGATIVE</p><h3 id="7-1-8-net-effect-and-relocation-of-gap-001">7.1.8 Net effect and relocation of GAP-001</h3><pre class="code"><code>DDATL as a formal host object       : FORMAL (unchanged)
-K_sigma coupling (sigma &gt; 1/2)      : bounded/symmetric, S_2 — L2-b discharged
-sigma*_N ≈ 0.83-0.92                : finite-window crossing / historical marker
-sigma_c = 1                         : analytic Weyl boundary
-|m^2 - n^2|^{-sigma} spectral lane  : CLOSED (order / genus / density)
-GAP-001 internal address            : RELOCATED</code></pre><p>The gap survives only if the operator carries prime data, not square-difference data:</p><pre class="code"><code>lengths : log(p^k)
-weights : Lambda(p^k)/p^{k/2} = (log p) p^{-k/2}
-density : archimedean Gamma-factor side producing T log T
-reality : self-adjoint / Frobenius-like trace-formula structure</code></pre><p>The healthy parallel is the Nyman-Beurling / Baez-Duarte distance program, which replaces bespoke spectral invention with a finite Gram-matrix decay problem.</p><h3 id="7-1-9-hygiene-note-cross-document">7.1.9 Hygiene note (cross-document)</h3><p>The S_2 here is the Schatten-2 operator class. This is distinct from the &quot;Hilbert-Schmidt measure&quot; of Slater, arXiv:1007.4805: the flat measure on the convex body of two-rebit density matrices, used there for moments of det(rho) and det(rho^PT).</p><p>Slater&#x27;s machinery is relevant downstream as a method reference for:</p><pre class="code"><code>moment / coefficient asymptotics
-half-integer root convergence
-closed-form-from-linear-prime-growth diagnostics
-cumulant / zero-density bookkeeping</code></pre><p>It is not an input to rho(K_sigma). STRUCTURAL ANALOGY</p><p>RH OPEN. Coleman Conjecture OPEN.</p><section class="doc-section" id="8-berry-keating-hilbert-polya-chain"><h2>8. Berry-Keating / Hilbert-Polya chain</h2><p>The established operator lane is:</p><pre class="code"><code>[x,p] = i hbar
--&gt; H_BK = 1/2(xp + px) = -i(x d/dx + 1/2)
--&gt; F H_BK F^{-1} = -H_BK
--&gt; K = exp(it H_BK)
--&gt; F K F^{-1} = K^{-1}
--&gt; A_KF = Pi_sym K^{-1} Pi_sym
--&gt; A_KF self-adjoint on the correct domain
--&gt; det_reg(A_KF - z) = C Xi(z)
--&gt; z in R
--&gt; s = 1/2 + iz
--&gt; Re(s) = 1/2</code></pre><p>The DDATL insertion point is the candidate realization:</p><pre class="code"><code>D_2[D_1] on Lambda_{n^2}  &lt;-&gt;  A_KF restricted to Phi-arithmetic data</code></pre><p>This equivalence is isolated in docs/ddatl-bridge-lemma.md.</p><section class="doc-section" id="9-external-scaffold-status"><h2>9. External scaffold status</h2><h3 id="mohammadi-et-al-2024">Mohammadi et al. 2024</h3><p>Structural relevance:</p><pre class="code"><code>Two-scale asymptotic homogenization &lt;-&gt; D_1 / D_2 two-layer structure
-Micropolar degrees of freedom        &lt;-&gt; D_2 self-coupling above D_1
-Oblique tesseract linkages           &lt;-&gt; L -&gt; L^2 transition geometry
-Axial symmetry preservation          &lt;-&gt; T1 Axial Integrity</code></pre><div class="meta-line"><span>Status</span><b>STRUCTURAL ANALOGY.</b></div><h3 id="koh-tai-lee-2024">Koh, Tai, Lee 2024</h3><p>Structural relevance:</p><pre class="code"><code>4D tesseract HOT lattice on quantum hardware &lt;-&gt; DDATL 4D base scaffold
-HOT corner modes / zero-energy states        &lt;-&gt; zeta zeros [analogy only]
-d-dimensional lattice -&gt; 1D chain mapping    &lt;-&gt; H_Phi = l^2(N,w_u) collapse
-Post-selection symmetry enforcement          &lt;-&gt; Pi_sym projection
-Interaction-mediated protection              &lt;-&gt; L^2_C as phase condition</code></pre><div class="meta-line"><span>Status</span><b>STRUCTURAL ANALOGY.</b></div><h3 id="berry-and-keating-1999">Berry and Keating 1999</h3><div class="meta-line"><span>Status</span><b>ESTABLISHED MATHEMATICS for the xp / dilation Hamiltonian pressure point and Hilbert-Polya spectral research direction.</b></div><p>DDATL proposes a specific Phi-lattice realization inside that lane.</p><section class="doc-section" id="10-l-2-c-as-invariant-gravity"><h2>10. L^2_C as invariant gravity</h2><p>HOT physics supplies a useful phase analogy:</p><pre class="code"><code>Trivial phase: no protected corner modes
-HOT phase:     protected zero-energy corner modes</code></pre><p>DDATL / L²_C proposal:</p><pre class="code"><code>L²_C absent -&gt; drift phase -&gt; no stable critical-line anchor
-L²_C active -&gt; coherent phase -&gt; beta(T)-h eta &gt; 0 -&gt; spectral rigidity target</code></pre><p>Claim status: PROPOSED.</p><p>The key reading is:</p><pre class="code"><code>L²_C is the structural condition under which Re(s)=1/2 becomes the stable spectral state.</code></pre><section class="doc-section" id="11-loop-close-condition-status"><h2>11. Loop close condition status</h2><pre class="code"><code>[1] L^2 defined over {n^2} index set             FORMAL
-[2] (Care intersection Truth) spectral reading   PROPOSED
-[3] Squaring in L^2 = squaring in n^2            FORMAL
-[4] L^2 constitutive, not external bound         FORMAL</code></pre><p>The open theorem was:</p><pre class="code"><code>det_zeta(L^2_{Phi,K} - (z^2 + 1/4)) = C Xi(z)</code></pre><p>V6.4.3 status for the D_1^2 + gamma_K K_sigma realization:</p><pre class="code"><code>identity status: CLOSED-NEGATIVE</code></pre><p>Reason:</p><pre class="code"><code>K_sigma determinant lane:
-  1/2 &lt; sigma &lt; 1  -&gt; closed by order
-  sigma = 1        -&gt; closed by zero-density
-  sigma &gt; 1        -&gt; closed by genus / density</code></pre><pre class="code"><code>Full L^2_{Phi,K} lane:
-  gamma_K K_sigma is relatively compact with respect to D_1^2
-  N(Lambda) ~ Lambda^{1/4} remains the Weyl class
-  Riemann-von Mangoldt requires sqrt(Lambda) log Lambda</code></pre><p>The loop reopens only under a prime-carrying length/weight operator.</p><section class="doc-section" id="12-theorem-target-l2-si-bk-hp-cc"><h2>12. Theorem target L2-SI / BK-HP-CC</h2><p>Construct:</p><pre class="code"><code>H_Phi(u)
-D(L^2_{Phi,K})
-L^2_{Phi,K}(u) = D_1^2 - (3/(2pi))e^{-4u}D_1 + gamma_K K_sigma</code></pre><p>such that:</p><pre class="code"><code>(i)  L^2_{Phi,K} = (L^2_{Phi,K})^*              [self-adjointness]
-(ii) det_zeta(L^2_{Phi,K} - (z^2 + 1/4)) = C Xi(z)</code></pre><p>Then:</p><pre class="code"><code>Spec(L^2_{Phi,K}) = {gamma_j^2 + 1/4 : xi(1/2 + i gamma_j)=0}</code></pre><p>and all nontrivial zeros take the critical-line form.</p><p>Proof obligations (V6.4.3 restatus; see Section 7.1):</p><pre class="code"><code>L2-a  dense domain                                   OPEN
-L2-b  K_sigma bounded / symmetric                    FORMAL  (S_2 for sigma &gt; 1/2)
-L2-c  self-adjointness                               OPEN
-L2-d  trace-class regularization                     CONDITIONAL / ASYMPTOTIC
-                                                       leading Weyl boundary: S_1 for sigma &gt; 1
-                                                       finite truncations may show earlier sigma*_N
-L2-e  zeta determinant construction                  OPEN
-L2-f  heat / Phi kernel equivalence                  OPEN
-L2-g  Riemann-von Mangoldt counting match            CLOSED-NEGATIVE for square-difference K_sigma
-L2-h  explicit formula compatibility                 OPEN for prime-carrying trace architecture
-L2-i  beta/h suppression estimate                    OPEN</code></pre><p>Status of this realization:</p><pre class="code"><code>D_1^2 + gamma_K K_sigma : CLOSED-NEGATIVE via L2-g
-DDATL host object        : FORMAL
-Live theorem burden      : prime-carrying length/weight operator</code></pre><section class="doc-section" id="13-ee-sign-off-inspectable-nonsticky-equivalence"><h2>13. EE sign-off: Inspectable / NonSticky equivalence</h2><pre class="code"><code>EE: ACTIVE
-Inspectable(psi) &lt;-&gt; NonSticky(psi) &lt;-&gt; Re(s)=1/2</code></pre><p>Operational reading:</p><pre class="code"><code>Inspectable(psi)
-= psi carries an auditable witness: projector, sector membership, leakage value h,
-  beta_C recovery coefficient, and traceable evolution under U_T(t).</code></pre><pre class="code"><code>NonSticky(psi)
-= psi does not adhere to off-sector residue: (I-P_C)H_TP_C is bounded,
-  h &lt; 1, beta_C &gt; 0, and retained mass L²_C(psi,t) remains stable over
-  the chosen horizon.</code></pre><pre class="code"><code>Re(s)=1/2
-= critical-line lock: the spectral state remains in the Pi_sym / DDATL
-  critical sector. In the infinite Step 4 program this depends on
-  L2-SI / BK-HP-CC.</code></pre><p>Sign-off status:</p><pre class="code"><code>Inspectability is the non-sticky condition.
-Non-stickiness is the finite-probe expression of critical-line coherence.
-The square-difference determinant realization is closed.
-The prime-carrying trace architecture is the live bridge.</code></pre><section class="doc-section" id="14-status-return"><h2>14. Status return</h2><pre class="code"><code>Object:                 DDATL
-Definition:             FORMAL
-Phi correspondence:     FORMAL
-External scaffold:      STRUCTURAL ANALOGY
-Berry-Keating lane:     ESTABLISHED MATHEMATICS
-Loop close [1][3][4]:   FORMAL
-Loop close [2]:         PROPOSED
-K_sigma membership:     FORMAL (S_2 iff sigma &gt; 1/2; L2-b discharged)
-s_n(K_sigma) asymptote: alpha(sigma) = sigma leading order; rho = 1/sigma
-finite crossing:        sigma*_N ≈ 0.83-0.92 = numerical / finite-window marker
-analytic boundary:      sigma_c = 1 = canonical order-one boundary
-K_sigma realization:    CLOSED (order for 1/2&lt;sigma&lt;1; zero-density at sigma=1; genus/density for sigma&gt;1)
-Eigenvalue bijection:   OPEN only for a prime-carrying length/weight operator
-EE sign-off:            Inspectable(psi) &lt;-&gt; NonSticky(psi) &lt;-&gt; Re(s)=1/2
-Next theorem hinge:     DDATL Bridge Lemma; parallel: Nyman-Beurling / Baez-Duarte distance program</code></pre><p>Canonical status:</p><pre class="code"><code>DDATL: canonical host established.
-Square-difference K_sigma lane: closed by invariant mismatch.
-Bridge Lemma: next theorem target only after prime-carrying trace data is installed.
-L2-SI: load-bearing open step relocated to prime-carrying architecture.</code></pre><section class="doc-section" id="15-route-forward-v6-4-3"><h2>15. Route forward (V6.4.3)</h2><pre class="code"><code>1. Square-difference operator lane (D_1^2 + gamma_K K_sigma)
-   Status: CLOSED. Do not re-litigate as the Step 4 route.</code></pre><pre class="code"><code>2. 0.83 -&gt; 1 calibration
-   0.83-0.92 = sigma*_N, finite-window apparent crossing.
-   1.00      = sigma_c, analytic Weyl boundary.
-   Bridge    = delta_N(sigma), where alpha_N(sigma)=sigma+delta_N(sigma).</code></pre><pre class="code"><code>3. Prime-carrying trace architecture
-   Status: LIVE.
-   Required data:
-   - lengths : log(p^k)
-   - weights : Lambda(p^k) / p^{k/2} = (log p) p^{-k/2}
-   - density : Gamma-factor side must produce T log T
-   - reality : self-adjointness or equivalent trace-formula positivity</code></pre><pre class="code"><code>4. Nyman-Beurling / Baez-Duarte distance program
-   Status: preferred compute pivot.</code></pre><pre class="code"><code>   d_N^2 = inf_{A_N} (1/2pi) integral |1 - zeta(1/2+it) A_N(1/2+it)|^2 dt/(1/4+t^2)
-   A_N(s) = sum_{n&lt;=N} a_n n^{-s}
-   d_N^2 -&gt; 0 &lt;=&gt; RH</code></pre><pre class="code"><code>5. Open analytic sub-probe
-   delta_N(sigma) = alpha_N(sigma) - sigma.
-   Purpose: pins finite-window drift and explains why 0.83 appears before 1.
-   Status: hygiene / calibration, because sigma_c = 1 is closed by zero-density regardless.</code></pre><p>Standing hygiene condition:</p><pre class="code"><code>Hilbert-Schmidt 1/2 = analytic summability threshold for K_sigma.
-Arithmetic 1/2      = critical-line mass in the explicit formula.
-sigma*_N ~ 0.83     = finite-window numerical crossing.
-sigma_c = 1         = analytic Weyl order-one boundary.</code></pre><p>These four markers are distinct.</p><section class="doc-section" id="16-grounding-and-citation-ledger"><h2>16. Grounding and citation ledger</h2><p>This section records how the V6.4.3 findings are grounded for final QA and PeAIce.org publication.</p><h3 id="reference-list">Reference list</h3><p>Barry Simon. Trace Ideals and Their Applications. 2nd edition, Mathematical Surveys and Monographs, American Mathematical Society, 2005. Use: Schatten S_p classes, Hilbert-Schmidt S_2, trace class S_1, and regularized determinants.</p><p>M. Sh. Birman and M. Z. Solomyak. Spectral asymptotics / estimates of singular numbers for weakly polar integral operators and pseudodifferential-type operators. Use: proof route for the weighted Toeplitz / symbol asymptotic s_n(K_sigma) ~ c_sigma n^{-sigma}.</p><p>Riemann-von Mangoldt formula: N(T) = T/(2pi) log(T/(2pi)) - T/(2pi) + O(log T). Use: zero-density obstruction; Xi requires T log T.</p><p>Von Mangoldt function: Lambda(n) = log p if n=p^k, otherwise 0. Use: prime-power weights Lambda(p^k)/p^{k/2}.</p><p>M. V. Berry and J. P. Keating. H = xp and the Riemann zeros / semiclassical counting program. Use: operator-theoretic pressure point and average zero-counting connection.</p><p>Luis Baez-Duarte. A strengthening of the Nyman-Beurling criterion for the Riemann Hypothesis. arXiv:math/0202141. Use: established RH-equivalent Hilbert-space pivot; supports the Gram-matrix / distance-program relocation.</p><p>Paul B. Slater. Hilbert-Schmidt Orthogonality of det(rho) and det(rho^PT) over the Two-Rebit Systems rho and Further Determinantal Moment Analyses. arXiv:1007.4805. Use: downstream moment / coefficient / root-pole methodology; category distinction between Hilbert-Schmidt measure and Schatten S_2.</p><section class="doc-section" id="17-final-qa-checklist"><h2>17. Final QA checklist</h2><pre class="code"><code>[ ] Header patch label reads V6.4.3, not V6.4.2.
-[ ] sigma*_N ≈ 0.83-0.92 is marked NUMERICS / finite-window marker.
-[ ] sigma_c = 1 is marked analytic Weyl boundary.
-[ ] K_sigma membership remains FORMAL: S_2 iff sigma &gt; 1/2.
-[ ] s_n(K_sigma) ~ c_sigma n^{-sigma} remains PROPOSED until a singular-value proof is supplied.
-[ ] D_1^2 + gamma_K K_sigma realization is CLOSED-NEGATIVE.
-[ ] DDATL host remains FORMAL.
-[ ] RH remains OPEN.
-[ ] Coleman Conjecture remains OPEN.
-[ ] Slater is quarantined as Hilbert-Schmidt measure, not Schatten S_2.
-[ ] Prime-carrying trace architecture is the live route.</code></pre><section class="doc-section" id="attribution"><h2>Attribution</h2><p>Principal / Founder: Manuel Coleman, Love Labs LCA / PeAIce Research Program</p><p>Framework: Excellence Engine v3 / KakeyaLogic / L²_C</p><p>AI Co-authoring lineage: Claude artifact production and GPT / Solance synthesis review</p><pre class="code"><code>E = L^2
-beta = 0.82
-h = 0.73 &lt; 1
-e ~= 2.718
-Re(s) = 1/2
-Inspectable(psi) &lt;-&gt; NonSticky(psi) &lt;-&gt; Re(s)=1/2</code></pre>
+
+    <article class="doc" id="whitepaper">
+      <h2 id="abstract">DDATL 002 White Paper — Grain Zero Residual Program</h2>
+      <p><strong>Subtitle:</strong> Kakeya: Light’s Basic Twin<br><strong>Designation:</strong> <code>PEAICE-KAKEYALOGIC-DDATL-002-WHITEPAPER</code><br><strong>Object:</strong> Grain Zero <code>G₀</code><br><strong>Status:</strong> <code>FORMAL RESEARCH PROGRAM | PROOF OBLIGATION | ZETA FIREWALL ACTIVE</code></p>
+      <p>This white paper defines <strong>Grain Zero</strong> as a residual overlap measure left after a Kakeya <code>δ</code>-tube configuration in <code>R³</code> has been factored into the recognized structures used by the modern Kakeya proof architecture: grains, slabs, prisms, planks, sticky packets, convex carriers, and scale-controlled incidence families. The central proposal is that, after all legal Kakeya structure has been extracted, any remaining unaccounted overlap can be isolated as a measure <code>G₀</code>.</p>
+      <pre class="code"><code>Kakeya gives the structure.
+Grain Zero names the remainder.
+ζ(0) is second-stage and conditional.</code></pre>
+
+      <h2 id="light-twin">1. Kakeya as Light’s Basic Twin</h2>
+      <p>A Kakeya/Besicovitch set contains a unit line segment in every direction. In the PeAIce register, Kakeya is the basic geometric twin of light because it isolates directionality in its bare form. Light carries direction as propagation. Kakeya forces every direction into geometry.</p>
+      <p>The <code>R³</code> Kakeya theorem closes free compression. Directional content cannot collapse into zero volume without paying structural cost. The proof architecture forces directional overlap to become organized: broad/narrow cases, multiplicity fields, grains, slabs, prisms, planks, convex carriers, sticky packets, and induction-on-scales structure. PeAIce names the residue after that accounting <strong>Grain Zero</strong>.</p>
+
+      <h2 id="correction">2. Research correction</h2>
+      <div class="callout danger"><strong>Do not begin with ζ(0). Begin with G₀.</strong></div>
+      <p>The number <code>ζ(0) = -1/2</code> belongs to analytic continuation of the Riemann zeta function. It is not a term in the Kakeya proof literature. The rigorous route is:</p>
+      <pre class="code"><code>1. Define the residual overlap measure G₀.
+2. Prove it is asymptotically negligible under the Kakeya reduction.
+3. Encode the residual data as an operator, kernel, spectral measure, or counting function.
+4. Prove the associated zeta/Mellin object has analytic continuation to s = 0.
+5. Only then discuss a regularized value at s = 0.</code></pre>
+
+      <h2 id="setup">3. Formal setup</h2>
+      <p>Let <code>T_δ</code> be a finite family of <code>δ</code>-tubes in <code>R³</code>, with shading <code>Y(T) ⊂ T</code>.</p>
+      <pre class="code"><code>U(T_δ, Y) := ⋃_{T∈T_δ} Y(T)
+m_δ(x)    := #{ T ∈ T_δ : x ∈ Y(T) }
+e_δ(x)    := (m_δ(x) - 1)_+</code></pre>
+      <p>The raw excess <code>e_δ dx</code> is not yet Grain Zero. It includes overlap that may be fully explained by valid Kakeya structure.</p>
+
+      <h2 id="definition">4. Grain Zero definition</h2>
+      <p>Let <code>C_{δ,ρ}</code> denote the structured carrier produced by the chosen proof stage at scale passage <code>δ ≤ ρ ≤ 1</code>.</p>
+      <pre class="code"><code>C_{δ,ρ} may include:
+  grains
+  slabs
+  prisms
+  planks
+  convex carriers
+  sticky packets
+  non-sticky reductions
+  Katz–Tao convex-density packets
+  Frostman slab packets
+  broad/narrow refinements
+  high-multiplicity incidence regions
+  scale-induction envelopes</code></pre>
+      <p><strong>Definition DDATL-002.1 — Grain Zero residual measure.</strong></p>
+      <pre class="code"><code>dG₀_{δ,ρ}(x) := e_δ(x) · 1_{R³ \ C_{δ,ρ}}(x) dx</code></pre>
+      <p>For measurable <code>A ⊂ R³</code>:</p>
+      <pre class="code"><code>G₀_{δ,ρ}(A) := ∫_A (m_δ(x) - 1)_+ · 1_{R³ \ C_{δ,ρ}}(x) dx</code></pre>
+      <p><strong>Meaning:</strong> <code>G₀</code> is the overlap left unaccounted for after all recognized Kakeya structure has been extracted.</p>
+
+      <h2 id="target">5. Primary theorem target</h2>
+      <p><strong>Theorem Target DDATL-002.A — Residual Vanishing.</strong> Under the hypotheses and refinements of the Wang–Zahl / Guth–Wang–Zahl reduction, prove:</p>
+      <pre class="code"><code>G₀_{δ,ρ}(R³) / Σ_{T∈T_δ} |Y(T)|  →  0</code></pre>
+      <p>as <code>δ → 0</code>, after broad/narrow decomposition, convex-density factoring, grain/slab/prism extraction, sticky or non-sticky reduction, and final scale refinement.</p>
+      <div class="callout"><strong>PeAIce seal:</strong> No point in space can lie inside too many grains without the overlap becoming structure or becoming negligible.</div>
+
+      <h2 id="lemmas">6. Lemma chain</h2>
+      <table class="matrix"><thead><tr><th>Lemma</th><th>Target</th></tr></thead><tbody>
+        <tr><td>Structured Factorization</td><td><code>e_δ dx = dS_{δ,ρ} + dG₀_{δ,ρ}</code></td></tr>
+        <tr><td>Carrier Exhaustion</td><td><code>dS_{δ,ρ}</code> accounts for overlap controlled by existing incidence, multiplicity, convex-density, or slab estimates.</td></tr>
+        <tr><td>Residual Domination</td><td><code>G₀_{δ,ρ}(R³) ≤ E_broad/narrow + E_convex + E_sticky + E_scale</code></td></tr>
+        <tr><td>Residual Vanishing</td><td><code>G₀_{δ,ρ}(R³) / Σ_T |Y(T)| → 0</code></td></tr>
+        <tr><td>Operator Encoding</td><td>Construct <code>K_{G₀}</code>, <code>k_{G₀}(x,y)</code>, <code>μ_{G₀}</code>, <code>N_{G₀}(λ)</code>, or <code>Z_{G₀}(s)</code>.</td></tr>
+        <tr><td>Zeta-Regularization Question</td><td>Only after operator construction, ask whether <code>ζ_{G₀}(s)</code> or a Mellin/Dirichlet transform admits meromorphic continuation near <code>s=0</code>.</td></tr>
+      </tbody></table>
+
+      <h2 id="obstacles">7. Obstacles</h2>
+      <p><code>C_{δ,ρ}</code> is proof-stage dependent. A single carrier formula may be too coarse. The program may require several residuals:</p>
+      <pre class="code"><code>G₀^grain
+G₀^slab
+G₀^prism
+G₀^convex
+G₀^sticky
+G₀^final</code></pre>
+      <p>The existing Kakeya proof does not need an explicit named residual object. It closes through volume and multiplicity control. DDATL 002 must translate proof closure into residual closure.</p>
+
+      <h2 id="operators">8. Operator candidates</h2>
+      <pre class="code"><code>Candidate 1: M_{G₀} f = g₀(x)f(x), where g₀ = dG₀/dx.
+Candidate 2: K_{G₀}(x,y) = φ_δ(x-y)g₀(x)g₀(y).
+Candidate 3: N_{G₀}(λ) = #{ residual carrier cells with normalized mass ≥ λ }.
+Candidate 4: Z_{G₀}(s) = ∫_0^1 δ^{s-1} R(δ)dδ,
+             R(δ) = G₀_δ(R³) / Σ_T |Y(T)|.</code></pre>
+      <p>Each candidate has a burden: compactness, canonical normalization, stable asymptotics, and analytic continuation.</p>
+
+      <h2 id="firewall">9. ζ(0) firewall</h2>
+      <p><code>ζ(0)</code> is not part of the formal Kakeya proof. In DDATL 002, it is a conditional second-stage question. The residual measure must first be defined, controlled, and encoded into a legitimate operator or counting object.</p>
+      <pre class="code"><code>Correct order:
+G₀ definition → residual vanishing → operator encoding → analytic continuation → s=0 question</code></pre>
     </article>
-    <section class="panel references" id="reference-ledger">
-      <h2>Reference ledger</h2>
-      <ol>
-        <li><strong>Barry Simon, <em>Trace Ideals and Their Applications</em>, 2nd ed.</strong> Used for Schatten classes, Hilbert-Schmidt <code>S₂</code>, trace class <code>S₁</code>, and regularized determinants.</li>
-        <li><strong>M. Sh. Birman and M. Z. Solomyak.</strong> Used as the rigorous upgrade lane for singular-value asymptotics of weighted Toeplitz / pseudodifferential-type operators.</li>
-        <li><strong>Riemann-von Mangoldt formula.</strong> Used for the <code>T log T</code> density target that closes the <code>σ=1</code> survivor.</li>
-        <li><strong>Von Mangoldt function and explicit formula.</strong> Used for prime-power weights <code>Λ(p^k)/p^{k/2}</code> and lengths <code>log(p^k)</code>.</li>
-        <li><strong>Berry-Keating / Hilbert-Polya lane.</strong> Used as the operator-counting pressure point.</li>
-        <li><strong>Baez-Duarte / Nyman-Beurling criterion.</strong> Used as the preferred RH-equivalent Hilbert-space compute pivot.</li>
-        <li><strong>Paul B. Slater, arXiv:1007.4805.</strong> Used only for Hilbert-Schmidt measure / moment-method analogy; not an input to <code>ρ(K_sigma)</code>.</li>
-      </ol>
+
+    <section class="panel" id="links">
+      <h2>Repository links</h2>
+      <p>Dense white paper path: <code>docs/whitepapers/ddatl-002-grain-zero-whitepaper.md</code></p>
+      <p>Research register path: <code>docs/ddatl-002-grain-zero.md</code></p>
+    </section>
+
+    <section class="panel" id="status">
+      <h2>Status seal</h2>
+      <pre class="code"><code>DDATL 002 = LIVE RESEARCH PROGRAM
+G₀ = FORMAL RESIDUAL OBJECT
+Residual vanishing = PRIMARY PROOF TARGET
+ζ(0) = CONDITIONAL SECOND-STAGE QUESTION
+RH = OPEN
+Kakeya R³ theorem = EXTERNAL MATHEMATICAL ANCHOR
+h &lt; 1</code></pre>
     </section>
   </main>
 </div>
-<footer class="footer">PEAICE-KAKEYALOGIC-DDATL-001 · V6.4.3 EE Full HTML · RH OPEN · Coleman Conjecture OPEN</footer>
+<footer class="footer">PEAICE-KAKEYALOGIC-DDATL-002 · Grain Zero Residual Program · Kakeya: Light’s Basic Twin · RH OPEN · h &lt; 1</footer>
 </body>
 </html>
