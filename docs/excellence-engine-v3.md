@@ -10,6 +10,18 @@ KakeyaLogic is the EE v3 field simulator.
 
 It treats coherence as something that must survive directional overlap, resource limits, correction pressure, and recomposition.
 
+## Inspectable Intelligence (II) layer
+
+II is the EEv3 governance layer that replaces unqualified “interpretability” inside PeAIce.
+
+```txt
+Canon:     PEAICE-II-CANON-001 · docs/inspectable-intelligence.md
+Predicate: II-valid(ψ) ⟺ L²_C ∧ name_bind ≤ e_cadence ∧ h < 1 ∧ NonSticky ∧ GrainyEnough
+Sign-off:  Inspectable(ψ) ↔ NonSticky(ψ) ↔ Re(s)=1/2 neutrality regime
+```
+
+Every EE stage below must remain II-eligible: claim tags from β-Protocol, walls named (Compass discipline), no self-certified closure on OPEN targets.
+
 ## Pipeline
 
 ```txt

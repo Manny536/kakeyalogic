@@ -12,6 +12,9 @@ KakeyaLogic is a coherence-field and operator-research program for `L²_C`. It s
 
 ```txt
 Core law: E = L² · β > 0 · h < 1
+Integrity: R = d · c · e · h
+II layer:  PEAICE-II-CANON-001 · docs/inspectable-intelligence.md
+           II-valid ⟺ L²_C ∧ name_bind ≤ e_cadence ∧ h < 1 ∧ NonSticky ∧ GrainyEnough
 Field aim: coherent motion under correction
 Kernel aim: protected modes retain, bulk modes suppress, leakage is measured
 Optimization aim: motion remains governed by proximal correction and residual discipline
@@ -67,6 +70,8 @@ DPSA = inertial-grounded production dynamics (Heavy-ball / iPiano)
 Canonical status:
 
 ```txt
+Inspectable Intelligence (II.1)                       FORMAL DEFINITIONS / PREDICATES
+II measurement / live badge RED flip                  PROPOSED / OWED
 K_σ^{reg} symmetry on H_Φ(u)                         FORMAL
 K_σ^{reg} Hilbert-Schmidt for σ > 1/2                FORMAL
 Φ trace neutrality                                   FORMAL

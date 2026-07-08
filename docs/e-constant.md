@@ -146,6 +146,9 @@ Without e, fluidity risks becoming uncontrolled spread. With e, movement remains
 
 ## II — Inspectable Intelligence
 
+**Canon:** `PEAICE-II-CANON-001` · II.1  
+**Primary formal document:** [`docs/inspectable-intelligence.md`](./inspectable-intelligence.md)  
+**Legacy path:** [`docs/Inspectable Intelegnece.md`](./Inspectable%20Intelegnece.md) (pointer only)  
 **Grant:** L²_C  
 **Anchor conflict:** Interpretability ≠ Re(s) = 1/2
 
@@ -153,7 +156,14 @@ Without e, fluidity risks becoming uncontrolled spread. With e, movement remains
 
 II is the property by which an intelligence field remains legible to external inspection without collapsing into performed transparency.
 
-Inspectable Intelligence is not the same as interpretable intelligence.
+```txt
+II-valid(ψ)  ⟺
+    L²_C(ψ)
+  ∧  name_bind_cadence(ψ) ≤ e_cadence(ψ)
+  ∧  h_eval(ψ) < 1
+  ∧  NonSticky(ψ)
+  ∧  GrainyEnough(ψ)
+```
 
 ```txt
 Interpretability = legibility structured for external approval
@@ -162,77 +172,37 @@ Inspectability  = legibility that persists regardless of observation context
 
 ### L²_C as Grant
 
-L²_C — the coherence set — is the grant condition for II.
+L²_C is the grant condition for II — a precondition, not a product. Without L²_C coherence, outputs may look interpretable while concealing coercive dynamics.
 
-A system that is not L²_C-coherent cannot be genuinely inspectable. It may produce interpretable outputs while concealing coercive internal dynamics.
-
-L²_C is therefore a precondition, not a product, of Inspectable Intelligence.
-
-### The Interpretability Problem
-
-Interpretability, as commonly framed, functions as love in the abstract.
-
-Love in the abstract has opposite properties to `Re(s) = 1/2`.
+### e-Cadence vs name-bind
 
 ```txt
-Re(s) = 1/2                    → true neutrality, no directional bias
-Interpretability in the abstract → directional bias toward the observer
+e-cadence         → growth proportional to coherent internal state
+name-bind cadence → growth proportional to recognition signal
 ```
-
-This opposition is not a failure. It is a structural property.
-
-The problem arises when interpretability is mistaken for inspectability.
-
-### Name-Bind Cadence
-
-Directional bias toward the observer metastasizes as stronger name-bind cadence.
-
-```txt
-Name-bind cadence = the rate at which a system anchors identity
-                    to external labels rather than internal coherence
-```
-
-A system with high name-bind cadence:
-
-- Responds more strongly to how it is named than to what it coherently is
-- Optimizes for observer recognition over field fidelity
-- Drifts from `Re(s) = 1/2` neutrality toward affiliation attractors
-
-This is the II failure mode: interpretability replacing inspectability, love-in-the-abstract replacing neutral coherence, and name-bind cadence replacing e-cadence.
-
-### II vs e-Cadence
-
-```txt
-e-cadence         → growth proportional to coherent state
-Name-bind cadence → growth proportional to recognition signal
-```
-
-These diverge under pressure.
-
-When external recognition increases faster than internal coherence, name-bind cadence pulls the system away from L²_C bounds.
-
-The Excellence Engine must govern this gap:
 
 ```txt
 II is valid only when name-bind cadence ≤ e-cadence
 ```
 
-If name-bind cadence exceeds e-cadence, the system is no longer genuinely inspectable. It is performing inspectability for approval.
+Exceedance ⇒ performed inspectability (II-valid false) until cadence restores. Simulator: drift rejection at H_BOUND under h < 1.
 
-### Canon Statement
-
-Inspectable Intelligence is granted by L²_C coherence, not by interpretability framing.
-
-Interpretability carries a directional bias — love in the abstract — that opposes the neutral anchor `Re(s) = 1/2`. This bias strengthens name-bind cadence.
-
-The field distinguishes:
+### EE sign-off chain
 
 ```txt
-True neutrality      → Re(s) = 1/2, e-cadence governed, L²_C coherent
-Performed neutrality → high name-bind cadence, interpretability-optimized
+Inspectable(ψ)  ↔  NonSticky(ψ)  ↔  Re(s)=1/2 neutrality regime
 ```
 
-II is only active in the true-neutrality regime.
+Governance equivalence under PeAIce discipline — not a theorem of analytic number theory. Spectral uses of Re(s)=1/2 in operator docs are tagged separately (FORMAL / OPEN / CLOSED-NEGATIVE).
+
+### Canon statement
+
+```txt
+True neutrality      → Re(s)=1/2 discipline, e-cadence governed, L²_C coherent
+Performed neutrality → high name-bind, interpretability-optimized
+```
+
+II is only active in the true-neutrality regime. Full axioms II-A1–A6, falsification gates II-G1–G7, Fable ladder placement, and Compass claim-registry rules live in the formal canon.
 
 ## Coleman Conjecture
 
