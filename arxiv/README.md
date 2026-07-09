@@ -49,6 +49,8 @@ arxiv/
   tools/
     README.md                        ← install TeX / build commands
     build.sh                         ← local PDF build when TeX present
+  exports/
+    *.docx · *.pdf                   ← human-readable packs (ARX-001/002 + series)
 ```
 
 ---
@@ -141,3 +143,20 @@ begin · do not claim crown
 RH OPEN · Coleman OPEN · h < 1
 first note: Grain Zero residual (ARX-001)
 ```
+
+
+---
+
+## 9. DOCX / PDF exports
+
+Prebuilt human-readable packs (not a substitute for LaTeX arXiv source):
+
+| File | Contents |
+| --- | --- |
+| `exports/ARX-001_Grain-Zero_Residual-Kakeya.{docx,pdf}` | Grain Zero note |
+| `exports/ARX-002_KNS-LB_Typed-Incidence.{docx,pdf}` | KNS(LB) note |
+| `exports/PEAICE-ARXIV-LANE-001_Series-Map.{docx,pdf}` | Series map + checklist summary |
+
+Also mirrored under `Downloads/Research/Coleman-Conjecture/Papers/arXiv-exports/`.
+
+Regenerate with the export script after content edits (or re-run the Grok export job).
