@@ -1,0 +1,458 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\input{../../templates/claim-discipline.tex}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\KB}{\mathrm{KB}}
+\newcommand{\RH}{\mathrm{RH}}
+\newcommand{\LH}{\mathrm{LH}}
+\newcommand{\CC}{\mathrm{CC}}
+\newcommand{\NsigT}{N(\sigma,T)}
+
+\title[The Coleman Conjecture]{The Coleman Conjecture:\\
+Kakeya geometry as a necessary precursor of Riemann critical-line control}
+\author{Manuel Coleman}
+\address{Love Labs LCA / PeAIce Research Program}
+\email{coleman.manuel23@gmail.com}
+\date{\today}
+
+\begin{document}
+
+\begin{abstract}
+We introduce and rigorize the \emph{Coleman Conjecture}: the proposal that
+Kakeya--Besicovitch geometric structure is a \emph{necessary precursor}---prior
+in the dependency order---of any control of the nontrivial zeros of the Riemann
+zeta function that reaches the critical line, rather than a sufficient condition
+for the Riemann hypothesis.
+We prove a packaging theorem (the \emph{sufficiency trap}): with the Kakeya set
+conjecture in $\mathbb{R}^3$ now a theorem, the reading ``Kakeya$(\mathbb{R}^3)
+\Rightarrow\RH$'' either proves $\RH$ or merely relabels the missing proof.
+We record the established incidence $\to$ restriction/decoupling $\to$
+large-values $\to$ zero-density tower, whose outputs are bounds (culminating in
+Lindel\"of-type ceilings), not exact zero locations.
+We then state two non-sufficient forms of the conjecture: an
+\emph{invariant form} (existence of a faithful shared exponent/invariant
+$\kappa$ whose extremal value is equivalent to $\RH$) and a
+\emph{construction form} (any self-adjoint realization of the completed
+xi-function by a $\zeta$-regularized determinant must be built on
+Kakeya-type incidence data, and after the closed square-difference determinant
+corridor must be prime-carrying).
+Open problems, falsifiers, and claim-status tags are listed explicitly.
+\PeAIceOpenTargets
+\end{abstract}
+
+\subjclass[2020]{11M26, 42B25, 42B20, 11N05}
+\keywords{Coleman Conjecture, Riemann hypothesis, Kakeya set conjecture,
+restriction and decoupling, zero-density estimates, Lindel\"of hypothesis,
+Hilbert--P\'olya, prime-carrying operators}
+
+\maketitle
+
+\section{Introduction}
+
+\statusbox{Program note ARX-005 under PeAIce claim discipline.
+Sufficiency packaging is \PeAIceClosedNeg\ as a research packaging of $\RH$.
+Necessary-precursor reading is \PeAIceProposed/\PeAIceOpen.
+No proof of $\RH$ or of the Coleman Conjecture is claimed.}
+
+The Kakeya--Besicovitch phenomenon exhibits directional completeness under
+severe volume constraints: a compact set in $\mathbb{R}^n$ may contain a unit
+segment in every direction while having arbitrarily small measure, and in
+$\mathbb{R}^3$ every such set has Minkowski and Hausdorff dimension three
+\cite{WangZahl2025Kakeya,GuthWangZahl2026Streamlined}.
+The Riemann hypothesis ($\RH$) asserts that every nontrivial zero of
+$\zeta(s)$ lies on the critical line $\mathrm{Re}(s)=\tfrac12$.
+
+The \emph{Coleman Conjecture} ($\CC$), named in the PeAIce research program,
+proposes a structural relation between these two worlds. In informal shorthand
+one sometimes writes
+\begin{equation}
+  \label{eq:slogan}
+  \KB \;\longrightarrow\; \mathrm{Re}(s)=\tfrac12.
+\end{equation}
+The content of \eqref{eq:slogan} depends entirely on the reading of the arrow.
+This paper fixes a non-degenerate reading and discards a degenerate one.
+
+\begin{definition}[Two readings of antecedence]
+\label{def:readings}
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Reading (S) --- sufficient condition.}
+  Kakeya-type structure is the hypothesis of an implication that yields $\RH$.
+  \item \textbf{Reading (N) --- necessary precursor.}
+  Kakeya-type control is prior in the dependency order of any route that
+  meaningfully constrains the zeros: a structural layer that successful methods
+  pass through, not a package that by itself proves $\RH$.
+\end{enumerate}
+\end{definition}
+
+\begin{conjecture}[Coleman Conjecture, necessary-precursor form]
+\label{conj:cc-n}
+\statusbox{\PeAIceProposed/\PeAIceOpen.}
+Kakeya--Besicovitch incidence geometry (tube families, non-clustering, multi-scale
+directional organization) is a necessary structural layer for any zero-facing
+route that reaches exact critical-line control of $\zeta$, in the sense made
+precise by the invariant form (Conjecture~\ref{conj:invariant}) and/or the
+construction form (Conjecture~\ref{conj:construction}) below.
+In particular, the conjecture does \emph{not} assert
+\begin{equation}
+  \label{eq:no-S}
+  \text{Kakeya}(\mathbb{R}^3)\;\Longrightarrow\;\RH.
+\end{equation}
+\end{conjecture}
+
+The paper is organized as follows.
+Section~\ref{sec:trap} proves the sufficiency trap.
+Section~\ref{sec:tower} records the dependency tower and the Lindel\"of ceiling.
+Section~\ref{sec:invariant} states the invariant form and the faithfulness
+obstruction.
+Section~\ref{sec:construction} states the construction form and the closed
+square-difference corridor.
+Section~\ref{sec:open} lists open problems and falsifiers.
+
+\begin{remark}[Claim tags]
+Throughout we mark statements as \PeAIceKnown, \PeAIceFormal, \PeAIceProposed,
+\PeAIceOpen, \PeAIceClosedNeg, or \PeAIceAnalogy, in the sense of an explicit
+research-state grammar: definitions and deductions are not sold as theorems of
+$\RH$, and open reverse implications are not collapsed into slogans.
+\end{remark}
+
+\section{The sufficiency trap}
+\label{sec:trap}
+
+Let $K_3$ denote the statement that every Kakeya set in $\mathbb{R}^3$ has
+Hausdorff and Minkowski dimension three---now a theorem
+\cite{WangZahl2025Kakeya}.
+
+\begin{theorem}[Sufficiency trap]
+\label{thm:trap}
+\statusbox{\PeAIceFormal.}
+Suppose one asserts the implication
+\begin{equation}
+  \label{eq:S}
+  K_3 \;\Longrightarrow\; \RH.
+\end{equation}
+Since $K_3$ is a theorem, modus ponens would yield a proof of $\RH$.
+Therefore either
+\begin{enumerate}[label=(\roman*)]
+  \item the implication \eqref{eq:S} is unproven and at least as hard as $\RH$, or
+  \item asserting \eqref{eq:S} is asserting $\RH$ under a geometric label.
+\end{enumerate}
+In neither case does reading (S) carry information distinct from $\RH$ itself.
+\end{theorem}
+
+\begin{proof}
+Immediate from modus ponens and the theoremhood of $K_3$.
+If the implication remains unproved, its proof burden is at least that of $\RH$;
+if it is taken as established, $\RH$ is established.
+\end{proof}
+
+\begin{corollary}
+\label{cor:S-closed}
+Reading (S) is \PeAIceClosedNeg\ as a research packaging of $\RH$.
+Any non-trivial content of the Coleman Conjecture requires reading (N).
+\end{corollary}
+
+\begin{remark}
+The trap is robust under alternate antecedents.
+If the antecedent is still open (e.g.\ a Kakeya maximal-function conjecture, or
+the set conjecture in dimensions $n\ge 4$), then ``antecedent $\Rightarrow\RH$''
+is an unproven implication between hard problems, not a reduction that clarifies
+either side.
+\end{remark}
+
+\section{The dependency tower and the Lindel\"of ceiling}
+\label{sec:tower}
+
+There is a genuine, citable tower in which Kakeya-type geometric control is
+methodologically prior to analytic control of $\zeta$:
+\begin{equation}
+\label{eq:tower}
+\begin{aligned}
+&\text{incidence / tube geometry}
+  \longrightarrow
+\text{Kakeya / Besicovitch maximal phenomena}
+\\
+&\qquad\longrightarrow
+\text{Fourier restriction / }\ell^2\text{-decoupling}
+\\
+&\qquad\longrightarrow
+\text{Dirichlet-polynomial large values / exponential sums}
+\\
+&\qquad\longrightarrow
+\text{zeta growth (subconvexity) and zero-density }\NsigT
+\\
+&\qquad\longrightarrow
+\text{zero-free regions (partial)}.
+\end{aligned}
+\end{equation}
+The rungs are established mathematics (\PeAIceKnown / theorem-background):
+restriction interacts with Kakeya-type geometry \cite{Bourgain1991};
+decoupling, built on wave-packet/tube organization, settled the main conjecture
+in Vinogradov's mean value theorem \cite{BourgainDemeterGuth2016};
+Guth--Maynard obtained new large-value estimates for Dirichlet polynomials and
+deduced
+\begin{equation}
+  \label{eq:GM}
+  \NsigT \;\ll\; T^{30(1-\sigma)/13+o(1)},
+\end{equation}
+a substantial improvement on classical Ingham-type density technology
+\cite{GuthMaynard2024,Ingham1940}.
+
+\begin{proposition}[Bound-type ceiling]
+\label{prop:ceiling}
+\statusbox{\PeAIceKnown\ for the forward implications; reverse open.}
+Every rung of \eqref{eq:tower} produces \emph{bounds}, not exact zero locations.
+In particular one has the standard forward chain
+\begin{equation}
+  \RH \;\Longrightarrow\; \LH \;\Longrightarrow\; \text{Density Hypothesis},
+\end{equation}
+where $\LH$ denotes the Lindel\"of hypothesis.
+The reverse implications, including $\LH\Rightarrow\RH$, remain \PeAIceOpen.
+\end{proposition}
+
+\begin{remark}
+Thus Kakeya-type geometry is vindicated as a \emph{necessary methodological
+antecedent} of modern bound-type control of $\zeta$, and refuted as a
+\emph{sufficient condition} for the critical line.
+The meta-claim that \emph{no} bound-type method can reach $\RH$ is expert
+expectation, not a theorem; we record it as \PeAIceAnalogy/\PeAIceOpen\
+(Open Problem~\ref{op:ceiling}).
+\end{remark}
+
+\section{Invariant form and faithfulness}
+\label{sec:invariant}
+
+\begin{definition}[Shared invariant $\kappa$, schematic]
+\label{def:kappa}
+\statusbox{\PeAIceProposed.}
+Let $\kappa$ denote a real parameter intended to encode simultaneously
+\begin{enumerate}[label=(\roman*)]
+  \item an optimal exponent in a Kakeya / restriction / maximal inequality, and
+  \item a zero-density exponent $A$ in a bound of the form
+  $\NsigT\ll T^{A(1-\sigma)+\varepsilon}$.
+\end{enumerate}
+A precise common normalization is not fixed here (Open Problem~\ref{op:kappa}).
+\end{definition}
+
+\begin{conjecture}[Coleman Conjecture, invariant form]
+\label{conj:invariant}
+\statusbox{\PeAIceProposed.}
+There exists a normalization of $\kappa$ and an extremal value $\kappa^*$ such that
+\begin{equation}
+  \kappa=\kappa^* \quad\Longleftrightarrow\quad \RH.
+\end{equation}
+\end{conjecture}
+
+\begin{proposition}[Forward direction, largely known]
+\label{prop:forward}
+\statusbox{\PeAIceKnown\ under standard consequences of $\RH$.}
+Assuming $\RH$, one has $\NsigT=0$ for $\sigma>\tfrac12$ and Lindel\"of-type
+bounds on the critical line; the tower exponents in Definition~\ref{def:kappa}
+collapse to their extremal values, so $\kappa=\kappa^*$ holds for the naive
+bound-type normalizations.
+\end{proposition}
+
+\begin{conjecture}[Reverse direction --- open core]
+\label{conj:reverse}
+\statusbox{\PeAIceOpen\ (at least as hard as $\RH$).}
+$\kappa=\kappa^*\Rightarrow\RH$.
+\end{conjecture}
+
+\begin{proposition}[Faithfulness obstruction]
+\label{prop:faithful}
+\statusbox{\PeAIceFormal\ (conditional deduction).}
+If $\kappa$ is identified with a pure harmonic-analytic / zero-density exponent
+from Section~\ref{sec:tower}, then $\kappa=\kappa^*$ is Lindel\"of-scale
+saturation (or a density-hypothesis extremal), and Conjecture~\ref{conj:reverse}
+becomes an instance of ``bound-type extremality $\Rightarrow\RH$'', which is not
+granted by known mathematics and is widely expected to fail for density proxies
+alone.
+Therefore a \emph{faithful} $\kappa$---one for which Conjecture~\ref{conj:invariant}
+can hold non-vacuously---must encode strictly more than any bound-type
+exponent: it must see exact zero \emph{locations}, not merely density.
+\end{proposition}
+
+\begin{proof}
+Under the identification with tower exponents, extremality is a bound-type
+statement.
+The reverse implication of Conjecture~\ref{conj:reverse} then asserts that a
+bound-type saturation yields $\RH$.
+No such implication is known; the standard forward chain of
+Proposition~\ref{prop:ceiling} does not reverse.
+Hence faithfulness requires surplus structure beyond density exponents.
+\end{proof}
+
+\begin{remark}
+Read invariantly, the Coleman Conjecture is therefore the bet that a faithful
+Kakeya$\leftrightarrow\RH$ invariant \emph{exists}
+(Open Problem~\ref{op:kappa}).
+A conjecture may bet against prevailing expectation; the research-state grammar
+requires the bet to be stated as such, not as a theorem.
+\end{remark}
+
+\section{Construction form and closed corridors}
+\label{sec:construction}
+
+A determinant identity of the shape
+\begin{equation}
+  \label{eq:det}
+  \det_\zeta\bigl(B-z\bigr) \;=\; C\cdot \Xi(z)
+\end{equation}
+pins the zeros of the completed xi-function $\Xi$ exactly, not merely their
+density---precisely the surplus demanded by Proposition~\ref{prop:faithful}.
+
+\begin{conjecture}[Coleman Conjecture, construction form]
+\label{conj:construction}
+\statusbox{\PeAIceProposed.}
+Any self-adjoint (or equivalently positivity-compatible) operator $B$ for which
+a $\zeta$-regularized determinant identity \eqref{eq:det} holds must be built on
+Kakeya-type incidence data (tube/shading geometry, multi-scale directional
+organization).
+In that sense Kakeya construction is a necessary antecedent of an
+$\RH$-realizing spectral object.
+\end{conjecture}
+
+\subsection{Square-difference corridor}
+
+A natural first attempt couples a thermal quadratic operator on a
+$\Phi$-weighted $\ell^2$ space by a square-difference kernel
+\begin{equation}
+  \label{eq:Ksig}
+  K_\sigma(m,n) \;=\; |m^2-n^2|^{-\sigma}\qquad(m\neq n),\qquad K_\sigma(n,n)=0.
+\end{equation}
+Program-level analysis of the Hilbert--Schmidt / determinant corridor for
+\eqref{eq:Ksig} yields a closed-negative verdict for determinant-level
+identification with $\Xi$: the kernel is Hilbert--Schmidt for $\sigma>\tfrac12$,
+but singular-value / order-genus / counting constraints obstruct a
+Riemann--von~Mangoldt density, and relatively compact perturbations of a
+$D_1^2$-type operator preserve a counting incompatible with
+$N(T)\sim (T/2\pi)\log T$
+(program ledger: PeAIce DDATL / Claude~V6 wall registry; cf.\ also the
+L2-5 counting mismatch discussion in the companion operator notes).
+
+\begin{proposition}[Square-difference realization]
+\label{prop:closed-neg}
+\statusbox{\PeAIceClosedNeg\ (program corridor; not a claim about all operators).}
+Within the PeAIce operator program, the pure square-difference coupling
+\eqref{eq:Ksig} is closed as a route to \eqref{eq:det} with Riemann--von~Mangoldt
+spectral counting.
+\end{proposition}
+
+\subsection{Prime-carrying requirement}
+
+\begin{remark}[Surviving construction constraint]
+\statusbox{\PeAIceProposed/\PeAIceOpen.}
+Any surviving realization of \eqref{eq:det} is expected to be
+\emph{prime-carrying} in the sense that prime lengths and von~Mangoldt-type
+weights appear in the kernel or Hamiltonian data, with archimedean structure
+producing
+\begin{equation}
+  N(T)\;\sim\; \frac{T}{2\pi}\log\frac{T}{2\pi},
+\end{equation}
+and with self-adjointness (or an equivalent positivity certificate).
+Candidate external skeletons include adelic/trace-formula programs and
+canonical-system / Krein constructions; converting those into a completed
+identity \eqref{eq:det} remains \PeAIceOpen.
+\end{remark}
+
+\begin{remark}[Companion geometric notes]
+Two companion notes in the same program formalize geometric layers used above
+the slogan level:
+a residual-overlap program after structured Kakeya factorization in
+$\mathbb{R}^3$ (ARX-001 / Grain Zero), and a typed incidence object with a
+non-inference firewall between overlap statistics and Hilbert-space placement
+(ARX-002 / KNS(LB)).
+Neither note proves $\RH$ or Conjecture~\ref{conj:cc-n}.
+\end{remark}
+
+\section{Open problems and falsifiers}
+\label{sec:open}
+
+\begin{enumerate}[label=\textbf{OP\arabic*.},leftmargin=*]
+  \item \label{op:kappa}
+  \textbf{Existence of a faithful $\kappa$.}
+  \PeAIceOpen.
+  Specify a single invariant bridging Kakeya/restriction data and exact zero
+  location; by Proposition~\ref{prop:faithful} it must exceed every bound-type
+  exponent.
+  \item
+  \textbf{Reverse implication.}
+  \PeAIceOpen\ (RH-hard).
+  Prove $\kappa=\kappa^*\Rightarrow\RH$ for a faithful $\kappa$.
+  \item
+  \textbf{Prime-carrying realization.}
+  \PeAIceOpen\ (RH-hard).
+  Construct a self-adjoint prime-carrying operator and prove \eqref{eq:det}
+  with Riemann--von~Mangoldt counting.
+  \item \label{op:ceiling}
+  \textbf{Ceiling as theorem.}
+  \PeAIceOpen.
+  Make rigorous the extent to which bound-type statements in the lineage
+  \eqref{eq:tower} can or cannot imply $\RH$.
+\end{enumerate}
+
+\paragraph{Falsifiers.}
+\begin{enumerate}[label=\textbf{F\arabic*.},leftmargin=*]
+  \item A $\kappa$-extremal configuration coexisting with a zero off the critical
+  line falsifies the invariant form as stated.
+  \item A self-adjoint realization of $\Xi$ with no Kakeya-type incidence data
+  falsifies the necessity claim in the construction form.
+  \item A proof that bound-type methods past Lindel\"of reach $\RH$ forces
+  revision of the Kakeya-root framing of reading (N).
+  \item A proof of $\LH\Rightarrow\RH$ would make a naive density $\kappa$
+  faithful, collapsing Proposition~\ref{prop:faithful}---an independent
+  revolution not specific to $\CC$.
+\end{enumerate}
+
+\section{Status summary}
+
+\begin{center}
+\begin{tabular}{@{}p{0.48\linewidth}p{0.22\linewidth}p{0.22\linewidth}@{}}
+\hline
+Statement & Reading & Status \\
+\hline
+Kakeya set theorem in $\mathbb{R}^3$ & background & \PeAIceKnown \\
+Dependency tower rungs & background & \PeAIceKnown \\
+$\CC$ as $K_3\Rightarrow\RH$ & (S) & \PeAIceClosedNeg \\
+$\RH\Rightarrow\LH\Rightarrow$ Density Hyp. & ceiling & \PeAIceKnown \\
+$\LH\Rightarrow\RH$ & ceiling & \PeAIceOpen \\
+Guth--Maynard density bound & ceiling & \PeAIceKnown \\
+Invariant form, forward & (N) & \PeAIceKnown \\
+Invariant form, reverse & (N) & \PeAIceOpen \\
+Faithfulness obstruction & deduction & \PeAIceFormal \\
+Existence of faithful $\kappa$ & (N) & \PeAIceOpen \\
+Construction form & (N) & \PeAIceProposed \\
+Square-difference det corridor & construction & \PeAIceClosedNeg \\
+Prime-carrying route & construction & \PeAIceOpen \\
+$\RH$ and $\CC$ & --- & \PeAIceOpen \\
+\hline
+\end{tabular}
+\end{center}
+
+\section*{Acknowledgments}
+This note formalizes an open research conjecture.
+It does not claim a proof of the Riemann hypothesis.
+Research engineering assistance was used in preparing program materials;
+mathematical claims and any arXiv submission decision remain the author's
+responsibility.
+No model, webpage, or numerical run is sovereign over the mathematics.
+
+\bibliographystyle{amsplain}
+\bibliography{../../bibliography/peaice-arxiv}
+
+\end{document}

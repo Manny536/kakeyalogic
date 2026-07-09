@@ -50,7 +50,7 @@ arxiv/
     README.md                        ← install TeX / build commands
     build.sh                         ← local PDF build when TeX present
   exports/
-    *.docx · *.pdf                   ← human-readable packs (ARX-001/002 + series)
+    *.docx · *.pdf                   ← human-readable packs (ARX-005/001/002 + series)
 ```
 
 ---
@@ -74,11 +74,11 @@ Use arXiv’s current category guide at submission time. Do **not** use `math.GM
 
 | ID | Working title | Status | Source corpus |
 | --- | --- | --- | --- |
+| **ARX-005** | Coleman Conjecture (N-reading only) | **Draft manuscript** | `docs/coleman-conjecture-antecedent.md` |
 | **ARX-001** | Grain Zero residual after Kakeya factorization in ℝ³ | Scaffold | `docs/whitepapers/ddatl-002-grain-zero-whitepaper.md` |
 | **ARX-002** | KakeyaNeedleSet(Light(Basic)): typed object and two-layer decomposition | Scaffold | `PEAICE-CLAUDEV6-KNS-LB-PAPER-001` |
 | **ARX-003** | Trace-neutral Kakeya operator and closed square-difference lanes | Planned | claude-v6 Theorems A–H + wall registry |
 | **ARX-004** | Prime-carrying trace architecture: carrier decision and missing rung | Planned | compass wall/corridor + prime-carrying L3 |
-| **ARX-005** | Coleman Conjecture as geometric antecedent (N-reading only) | Later | CC papers · sufficiency CLOSED |
 
 Full map: [`series/00-series-map.md`](./series/00-series-map.md).
 
@@ -141,7 +141,7 @@ See [`tools/README.md`](./tools/README.md).
 PEAICE-ARXIV-LANE-001
 begin · do not claim crown
 RH OPEN · Coleman OPEN · h < 1
-first note: Grain Zero residual (ARX-001)
+first note: Coleman Conjecture (ARX-005) · companions ARX-001/002
 ```
 
 
@@ -156,6 +156,7 @@ Prebuilt human-readable packs (not a substitute for LaTeX arXiv source):
 | `exports/ARX-001_Grain-Zero_Residual-Kakeya.{docx,pdf}` | Grain Zero note |
 | `exports/ARX-002_KNS-LB_Typed-Incidence.{docx,pdf}` | KNS(LB) note |
 | `exports/PEAICE-ARXIV-LANE-001_Series-Map.{docx,pdf}` | Series map + checklist summary |
+| `exports/ARX-005_Coleman-Conjecture.{docx,pdf}` | Coleman Conjecture (N-reading) |
 
 Also mirrored under `Downloads/Research/Coleman-Conjecture/Papers/arXiv-exports/`.
 

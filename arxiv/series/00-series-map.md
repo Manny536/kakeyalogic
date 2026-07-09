@@ -10,11 +10,11 @@
 
 | Pri | ID | Short title | Category intent | Build state | arXiv ID |
 | --- | --- | --- | --- | --- | --- |
-| 1 | **ARX-001** | Grain Zero residual after Kakeya factorization | math.CA / math.MG | `manuscripts/ddatl-002-grain-zero` scaffold | — |
-| 2 | **ARX-002** | KNS(LB) typed object + two-layer decomposition | math.CA / math.MG | `manuscripts/kns-lb` scaffold | — |
-| 3 | **ARX-003** | Trace-neutral Kakeya operator; closed det lanes | math.SP / math.NT | planned | — |
-| 4 | **ARX-004** | Prime-carrying carrier decision + missing rung | math.NT / math.SP | planned | — |
-| 5 | **ARX-005** | Coleman Conjecture (N-reading antecedent) | math.NT / math.MG | later | — |
+| 1 | **ARX-005** | Coleman Conjecture (N-reading antecedent) | math.NT / math.CA | **`manuscripts/coleman-conjecture` draft** | — |
+| 2 | **ARX-001** | Grain Zero residual after Kakeya factorization | math.CA / math.MG | `manuscripts/ddatl-002-grain-zero` scaffold | — |
+| 3 | **ARX-002** | KNS(LB) typed object + two-layer decomposition | math.CA / math.MG | `manuscripts/kns-lb` scaffold | — |
+| 4 | **ARX-003** | Trace-neutral Kakeya operator; closed det lanes | math.SP / math.NT | planned | — |
+| 5 | **ARX-004** | Prime-carrying carrier decision + missing rung | math.NT / math.SP | planned | — |
 | 6 | **ARX-006** | Inspectable Intelligence (governance note) | optional / non-primary | later · not pure-math first | — |
 
 ---
@@ -76,9 +76,28 @@ Must state: T·log T density lives in adelic / canonical-system lanes in the lit
 
 ---
 
-## ARX-005 — Coleman (later)
+## ARX-005 — Coleman Conjecture (primary submit target)
 
-Only the **necessary antecedent (N)** reading. Sufficiency reading stays CLOSED. No det_ζ = Ξ claim as theorem.
+**Working title:**  
+*The Coleman Conjecture: Kakeya geometry as a necessary precursor of Riemann critical-line control*
+
+**Program designation:** `PEAICE-KAKEYALOGIC-CC-001`  
+**Folder:** `arxiv/manuscripts/coleman-conjecture/`  
+**Exports:** `arxiv/exports/ARX-005_Coleman-Conjecture.{docx,pdf}`
+
+**Claim surface:**
+
+```txt
+FORMAL     — sufficiency trap; faithfulness obstruction
+KNOWN      — tower rungs; RH ⇒ LH ⇒ density; forward κ
+PROPOSED   — CC under reading (N); invariant + construction forms
+OPEN       — RH; reverse κ; OP1 faithful κ; prime-carrying det_ζ
+CLOSED     — reading (S) packaging
+CLOSED-NEGATIVE — square-difference det corridor (program)
+FIREWALL   — no RH proof; no K₃ ⇒ RH
+```
+
+Only the **necessary antecedent (N)** reading. Sufficiency reading stays CLOSED. No det_ζ = Ξ as theorem.
 
 ---
 
