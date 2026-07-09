@@ -19,6 +19,7 @@ Field aim: coherent motion under correction
 Kernel aim: protected modes retain, bulk modes suppress, leakage is measured
 Optimization aim: motion remains governed by proximal correction and residual discipline
 Research aim: trace-formula compatibility through corrected operator structure
+arXiv lane: arxiv/README.md · ARX-001 Grain Zero scaffold · ARX-002 KNS(LB) scaffold
 ```
 
 ---

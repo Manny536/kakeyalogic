@@ -1,0 +1,220 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+% Paths relative to this manuscript directory
+\input{../../templates/claim-discipline.tex}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\Gzero}{G_0}
+\newcommand{\Cdr}{C_{\delta,\rho}}
+\newcommand{\Tdelta}{\mathcal{T}_\delta}
+\newcommand{\edelta}{e_\delta}
+\newcommand{\mdelta}{m_\delta}
+
+\title[Grain Zero residual]{Grain Zero: residual overlap after structured
+{K}akeya factorization in $\mathbb{R}^3$}
+\author{Manuel Coleman}
+\address{Love Labs LCA / PeAIce Research Program}
+\email{coleman.manuel23@gmail.com}
+\date{\today}
+
+\begin{document}
+
+\begin{abstract}
+We isolate a residual overlap measure---\emph{Grain Zero}---after a finite
+family of $\delta$-tubes in $\mathbb{R}^3$ has been factored into the
+structured carriers appearing in modern proofs of the Kakeya set conjecture
+in three dimensions (grains, slabs, prisms, planks, sticky packets, convex
+carriers, and scale envelopes). The raw excess multiplicity is not itself
+Grain Zero; Grain Zero is the excess supported off the extracted carrier.
+The primary theorem target is residual vanishing: after the Wang--Zahl /
+Guth--Wang--Zahl reduction stages, the normalized residual mass should tend
+to zero as $\delta\to 0$. Operator encodings and any zeta-regularization near
+$s=0$ are second-stage and conditional.
+\PeAIceOpenTargets\
+\ZetaFirewall
+\end{abstract}
+
+\subjclass[2020]{42B25, 28A75, 42B20}
+\keywords{Kakeya set conjecture, residual measures, incidence geometry,
+multiplicity, Wang--Zahl reduction}
+
+\maketitle
+
+\section{Introduction}
+
+\statusbox{Program note ARX-001 under PeAIce claim discipline.
+Definition of $\Gzero$ is \PeAIceFormal.
+Residual vanishing is \PeAIceProposed/\PeAIceOpen.
+Operator and zeta stages are explicitly second-stage.}
+
+A Kakeya (Besicovitch) set in $\mathbb{R}^n$ contains a unit line segment in
+every direction. In $\mathbb{R}^3$, every such set has Minkowski and Hausdorff
+dimension three \cite{WangZahl2025Kakeya,GuthWangZahl2026Streamlined}. The
+proof architecture organizes directional overlap into structured carriers.
+This note does not reprove the Kakeya theorem. It asks a residual question:
+after legal structure is removed, what measure remains, and can it be shown
+to vanish under the same estimates that close the volume problem?
+
+We call the residual object \emph{Grain Zero}. The name is program-internal;
+the mathematics is a residual measure after carrier subtraction.
+
+\firewallbox{\ZetaFirewall}
+
+\section{Tube setup}
+
+Let $\Tdelta$ be a finite family of $\delta$-tubes in $\mathbb{R}^3$ with
+shading $Y(T)\subset T$ for each $T\in\Tdelta$. Write
+\begin{equation}
+  U(\Tdelta,Y) \;:=\; \bigcup_{T\in\Tdelta} Y(T),
+\end{equation}
+\begin{equation}
+  \mdelta(x) \;:=\; \#\{\,T\in\Tdelta : x\in Y(T)\,\},
+\end{equation}
+\begin{equation}
+  \edelta(x) \;:=\; \bigl(\mdelta(x)-1\bigr)_+.
+\end{equation}
+The raw excess measure $\edelta(x)\,\dd x$ still includes overlap that may be
+fully accounted for by structured carriers. Grain Zero begins only after that
+structure is extracted.
+
+\section{Structured carriers}
+
+\begin{definition}[Structured carrier, informal]
+\label{def:carrier}
+At a scale passage $\delta\le \rho\le 1$, let $\Cdr$ denote the (measurable)
+structured carrier produced by a fixed stage of a Wang--Zahl /
+Guth--Wang--Zahl style reduction. Depending on the stage, $\Cdr$ may include
+grains, slabs, prisms, planks, convex carriers, sticky packets, Katz--Tao
+convex-density packets, Frostman slab packets, high-multiplicity cells, and
+scale-induction envelopes.
+\end{definition}
+
+\begin{remark}
+A rigorous implementation must pin $\Cdr$ to explicit source addresses in
+\cite{WangZahl2025Kakeya,GuthWangZahl2026Streamlined} for the chosen stage.
+The present scaffold records the program definition; carrier pinning is an
+owed edit before submission.
+\end{remark}
+
+\section{Grain Zero}
+
+\begin{definition}[Grain Zero residual measure]
+\label{def:g0}
+After $\Cdr$ has been extracted, define
+\begin{equation}
+  \dd \Gzero_{\delta,\rho}(x)
+  \;:=\;
+  \edelta(x)\, \mathbf{1}_{\mathbb{R}^3\setminus \Cdr}(x)\, \dd x.
+\end{equation}
+Equivalently, for measurable $A\subset\mathbb{R}^3$,
+\begin{equation}
+  \Gzero_{\delta,\rho}(A)
+  \;:=\;
+  \int_A \bigl(\mdelta(x)-1\bigr)_+
+  \,\mathbf{1}_{\mathbb{R}^3\setminus \Cdr}(x)\, \dd x.
+\end{equation}
+\end{definition}
+
+\begin{remark}
+$\Gzero$ is not a grain, slab, prism, or sticky packet. It is the leftover
+excess after those carriers absorb the overlap they are designed to control.
+\end{remark}
+
+\section{Primary theorem target}
+
+\begin{conjecture}[Residual vanishing]
+\label{conj:vanish}
+Under the hypotheses and refinements of the Wang--Zahl /
+Guth--Wang--Zahl reduction, after broad/narrow decomposition, convex-density
+factoring, grain/slab/prism extraction, sticky or non-sticky reduction, and
+final scale refinement,
+\begin{equation}
+  \frac{\Gzero_{\delta,\rho}(\mathbb{R}^3)}
+       {\sum_{T\in\Tdelta} |Y(T)|}
+  \;\longrightarrow\; 0
+  \qquad\text{as }\delta\to 0.
+\end{equation}
+\end{conjecture}
+
+\statusbox{Conjecture~\ref{conj:vanish} is \PeAIceProposed/\PeAIceOpen.
+A weak form with $\delta^{o(1)}$ capture may be assemblable from existing
+error channels; a strong form is the program's primary geometric burden.}
+
+\section{Lemma ladder (program outline)}
+
+We record the intended reduction chain. Items not proved here are marked.
+
+\begin{enumerate}[label=\textbf{L\arabic*.},leftmargin=*]
+  \item \textbf{Structured factorization} (\PeAIceProposed).
+  Decompose $\edelta\,\dd x = \dd S_{\delta,\rho} + \dd \Gzero_{\delta,\rho}$
+  with $\dd S$ supported on carriers and $\dd \Gzero$ off carriers.
+  \item \textbf{Carrier exhaustion} (\PeAIceProposed).
+  Show $\dd S$ accounts for overlap controlled by existing incidence,
+  multiplicity, convex-density, or slab estimates at the chosen stage.
+  \item \textbf{Residual domination} (\PeAIceProposed).
+  Bound
+  \[
+    \Gzero_{\delta,\rho}(\mathbb{R}^3)
+    \le
+    E_{\mathrm{bn}} + E_{\mathrm{convex}} + E_{\mathrm{sticky}} + E_{\mathrm{scale}}.
+  \]
+  \item \textbf{Residual vanishing} (\PeAIceOpen).
+  Deduce Conjecture~\ref{conj:vanish}.
+  \item \textbf{Operator encoding} (second stage, \PeAIceOpen).
+  Only after residual control, construct $K_{\Gzero}$, a kernel, a counting
+  function, or a scale defect measure from residual data.
+  \item \textbf{Zeta-regularization question} (conditional, \PeAIceOpen).
+  Only after an operator exists, ask whether a zeta/Mellin object continues
+  near $s=0$. \ZetaFirewall
+\end{enumerate}
+
+\section{Obstacles}
+
+\begin{enumerate}[leftmargin=*]
+  \item $\Cdr$ is proof-stage dependent; several residual lanes
+  $\Gzero^{\mathrm{grain}},\Gzero^{\mathrm{slab}},\ldots$ may be required.
+  \item Existing Kakeya proofs close by volume/multiplicity control without
+  naming a residual measure; residual closure must be \emph{translated} from
+  those estimates.
+  \item A vanishing residual may be too thin to support a nontrivial spectral
+  object; the correct second-stage object may be a renormalized defect along
+  scales rather than $\Gzero$ itself.
+\end{enumerate}
+
+\section{Related work and non-claims}
+
+The geometric background is the Kakeya theorem in $\mathbb{R}^3$
+\cite{WangZahl2025Kakeya,GuthWangZahl2026Streamlined} and the broader
+restriction/Kakeya complex \cite{BennettCarberyTao2006,Guth2025LargeValues}.
+We do not assert a peer-reviewed literature bridge from Kakeya residual
+measures to zeros of the Riemann zeta function; any such bridge is
+program-original and presently \PeAIceOpen.
+
+\PeAIceOpenTargets
+
+\section*{Acknowledgments}
+Research engineering assistance was used in preparing program materials.
+Mathematical claims and any future arXiv submission decision remain the
+author's responsibility. Evaluator non-sovereignty ($h<1$) is a governance
+constraint on the program, not a theorem of analytic number theory.
+
+\bibliographystyle{amsplain}
+\bibliography{../../bibliography/peaice-arxiv}
+
+\end{document}

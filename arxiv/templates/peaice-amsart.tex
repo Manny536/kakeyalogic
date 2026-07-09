@@ -1,0 +1,60 @@
+% PeAIce amsart skeleton — copy into manuscripts/*/main.tex and edit
+% Compiles with: pdflatex + bibtex (or latexmk -pdf)
+\documentclass[11pt]{amsart}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\input{../../templates/claim-discipline.tex}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\title[Short title]{Full title}
+\author{Manuel Coleman}
+\address{Love Labs LCA / PeAIce Research Program}
+\email{coleman.manuel23@gmail.com}
+
+\date{\today}
+
+\begin{document}
+\begin{abstract}
+  Abstract text. Include the open-status sentence.
+  \PeAIceOpenTargets
+\end{abstract}
+
+\subjclass[2020]{42B25, 28A75}
+\keywords{Kakeya, residual measures, incidence geometry}
+
+\maketitle
+
+\section{Introduction}
+
+\statusbox{Program note under PeAIce claim discipline. Definitions marked
+\PeAIceFormal; conjectural targets marked \PeAIceProposed\ or \PeAIceOpen.}
+
+\section{Main definitions}
+
+\section{Results}
+
+\section{Open problems}
+
+\section*{Acknowledgments}
+The author acknowledges research engineering assistance in preparing program
+materials; all mathematical claims and submission decisions remain the author's
+responsibility under evaluator non-sovereignty ($h<1$).
+
+\bibliographystyle{amsplain}
+\bibliography{../../bibliography/peaice-arxiv}
+
+\end{document}
