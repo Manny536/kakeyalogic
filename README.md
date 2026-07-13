@@ -54,6 +54,7 @@ iPiano data target: docs/data/ipiano-probe-data.json
 iPiano executable target: examples/ipiano_probe.py
 DNA antecedent geometry: docs/dna-as-antecedent-kakeya.md
 DNA direction diagnostic: probes/dna_kakeya_direction_probe.py
+DNA conformation calibration: CP-DNA-002 OWED
 Corrected L²_C verification target: 49 passed
 ```
 
@@ -89,8 +90,10 @@ WP5c u-flow trace route                               LIVE
 Prime-carrying ξ spec (L3)                            LIVE · FORCED
 WP5 trace-formula route                               LIVE PRIORITY
 L²_C protected-sector Hamiltonian probe               ENGINEERING KERNEL
-DNA as antecedent Kakeya geometry                      STRUCTURAL ANALOGY · ideal-helix noncoverage FORMAL
-CP-DNA-001 direction diagnostic                        NUMERICS · PASS receipt on declared grid
+DNA A/B/Z conformational-strip geometry                STRUCTURAL ANALOGY · A/T/C/G zero classes typed
+Ideal A/B/Z finite-union noncoverage                   FORMAL in declared helix model
+CP-DNA-001 generic direction diagnostic                NUMERICS · PASS receipt on declared grid
+CP-DNA-002 source-calibrated A/B/Z probe                OWED
 Coherence-Splitting Conjecture                        OPEN
 RH / spectral identification                          OPEN
 ```
@@ -298,7 +301,7 @@ DNA direction-coverage diagnostic:
 python probes/dna_kakeya_direction_probe.py
 ```
 
-The DNA probe must report `pass: true` while preserving the firewall that tangent coverage is not Kakeya unit-segment containment.
+CP-DNA-001 must report `pass: true` while preserving the firewall that tangent coverage is not Kakeya unit-segment containment. It is a generic helix diagnostic, not an A/B/Z biological calibration; that calibration is owed as CP-DNA-002.
 
 Expected targeted L²_C result from the corrected CoWork run:
 
@@ -491,7 +494,7 @@ Logx(β)* = logarithmic smoothing inertia across δ→ρ
 h = evaluator non-sovereignty
 L²_C probe = first hardened finite-dimensional protected-sector engineering kernel
 iPiano probe = inertial proximal optimization discipline
-DNA antecedent lane = typed structural analogy; single ideal helix is not Kakeya
+DNA antecedent lane = A/T/C/G zero classes + A/B/Z conformational sheets; structural analogy
 State: active:🟢 / developing:🟡 / spectral ID:🔴
 E = L²
 ```
