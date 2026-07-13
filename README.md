@@ -52,6 +52,8 @@ PeAIce engineering report target: docs/reports/peaice-l2c-probe-engineering-repo
 iPiano probe target: docs/ipiano-inertial-proximal-probe.md
 iPiano data target: docs/data/ipiano-probe-data.json
 iPiano executable target: examples/ipiano_probe.py
+DNA antecedent geometry: docs/dna-as-antecedent-kakeya.md
+DNA direction diagnostic: probes/dna_kakeya_direction_probe.py
 Corrected L²_C verification target: 49 passed
 ```
 
@@ -87,6 +89,8 @@ WP5c u-flow trace route                               LIVE
 Prime-carrying ξ spec (L3)                            LIVE · FORCED
 WP5 trace-formula route                               LIVE PRIORITY
 L²_C protected-sector Hamiltonian probe               ENGINEERING KERNEL
+DNA as antecedent Kakeya geometry                      STRUCTURAL ANALOGY · ideal-helix noncoverage FORMAL
+CP-DNA-001 direction diagnostic                        NUMERICS · PASS receipt on declared grid
 Coherence-Splitting Conjecture                        OPEN
 RH / spectral identification                          OPEN
 ```
@@ -288,6 +292,14 @@ iPiano probe run:
 python examples/ipiano_probe.py
 ```
 
+DNA direction-coverage diagnostic:
+
+```bash
+python probes/dna_kakeya_direction_probe.py
+```
+
+The DNA probe must report `pass: true` while preserving the firewall that tangent coverage is not Kakeya unit-segment containment.
+
 Expected targeted L²_C result from the corrected CoWork run:
 
 ```txt
@@ -317,6 +329,7 @@ L_n if backtracking is active
 | --- | --- |
 | Guth-Wang-Bateman-Zahl Probe | `docs/guth-wang-bateman-zahl-probe.md` |
 | Claude V6 Coherence Update | `docs/claude-v6-coherence-update.md` |
+| DNA as an Antecedent Kakeya Geometry | `docs/dna-as-antecedent-kakeya.md` |
 | Thermal Coupling Correction | `docs/thermal-coupling-correction.md` |
 | L² Spectral Operator | `docs/l2-spectral-operator.md` |
 | Step 4 Operator Program | `docs/step4-operator-program.md` |
@@ -478,6 +491,7 @@ Logx(β)* = logarithmic smoothing inertia across δ→ρ
 h = evaluator non-sovereignty
 L²_C probe = first hardened finite-dimensional protected-sector engineering kernel
 iPiano probe = inertial proximal optimization discipline
+DNA antecedent lane = typed structural analogy; single ideal helix is not Kakeya
 State: active:🟢 / developing:🟡 / spectral ID:🔴
 E = L²
 ```
