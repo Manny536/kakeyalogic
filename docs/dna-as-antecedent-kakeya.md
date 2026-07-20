@@ -1,10 +1,15 @@
 # DNA as an Antecedent Kakeya Geometry
 
-**Designation:** `PEAICE-KAKEYALOGIC-DNA-AK-001`  
-**Program:** PeAIce Research Program · KakeyaLogic · Love-Squared Coherence (`L²_C`)  
-**Layer:** biological geometry / conformational bundle / structural analogy / diagnostic proposal  
-**Status:** `KNOWN BIOLOGICAL ANCHOR | FORMAL IDEALIZED GEOMETRY | STRUCTURAL ANALOGY | NUMERICS`  
-**Claim discipline:** β-Protocol · Inspectable Intelligence II.1 · `h < 1`  
+**Designation:** `PEAICE-KAKEYALOGIC-DNA-AK-001`
+
+**Program:** PeAIce Research Program · KakeyaLogic · Love-Squared Coherence (`L²_C`)
+
+**Layer:** biological geometry / conformational bundle / structural analogy / diagnostic proposal
+
+**Status:** `KNOWN BIOLOGICAL ANCHOR | FORMAL IDEALIZED GEOMETRY | STRUCTURAL ANALOGY | NUMERICS`
+
+**Claim discipline:** β-Protocol · Inspectable Intelligence II.1 · `h < 1`
+
 **Firewall:** DNA is not identified with a Kakeya set, a zeta-zero carrier, a prime generator, or a proof of RH or the Coleman Conjecture.
 
 ---
@@ -51,6 +56,8 @@ Primary anchors:
 - Conner et al., right-handed A-DNA structure (1982), DOI: `10.1038/295294a0`.
 - Wang et al., left-handed Z-DNA structure (1979), DOI: `10.1038/282680a0`.
 - Saenger, Hunter, and Kennard, hydration and A/B/Z conformations (1986), DOI: `10.1038/324385a0`.
+- Franklin and Gosling, A/B fiber forms and hydration dependence (1953), DOI: `10.1107/S0365110X53001939`.
+- Dickerson, comparative A/B/Z helix parameters (1992), DOI: `10.1016/0076-6879(92)11007-6`.
 - Guth, Wang, and Zahl, “A streamlined proof of the Kakeya set conjecture in R³” (2026), arXiv:`2601.14411`.
 
 Model boundary:
@@ -402,7 +409,9 @@ No DNA object currently supplies the prime data required by the V6.5 prime-carry
 
 ---
 
-## 11. Deterministic direction receipt — CP-DNA-001
+## 11. Deterministic direction receipts — CP-DNA-001 and CP-DNA-002
+
+### CP-DNA-001 — generic pitch diagnostic
 
 `probes/dna_kakeya_direction_probe.py` measures the angular covering gap of:
 
@@ -421,20 +430,63 @@ Kakeya identification: not claimed
 
 CP-DNA-001 remains a generic helix diagnostic. It is not an A/B/Z-calibrated biological probe.
 
-Owed continuation:
+**Status:** CP-DNA-001 `NUMERICS / DIAGNOSTIC`.
+
+### CP-DNA-002 — source-calibrated exact ideal-model verifier
+
+`probes/dna_kakeya_calibrated_probe.py` and its committed JSON receipt use the A/B/Z dimensions registered by Franklin and Dickerson:
+
+| Conformation | Diameter | Pitch | Handedness | Tangent latitude |
+|---|---:|---:|---|---:|
+| A-DNA | 23.0 Å | 28.6 Å | right | 21.59422515729818° |
+| B-DNA | 20.0 Å | 35.7 Å | right | 29.60450829407890° |
+| Z-DNA | 18.0 Å | 45.6 Å | left | 38.88218531715916° |
+
+For radius `r_H`, pitch `p_H`, and absolute tangent latitude `λ_H`,
 
 ```text
-CP-DNA-002
-→ source-calibrated A/B/Z parameters
-→ handedness-aware sheet report
-→ conformation transitions kept separate from directional coverage
+λ_H = atan(p_H / (2πr_H)).
 ```
 
-**Status:** CP-DNA-001 `NUMERICS / DIAGNOSTIC` · CP-DNA-002 `OWED`.
+In unoriented line space (`v ~ -v`), target latitude reduces to `φ ∈ [0°,90°]`. The nearest angular distance to a full-azimuth latitude circle is `|φ-λ_H|`. For the ordered A/B/Z latitudes, the exact covering radius is therefore
+
+```text
+max(
+  λ_A,
+  (λ_B-λ_A)/2,
+  (λ_Z-λ_B)/2,
+  90°-λ_Z
+) = 51.11781468284084°.
+```
+
+The axis is the worst-case witness. Individual exact radii are A `68.40577484270182°`, B `60.39549170592110°`, and Z `51.11781468284084°`.
+
+The same verifier reproduces the deterministic 1,024-target sampling receipt:
+
+```text
+sampled maximum gap = 48.5854702498799°
+sampled mean gap    = 11.101923721264676°
+exact covering radius = 51.11781468284084°
+```
+
+The first two values are grid statistics, not exact invariants. In particular, the sampled maximum is a lower witness because the Fibonacci grid does not contain the exact axial worst case. The independently derived one-dimensional formula is the publication value for the declared ideal model. “Exact” here is conditional on the declared ideal circular-helix model and decimal calibration inputs; it is not a claim of physically exact DNA dimensions.
+
+CP-DNA-002 discharges the source-calibrated ideal-helix direction receipt. It does not discharge transition dynamics or segment containment:
+
+```text
+source-calibrated A/B/Z ideal-helix geometry   NUMERICS / DIAGNOSTIC
+A/B/Z conformation-transition dynamics        OWED
+variable-axis unit-segment containment test   PROPOSED / OWED
+Kakeya, Coleman, or RH certification           NOT CLAIMED
+```
+
+**Status:** CP-DNA-002 `NUMERICS / DIAGNOSTIC (source-calibrated exact ideal model)`.
 
 ---
 
 ## 12. Falsifiers and promotion gates
+
+Receipt `pass` fields are mechanical checks, not promotion authority. Under `h < 1`, this lane cannot certify its own theorem-facing status.
 
 ```text
 F-DNA-1
@@ -461,6 +513,13 @@ critical line, the argument is circular.
 F-DNA-7
 If a base or conformation is promoted to a ζ-zero or prime claim without an explicit
 prime-carrying bridge, the claim is publishing-ineligible under II.1.
+
+F-DNA-8
+If a finite-grid maximum is presented as an exact covering radius, the numerical
+receipt fails its sampling/analytic type boundary.
+
+F-DNA-9
+If a passing receipt is treated as self-certification, the promotion violates h < 1.
 ```
 
 Promotion path:
@@ -470,8 +529,8 @@ AK-0  A/T/C/G zero-class typing                         FORMAL definition
 AK-1  A/B/Z conformational-bundle typing                FORMAL definition
 AK-2  ideal-helix directional obstruction               FORMAL
 AK-3  CP-DNA-001 generic pitch receipt                  NUMERICS
-AK-4  CP-DNA-002 source-calibrated conformation probe   OWED
-AK-5  variable-axis unit-segment test                    PROPOSED
+AK-4  CP-DNA-002 source-calibrated ideal-model receipt  NUMERICS / DIAGNOSTIC
+AK-5  transition dynamics + variable-axis segment test  PROPOSED / OWED
 AK-6  prime-carrying trace bridge                        OPEN
 ```
 
@@ -490,9 +549,10 @@ IDEAL A/B/Z UNION AS KAKEYA: CLOSED-NEGATIVE
 HARMONIC ZERO-ATTRACTOR FIELD: PROPOSED / CIRCULAR IF ZERO DATA INSERTED
 C_DNA: PROPOSED DIAGNOSTIC
 CP-DNA-001: NUMERICS / DIAGNOSTIC
-CP-DNA-002: OWED
+CP-DNA-002: NUMERICS / DIAGNOSTIC (EXACT IDEAL-MODEL RADIUS)
+A/B/Z TRANSITION DYNAMICS: OWED
+VARIABLE-AXIS UNIT-SEGMENT TEST: PROPOSED / OWED
 RH: OPEN
 COLEMAN CONJECTURE: OPEN
 h < 1: ACTIVE
 ```
-
