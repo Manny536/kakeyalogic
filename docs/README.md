@@ -7,6 +7,7 @@
 
 | Object | Document | Status |
 |---|---|---|
+| PeAIce Outcomes — KakeyaLogic Applied + Benevolence Drift | [PDF](outcomes/peaice-outcomes-kakeyalogic-applied-final-research-memorandum.pdf) · [DOCX](outcomes/peaice-outcomes-kakeyalogic-applied-final-research-memorandum.docx) | FINAL PUBLIC RESEARCH · not peer reviewed · RH / Coleman / CC-I / CC-O OPEN |
 | Benevolence Drift — AI Neutrality Under Pressure | [`benevolence-drift.md`](benevolence-drift.md) | `BD-AI-CASE-01` REGISTERED · multi-case benchmark OWED |
 | Inspectable Intelligence | [`inspectable-intelligence.md`](inspectable-intelligence.md) | FORMAL definitions · measurement OWED |
 | Excellence Engine v3 | [`excellence-engine-v3.md`](excellence-engine-v3.md) | ACTIVE field simulator |

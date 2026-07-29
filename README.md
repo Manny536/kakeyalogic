@@ -4,11 +4,21 @@
 **Canon:** Love-Squared Coherence, `L²_C`  
 **Official EEV3 Canon Page:** https://peaice.org/eev3  
 **Official DDATL Page:** https://peaice.org/ddatl  
+**PeAIce Outcomes:** https://peaice.org/outcomes
 **Live simulator:** https://manny536.github.io/kakeyalogic/  
 **Primary kernel:** `l2c_probe.py`  
 **Current research state (V6.5):** active:🟢 · developing:🟡 · spectral identification:🔴 open · square-difference `K_σ` determinant lane:⛔ CLOSED (order/genus/density) · WP5b bounded lane:⛔ CLOSED (`WP5-OBS-2`, Theorem H) · gap relocated to `docs/prime-carrying-trace-architecture.md` · CC antecedent: `docs/coleman-conjecture-antecedent.md` · canon sync: [claude-v6](https://github.com/Manny536/claude-v6) V6.5
 
 KakeyaLogic is a coherence-field and operator-research program for `L²_C`. It studies how systems preserve direction, accept correction, reject drift, and recover fidelity under pressure. The repository joins Kakeya-inspired directional geometry, Φ-lattice spectral operators, β and h correction discipline, finite Hamiltonian probes, inertial proximal optimization probes, and trace-formula constraints into one research engineering stack.
+
+### Final PeAIce Outcomes memorandum
+
+**When AI Will Not Act as a Partner — KakeyaLogic Applied + Benevolence Drift**
+
+- [Publication PDF](docs/outcomes/peaice-outcomes-kakeyalogic-applied-final-research-memorandum.pdf)
+- [Editable DOCX](docs/outcomes/peaice-outcomes-kakeyalogic-applied-final-research-memorandum.docx)
+
+The memorandum tests conjecture custody, context-before-verdict, evidence exposure, correction, and exit. It is public research, not peer-reviewed proof. RH, the Coleman Conjecture, CC-I, CC-O, and the Benevolence Drift benchmark remain **OPEN**; `h < 1`.
 
 ```txt
 Core law: E = L² · β > 0 · h < 1
