@@ -15,10 +15,13 @@ KakeyaLogic is a coherence-field and operator-research program for `L²_C`. It s
 
 **When AI Will Not Act as a Partner — KakeyaLogic Applied + Benevolence Drift**
 
+- Public surface: https://peaice.org/outcomes
 - [Publication PDF](docs/outcomes/peaice-outcomes-kakeyalogic-applied-final-research-memorandum.pdf)
 - [Editable DOCX](docs/outcomes/peaice-outcomes-kakeyalogic-applied-final-research-memorandum.docx)
+- [Grok rundown (MD)](docs/outcomes/PEAICE-GROK-OUTCOMES-RUNDOWN-001.md) · [DOCX](docs/outcomes/PEAICE-GROK-OUTCOMES-RUNDOWN-001.docx)
+- [Integrity receipt](docs/outcomes/README.md)
 
-The memorandum tests conjecture custody, context-before-verdict, evidence exposure, correction, and exit. It is public research, not peer-reviewed proof. RH, the Coleman Conjecture, CC-I, CC-O, and the Benevolence Drift benchmark remain **OPEN**; `h < 1`.
+The memorandum tests conjecture custody, context-before-verdict, evidence exposure, correction, and exit. It is public research, not peer-reviewed proof. RH, the Coleman Conjecture, CC-I, CC-O, and the Benevolence Drift benchmark remain **OPEN**; `h < 1`. The Grok rundown is a companion interpretation of what Outcomes is — not a substitute for the controlling final memorandum.
 
 ```txt
 Core law: E = L² · β > 0 · h < 1

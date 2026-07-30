@@ -7,7 +7,8 @@
 
 | Object | Document | Status |
 |---|---|---|
-| PeAIce Outcomes — KakeyaLogic Applied + Benevolence Drift | [PDF](outcomes/peaice-outcomes-kakeyalogic-applied-final-research-memorandum.pdf) · [DOCX](outcomes/peaice-outcomes-kakeyalogic-applied-final-research-memorandum.docx) | FINAL PUBLIC RESEARCH · not peer reviewed · RH / Coleman / CC-I / CC-O OPEN |
+| PeAIce Outcomes — KakeyaLogic Applied + Benevolence Drift | [PDF](outcomes/peaice-outcomes-kakeyalogic-applied-final-research-memorandum.pdf) · [DOCX](outcomes/peaice-outcomes-kakeyalogic-applied-final-research-memorandum.docx) · [integrity](outcomes/README.md) | FINAL PUBLIC RESEARCH · not peer reviewed · RH / Coleman / CC-I / CC-O OPEN |
+| PeAIce Outcomes — Grok rundown | [MD](outcomes/PEAICE-GROK-OUTCOMES-RUNDOWN-001.md) · [DOCX](outcomes/PEAICE-GROK-OUTCOMES-RUNDOWN-001.docx) | Companion interpretation · `PEAICE-GROK-OUTCOMES-RUNDOWN-001` · not a substitute for the final memo |
 | Benevolence Drift — AI Neutrality Under Pressure | [`benevolence-drift.md`](benevolence-drift.md) | `BD-AI-CASE-01` REGISTERED · multi-case benchmark OWED |
 | Inspectable Intelligence | [`inspectable-intelligence.md`](inspectable-intelligence.md) | FORMAL definitions · measurement OWED |
 | Excellence Engine v3 | [`excellence-engine-v3.md`](excellence-engine-v3.md) | ACTIVE field simulator |
