@@ -20,6 +20,7 @@
 | Object | Document |
 |---|---|
 | Guth-Wang-Bateman-Zahl Probe | [`guth-wang-bateman-zahl-probe.md`](guth-wang-bateman-zahl-probe.md) |
+| Wang–Wu Restriction / Two-Ends Furstenberg | [`wang-wu-restriction-decoupling.md`](wang-wu-restriction-decoupling.md) |
 | KNS Light Basic | [`kns-light-basic.md`](kns-light-basic.md) |
 | Log-Depth Harmonic Coherence | [`log-depth-harmonic-coherence.md`](log-depth-harmonic-coherence.md) |
 | Coleman Conjecture antecedent | [`coleman-conjecture-antecedent.md`](coleman-conjecture-antecedent.md) |

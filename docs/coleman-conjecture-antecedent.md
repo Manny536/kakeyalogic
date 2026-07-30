@@ -55,7 +55,8 @@ control of zeta:
 ```text
 incidence geometry
   -> Kakeya / Besicovitch tube geometry            [E1, and maximal bounds: Wolff]
-    -> Fourier restriction / l^2-decoupling         [Bourgain 1991; Bourgain–Demeter–Guth]
+    -> Fourier restriction / l^2-decoupling         [Bourgain 1991; Bourgain–Demeter–Guth;
+                                                    Wang–Wu arXiv:2411.08871 two-ends Furstenberg]
       -> Dirichlet-polynomial large values / exp sums
         -> zeta growth (subconvexity) & zero-density N(σ,T)   [Guth–Maynard]
           -> zero-free regions
@@ -63,7 +64,10 @@ incidence geometry
 
 The rungs are established mathematics `THEOREM-BACKGROUND`. Restriction implies Kakeya
 (Bourgain 1991). Decoupling — built on Besicovitch/tube geometry — drove the Vinogradov
-main conjecture (Bourgain–Demeter–Guth 2016), improving zeta bounds. Guth–Maynard (2024)
+main conjecture (Bourgain–Demeter–Guth 2016), improving zeta bounds. Wang–Wu (2024)
+prove Stein restriction in `R^3` for `p > 22/7` via refined decoupling and two-ends
+Furstenberg inequalities (see `docs/wang-wu-restriction-decoupling.md`); this remains a
+bound-producing restriction rung, not zero-location. Guth–Maynard (2024)
 proved new large-value estimates for Dirichlet polynomials and deduced
 `N(σ,T) <= T^{30(1-σ)/13 + o(1)}`, the first substantial improvement to Ingham (1940).
 

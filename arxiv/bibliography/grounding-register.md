@@ -51,6 +51,7 @@ These papers **ground** PeAIce host components. They do not upgrade program brid
 | --- | --- | --- |
 | [2502.17655](https://arxiv.org/abs/2502.17655) | Wang–Zahl | Kakeya ℝ³ theorem |
 | [2601.14411](https://arxiv.org/abs/2601.14411) | Guth–Wang–Zahl | Streamlined Kakeya ℝ³ |
+| [2411.08871](https://arxiv.org/abs/2411.08871) | Wang–Wu | Restriction via decoupling + two-ends Furstenberg · \(p>22/7\) in \(\mathbb{R}^3\) · Kakeya dim \(\ge 5/2\) numerology |
 | [2503.07410](https://arxiv.org/abs/2503.07410) | Guth | Large values · NT/harmonic |
 | [math/0509262](https://arxiv.org/abs/math/0509262) | Bennett–Carbery–Tao | Multilinear restriction/Kakeya |
 | [2405.20552](https://arxiv.org/abs/2405.20552) | Guth–Maynard | Dirichlet poly large values |

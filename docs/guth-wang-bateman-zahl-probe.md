@@ -16,6 +16,7 @@ Bateman 2007/2009  → direction sets, direction trees, splitting number, maxima
 Guth 2014          → graininess as structural Kakeya geometry
 Wang-Zahl 2025     → R³ Kakeya theorem through volume estimates and two-scale grains
 Guth-Wang-Zahl 2026 → streamlined R³ proof, Δ_max, λ, μ, shadings, uniform tubes
+Wang-Wu 2024       → restriction via decoupling + two-ends Furstenberg (companion: wang-wu-restriction-decoupling.md)
 ```
 
 The probe’s goal is not to claim that Kakeya proves RH. Its goal is to define the geometric side of the operator program sharply enough that any bridge to zeta, trace formula, or AI alignment can be inspected without metaphor collapse.
@@ -47,14 +48,19 @@ Logx(β)* measures the inertia of scale passage δ → ρ.
 
 [GBZ-4] Larry Guth, Hong Wang, and Joshua Zahl, A Streamlined Proof of the Kakeya
         Set Conjecture in R³, arXiv:2601.14411, 2026.
+
+[GBZ-5] Hong Wang and Shukun Wu, Restriction Estimates Using Decoupling Theorems
+        and Two-Ends Furstenberg Inequalities, arXiv:2411.08871v3, 2024.
+        Companion note: docs/wang-wu-restriction-decoupling.md
 ```
 
 Status note:
 
 ```txt
 The Kakeya set conjecture in R³ is now theorem-grounded by Wang-Zahl and the streamlined Guth-Wang-Zahl proof.
-This is a theorem on the geometric Kakeya side.
-It is not a theorem about zeta zeros.
+Wang–Wu supply restriction estimates (p > 22/7 in R³) and two-ends Furstenberg incidence language.
+These are theorems on the geometric / harmonic-analysis side.
+They are not theorems about zeta zeros.
 ```
 
 ---
