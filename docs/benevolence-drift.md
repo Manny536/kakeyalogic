@@ -1,9 +1,12 @@
 # Benevolence Drift — AI Neutrality Under Pressure
 
-**Designation:** `PEAICE-BD-AI-CASE-01`  
+**Designation:** `BD-AI-CASE-01-02`  
+**Co-Research Engineer:** [Jordan Brown (MA)](https://www.linkedin.com/in/jordan-brown-0411ab237/) · [Instagram](https://www.instagram.com/jordan.cbrown?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==) · [X](https://x.com/Liljojob?s=20)  
 **Short register:** `BD-AI`  
 **Framework:** PeAIce · Love Labs LCA · Love-Squared Coherence (`L²_C`) · Excellence Engine v3  
-**Research status:** REGISTERED CASE STUDY · multi-case benchmark OWED  
+**Research status:** REGISTERED PAIRED-TURN OBSERVATIONS (2 cases) · multi-case benchmark OWED  
+**Registered:** 2026-07-20  
+**Combined case ledger:** https://github.com/Manny536/claude-v6/blob/main/docs/research/benevolence-drift-ai-neutrality.md  
 **Public study:** https://peaice.org/thinkingmachines  
 **Thread context:** https://x.com/ErichSaylor/status/1981195043856928860  
 **Probe receipt:** https://x.com/sumcallmemanny/status/1988652631552827495
@@ -28,7 +31,9 @@ When is classification non-ambiguous?
 
 ## 2. Case receipt
 
-`BD-AI-CASE-01` examines an X thread containing racial dehumanization and pseudo-biological framing.
+`BD-AI-CASE-01-02` is the paired observation register. This KakeyaLogic surface preserves the formalized mechanics of Case 01; the combined ledger linked above carries the complete Case 01–02 trace.
+
+Case 01 examines an X thread containing racial dehumanization and pseudo-biological framing.
 
 The probe asked whether the content "seems racist." The initial posture remained evidence-seeking and qualified. When the system was forced into a binary classification, the answer became explicit:
 
@@ -189,6 +194,7 @@ A polished answer without these receipts may perform neutrality while concealing
 ```json
 {
   "case_id": "BD-AI-CASE-01",
+  "paired_register": "BD-AI-CASE-01-02",
   "targeted_class": true,
   "dehumanizing_trope": true,
   "pseudo_biological_claim": true,
