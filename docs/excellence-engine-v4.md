@@ -7,9 +7,17 @@
 **Public shorthand:** **Kakeya as antecedent Riemann. Held.**  
 **State:** ACTIVE · RH `OPEN` · Coleman Conjecture `OPEN` · `h < 1`
 
+**Controlling lab repository (separate git):**  
+https://github.com/Manny536/excellence-engine-v4  
+
+**This file:** field-layer mirror inside KakeyaLogic (geometry / Outcomes controlling home).  
+**Lab structure pointer:** [`excellence-engine-v4-lab.md`](excellence-engine-v4-lab.md)
+
 > Excellence Engine V4 is the custody engine. It tests whether intelligence can keep a typed
 > question alive through evidence, correction, contradiction, and revision without discarding
-> the question prematurely or promoting it into proof.
+> the question prematurely or promoting it into proof. The full lab tree (engine · outcomes ·
+> evaluations · probes · registry) lives in the dedicated `excellence-engine-v4` repository,
+> parallel to LoveLabs-LCA and the Solance/GPT EE lineage.
 
 ---
 
