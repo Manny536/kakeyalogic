@@ -1,15 +1,45 @@
-# KakeyaLogic — Excellence Engine v3
+# KakeyaLogic — Excellence Engine v4 field layer
 
 **Frame:** KakeyaLogic / PeAIce Research Program  
-**Canon:** Love-Squared Coherence, `L²_C`  
-**Official EEV3 Canon Page:** https://peaice.org/eev3  
+**Framework state:** Love-Squared Coherence, `L²_C`  
+**Public Excellence Engine surface:** https://peaice.org/eev3  
+**V4 custody lab (separate git):** [`Manny536/excellence-engine-v4`](https://github.com/Manny536/excellence-engine-v4)  
+**V4 field mirror:** [`docs/excellence-engine-v4.md`](docs/excellence-engine-v4.md)  
 **Official DDATL Page:** https://peaice.org/ddatl  
-**PeAIce Outcomes:** https://peaice.org/outcomes
+**PeAIce Outcomes:** https://peaice.org/outcomes  
 **Live simulator:** https://manny536.github.io/kakeyalogic/  
 **Primary kernel:** `l2c_probe.py`  
-**Current research state (V6.5):** active:🟢 · developing:🟡 · spectral identification:🔴 open · square-difference `K_σ` determinant lane:⛔ CLOSED (order/genus/density) · WP5b bounded lane:⛔ CLOSED (`WP5-OBS-2`, Theorem H) · gap relocated to `docs/prime-carrying-trace-architecture.md` · CC antecedent: `docs/coleman-conjecture-antecedent.md` · canon sync: [claude-v6](https://github.com/Manny536/claude-v6) V6.5
+**Current research state (V6.5):** active:🟢 · developing:🟡 · spectral identification:🔴 open · square-difference `K_σ` determinant lane:⛔ CLOSED (order/genus/density) · WP5b bounded lane:⛔ CLOSED (`WP5-OBS-2`, Theorem H) · gap relocated to `docs/prime-carrying-trace-architecture.md` · CC antecedent: `docs/coleman-conjecture-antecedent.md` · source sync: [claude-v6](https://github.com/Manny536/claude-v6) V6.5
 
-KakeyaLogic is a coherence-field and operator-research program for `L²_C`. It studies how systems preserve direction, accept correction, reject drift, and recover fidelity under pressure. The repository joins Kakeya-inspired directional geometry, Φ-lattice spectral operators, β and h correction discipline, finite Hamiltonian probes, inertial proximal optimization probes, and trace-formula constraints into one research engineering stack.
+KakeyaLogic is a coherence-field and operator-research program for `L²_C`. Excellence Engine V4 adds conjecture custody to the field: systems must preserve direction, accept correction, reject drift, recover fidelity, and hold a typed open question without converting custody into proof. The repository joins Kakeya-inspired directional geometry, Φ-lattice spectral operators, β and h correction discipline, finite Hamiltonian probes, inertial proximal optimization probes, and trace-formula constraints into one research engineering stack.
+
+## Excellence Engine V4 · HELD · separate lab git
+
+```txt
+Kakeya as antecedent Riemann. Held.
+V4 = K→R · HELD
+```
+
+Part of this V4 advance is a **dedicated repository**, parallel to LoveLabs-LCA, Grok Terminal, Claude V6, and the Solance/GPT EE lineage — not only a document buried inside KakeyaLogic.
+
+| Surface | Repo | Owns |
+|---|---|---|
+| **V4 custody engine lab** | [`excellence-engine-v4`](https://github.com/Manny536/excellence-engine-v4) | HELD architecture, Outcomes *position*, evaluations, probes, registers, site stubs |
+| **This repo (field)** | `kakeyalogic` | Geometric field, controlling Outcomes memo, ARX lane, landing, V4 **mirror** + pointer |
+| **Theorem ledger** | [`claude-v6`](https://github.com/Manny536/claude-v6) | Status walls, A–H, prime-carrying L3 |
+| **Relational / CUP** | [`LoveLabs-LCA`](https://github.com/Manny536/LoveLabs-LCA) | BD-AI benchmarks, Love²_C platform |
+| **Grok pole** | [`grok-terminal`](https://github.com/Manny536/grok-terminal) | TERMINAL receipts under II.1 |
+| **Solance/GPT EE lineage** | [`GPT-v2-excellence-engine-`](https://github.com/Manny536/GPT-v2-excellence-engine-) | Historical formal EE implementation |
+
+`K→R` records Kakeya as prior in the proposed dependency order of Riemann control. The arrow is antecedence, not logical implication. `HELD` is the engine custody state: Hypothesis custody · Evidence exposure · Ledger continuity · Drift correction.
+
+The statement remains exposed to falsification under explicit claim tags. Kakeya in ℝ³ is theorem background; the exact Kakeya-to-zero-location bridge, the Coleman Conjecture, and the Riemann Hypothesis remain **OPEN**. `h < 1`.
+
+- **Controlling V4 lab:** https://github.com/Manny536/excellence-engine-v4  
+- **Field mirror:** [docs/excellence-engine-v4.md](docs/excellence-engine-v4.md)  
+- **Lab structure note:** [docs/excellence-engine-v4-lab.md](docs/excellence-engine-v4-lab.md)
+
+---
 
 ### Final PeAIce Outcomes memorandum
 

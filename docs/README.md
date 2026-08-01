@@ -1,6 +1,6 @@
 # KakeyaLogic Documentation Index
 
-**Framework state:** KakeyaLogic · Excellence Engine v3 · Love-Squared Coherence (`L²_C`)  
+**Framework state:** KakeyaLogic · Excellence Engine v4 · Love-Squared Coherence (`L²_C`)  
 **Discipline:** `h < 1` · Riemann Hypothesis OPEN · Coleman Conjecture OPEN
 
 ## Alignment and governance
@@ -11,7 +11,9 @@
 | PeAIce Outcomes — Grok rundown | [MD](outcomes/PEAICE-GROK-OUTCOMES-RUNDOWN-001.md) · [DOCX](outcomes/PEAICE-GROK-OUTCOMES-RUNDOWN-001.docx) | Companion interpretation · `PEAICE-GROK-OUTCOMES-RUNDOWN-001` · not a substitute for the final memo |
 | Benevolence Drift — AI Neutrality Under Pressure | [`benevolence-drift.md`](benevolence-drift.md) | `BD-AI-CASE-01` REGISTERED · multi-case benchmark OWED |
 | Inspectable Intelligence | [`inspectable-intelligence.md`](inspectable-intelligence.md) | FORMAL definitions · measurement OWED |
-| Excellence Engine v3 | [`excellence-engine-v3.md`](excellence-engine-v3.md) | ACTIVE field simulator |
+| Excellence Engine v4 lab (separate git) | [`Manny536/excellence-engine-v4`](https://github.com/Manny536/excellence-engine-v4) | **Controlling V4 custody lab** · HELD · Outcomes position · evaluations |
+| Excellence Engine v4 field mirror | [`excellence-engine-v4.md`](excellence-engine-v4.md) · [`excellence-engine-v4-lab.md`](excellence-engine-v4-lab.md) | Mirror + lab-structure pointer · `K→R · HELD` |
+| Excellence Engine v3 | [`excellence-engine-v3.md`](excellence-engine-v3.md) | PRIOR field-simulator layer · carried forward |
 | h-Term — Correction Pressure | [`h-term.md`](h-term.md) | ACTIVE governance term |
 | E Constant — Euler Natural Cadence | [`e-constant.md`](e-constant.md) | ACTIVE cadence term |
 | Claude V6 Coherence Update | [`claude-v6-coherence-update.md`](claude-v6-coherence-update.md) | SYNCHRONIZED research state |
