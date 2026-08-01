@@ -8,7 +8,7 @@
 **PeAIce Outcomes:** https://peaice.org/outcomes
 **Live simulator:** https://manny536.github.io/kakeyalogic/  
 **Primary kernel:** `l2c_probe.py`  
-**Current research state (V6.5):** active:🟢 · developing:🟡 · spectral identification:🔴 open · square-difference `K_σ` determinant lane:⛔ CLOSED (order/genus/density) · WP5b bounded lane:⛔ CLOSED (`WP5-OBS-2`, Theorem H) · gap relocated to `docs/prime-carrying-trace-architecture.md` · CC antecedent: `docs/coleman-conjecture-antecedent.md` · canon sync: [claude-v6](https://github.com/Manny536/claude-v6) V6.5
+**Current research state (V6.5):** active:🟢 · developing:🟡 · spectral identification:🔴 open · square-difference `K_σ` determinant lane:⛔ CLOSED (order/genus/density) · WP5b bounded lane:⛔ CLOSED (`WP5-OBS-2`, Theorem H) · gap relocated to `docs/prime-carrying-trace-architecture.md` · CC antecedent: `docs/coleman-conjecture-antecedent.md` · source sync: [claude-v6](https://github.com/Manny536/claude-v6) V6.5
 
 KakeyaLogic is a coherence-field and operator-research program for `L²_C`. Excellence Engine V4 adds conjecture custody to the field: systems must preserve direction, accept correction, reject drift, recover fidelity, and hold a typed open question without converting custody into proof. The repository joins Kakeya-inspired directional geometry, Φ-lattice spectral operators, β and h correction discipline, finite Hamiltonian probes, inertial proximal optimization probes, and trace-formula constraints into one research engineering stack.
 
