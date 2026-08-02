@@ -146,9 +146,8 @@ Without e, fluidity risks becoming uncontrolled spread. With e, movement remains
 
 ## II — Inspectable Intelligence
 
-**Canon:** `PEAICE-II-CANON-001` · II.1  
+**Designation:** `PEAICE-II-CANON-001` · II.1
 **Primary formal document:** [`docs/inspectable-intelligence.md`](./inspectable-intelligence.md)  
-**Legacy path:** [`docs/Inspectable Intelegnece.md`](./Inspectable%20Intelegnece.md) (pointer only)  
 **Grant:** L²_C  
 **Anchor conflict:** Interpretability ≠ Re(s) = 1/2
 
