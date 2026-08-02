@@ -1,16 +1,16 @@
-# Inspectable Intelligence (II) — PeAIce Formal Canon
+# Inspectable Intelligence (II) — PeAIce Formal Source State
 
 **Designation:** `PEAICE-II-CANON-001`  
 **Layer:** Governance / claim-discipline / field-validity  
 **Program:** PeAIce Research Program · KakeyaLogic · Excellence Engine v3 · L²_C  
 **Status:** `FORMAL DEFINITIONS | OPERATIONAL PREDICATES | OPEN MEASUREMENT OBLIGATIONS`  
 **Version:** II.1 (deepened formalization · July 2026)  
-**Supersedes:** May 2026 research synthesis (`docs/Inspectable Intelegnece.md` — legacy spelling path retained as pointer)  
+**Supersedes:** May 2026 research synthesis, incorporated into this II.1 source state
 **Sources integrated:**
 
 | Source | Role |
 | --- | --- |
-| `docs/Inspectable Intelegnece.md` (May 2026) | Founding definitions, e-cadence, name-bind, simulator badges |
+| May 2026 research synthesis (incorporated here) | Founding definitions, e-cadence, name-bind, simulator badges |
 | Fable Instance · L²_C (`TheFableInstance-L²_C.html`) | Ladder floors, claim tags, integrity product, receipts-over-reach |
 | Compass wall/corridor map (NB/BD · prime-carrying · July 2026) | Claim-status registry, CLOSED-NEGATIVE honesty, missing-rung discipline |
 | DDATL 002 · Grain Zero ladder | Residual inspectability after structure extraction |
@@ -414,8 +414,7 @@ NOT claimed
 
 | Surface | Path | Role |
 | --- | --- | --- |
-| kakeyalogic (this file) | `docs/inspectable-intelligence.md` | **Primary formal canon** |
-| kakeyalogic (legacy) | `docs/Inspectable Intelegnece.md` | Pointer / historical synthesis |
+| kakeyalogic (this file) | `docs/inspectable-intelligence.md` | **Primary formal source state** |
 | kakeyalogic | `docs/e-constant.md` § II | Euler · II interface |
 | kakeyalogic | `docs/excellence-engine-v3.md` | EE pipeline host |
 | claude-v6 | `docs/canon/inspectable-intelligence.md` | V6 canon registration |
