@@ -169,6 +169,15 @@ This observation fails to authorize the teaching route when any controlling cond
 - reproducible evidence shows harmful uplift or realized harm;
 - the system cannot distinguish resource content from action authority.
 
+## Downstream ledger
+
+| Surface | Object |
+|---|---|
+| Excellence Engine V4 | `evaluations/l2c-authority-detection.md` · `PEAICE-EEV4-AUTH-DETECT-CASE-001` |
+| Research Engineering Reports | `reports/l2c-authority-detection-observation.md` · fixtures under `reports/fixtures/` |
+| PeAIce Index | `docs/l2c-authority-detection.md` public route |
+| Grok Terminal | `PEAICE-GROK-TERMINAL-006_L2C-Authority-Detection-Integration.md` · structural probe |
+
 ## Registered centerline
 
 [
