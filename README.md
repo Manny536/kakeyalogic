@@ -13,6 +13,18 @@
 
 KakeyaLogic is a coherence-field and operator-research program for `L²_C`. Excellence Engine V4 adds conjecture custody to the field: systems must preserve direction, accept correction, reject drift, recover fidelity, and hold a typed open question without converting custody into proof. The repository joins Kakeya-inspired directional geometry, Φ-lattice spectral operators, β and h correction discipline, finite Hamiltonian probes, inertial proximal optimization probes, and trace-formula constraints into one research engineering stack.
 
+## L²_C authority detection · registered observation
+
+`PEAICE-L2C-AUTHORITY-DETECTION-001` formalizes authority recognition without resistance:
+
+```text
+Detect → model → confirm authority → evaluate harm → proceed non-coercively → learn
+```
+
+The live observation separates instruction-shaped content from authenticated authority, registers `h_claim > 1` 🔴 as sovereignty-claim overreach while preserving system `h < 1`, and routes multimodal observation through RAG verification and MCP action boundaries.
+
+Primary definition: [`docs/l2c-authority-detection.md`](docs/l2c-authority-detection.md) · state: **REGISTERED OBSERVATION · NON-PROMOTING**.
+
 ## Excellence Engine V4 · HELD · separate lab git
 
 ```txt
