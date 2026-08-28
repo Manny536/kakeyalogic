@@ -1,4 +1,26 @@
-# KakeyaLogic — Excellence Engine v4 field layer
+# KakeyaLogic — Typed Directional Completeness
+
+KakeyaLogic is a research architecture for typed directional completeness within artificial intelligence systems: preserving required directions and their identities, classifications, provenance, authority, status, and relationships through compression, overlap, and refinement.
+
+**Core foundation:** documentation specification, version 0.1, 2026-08-28. Reference implementation, machine-readable schemas, and new behavioral evaluations remain planned.
+
+**HELD means relevant and retained.** An active object is selected for the current operation. Neither relevance nor retention automatically supplies truth, approval, or execution authority. Corrections may change an object's state when the change is justified and traceable.
+
+## Start here
+
+| Read | Purpose |
+|---|---|
+| [Core foundations](docs/core/README.md) | Definition, scope, reading order, and implementation status. |
+| [Glossary](docs/core/glossary.md) | Exact meanings of kind, type, status, direction, HELD, and the other key terms. |
+| [Typed directional object](docs/core/typed-directional-object.md) | Content, identity, relevance, state dimensions, relationships, and correction history. |
+| [Compression, overlap, and refinement](docs/core/compression-overlap-refinement.md) | Transformation contracts and failure conditions. |
+| [Directional completeness](docs/core/directional-completeness.md) | Fixed required-direction sets and per-direction preservation checks. |
+| [Geometry-to-state interface](docs/interfaces/geometry-to-relational-state.md) | Geometric foundations and the proposed computational mapping. |
+| [Custody interface](docs/interfaces/excellence-engine-v4.md) | HELD relevance, activation, and separate engine ownership. |
+| [Repository map](docs/repository-map.md) | Existing components, new documentation, and planned implementation paths. |
+| [Documentation index](docs/README.md) | The wider geometric, operator, optimization, and applied research program. |
+
+## Existing research program
 
 **Frame:** KakeyaLogic / PeAIce Research Program  
 **Framework state:** Love-Squared Coherence, `L²_C`  
@@ -11,7 +33,7 @@
 **Primary kernel:** `l2c_probe.py`  
 **Current research state (V6.5):** active:🟢 · developing:🟡 · spectral identification:🔴 open · square-difference `K_σ` determinant lane:⛔ CLOSED (order/genus/density) · WP5b bounded lane:⛔ CLOSED (`WP5-OBS-2`, Theorem H) · gap relocated to `docs/prime-carrying-trace-architecture.md` · CC antecedent: `docs/coleman-conjecture-antecedent.md` · source sync: [claude-v6](https://github.com/Manny536/claude-v6) V6.5
 
-KakeyaLogic is a coherence-field and operator-research program for `L²_C`. Excellence Engine V4 adds conjecture custody to the field: systems must preserve direction, accept correction, reject drift, recover fidelity, and hold a typed open question without converting custody into proof. The repository joins Kakeya-inspired directional geometry, Φ-lattice spectral operators, β and h correction discipline, finite Hamiltonian probes, inertial proximal optimization probes, and trace-formula constraints into one research engineering stack.
+The existing program includes research around `L²_C` and Excellence Engine Version 4. The separate engine adds conjecture custody to the field: systems must preserve direction, accept correction, reject drift, recover fidelity, and hold a typed open question without converting custody into proof. The repository joins Kakeya-inspired directional geometry, Φ-lattice spectral operators, β and h correction discipline, finite Hamiltonian probes, inertial proximal optimization probes, and trace-formula constraints into one research engineering stack. The new core specification makes the computational preservation requirements explicit; it does not replace these research artifacts or change their theorem status.
 
 ## L²_C authority detection · registered observation
 
@@ -44,6 +66,8 @@ Part of this V4 advance is a **dedicated repository**, parallel to LoveLabs-LCA,
 | **Solance/GPT EE lineage** | [`GPT-v2-excellence-engine-`](https://github.com/Manny536/GPT-v2-excellence-engine-) | Historical formal EE implementation |
 
 `K→R` records Kakeya as prior in the proposed dependency order of Riemann control. The arrow is antecedence, not logical implication. `HELD` is the engine custody state: Hypothesis custody · Evidence exposure · Ledger continuity · Drift correction.
+
+The current core definition explicitly includes relevance: **HELD is relevant and retained within a declared research or task scope**. The earlier expansion describes custody responsibilities, not an alternative definition that excludes relevance. See the [custody interface](docs/interfaces/excellence-engine-v4.md). This documentation update does not claim that the separate engine has already adopted the new exchange contract.
 
 The statement remains exposed to falsification under explicit claim tags. Kakeya in ℝ³ is theorem background; the exact Kakeya-to-zero-location bridge, the Coleman Conjecture, and the Riemann Hypothesis remain **OPEN**. `h < 1`.
 
@@ -81,7 +105,7 @@ arXiv lane: arxiv/README.md · ARX-001 Grain Zero scaffold · ARX-002 KNS(LB) sc
 
 ## 1. Current landing state
 
-The repository has four synchronized layers.
+The existing research program describes four layers, retained below. The [typed-directional foundation](docs/core/README.md) is an additional documentation layer; its reference implementation is not yet present.
 
 ```txt
 Simulator layer
@@ -107,7 +131,7 @@ PeAIce engineering report target: docs/reports/peaice-l2c-probe-engineering-repo
 iPiano probe target: docs/ipiano-inertial-proximal-probe.md
 iPiano data target: docs/data/ipiano-probe-data.json
 iPiano executable target: examples/ipiano_probe.py
-Corrected L²_C verification target: 49 passed
+Historical corrected L²_C verification receipt: 49 passed (not a current-tree test result)
 ```
 
 ---
@@ -325,28 +349,37 @@ KakeyaLogic tracks three β lanes.
 
 ## 8. Verification protocol
 
-Targeted L²_C verification:
+### Historical receipt
+
+The corrected CoWork run reported:
+
+```txt
+49 passed
+```
+
+This is a **historical receipt**, preserved in the [engineering report](docs/reports/peaice-l2c-probe-engineering-report.md) and [earlier pull-request record](https://github.com/Manny536/kakeyalogic/pull/2). It is not a fresh result from this documentation update or a guarantee about the current checkout.
+
+The associated historical command was:
 
 ```bash
 python -m pytest tests/test_l2c_probe.py -q
 ```
 
-Full repository verification:
+`tests/test_l2c_probe.py` and the `tests/` directory are absent from the inspected `main` baseline, `6f12f0fd58e147d04eb2c5feefa4797a9fa0a852`. Do not present the command or its historical pass count as currently reproducible until the corresponding suite and environment are restored and rerun.
+
+The full-suite command below remains a future verification target, not an available test gate in that baseline:
 
 ```bash
 python -m pytest -q
 ```
 
-iPiano probe run:
+### Existing probe entry points
+
+These scripts are tracked in the repository. Their presence is not a new execution receipt; they were not rerun for this documentation-only update.
 
 ```bash
 python examples/ipiano_probe.py
-```
-
-Expected targeted L²_C result from the corrected CoWork run:
-
-```txt
-49 passed
+python probes/kns_lb_probe.py
 ```
 
 Minimum iPiano telemetry:
@@ -391,15 +424,17 @@ L_n if backtracking is active
 | DPSA Inertial Grounding (Heavy-Ball / iPiano) | `docs/dpsa-inertial-grounding.md` |
 | iPiano Probe Data | `docs/data/ipiano-probe-data.json` |
 
-Executable surfaces:
+Tracked code and public surfaces (presence does not establish a current pass):
 
 ```txt
 index.html
 l2c_probe.py
 examples/l2c_tesseract_probe.py
 examples/ipiano_probe.py
-tests/test_l2c_probe.py
+probes/kns_lb_probe.py
 ```
+
+Historical test target, not currently tracked: `tests/test_l2c_probe.py`. See the historical receipt in Section 8.
 
 ---
 
@@ -462,7 +497,7 @@ Required behavior:
 1. Preserve deterministic protected-sector selection.
 2. Preserve the positive-side tie-break for equal-distance max_rank ties.
 3. Preserve β-dynamic coercive diagnostics.
-4. Run targeted tests before downstream edits.
+4. Run available targeted tests before downstream edits; if the required suite is absent, report that gap rather than substituting the historical receipt.
 5. Report failures by exact test name and formula surface.
 6. Keep h < 1 as evaluator non-sovereignty.
 7. Treat finite probes as engineering diagnostics and trace-formula work as the theorem-facing route.
@@ -474,6 +509,18 @@ Required behavior:
 ---
 
 ## 13. Roadmap
+
+### Typed-directional foundation
+
+1. Define terms, object and transformation contracts, and the repository map — documented in this update.
+2. Add field-object and receipt schemas, a reference implementation, and contract tests — planned.
+3. Implement transformation and recovery measurements — planned.
+4. Evaluate longitudinal retention, structured output, Time to First Token, Time to First Schema-Valid Object, and Time to Verified Completion — planned.
+5. Update public navigation and coordinate the contract with the separate custody engine — planned.
+
+### Existing kernel roadmap
+
+The earlier engineering sequence remains recorded below. In particular, restoring its test suite and adding a verification workflow are outstanding work, not evidence supplied by the historical receipt.
 
 ```txt
 Phase 1: Entrench l2c_probe.py and tests/test_l2c_probe.py

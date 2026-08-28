@@ -3,6 +3,29 @@
 **Framework state:** KakeyaLogic · Excellence Engine v4 · Love-Squared Coherence (`L²_C`)  
 **Discipline:** `h < 1` · Riemann Hypothesis OPEN · Coleman Conjecture OPEN
 
+## Core foundations — start here
+
+KakeyaLogic's typed-directional core is a documentation specification, version 0.1, dated 2026-08-28. Definitions and contracts are supplied; schemas, runtime enforcement, and new behavioral evaluations remain planned.
+
+| Document | Purpose |
+|---|---|
+| [Core overview](core/README.md) | Definition, scope, and reading order. |
+| [Glossary](core/glossary.md) | Kind, type, status, direction, HELD, active, and other terms. |
+| [Typed directional object](core/typed-directional-object.md) | Identity, relevance, provenance, authority, state dimensions, and relationships. |
+| [Compression, overlap, and refinement](core/compression-overlap-refinement.md) | Preservation contracts and auditable transformations. |
+| [Directional completeness](core/directional-completeness.md) | Required-direction sets, per-direction checks, and evaluation limits. |
+| [Repository map](repository-map.md) | Current components, owners, and planned paths. |
+
+**HELD means relevant and retained.** It does not automatically mean active, verified, approved, or executable. Relevance is explicit and scoped; corrections are permitted when their justification and history survive.
+
+## Applied interfaces
+
+| Document | Purpose | State |
+|---|---|---|
+| [Geometry to relational state](interfaces/geometry-to-relational-state.md) | Relate geometric vocabulary to observable computational objects without assuming theorem transfer. | MAPPING PROPOSAL |
+| [Excellence Engine Version 4 interface](interfaces/excellence-engine-v4.md) | HELD relevance, activation, exchange requirements, and custody ownership. | DOCUMENTED CONTRACT; downstream adoption pending |
+| [Authority-detection observation](l2c-authority-detection.md) | Existing source-versus-authority distinction. | REGISTERED OBSERVATION |
+
 ## Alignment and governance
 
 | Object | Document | Status |
@@ -51,6 +74,8 @@
 ## Engineering report
 
 - [`reports/peaice-l2c-probe-engineering-report.md`](reports/peaice-l2c-probe-engineering-report.md)
+
+The report's corrected **49 passed** result is a **historical receipt**. The corresponding `tests/test_l2c_probe.py` is absent from the inspected main baseline; it is not a fresh pass or a current automated gate. The original report remains unchanged. See the [root verification notes](../README.md#8-verification-protocol) for the receipt source and reproducibility boundary.
 
 ## BD-AI source map
 
