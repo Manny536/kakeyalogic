@@ -1,0 +1,114 @@
+{
+  "calibration_sources": [
+    "Dickerson 1992, doi:10.1016/0076-6879(92)11007-6",
+    "Franklin and Gosling 1953, doi:10.1107/S0365110X53001939"
+  ],
+  "checks": {
+    "calibrated_latitudes_are_distinct": true,
+    "exact_radius_matches_independent_formula": true,
+    "finite_abz_union_is_not_direction_complete": true,
+    "sampled_maximum_is_strictly_below_exact_radius": true,
+    "sampled_statistic_is_not_labeled_exact": true,
+    "tangent_coverage_is_not_kakeya_certification": true
+  },
+  "claim_scope": "ideal circular-helix tangent directions only",
+  "designation": "CP-DNA-002",
+  "direction_space": "unoriented lines (v ~ -v)",
+  "finite_abz_union": {
+    "exact_line_space": {
+      "candidate_gaps_degrees": {
+        "equator": 21.59422515729818,
+        "helix_axis": 51.11781468284084,
+        "midpoint_0_1": 4.005141568390361,
+        "midpoint_1_2": 4.638838511540131
+      },
+      "covering_radius_degrees": 51.11781468284084,
+      "witness_region": "helix_axis"
+    },
+    "sampled_1024_target_grid": {
+      "maximum_gap_degrees": 48.5854702498799,
+      "mean_gap_degrees": 11.101923721264676
+    }
+  },
+  "firewall": [
+    "a finite A/B/Z latitude union is direction-incomplete",
+    "tangent-direction coverage is not unit-segment containment",
+    "exact means exact for the declared ideal model and decimal inputs",
+    "the pass field is a receipt check, not self-certification",
+    "CP-DNA-002 does not certify a Kakeya set, RH, or the Coleman Conjecture"
+  ],
+  "h_less_than_one": "active: evaluator non-sovereignty",
+  "open_obligations": [
+    "A/B/Z transition dynamics",
+    "variable-axis unit-segment containment test",
+    "prime-carrying trace bridge"
+  ],
+  "parameters": {
+    "helix_samples_per_conformation": 720,
+    "spherical_grid_targets": 1024
+  },
+  "pass": true,
+  "per_conformation": {
+    "A-DNA": {
+      "diameter_angstrom": 23.0,
+      "exact_line_space": {
+        "candidate_gaps_degrees": {
+          "equator": 21.59422515729818,
+          "helix_axis": 68.40577484270182
+        },
+        "covering_radius_degrees": 68.40577484270182,
+        "witness_region": "helix_axis"
+      },
+      "handedness": "right",
+      "pitch_angstrom": 28.6,
+      "sampled_1024_target_grid": {
+        "maximum_gap_degrees": 65.87343038538975,
+        "mean_gap_degrees": 19.15345312333633
+      },
+      "tangent_latitude_degrees": 21.59422515729818
+    },
+    "B-DNA": {
+      "diameter_angstrom": 20.0,
+      "exact_line_space": {
+        "candidate_gaps_degrees": {
+          "equator": 29.6045082940789,
+          "helix_axis": 60.3954917059211
+        },
+        "covering_radius_degrees": 60.3954917059211,
+        "witness_region": "helix_axis"
+      },
+      "handedness": "right",
+      "pitch_angstrom": 35.7,
+      "sampled_1024_target_grid": {
+        "maximum_gap_degrees": 57.863147258721945,
+        "mean_gap_degrees": 18.05947656528282
+      },
+      "tangent_latitude_degrees": 29.6045082940789
+    },
+    "Z-DNA": {
+      "diameter_angstrom": 18.0,
+      "exact_line_space": {
+        "candidate_gaps_degrees": {
+          "equator": 38.88218531715916,
+          "helix_axis": 51.11781468284084
+        },
+        "covering_radius_degrees": 51.11781468284084,
+        "witness_region": "helix_axis"
+      },
+      "handedness": "left",
+      "pitch_angstrom": 45.6,
+      "sampled_1024_target_grid": {
+        "maximum_gap_degrees": 48.5854702498799,
+        "mean_gap_degrees": 19.211350590882148
+      },
+      "tangent_latitude_degrees": 38.88218531715916
+    }
+  },
+  "reconciliation": {
+    "exact_covering_radius_degrees": 51.11781468284084,
+    "interpretation": "The 1024-target maximum is a lower sampled witness, not the exact covering radius.",
+    "sampled_grid_maximum_degrees": 48.5854702498799,
+    "sampled_grid_mean_degrees": 11.101923721264676
+  },
+  "status": "NUMERICS / DIAGNOSTIC (source-calibrated exact ideal model)"
+}
