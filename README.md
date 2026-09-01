@@ -1,3 +1,5 @@
+![KakeyaLogic geometric reality space](assets/kakeyalogic-geometric-reality-space.png)
+
 # KakeyaLogic — Typed Directional Completeness
 
 KakeyaLogic is a research architecture for typed directional completeness within artificial intelligence systems: preserving required directions and their identities, classifications, provenance, authority, status, and relationships through compression, overlap, and refinement.
