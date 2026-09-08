@@ -1,5 +1,38 @@
 # Change log
 
+## 2026-09-08 — Five-grain routing, specification 1.0
+
+### Added
+
+- Defined the five KakeyaLogic grains: **Semantic, Authority, Visibility, Enforceability, Retention**.
+- Added `docs/core/five-grain-routing.md` as the controlling routing specification.
+- Defined the finite evaluation field as required directions × required SAVER grains.
+- Added non-compensatory grain gating: a failed, unresolved, or not-evaluated required grain cannot be offset by stronger results elsewhere.
+- Added explicit admitted, unresolved, and failed transition sets.
+- Added **Geodecis** as a proposed route-selection layer operating only on KakeyaLogic-admitted transitions under an explicitly chosen operational cost.
+- Added uncertainty-visible distance as an evidence-sensitivity diagnostic; unresolved shortcuts remain visible but non-traversable.
+- Added the endpoint-pass / interior-fail boundary-error falsifier.
+- Added a formal separation between planner admissibility and modeled reachability/containment.
+
+### Preserved
+
+- The 0.1 typed-directional object, transformation, identity, provenance, recovery, and history obligations remain antecedent contracts beneath the five-grain layer.
+- Compression, overlap, and refinement retain their existing transformation meanings.
+- HELD remains **relevant and retained**, not automatically active, verified, approved, true, or executable.
+- Existing geometric, spectral, operator, optimization, and numerical research retains its native theorem and evidence status.
+
+### Open
+
+- Reference implementation of the SAVER grain evaluator and KakeyaLogic router.
+- Geodecis runtime and route-cost calibration.
+- Synthetic regression suite, including unresolved shortcut and endpoint-pass/interior-fail cases.
+- Longitudinal Retention evaluation.
+- Operational SIUT validation and reachability/containment coverage.
+
+No behavioral pass, deployment change, theorem promotion, provider-policy exception, or new authority is claimed by specification 1.0.
+
+---
+
 ## 2026-08-28 — Typed-directional foundation, specification 0.1
 
 ### Added
