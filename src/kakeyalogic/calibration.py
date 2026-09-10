@@ -25,9 +25,8 @@ from kakeyalogic.state import (
 )
 
 
-PACKAGE_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_FIXTURE = (
-    PACKAGE_ROOT / "examples" / "typed_directional_state" / "saver_calibration_graph.json"
+    Path(__file__).resolve().parent / "data" / "saver_calibration_graph.json"
 )
 
 
@@ -59,9 +58,9 @@ def fixture_hash(raw: dict[str, Any] | str | bytes) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
-def _grains(raw: list[str] | None) -> tuple[Grain, ...]:
-    if not raw:
-        return SAVER
+def _grains(raw: list[str] | None, default: tuple[Grain, ...] = SAVER) -> tuple[Grain, ...]:
+    if raw is None:
+        return default
     return tuple(parse_grain(g) for g in raw)
 
 
@@ -77,7 +76,7 @@ def load_fixture(path: str | Path | None = None) -> CalibrationFixture:
     directions = {
         item["direction_id"]: Direction(
             direction_id=item["direction_id"],
-            required_grains=_grains(item.get("required_grains")) or default_grains,
+            required_grains=_grains(item.get("required_grains"), default_grains),
             description=item.get("description", ""),
         )
         for item in raw["directions"]
@@ -111,7 +110,7 @@ def load_fixture(path: str | Path | None = None) -> CalibrationFixture:
 
     edges: dict[str, CandidateEdge] = {}
     for item in raw["edges"]:
-        grains = _grains(item.get("required_grains")) or default_grains
+        grains = _grains(item.get("required_grains"), default_grains)
         dirs = tuple(item.get("direction_ids") or direction_ids)
         declared = bundle_from_declared(
             dirs,
@@ -172,7 +171,7 @@ def calibration_receipt(fixture: CalibrationFixture, routing: dict) -> dict:
         "fixture_sha256": fixture.sha256,
         "cost_model": fixture.cost_model,
         "required_directions": list(fixture.state.required_direction_ids()),
-        "required_grains": [g.value for g in SAVER],
+        "required_grains": [g.value for g in _grains(fixture.raw.get("required_grains"))],
         "expected": fixture.expected,
         "routing": {
             "selected_nodes": routing.get("selected_nodes"),

@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from kakeyalogic.grains import Grain, GrainBundle, Outcome, SAVER, required_pairs
+from kakeyalogic.grains import Grain, GrainBundle, Outcome, SAVER
 from kakeyalogic.state import FieldState, TypedObject
 
 
@@ -35,21 +35,26 @@ def kcomplete(
     grains: tuple[Grain, ...] = SAVER,
     *,
     weights: dict[str, float] | None = None,
+    required_grains_by_direction: dict[str, tuple[Grain, ...]] | None = None,
 ) -> CompletenessReport:
+    requirements = {
+        d: (required_grains_by_direction or {}).get(d, grains)
+        for d in direction_ids
+    }
+    direction_ids = tuple(d for d in direction_ids if requirements[d])
     if not direction_ids:
         return CompletenessReport(
             status="NOT_APPLICABLE",
             kcomplete=False,
             missing=(),
             diagnostic_score=None,
-            note="empty required-direction set is NOT APPLICABLE, not a perfect result",
+            note="empty required-grain field is NOT APPLICABLE, not a perfect result",
         )
-    pairs = required_pairs(direction_ids, grains)
     missing: list[dict] = []
     passed_dirs = 0
     for direction_id in direction_ids:
         dir_ok = True
-        for grain in grains:
+        for grain in requirements[direction_id]:
             cell = bundle.cell(direction_id, grain)
             outcome = cell.outcome if cell else Outcome.NOT_EVALUATED
             if outcome is not Outcome.PASS:

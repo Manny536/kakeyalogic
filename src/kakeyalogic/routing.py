@@ -7,10 +7,10 @@ from __future__ import annotations
 
 from kakeyalogic.completeness import kcomplete, retention_bundle_from_objects
 from kakeyalogic.containment import evaluate_containment
-from kakeyalogic.gate import grain_and_gate
+from kakeyalogic.gate import grain_and_gate, partition_evaluated
 from kakeyalogic.geodecis import geodecis_report
-from kakeyalogic.grains import GrainBundle, SAVER
-from kakeyalogic.overlap import check_overlap
+from kakeyalogic.grains import GrainBundle
+from kakeyalogic.overlap import check_overlap, enforce_overlap
 from kakeyalogic.receipts import RetentionLedger, RoutingReceipt
 from kakeyalogic.refine import RefinementSource, refine_edges
 from kakeyalogic.state import FieldState, drop_object
@@ -62,6 +62,9 @@ class KakeyaRouter:
 
         # Overlap.
         overlap = check_overlap(self.state, evaluated)
+        evaluated = enforce_overlap(evaluated, overlap)
+        partition = partition_evaluated(evaluated)
+        self.ledger.record_partition(partition)
 
         # Refine (optional; default run does not auto-resolve unknowns).
         refine_report = None
@@ -71,6 +74,9 @@ class KakeyaRouter:
             evaluated, partition = grain_and_gate(self.state.edges)
             self.ledger.record_partition(partition)
             overlap = check_overlap(self.state, evaluated)
+            evaluated = enforce_overlap(evaluated, overlap)
+            partition = partition_evaluated(evaluated)
+            self.ledger.record_partition(partition)
 
         # Route only through admitted transitions.
         geo = geodecis_report(evaluated, source, goal)
@@ -89,7 +95,10 @@ class KakeyaRouter:
         completeness = kcomplete(
             GrainBundle(cells=tuple(selected_cells)),
             self.state.required_direction_ids(),
-            SAVER,
+            required_grains_by_direction={
+                d.direction_id: d.required_grains
+                for d in self.state.directions.values()
+            },
         )
 
         retention = self._retain(later_update)

@@ -73,6 +73,10 @@ PYTHONPATH=src python examples/typed_directional_state/run_saver_reference.py
 
 The runner prints a routing receipt and a calibration receipt that includes the fixture SHA-256. Re-running against a mutated fixture must change the hash.
 
+The default fixture ships inside the installed package as `kakeyalogic/data/saver_calibration_graph.json`. A regression test checks that it matches the example fixture byte for byte, and CI exercises the installed wheel outside the checkout.
+
+Overlap violations exclude the affected edges before Geodecis runs, including after refinement. Their declared grain observations remain available alongside explicit `admission_issues` and the overlap report. Completeness evaluates each direction's declared required grains; omitted edge and direction grain lists inherit the fixture-wide declaration.
+
 ## Honesty
 
 - Grain predicates in this fixture are declared, not inferred from natural language.

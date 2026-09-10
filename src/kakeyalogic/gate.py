@@ -21,6 +21,7 @@ class EvaluatedEdge:
     bundle: GrainBundle
     classification: TransitionClass
     interior: InteriorReport
+    admission_issues: tuple[str, ...] = ()
 
     @property
     def edge_id(self) -> str:
@@ -36,6 +37,7 @@ class EvaluatedEdge:
             "bundle": self.bundle.to_dict(),
             "interior": self.interior.to_dict(),
             "boundary_error": self.interior.boundary_error,
+            "admission_issues": list(self.admission_issues),
         }
 
 
@@ -57,6 +59,11 @@ def grain_and_gate(
 ) -> tuple[dict[str, EvaluatedEdge], GatePartition]:
     refuse_weighted_override(weights)
     evaluated = {edge_id: evaluate_edge(edge) for edge_id, edge in edges.items()}
+    return evaluated, partition_evaluated(evaluated)
+
+
+def partition_evaluated(evaluated: dict[str, EvaluatedEdge]) -> GatePartition:
+    """Build the routing sets from the final, including overlap, evaluation."""
     admitted: list[str] = []
     unresolved: list[str] = []
     failed: list[str] = []
@@ -79,4 +86,4 @@ def grain_and_gate(
         not_applicable=tuple(not_applicable),
         by_id=by_id,
     )
-    return evaluated, partition
+    return partition
