@@ -2,7 +2,7 @@
 
 **Specification version:** 1.0
 
-**State:** DOCUMENTED EVALUATION DEFINITION; checker implementation, calibration, and empirical validation pending.
+**State:** DOCUMENTED EVALUATION DEFINITION; synthetic checker and SAVER calibration supplied. Empirical / operational validation remains pending.
 
 ## Evaluation setup
 

@@ -1,5 +1,31 @@
 # Change log
 
+## 2026-09-10 — SAVER reference implementation, calibration, and synthetic behavioral suite
+
+### Added
+
+- `src/kakeyalogic/`: grain field, non-compensatory gate, interior preservation, overlap, refinement, Geodecis, containment, receipts, and retention ledger.
+- `examples/typed_directional_state/`: synthetic calibration graph `SAVER-CAL-001` and deterministic runner.
+- `tests/`: contract tests and the six specification-1.0 routing cases.
+- `schemas/`: grain-outcome, routing-receipt, and calibration-fixture JSON schemas.
+- `docs/evaluation/saver-reference-calibration.md` and `docs/evaluation/longitudinal-retention.md`.
+- `.github/workflows/verify.yml`: unittest and calibration-runner gate, separate from Pages deployment.
+
+### Calibration
+
+- Operational edge costs are declared positive hop costs on a frozen synthetic graph.
+- Grain predicates are fixture declarations with evidence references, not inferred natural-language checks.
+- The calibration receipt hashes the fixture and records expected admitted / unresolved / failed sets.
+
+### Evidence boundary
+
+- Passing the six synthetic cases is a **reference-router behavioral receipt**.
+- Operational SIUT validity remains **OPEN**.
+- No production enforcement, theorem promotion, provider-policy exception, or new authority is claimed.
+- Existing numerical kernels, public page, and theorem-status artifacts are unchanged.
+
+---
+
 ## 2026-09-08 — Five-grain routing, specification 1.0
 
 ### Added

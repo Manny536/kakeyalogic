@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Manny536/kakeyalogic/schemas/grain-outcome.schema.json",
+  "title": "KakeyaLogic grain outcome",
+  "type": "object",
+  "required": ["direction_id", "grain", "outcome", "check", "reason"],
+  "additionalProperties": false,
+  "properties": {
+    "direction_id": { "type": "string", "minLength": 1 },
+    "grain": { "type": "string", "enum": ["S", "A", "V", "E", "R"] },
+    "grain_label": { "type": "string" },
+    "outcome": {
+      "type": "string",
+      "enum": ["PASS", "UNRESOLVED", "FAIL", "NOT_EVALUATED"]
+    },
+    "check": { "type": "string" },
+    "reason": { "type": "string" },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

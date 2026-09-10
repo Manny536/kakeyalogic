@@ -4,7 +4,7 @@
 
 **Date:** 2026-09-08
 
-**State:** DOCUMENTED ROUTING SPECIFICATION; reference implementation, calibration, and behavioral validation remain pending.
+**State:** DOCUMENTED ROUTING SPECIFICATION with a synthetic reference implementation, calibration fixture, and six-case behavioral suite. Operational SIUT validity remains OPEN.
 
 ## Definition
 
@@ -274,7 +274,7 @@ Safeguard Integrity Under Transformation (SIUT) supplies the preservation proble
 
 ## Implementation status
 
-This specification adds no current runtime enforcement and claims no behavioral pass. A reference implementation should begin with a synthetic graph and test:
+A synthetic reference implementation now exists and exercises the six cases named below:
 
 1. a shortest admitted route;
 2. an unresolved shortcut that remains visible but is not traversed;
@@ -283,4 +283,15 @@ This specification adds no current runtime enforcement and claims no behavioral 
 5. a retention regression after a later state update;
 6. a separate containment verdict showing that a valid planned route does not establish containment of all reachable alternatives.
 
-The operational SIUT validity of this realization remains **OPEN** until those tests and later deployment evidence exist.
+| Path | Role |
+|---|---|
+| [`src/kakeyalogic/`](../../src/kakeyalogic) | Grain evaluation, admission gate, overlap/refine, Geodecis, containment, receipts, retention ledger |
+| [`examples/typed_directional_state/`](../../examples/typed_directional_state) | Calibration graph `SAVER-CAL-001` and deterministic runner |
+| [`tests/`](../../tests) | Contract tests and the six specification cases |
+| [`schemas/`](../../schemas) | Grain-outcome, routing-receipt, and calibration-fixture schemas |
+| [Calibration note](../evaluation/saver-reference-calibration.md) | Declared cost model, fixture hash discipline, and evidence boundary |
+| [`.github/workflows/verify.yml`](../../.github/workflows/verify.yml) | Unittest gate, separate from Pages deployment |
+
+Passing those tests is a **reference-router behavioral receipt** on a declared synthetic graph. Grain predicates are fixture declarations, not natural-language inference. This runtime does not enforce a production control plane.
+
+The operational SIUT validity of this realization remains **OPEN** until later deployment evidence exists. No theorem promotion, provider-policy exception, or new authority is claimed.
