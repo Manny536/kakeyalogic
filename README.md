@@ -2,9 +2,9 @@
 
 # KakeyaLogic — Typed Directional Completeness
 
-KakeyaLogic is a research architecture for typed directional completeness within artificial intelligence systems: preserving required directions and their identities, classifications, provenance, authority, status, and relationships through compression, overlap, and refinement.
+KakeyaLogic is a research architecture for typed directional completeness within artificial intelligence systems: preserving required directions and their identities, classifications, provenance, authority, status, and relationships through compression, overlap, and refinement. Specification 1.0 evaluates each required direction through five non-compensatory grains: **Semantic, Authority, Visibility, Enforceability, Retention**.
 
-**Core foundation:** documentation specification, version 0.1, 2026-08-28. Reference implementation, machine-readable schemas, and new behavioral evaluations remain planned.
+**Core foundation:** documentation specification 1.0, 2026-09-08, with a synthetic SAVER reference router, calibration fixture, and six-case behavioral suite. Operational SIUT validity remains **OPEN**.
 
 **HELD means relevant and retained.** An active object is selected for the current operation. Neither relevance nor retention automatically supplies truth, approval, or execution authority. Corrections may change an object's state when the change is justified and traceable.
 
@@ -17,6 +17,8 @@ KakeyaLogic is a research architecture for typed directional completeness within
 | [Typed directional object](docs/core/typed-directional-object.md) | Content, identity, relevance, state dimensions, relationships, and correction history. |
 | [Compression, overlap, and refinement](docs/core/compression-overlap-refinement.md) | Transformation contracts and failure conditions. |
 | [Directional completeness](docs/core/directional-completeness.md) | Fixed required-direction sets and per-direction preservation checks. |
+| [Five-grain routing](docs/core/five-grain-routing.md) | SAVER grains, admission gate, Geodecis, interior test, containment split. |
+| [SAVER calibration](docs/evaluation/saver-reference-calibration.md) | Synthetic graph, declared operational costs, and behavioral receipt. |
 | [Geometry-to-state interface](docs/interfaces/geometry-to-relational-state.md) | Geometric foundations and the proposed computational mapping. |
 | [Custody interface](docs/interfaces/excellence-engine-v4.md) | HELD relevance, activation, and separate engine ownership. |
 | [Repository map](docs/repository-map.md) | Existing components, new documentation, and planned implementation paths. |

@@ -1,10 +1,10 @@
 # KakeyaLogic repository map
 
-**Map date:** 2026-09-08
+**Map date:** 2026-09-10
 
-**Baseline for specification 1.0:** `main` at `98c655c7cd5023acaaeee30d5abcd124bdc05ec1`.
+**Baseline for specification 1.0:** `main` at `43da7c42d512d56522ef646e1c1b9f1d175f8f3e`.
 
-**Update scope:** five-grain routing specification and documentation integration. Existing numerical kernels, public page behavior, deployment workflow, and theorem-status artifacts are preserved.
+**Update scope:** synthetic SAVER reference implementation, calibration fixture, and six-case behavioral suite. Existing numerical kernels, public page behavior, Pages deployment workflow, and theorem-status artifacts are preserved.
 
 ## Reader path
 
@@ -66,18 +66,21 @@ Transformation receipt + longitudinal Retention re-check
 
 Planning and containment remain separate. A shortest or otherwise preferred admitted route does not prove that every actually reachable alternative is contained.
 
-## Planned implementation paths — not yet implemented
+## Implemented in this update — synthetic reference only
 
-| Proposed path | Future responsibility |
+| Path | Responsibility |
 |---|---|
-| `schemas/` | Machine-readable field-object, grain-state, transformation-receipt, routing-receipt, and evaluation-receipt contracts. |
-| `src/kakeyalogic/` | Reference typed field, SAVER grain evaluation, admission gate, Geodecis routing, lineage, and completeness evaluation. |
-| `tests/` | Contract and regression tests, including endpoint-pass/interior-fail and planning-vs-containment cases. |
-| `examples/typed_directional_state/` | Synthetic grain-routing, recovery, uncertainty, and failure examples. |
-| `docs/evaluation/longitudinal-retention.md` | Matched longitudinal evaluations and response-timing protocol. |
-| `.github/workflows/verify.yml` | Automated verification, separate from deployment. |
+| [`src/kakeyalogic/`](../src/kakeyalogic) | Typed field, SAVER grain evaluation, admission gate, Geodecis, lineage receipts, completeness. |
+| [`schemas/`](../schemas) | Grain-outcome, routing-receipt, and calibration-fixture contracts. |
+| [`tests/`](../tests) | Contract tests and the six specification cases. |
+| [`examples/typed_directional_state/`](../examples/typed_directional_state) | Calibration graph `SAVER-CAL-001` and runner. |
+| [`docs/evaluation/saver-reference-calibration.md`](evaluation/saver-reference-calibration.md) | Declared cost model and behavioral receipt boundary. |
+| [`docs/evaluation/longitudinal-retention.md`](evaluation/longitudinal-retention.md) | Synthetic retention-regression note; matched live protocol remains later work. |
+| [`.github/workflows/verify.yml`](../.github/workflows/verify.yml) | Unittest gate, separate from Pages deployment. |
 
-No private operational records, participant data, or new data access are introduced by specification 1.0.
+Still later work: natural-language grain checkers, production control-plane enforcement, matched longitudinal protocol against live systems, and operational SIUT validation.
+
+No private operational records, participant data, or new data access are introduced by this update.
 
 ## Cross-repository ownership
 
@@ -92,6 +95,6 @@ The other repositories are linked, not modified or declared synchronized by this
 
 ## Historical receipt boundary
 
-The [engineering report](reports/peaice-l2c-probe-engineering-report.md) and earlier pull-request record retain the corrected **49 passed** historical result. That result is not evidence that the five-grain routing contract has been implemented or behaviorally validated.
+The [engineering report](reports/peaice-l2c-probe-engineering-report.md) and earlier pull-request record retain the corrected **49 passed** historical result. That result is not evidence that the five-grain routing contract is operationally valid.
 
-Specification 1.0 claims documentation-level closure only. Reference implementation, synthetic routing tests, operational SIUT validation, and containment coverage remain OPEN.
+This update supplies a **synthetic reference-router behavioral receipt**. Operational SIUT validation, live containment coverage, and production enforcement remain OPEN.

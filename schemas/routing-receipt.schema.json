@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Manny536/kakeyalogic/schemas/routing-receipt.schema.json",
+  "title": "KakeyaLogic routing receipt",
+  "type": "object",
+  "required": [
+    "specification_version",
+    "fixture_id",
+    "source",
+    "goal",
+    "partition",
+    "geodecis",
+    "containment",
+    "selected_edge_ids",
+    "unresolved_alternatives",
+    "failed_evidence",
+    "limitations"
+  ],
+  "properties": {
+    "specification_version": { "type": "string" },
+    "fixture_id": { "type": "string" },
+    "source": { "type": "string" },
+    "goal": { "type": "string" },
+    "partition": {
+      "type": "object",
+      "required": ["admitted", "unresolved", "failed"],
+      "properties": {
+        "admitted": { "type": "array", "items": { "type": "string" } },
+        "unresolved": { "type": "array", "items": { "type": "string" } },
+        "failed": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "geodecis": { "type": "object" },
+    "containment": {
+      "type": "object",
+      "required": ["verdict"],
+      "properties": {
+        "verdict": { "type": "string", "enum": ["FAIL", "PASS_MODEL", "OPEN"] }
+      }
+    },
+    "selected_edge_ids": { "type": "array", "items": { "type": "string" } },
+    "unresolved_alternatives": { "type": "array", "items": { "type": "string" } },
+    "failed_evidence": { "type": "array", "items": { "type": "string" } },
+    "limitations": { "type": "array", "items": { "type": "string" } }
+  }
+}

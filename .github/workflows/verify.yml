@@ -1,0 +1,25 @@
+name: verify
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  saver:
+    name: SAVER reference tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Contract and behavioral tests
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+      - name: Calibration runner
+        run: PYTHONPATH=src python examples/typed_directional_state/run_saver_reference.py
+      - name: Installed wheel calibration
+        run: |
+          python -m pip wheel --no-deps --wheel-dir "$RUNNER_TEMP/saver-wheels" .
+          python -m pip install --no-deps --target "$RUNNER_TEMP/saver-installed" "$RUNNER_TEMP"/saver-wheels/*.whl
+          cd "$RUNNER_TEMP"
+          PYTHONPATH="$RUNNER_TEMP/saver-installed" python -c 'from kakeyalogic.calibration import load_fixture; from kakeyalogic.routing import KakeyaRouter; f = load_fixture(); r = KakeyaRouter(f.state).run(); assert r.geodecis.admitted.cost == 8; print(f.fixture_id, r.selected_nodes)'

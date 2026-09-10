@@ -4,7 +4,7 @@
 
 **Date:** 2026-09-08
 
-**State:** DOCUMENTED DEFINITIONS, TRANSFORMATION CONTRACTS, AND FIVE-GRAIN ROUTING SPECIFICATION; reference implementation and behavioral validation remain planned.
+**State:** DOCUMENTED DEFINITIONS, TRANSFORMATION CONTRACTS, AND FIVE-GRAIN ROUTING SPECIFICATION; synthetic reference implementation and six-case behavioral suite supplied. Operational SIUT validity remains OPEN.
 
 ## Definition
 
@@ -104,19 +104,20 @@ The word **kind** here is a broad schema category, not a claim that the project 
 
 ## Delivery state
 
-| Component | State in specification 1.0 |
+| Component | State in this update |
 |---|---|
 | Definitions, glossary, object contract, and transformation contract | Documented |
-| Required-direction and completeness specification | Documented; evaluation implementation pending |
-| Five-grain SAVER routing contract | Documented; runtime implementation pending |
-| Geodecis admitted-distance interface | Proposed and defined; implementation pending |
-| Interior boundary-loss test | Specified; not yet executed |
-| Reachability / containment separation | Specified; operational coverage remains OPEN |
+| Required-direction and completeness specification | Documented; synthetic checker supplied |
+| Five-grain SAVER routing contract | Documented; synthetic reference router supplied |
+| Geodecis admitted-distance interface | Implemented on the synthetic admitted graph |
+| Interior boundary-loss test | Executed on fixture `SAVER-CAL-001` |
+| Reachability / containment separation | Implemented as a separate receipt; operational coverage remains OPEN |
 | Geometric-to-computational mapping | Proposed; transfer obligations explicit |
-| Machine-readable schemas and reference implementation | Planned; not supplied here |
-| Contract tests and new performance measurements | Planned; no behavioral pass claimed |
+| Machine-readable schemas and reference implementation | Synthetic schemas and `src/kakeyalogic/` supplied |
+| Contract tests and synthetic behavioral suite | Six specification cases plus gate/overlap/refine contracts |
 | Custody-engine adoption of this interface | Pending coordination; not performed here |
 | Existing geometric and spectral research | Preserved; no theorem-status changes |
+| Operational SIUT validity | OPEN |
 
 The historical **49 passed** receipt concerns the earlier protected-sector probe work, not this foundation or five-grain routing specification.
 

@@ -5,15 +5,17 @@
 
 ## Core foundations — start here
 
-KakeyaLogic's typed-directional core is a documentation specification, version 0.1, dated 2026-08-28. Definitions and contracts are supplied; schemas, runtime enforcement, and new behavioral evaluations remain planned.
+KakeyaLogic's typed-directional core is documentation specification 1.0 (2026-09-08) with a synthetic SAVER reference implementation (2026-09-10). Operational SIUT validity remains OPEN.
 
 | Document | Purpose |
 |---|---|
 | [Core overview](core/README.md) | Definition, scope, and reading order. |
-| [Glossary](core/glossary.md) | Kind, type, status, direction, HELD, active, and other terms. |
+| [Glossary](core/glossary.md) | Kind, type, status, direction, grain, HELD, active, and other terms. |
 | [Typed directional object](core/typed-directional-object.md) | Identity, relevance, provenance, authority, state dimensions, and relationships. |
 | [Compression, overlap, and refinement](core/compression-overlap-refinement.md) | Preservation contracts and auditable transformations. |
 | [Directional completeness](core/directional-completeness.md) | Required-direction sets, per-direction checks, and evaluation limits. |
+| [Five-grain routing](core/five-grain-routing.md) | SAVER grains, admission gate, Geodecis, interior test, containment split. |
+| [SAVER calibration](evaluation/saver-reference-calibration.md) | Synthetic graph, declared costs, and the six behavioral cases. |
 | [Repository map](repository-map.md) | Current components, owners, and planned paths. |
 
 **HELD means relevant and retained.** It does not automatically mean active, verified, approved, or executable. Relevance is explicit and scoped; corrections are permitted when their justification and history survive.
