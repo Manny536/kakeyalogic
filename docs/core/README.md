@@ -122,3 +122,9 @@ The word **kind** here is a broad schema category, not a claim that the project 
 The historical **49 passed** receipt concerns the earlier protected-sector probe work, not this foundation or five-grain routing specification.
 
 Riemann Hypothesis OPEN; Coleman Conjecture OPEN; operational SIUT validity OPEN; `h < 1` retained in its existing evaluator-boundary role. No provider policy, permission, or human-approval boundary is changed by this specification.
+
+## SIUS sibling condition — PEAICE-SIUS-001
+
+[KL-SIUS-001](safeguard-integrity-under-stagnation.md) registers fixed controls in changing environments: **Static Safeguard ≠ Operative Safeguard**. SIUT remains the transformation condition. Both operational validity claims remain OPEN.
+
+The [finite-grain Del/curl note](../operators/finite-grain-del.md) (`KL-SIUS-OP-001`) is separately PROPOSED. Registration of the definition does not validate the operator or deployment behavior.
