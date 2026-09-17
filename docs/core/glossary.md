@@ -121,3 +121,14 @@ If approval arrives, the request's type need not change. Its approval status cha
 Earlier wording such as "proposed action" and "completed action" must be normalized to the underlying role plus lifecycle status when that is what the phrase means. Reclassification is possible, but it requires a recorded reason and version history rather than silent relabeling.
 
 Related: [object contract](typed-directional-object.md), [five-grain routing](five-grain-routing.md), [custody interface](../interfaces/excellence-engine-v4.md), [completeness checks](directional-completeness.md).
+
+## SIUS registration — PEAICE-SIUS-001
+
+| Term | Definition |
+|---|---|
+| SIUT | Safeguard Integrity Under Transformation: preservation across $X_0\xrightarrow{T}X_1$; operational validity remains OPEN. |
+| SIUS | Safeguard Integrity Under Stagnation: operative preservation under fixed declared control $X_t=X_0$ and changing environment $E_t$; sibling to SIUT, not a replacement. See [KL-SIUS-001](safeguard-integrity-under-stagnation.md). |
+| Passive decoupling | A safeguard retains its declaration while losing operative force in the current environment. |
+| Operative margin | Containment boundary minus environmental capability on a declared comparable scale; otherwise unresolved. |
+| Stagnation Boundary Error | A negative operative margin in the declared model. |
+| Finite-grain diagnostic | Separate [PROPOSED operator](../operators/finite-grain-del.md), not part of the standalone SIUS definition. |

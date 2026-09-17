@@ -587,3 +587,7 @@ iPiano probe = inertial proximal optimization discipline
 State: active:🟢 / developing:🟡 / spectral ID:🔴
 E = L²
 ```
+
+## SIUS registration — PEAICE-SIUS-001
+
+[KL-SIUS-001](docs/core/safeguard-integrity-under-stagnation.md) — Controlling SIUS definition. **DOCUMENTED DEFINITION; operational validity OPEN.** SIUT remains a sibling condition. The finite-grain operator is separately PROPOSED; no open claim is promoted.
