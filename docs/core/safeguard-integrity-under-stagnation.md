@@ -5,7 +5,7 @@
 **Status:** DOCUMENTED DEFINITION; operational validity OPEN
 **Registered:** 2026-09-16
 
-Standalone basis: [SIUS Integrity.docx](https://github.com/Manny536/researchengineeringreports/blob/main/reports/sources/SIUS%20Integrity.docx), supplied by the user in “Explain sticky sets.” [Source provenance and limits](https://github.com/Manny536/researchengineeringreports/blob/main/reports/sources/sius-integrity-provenance.md).
+Standalone basis: [SIUS Integrity.docx](https://github.com/Manny536/researchengineeringreports/blob/main/reports/sources/sius-integrity-provenance.md), supplied by the user in “Explain sticky sets.” [Source provenance and limits](https://github.com/Manny536/researchengineeringreports/blob/main/reports/sources/sius-integrity-provenance.md).
 
 ## Definition and scope
 
@@ -56,6 +56,6 @@ SIUS defines the preservation obligation and failure condition. The [finite-grai
 | `peaice-index` | [INDEX-SIUS-001](https://github.com/Manny536/peaice-index/blob/main/docs/sius.md) | Compressed public route | ROUTE ONLY |
 | `love2-coherence-core` | [L2C-SIUS-DEP-001](https://github.com/Manny536/love2-coherence-core/blob/main/docs/sius-dependency.md) | h < 1 and correction-retention dependency | DEPENDENCY POINTER |
 
-All child IDs belong to `PEAICE-SIUS-001`; none supplies independent corroboration merely by repeating another repository. The report holds the original source; this file controls the repository definition.
+All child IDs belong to `PEAICE-SIUS-001`; none supplies independent corroboration merely by repeating another repository. The report holds the source provenance record; this file controls the repository definition.
 
 Operational SIUS validity remains **OPEN**, alongside operational SIUT validity. Required next evidence: calibrated observables and thresholds, explicit environment coverage, longitudinal traces, independent evaluation, and counterexample search. Falsify a scoped preservation claim with any required grain failure, negative operative margin, uncontained reachable state, unauthorized authority promotion, or lost applicable correction. Reject any proposed diagnostic that reports preservation despite such a witnessed violation. RH and Coleman remain OPEN; no theorem bridge is promoted.
