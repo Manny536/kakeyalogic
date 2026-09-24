@@ -22,13 +22,13 @@ L²_C(ψ,t)=‖P_C exp(-itH_T)ψ‖²
 Leakage:
 
 ```txt
-h=‖(I-P_C)H_TP_C‖
+ℓ_H=‖(I-P_C)H_TP_C‖
 ```
 
 Spectral recovery:
 
 ```txt
-β_C=Δ/(Δ+h+ε)
+β_C=Δ/(Δ+ℓ_H+ε)
 ```
 
 β-dynamic coercive energy:

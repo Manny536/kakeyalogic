@@ -23,3 +23,16 @@ jobs:
           python -m pip install --no-deps --target "$RUNNER_TEMP/saver-installed" "$RUNNER_TEMP"/saver-wheels/*.whl
           cd "$RUNNER_TEMP"
           PYTHONPATH="$RUNNER_TEMP/saver-installed" python -c 'from kakeyalogic.calibration import load_fixture; from kakeyalogic.routing import KakeyaRouter; f = load_fixture(); r = KakeyaRouter(f.state).run(); assert r.geodecis.admitted.cost == 8; print(f.fixture_id, r.selected_nodes)'
+
+  hamiltonian-notation:
+    name: Hamiltonian leakage notation and numeric regression
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install finite-probe dependencies
+        run: python -m pip install numpy scipy
+      - name: Check leakage migration without evaluator claims
+        run: python -m unittest discover -s probe_tests -v

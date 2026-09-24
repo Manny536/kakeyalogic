@@ -703,12 +703,12 @@ Operational reading:
 
 ```txt
 Inspectable(psi)
-= psi carries an auditable witness: projector, sector membership, leakage value h,
+= psi carries an auditable witness: projector, sector membership, leakage value ℓ_H,
   beta_C recovery coefficient, and traceable evolution under U_T(t).
 
 NonSticky(psi)
 = psi does not adhere to off-sector residue: (I-P_C)H_TP_C is bounded,
-  h < 1, beta_C > 0, and retained mass L²_C(psi,t) remains stable over
+  ℓ_H < 1 (in declared operator units), beta_C > 0, and retained mass L²_C(psi,t) remains stable over
   the chosen horizon.
 
 Re(s)=1/2
