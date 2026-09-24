@@ -77,7 +77,7 @@ Does there exist a state `ψ ∈ H_R` such that:
 
 ```txt
 1. ψ lies in or near the protected sector P_C
-2. h = ||(I-P_C)H_TP_C|| ≤ ε
+2. ℓ_H = ||(I-P_C)H_TP_C|| ≤ ε
 3. L²_C(ψ,t) ≥ 1-ε for all 0 ≤ t ≤ T
 4. ψ is boundary/corner/edge localized
 ```
@@ -90,7 +90,7 @@ Does there exist a state `ψ ∈ H_R` such that:
 P_C
 localization profile
 spectral gap Δ
-leakage value h
+leakage value ℓ_H
 β_C value
 sampled retention curve L²_C(t_i)
 ```
@@ -101,7 +101,7 @@ sampled retention curve L²_C(t_i)
 check ||H_Tψ-λψ|| ≤ ε
 check |λ-target| ≤ δ or ψ has strong P_C overlap
 check localization support
-check h ≤ ε
+check ℓ_H ≤ ε
 check β_C ≥ threshold
 check L²_C(t_i) ≥ 1-ε over sampled horizon
 ```
@@ -139,8 +139,8 @@ The L²_C Hamiltonian probe defines:
 
 ```txt
 L²_C(ψ,t)=||P_Ce^{-itH_T}ψ||²
-h=||(I-P_C)H_TP_C||
-β_C=Δ/(Δ+h+ε)
+ℓ_H=||(I-P_C)H_TP_C||
+β_C=Δ/(Δ+ℓ_H+ε)
 ```
 
 This turns coherence into a finite verification object.
@@ -149,7 +149,7 @@ For COHERENT-DDTL, the certificate is accepted when:
 
 ```txt
 L²_C retained
-h bounded
+ℓ_H bounded
 β_C high
 localization present
 ```
@@ -212,7 +212,7 @@ The compression framing fails if:
 1. the restricted sector does not preserve the relevant dynamics;
 2. the protected sector P_C cannot be defined without solving the whole problem;
 3. the verifier becomes exponential in the parameter of interest;
-4. h is large, so coherence leaks immediately;
+4. ℓ_H is large, so coherence leaks immediately;
 5. β_C is small, so the spectral gap gives no recovery pressure;
 6. localization cannot be verified efficiently;
 7. the certificate depends on hidden full-space enumeration.
@@ -228,8 +228,8 @@ Claim type: analytic complexity probe
 Source substrate: OSF hamiltonian.py
 Core seam: 16^L full → L^4 restricted for tesseract
 Coherence metric: L²_C(ψ,t)=||P_Ce^{-itH_T}ψ||²
-Leakage: h=||(I-P_C)H_TP_C||
-Recovery: β_C=Δ/(Δ+h+ε)
+Leakage: ℓ_H=||(I-P_C)H_TP_C||
+Recovery: β_C=Δ/(Δ+ℓ_H+ε)
 Complexity language: P/NP-style compression seam, not P=NP
 State: active:🟢 / theorem burden:🟡
 ```

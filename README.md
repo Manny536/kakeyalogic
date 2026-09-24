@@ -203,8 +203,8 @@ The L²_C probe formalizes protected-sector retention under Hamiltonian flow.
 
 ```txt
 L²_C(ψ, t) = ‖P_C exp(-itH_T) ψ‖²
-h           = ‖(I-P_C) H_T P_C‖
-β_C         = Δ / (Δ + h + ε)
+ℓ_H           = ‖(I-P_C) H_T P_C‖
+β_C         = Δ / (Δ + ℓ_H + ε)
 β(T)        = 1 - T^(-γ)
 E_{β,T}(f)  = β(T)·T·‖Xf‖²
 coercive gap = β(T) - hη
@@ -591,3 +591,7 @@ E = L²
 ## SIUS registration — PEAICE-SIUS-001
 
 [KL-SIUS-001](docs/core/safeguard-integrity-under-stagnation.md) — Controlling SIUS definition. **DOCUMENTED DEFINITION; operational validity OPEN.** SIUT remains a sibling condition. The finite-grain operator is separately PROPOSED; no open claim is promoted.
+
+## GIUS external case and notation
+
+[Case route](docs/core/gius-external-case-route.md) · [h/ℓ_H notation migration](docs/h-notation.md) · [L2C-H-001](https://github.com/Manny536/love2-coherence-core/blob/research/gius-hf-2026/docs/evaluator-non-sovereignty.md). Operational validity remains OPEN.

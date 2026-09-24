@@ -128,3 +128,5 @@ Riemann Hypothesis OPEN; Coleman Conjecture OPEN; operational SIUT validity OPEN
 [KL-SIUS-001](safeguard-integrity-under-stagnation.md) registers fixed controls in changing environments: **Static Safeguard ≠ Operative Safeguard**. SIUT remains the transformation condition. Both operational validity claims remain OPEN.
 
 The [finite-grain Del/curl note](../operators/finite-grain-del.md) (`KL-SIUS-OP-001`) is separately PROPOSED. Registration of the definition does not validate the operator or deployment behavior.
+
+[GIUS external-case route](gius-external-case-route.md) — non-validating downstream case; SIUS definition unchanged.
