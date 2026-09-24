@@ -1,5 +1,10 @@
 # L²_C Inertial Coherence Operator
 
+**Notation:** `a_C` is the analytic correction weight, `ℓ_H` the Hamiltonian
+leakage norm, and `h` the separate evaluator non-sovereignty notation. This
+cleanup does not prove an identification between them or validate the analytic
+claims below. See [notation custody](h-notation.md).
+
 **Repo:** KakeyaLogic — Excellence Engine v3  
 **Companion:** `docs/operator-domain.md`  
 **Status:** 🟡 formalization target · 🟢 operator/dynamics/geometric-pressure separation active  
@@ -156,7 +161,7 @@ Use the following split:
 ```txt
 θ_n          inertial momentum coefficient
 ϑ(T)         defect-penalty / continuity-pressure weight
-h            correction scale
+a_C          analytic correction scale
 ```
 
 The operator-form penalty is:
@@ -186,9 +191,9 @@ but rigorous derivations should distinguish penalty beta from inertial theta.
 
 ---
 
-## 5. h correction and the coherence gap
+## 5. a_C correction and the coherence gap
 
-Let `C` be the h-correction operator/form. The correction must be relatively form-bounded against the defect control:
+Let `C` be the a_C-correction operator/form. The correction must be relatively form-bounded against the defect control:
 
 ```txt
 |⟨Cf,f⟩| ≤ η||Xf||² + b||f||².
@@ -198,27 +203,27 @@ Define the coherence form:
 
 ```txt
 q_C^{(T)}[f]
-= q_0[f] + ϑ(T)||Xf||² + h⟨Cf,f⟩.
+= q_0[f] + ϑ(T)||Xf||² + a_C⟨Cf,f⟩.
 ```
 
 In the Step 4 scaling:
 
 ```txt
-q_{β,h,T}[f]
-= q_0[f] + β(T)T||Xf||² + h⟨Cf,f⟩.
+q_{β,a_C,T}[f]
+= q_0[f] + β(T)T||Xf||² + a_C⟨Cf,f⟩.
 ```
 
-Using the h-bound:
+Using the a_C-bound:
 
 ```txt
-q_{β,h,T}[f]
-≥ q_0[f] + (β(T)-hη)T||Xf||² - hb||f||².
+q_{β,a_C,T}[f]
+≥ q_0[f] + (β(T)-a_C η)T||Xf||² - a_C b||f||².
 ```
 
 The coercive coherence gap is:
 
 ```txt
-β(T) - hη > 0.
+β(T) - a_C η > 0.
 ```
 
 Interpretation:
@@ -228,13 +233,9 @@ correction can damp the trajectory;
 correction cannot seize the trajectory.
 ```
 
-This is the operator meaning of:
-
-```txt
-h < 1
-```
-
-inside the β/h lane.
+This is an analytic correction-weight interpretation in the β/a_C lane.
+Evaluator non-sovereignty `h < 1` is a separate obligation; no operator
+realization of it is established by this form bound.
 
 ---
 

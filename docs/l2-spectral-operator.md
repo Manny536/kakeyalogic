@@ -1,5 +1,10 @@
 # L² Spectral Operator — Φ Quadratic Lattice
 
+**Notation:** `a_C` is the analytic correction weight, `ℓ_H` the Hamiltonian
+leakage norm, and `h` the separate evaluator non-sovereignty notation. This
+cleanup does not prove an identification between them or validate the analytic
+claims below. See [notation custody](h-notation.md).
+
 **Repo:** KakeyaLogic — Excellence Engine v3  
 **Companion:** `docs/step4-operator-program.md`, `docs/spectral-equivalence-target.md`, `docs/thermal-coupling-correction.md`  
 **Status:** 🟡 formal candidate operator · 🟢 L2-1 coupling gate corrected · 🔴 spectral identification open · ⛔ K_σ determinant realization CLOSED (V6.4.3 — order/genus/density)  
@@ -440,18 +445,18 @@ Tr φ(L²_{Φ,K}^{reg}) ↔ Σ_ρ φ(Im ρ) ↔ prime-side explicit formula
 
 This is where the operator must pass from geometric/lattice structure into arithmetic equivalence.
 
-### 7.7 β/h suppression compatibility
+### 7.7 β/a_C suppression compatibility
 
-After spectral identification, the β/h layer acts on the off-critical complement:
+After spectral identification, the β/a_C layer acts on the off-critical complement:
 
 ```txt
-ρ_off(T,σ) ≤ exp(-(β(T)-hη)T|σ-1/2|²)
+ρ_off(T,σ) ≤ exp(-(β(T)-a_C η)T|σ-1/2|²)
 ```
 
 with active positivity condition:
 
 ```txt
-β(T)-hη > 0
+β(T)-a_C η > 0
 ```
 
 The required compatibility is:
@@ -509,7 +514,7 @@ L2-4. The heat/Φ trace relation fails.
 L2-5. Counting does not match Riemann-von Mangoldt.
 L2-6. The explicit formula cannot be recovered.
 L2-7. The spectrum cannot be identified with ξ-zero ordinates.
-L2-8. β/h suppression acts on a sector different from the spectral-equivalence sector.
+L2-8. β/a_C suppression acts on a sector different from the spectral-equivalence sector.
 ```
 
 L2-1 is now a correction record, not the active blocker. L2-1a becomes the active spectral compatibility gate.

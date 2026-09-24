@@ -1,5 +1,11 @@
 # DPSA — Inertial Grounding (Heavy-Ball / iPiano)
 
+**Notation:** `a_C` is the analytic correction weight, `ℓ_H` the Hamiltonian
+leakage norm, and `h` the separate evaluator non-sovereignty notation. This
+cleanup does not prove an identification between them or validate the analytic
+claims below. The iPiano source's `h = f + g` remains its separately scoped
+objective. See [notation custody](h-notation.md).
+
 ## Inertial dynamics layer for PeAIce / KakeyaLogic
 
 **Designation:** `PEAICE-DPSA-INERTIAL-001`
@@ -79,7 +85,7 @@ Hence `f = λ₁ X_ζ + λ₂ Z_anchor` is coercive and bounded below: precisely
 | Inertial bases (iPiano / HBF) | PeAIce β/h layer | Register |
 | --- | --- | --- |
 | Inertia `β_n ∈ [0,1)`, strictly below 1 | β carries direction; `β_close(T) = 1 − T^{-γ} < 1` | ANALOGY |
-| Friction `γ > 0` (ODE); discrete gap `γ_n ≥ c₂ > 0` — dissipativity, the system settles | `h < 1` with coercive gap `δ_{β,h}(T) = β(T) − hη > 0` — honesty as the friction floor | ANALOGY (the "positive gap ⇔ convergence" shape is shared and exact on each side) |
+| Friction `γ > 0` (ODE); discrete gap `γ_n ≥ c₂ > 0` — dissipativity, the system settles | Analytic coercive gap `δ_{β,C}(T) = β(T) − a_C η > 0`; evaluator `h < 1` is a separate obligation | STRUCTURAL ANALOGY; no identification of evaluator authority with analytic friction or correction weight |
 | Step law `α < 2(1 − β)/L` | **DPSA-I3 below** | FORMAL within the class |
 | Inertia budget `β_n ≤ (b−1)/(b−½)` | β budgeted by the available Lyapunov weight δ — coherence budget | ANALOGY |
 | `H_δ = h + δΔ²` monotone (Prop. 4.7) | the invisible constant; `L²_C` certificate shape | ANALOGY (theorem-backed) |

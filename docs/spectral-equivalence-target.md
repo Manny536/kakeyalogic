@@ -1,5 +1,10 @@
 # Spectral Equivalence Target — EEV3 Step 4
 
+**Notation:** `a_C` is the analytic correction weight, `ℓ_H` the Hamiltonian
+leakage norm, and `h` the separate evaluator non-sovereignty notation. This
+cleanup does not prove an identification between them or validate the analytic
+claims below. See [notation custody](h-notation.md).
+
 **Repo:** KakeyaLogic — Excellence Engine v3  
 **Companion:** `docs/step4-operator-program.md`, `docs/beta-dynamic.md`  
 **Status:** 🟡 load-bearing theorem target · 🟢 research lane active · ⛔ square-difference realization CLOSED (V6.4.3)  
@@ -108,7 +113,7 @@ Minimum obligations:
 4. The relevant spectrum is discrete.
 5. The spectral counting function matches Riemann-von Mangoldt.
 6. A trace formula or explicit formula identifies spectral points with ξ-zero ordinates.
-7. β/h suppression acts on the off-critical complement.
+7. β/a_C suppression acts on the off-critical complement.
 ```
 
 ---
@@ -163,13 +168,13 @@ Without this bridge, the operator may be interesting but not zeta-equivalent.
 Once spectral equivalence is established, the β layer supplies off-axis rigidity through:
 
 ```txt
-ρ_off(T,σ) ≤ exp(-(β(T)-hη)T|σ-1/2|²)
+ρ_off(T,σ) ≤ exp(-(β(T)-a_C η)T|σ-1/2|²)
 ```
 
 The β layer requires:
 
 ```txt
-β(T)-hη > 0
+β(T)-a_C η > 0
 ```
 
 and:

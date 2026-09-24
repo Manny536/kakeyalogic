@@ -1,5 +1,10 @@
 # Operator Domain — EEV3 Step 4
 
+**Notation:** `a_C` is the analytic correction weight, `ℓ_H` the Hamiltonian
+leakage norm, and `h` the separate evaluator non-sovereignty notation. This
+cleanup does not prove an identification between them or validate the analytic
+claims below. See [notation custody](h-notation.md).
+
 **Repo:** KakeyaLogic — Excellence Engine v3  
 **Companion:** `docs/beta-dynamic.md`  
 **Status:** 🟡 domain construction target · 🟢 β-compatible lane active  
@@ -72,7 +77,7 @@ Fourier packetization
 Kakeya directional averaging
 critical-line defect observable X
 β energy form β(T)TX²
-h-correction form hC
+a_C-correction form a_C C
 ```
 
 Minimum domain requirement:
@@ -162,52 +167,52 @@ The positive β form is:
 
 ---
 
-## 5. h-Correction Domain
+## 5. a_C-Correction Domain
 
-Let `C` be the h-correction operator.
+Let `C` be the a_C-correction operator.
 
-The h-correction must satisfy a relative form-bound:
+The a_C-correction must satisfy a relative form-bound:
 
 ```txt
 |⟨Cf,f⟩| ≤ η||Xf||² + b||f||²
 ```
 
-The h-compatible form domain is:
+The a_C-compatible form domain is:
 
 ```txt
-Q_h = Q_β ∩ Q(C)
+Q_{a_C} = Q_β ∩ Q(C)
 ```
 
-If the relative bound holds, the combined β/h form is closed under standard form methods when the unperturbed form is closed and lower semibounded.
+If the relative bound holds, the combined β/a_C form is closed under standard form methods when the unperturbed form is closed and lower semibounded.
 
 ---
 
-## 6. Full β/h Form Domain
+## 6. Full β/a_C Form Domain
 
 Define:
 
 ```txt
-Q_{β,h,T} = Q(A_0) ∩ D(|X|) ∩ Q(C)
+Q_{β,a_C,T} = Q(A_0) ∩ D(|X|) ∩ Q(C)
 ```
 
 with form:
 
 ```txt
-q_{β,h,T}[f]
-= q_0[f] + β(T)T||Xf||² + h⟨Cf,f⟩
+q_{β,a_C,T}[f]
+= q_0[f] + β(T)T||Xf||² + a_C⟨Cf,f⟩
 ```
 
 Using the correction bound:
 
 ```txt
-q_{β,h,T}[f]
-≥ q_0[f] + (β(T)-hη)T||Xf||² - hb||f||²
+q_{β,a_C,T}[f]
+≥ q_0[f] + (β(T)-a_C η)T||Xf||² - a_C b||f||²
 ```
 
 The coercive domain condition is:
 
 ```txt
-β(T) - hη > 0
+β(T) - a_C η > 0
 ```
 
 This is the core β-domain compatibility condition.
@@ -216,16 +221,16 @@ This is the core β-domain compatibility condition.
 
 ## 7. Associated Operator
 
-If `q_{β,h,T}` is closed and lower semibounded, the representation theorem gives a self-adjoint operator:
+If `q_{β,a_C,T}` is closed and lower semibounded, the representation theorem gives a self-adjoint operator:
 
 ```txt
-A_{β,h,T}
+A_{β,a_C,T}
 ```
 
 such that:
 
 ```txt
-q_{β,h,T}[f,g] = ⟨A_{β,h,T}^{1/2}f, A_{β,h,T}^{1/2}g⟩
+q_{β,a_C,T}[f,g] = ⟨A_{β,a_C,T}^{1/2}f, A_{β,a_C,T}^{1/2}g⟩
 ```
 
 on the appropriate form domain.
@@ -288,8 +293,8 @@ D2. P_{θ,δ} does not converge or interact coherently in the chosen limit.
 D3. X cannot be defined as a self-adjoint defect observable.
 D4. ker(X) cannot be tied to the critical-line symmetry sector.
 D5. C is not relatively form-bounded against X².
-D6. q_{β,h,T} fails to be closed or lower semibounded.
-D7. β(T)-hη cannot become positive in the intended regime.
+D6. q_{β,a_C,T} fails to be closed or lower semibounded.
+D7. β(T)-a_C η cannot become positive in the intended regime.
 ```
 
 ---
@@ -300,8 +305,8 @@ D7. β(T)-hη cannot become positive in the intended regime.
 Domain strategy: quadratic forms first
 Base space: H_KF candidate
 β insertion: positive form β(T)T||Xf||²
-h correction: relatively form-bounded C
-Coercive gap: β(T)-hη
+a_C correction: relatively form-bounded C
+Coercive gap: β(T)-a_C η
 State: 🟡 / 🟢
 E = L²
 ```

@@ -207,9 +207,12 @@ L²_C(ψ, t) = ‖P_C exp(-itH_T) ψ‖²
 β_C         = Δ / (Δ + ℓ_H + ε)
 β(T)        = 1 - T^(-γ)
 E_{β,T}(f)  = β(T)·T·‖Xf‖²
-coercive gap = β(T) - hη
-T* = (1 - hη)^(-1/γ)
+coercive gap = β(T) - a_C η
+T* = (1 - a_C η)^(-1/γ)
 ```
+
+Here `a_C` is the analytic correction weight, distinct from evaluator `h` and
+Hamiltonian leakage `ℓ_H`; see [notation custody](docs/h-notation.md).
 
 Operational surface:
 
@@ -530,7 +533,7 @@ The earlier engineering sequence remains recorded below. In particular, restorin
 Phase 1: Entrench l2c_probe.py and tests/test_l2c_probe.py
 Phase 2: Add GitHub Actions pytest gate
 Phase 3: Connect examples/l2c_tesseract_probe.py to the hardened report surface
-Phase 4: Add β-dynamic sweeps for T, γ, h, and η
+Phase 4: Add β-dynamic sweeps for T, γ, a_C, and η
 Phase 5: Add DDATL Hamiltonian notebooks or scripts
 Phase 6: Build trace-formula compatibility experiments
 Phase 7: Export agent transfer cards for PeAIce ecosystem reuse

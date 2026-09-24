@@ -1,5 +1,10 @@
 # Berry–Keating / Hilbert–Pólya Commutator Closure
 
+**Notation:** `a_C` is the analytic correction weight, `ℓ_H` the Hamiltonian
+leakage norm, and `h` the separate evaluator non-sovereignty notation. This
+cleanup does not prove an identification between them or validate the analytic
+claims below. See [notation custody](h-notation.md).
+
 **Repo:** KakeyaLogic — Excellence Engine v3  
 **Companion:** `docs/step4-operator-program.md`, `docs/spectral-equivalence-target.md`, `docs/berry-keating-probe.md`, `docs/l2-spectral-operator.md`  
 **Status:** 🟡 named closure mechanism · 🟢 Step 4 research lane active  
@@ -315,7 +320,7 @@ L_off = 0
 or, in a controlled suppression setting:
 
 ```txt
-||L_off|| ≤ exp(-(β(T)-hη)T|σ-1/2|²)
+||L_off|| ≤ exp(-(β(T)-a_C η)T|σ-1/2|²)
 ```
 
 This makes Grok’s spectral leakage language precise:
@@ -336,13 +341,13 @@ becomes operator language:
 A_KF preserves the symmetry sector and suppresses the off-critical complement
 ```
 
-The h-gated version is:
+The correction-weight condition is:
 
 ```txt
-β(T)-hη > 0
+β(T)-a_C η > 0
 ```
 
-where `hη` is correction cost and `β(T)` is closing pressure.
+where `a_C η` is correction cost and `β(T)` is closing pressure.
 
 ---
 
@@ -374,11 +379,9 @@ or bounded:
 ||[D,C]|| < 1
 ```
 
-This gives a precise version of the earlier intuition:
-
-```txt
-h < 1  ↔  commutator / correction-cost bound below failure threshold
-```
+The commutator bound is an analytic condition. Identifying it with evaluator
+non-sovereignty `h < 1` remains an unproved structural analogy; the correction
+weight is `a_C`, not evaluator `h` or Hamiltonian leakage `ℓ_H`.
 
 The parent noncommutative structure `[x,p]=iℏ` generates the Hamiltonian. Downstream spectral projections of the same Hamiltonian commute with one another because they share a parent operator.
 
@@ -404,7 +407,7 @@ Required proof obligations:
 5. Prove Riemann-von Mangoldt counting.
 6. Prove the trace / explicit formula relation.
 7. Prove determinant identity with Ξ.
-8. Prove β/h leakage suppression acts on the same sector as spectral equivalence.
+8. Prove β/a_C leakage suppression acts on the same sector as spectral equivalence.
 ```
 
 The strongest target remains:

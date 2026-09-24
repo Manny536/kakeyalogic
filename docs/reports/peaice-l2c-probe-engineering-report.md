@@ -36,8 +36,11 @@ Spectral recovery:
 ```txt
 β(T)=1-T^(-γ)
 E_{β,T}(f)=β(T)T‖Xf‖²
-coercive gap=β(T)-hη
+coercive gap=β(T)-a_C η
 ```
+
+The analytic correction weight `a_C` is distinct from evaluator `h` and
+Hamiltonian leakage `ℓ_H`; see [notation custody](../h-notation.md).
 
 The downstream invariant is simple:
 
@@ -174,7 +177,7 @@ Treat l2c_probe.py as the first hardened L²_C finite-dimensional protected-sect
 Phase 1: entrench l2c_probe.py and tests/test_l2c_probe.py
 Phase 2: add GitHub Actions pytest gate
 Phase 3: wire examples/l2c_tesseract_probe.py to report output
-Phase 4: add β-dynamic sweeps for T, γ, h, and η
+Phase 4: add β-dynamic sweeps for T, γ, a_C, and η
 Phase 5: connect DDATL Hamiltonian experiments
 Phase 6: build trace-formula compatibility experiments
 Phase 7: export agent transfer cards for PeAIce ecosystem reuse
