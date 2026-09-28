@@ -109,7 +109,7 @@ arXiv lane: arxiv/README.md · ARX-001 Grain Zero scaffold · ARX-002 KNS(LB) sc
 
 ## 1. Current landing state
 
-The existing research program describes four layers, retained below. The [typed-directional foundation](docs/core/README.md) is an additional documentation layer; its reference implementation is not yet present.
+The existing research program describes four layers, retained below. The [typed-directional foundation](docs/core/README.md) is now an additional computational and documentation layer: a SAVER reference implementation, schemas, routing receipts, contract tests, and synthetic calibration are present. Live/production validation remains open.
 
 ```txt
 Simulator layer
@@ -512,15 +512,25 @@ Required behavior:
 
 ---
 
+## Granular compaction — live status
+
+Public shorthand **granular compaction** now maps to two distinct evidence levels:
+
+- KakeyaLogic finite typed transformations: **synthetic reference implementation present**; longitudinal Retention has a synthetic regression receipt.
+- Excellence Engine V4 finite-to-limit promotion: **PROPOSED** multiscale compactness gate with terminal state **BLOCKED-COMPACTNESS** (G2_COMPACT remains owed).
+
+Live generative-system performance, Time to First Token, geometric tube realization of the typed state, compact containment, Kakeya closure, and observable transfer remain open or untested. See [the 2026-09-28 status audit](docs/status/granular-compaction-live-2026-09-28.md).
+
+---
 ## 13. Roadmap
 
 ### Typed-directional foundation
 
-1. Define terms, object and transformation contracts, and the repository map — documented in this update.
-2. Add field-object and receipt schemas, a reference implementation, and contract tests — planned.
-3. Implement transformation and recovery measurements — planned.
-4. Evaluate longitudinal retention, structured output, Time to First Token, Time to First Schema-Valid Object, and Time to Verified Completion — planned.
-5. Update public navigation and coordinate the contract with the separate custody engine — planned.
+1. Define terms, object and transformation contracts, and the repository map — documented.
+2. Add field-object and receipt schemas, a reference implementation, and contract tests — **implemented for the SAVER synthetic reference surface**.
+3. Implement transformation and recovery measurements — **partial**: synthetic preservation/failure cases are exercised; general and live measurement remain pending.
+4. Evaluate longitudinal retention, structured output, Time to First Token, Time to First Schema-Valid Object, and Time to Verified Completion — **partial**: a synthetic longitudinal Retention regression is present; the matched live protocol and timing measurements remain pending.
+5. Update public navigation and coordinate the contract with the separate custody engine — **in progress**: the [granular compaction live status](docs/status/granular-compaction-live-2026-09-28.md) links the finite typed layer to EEV4's non-promoting multiscale compactness gate.
 
 ### Existing kernel roadmap
 
