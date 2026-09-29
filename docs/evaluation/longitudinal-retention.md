@@ -4,6 +4,8 @@
 
 **State:** SYNTHETIC REGRESSION ONLY. A matched live protocol remains later work.
 
+**2026-09-28 addendum:** [Live external-model public synthesis is now observed](../status/granular-compaction-live-2026-09-28.md), with original screenshots and citations retained in the [EEV4 evidence receipt](https://github.com/Manny536/excellence-engine-v4/blob/main/evaluations/granular-compaction-live-evidence.md). Those images do not measure correction survival across repeated live runs or validate all SAVER grains. The causal hypothesis is **CAUSAL INFERENCE · LIVE OBSERVATION · CONTROLLED ABLATION OWED**. This note's synthetic-only Retention status remains unchanged; `h < 1`.
+
 Retention is the SAVER grain that required state, corrections, red lines, evidence, and relationships remain live and recoverable through later transformation.
 
 ## Synthetic case on `SAVER-CAL-001`
