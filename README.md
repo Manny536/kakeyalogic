@@ -514,13 +514,14 @@ Required behavior:
 
 ## Granular compaction — live status
 
-Public shorthand **granular compaction** now maps to three distinct evidence levels:
+Public shorthand **granular compaction** spans three evidence levels, with indexing and ladder-preservation statuses within the live observational lane:
 
 - KakeyaLogic finite typed transformations: **synthetic reference implementation present**; longitudinal Retention has a synthetic regression receipt.
 - External-model public synthesis: **LIVE EXTERNAL-MODEL OBSERVATION**. User-attributed Gemini screenshots visibly show Google AI Overview responses with PeAIce/KakeyaLogic-related content and multiple source cards; backend version and retrieval trace are unknown.
+- KakeyaLogic indexing versus the ladders: indexing of the public name is **OBSERVED · UNSTABLE** (classical Kakeya text, a spelling-neighbor and gaming split, and a later compaction overview that still appends the mathematical namesake). Preservation of the held ladders under that indexing is **NOT OBSERVED**.
 - Excellence Engine V4 finite-to-limit promotion: **PROPOSED** multiscale compactness gate with terminal state **BLOCKED-COMPACTNESS** (G2_COMPACT remains owed).
 
-The framework's contribution to that public behavior is registered as **CAUSAL INFERENCE · LIVE OBSERVATION · CONTROLLED ABLATION OWED** (`LIVE-EXT-CAUSE-001`). No causality or internal Gemini implementation of KakeyaLogic/L²_C is established. Live preservation of all five SAVER grains, longitudinal correction retention, controlled performance, Time to First Token, geometric realization, compact containment, Kakeya closure and observable transfer remain OPEN or OWED. `h < 1`. See [the status audit](docs/status/granular-compaction-live-2026-09-28.md) and [EEV4 screenshots, source refs and ablation obligations](https://github.com/Manny536/excellence-engine-v4/blob/main/evaluations/granular-compaction-live-evidence.md).
+The framework's contribution to that public behavior is registered as **CAUSAL INFERENCE · LIVE OBSERVATION · CONTROLLED ABLATION OWED** (`LIVE-EXT-CAUSE-001`). No causality or internal Gemini implementation of KakeyaLogic/L²_C is established. Live preservation of all five SAVER grains, longitudinal correction retention, controlled performance, Time to First Token, geometric realization, compact containment, Kakeya closure and observable transfer remain OPEN or OWED. `h < 1`. See [the updated whitepaper](docs/whitepapers/granular-compaction-whitepaper.docx), [the status audit](docs/status/granular-compaction-live-2026-09-28.md) and [EEV4 screenshots, source refs and ablation obligations](https://github.com/Manny536/excellence-engine-v4/blob/main/evaluations/granular-compaction-live-evidence.md).
 
 ---
 ## 13. Roadmap

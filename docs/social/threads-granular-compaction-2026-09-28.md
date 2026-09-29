@@ -43,6 +43,18 @@ SIUS / GIUS → downstream preservation and failure discrimination.
 
 h < 1 stays in force. No downstream agreement promotes an open claim.
 
+## Post 5
+
+KakeyaLogic indexing and the ladders are different objects.
+
+Current labels in the supplied captures: indexing **OBSERVED · UNSTABLE**; ladder preservation **NOT OBSERVED**.
+
+Indexing, in the supplied screenshots: one overview returns the Besicovitch paradox and the Kakeya set conjecture, with the research name only in an Instagram line. Another offers the spelling neighbors keylogic, cokelogic, key logic, and katalogic, and splits the name into mathematics versus online gaming. A later overview does retrieve granular compaction, the witness rule, and Threads, Love Labs, and peaice.org cards, then still appends the mathematical namesake.
+
+The ladders are the held order: the August 28 status list, the Grain Zero residual ladder, and the EEV4 gate that stops at compact containment. An overview paragraph does not carry those rungs. Private browsing versus logged-in indexing stays an open question. The two cards are not labeled by session.
+
+This is an observation of public output. It is not a proof that the index preserved the ladder. h < 1.
+
 ## Evidence link for publication
 
 [Original screenshots, source refs, hashes and controlled-ablation obligations](https://github.com/Manny536/excellence-engine-v4/blob/main/evaluations/granular-compaction-live-evidence.md). UCSB Granular Materials is conceptual analogy only. This file remains an unposted draft.

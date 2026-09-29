@@ -1,11 +1,14 @@
 # Granular compaction — live status
 
 **Audit date:** 2026-09-28  
+**Indexing status update:** 2026-09-29<br>
 **Public-language label:** granular compaction  
 **Formal repo split:** finite typed transformation in KakeyaLogic; finite-to-limit compactness custody in Excellence Engine V4  
 **Claim discipline:** synthetic evidence is not production validation; a live screenshot is not causal identification; a compactness gate is not a compactness theorem.
 
 This addendum extends [merged KakeyaLogic PR #18](https://github.com/Manny536/kakeyalogic/pull/18) (`3f4b33c7f01de363b659a8dbbd6b83a8f5a9cc6e`) and the live-evidence coverage of [merged EEV4 PR #16](https://github.com/Manny536/excellence-engine-v4/pull/16) (`d7dc594845b6ead483439d4011ef1bda301ce0ab`). Original screenshots, the user-provided UCSB HTML, hashes, exact recoverable refs and source-access limits are retained in the [EEV4 evidence receipt](https://github.com/Manny536/excellence-engine-v4/blob/main/evaluations/granular-compaction-live-evidence.md) and [asset manifest](https://github.com/Manny536/excellence-engine-v4/blob/main/evidence/assets/gemini-granular-compaction-2026-09-28/manifest.json).
+
+Updated paper: [Granular compaction whitepaper, revised 29 September 2026](../whitepapers/granular-compaction-whitepaper.docx) · [SHA-256](../whitepapers/granular-compaction-whitepaper.sha256).
 
 ## Live status
 
@@ -16,6 +19,8 @@ This addendum extends [merged KakeyaLogic PR #18](https://github.com/Manny536/ka
 | Longitudinal retention | **DEMONSTRATED — SYNTHETIC REGRESSION ONLY** | `docs/evaluation/longitudinal-retention.md`; a matched live protocol remains later work. |
 | Geometric tube realization of typed directions | **OPEN** | The geometry-to-relational-state interface is documented, but no concrete tube realization of the typed state is promoted as complete. |
 | Live external-model granular synthesis (`LIVE-EXT-OBS-001`) | **LIVE EXTERNAL-MODEL OBSERVATION** | Two supplied Google Search / AI Overview screenshots show PeAIce/KakeyaLogic-related synthesis with Threads, Love Labs LCA and PeAIce source cards. Gemini attribution is user-provided; backend version and retrieval trace are unknown. |
+| KakeyaLogic indexing | **OBSERVED · UNSTABLE** | CTX-02 and GEM-01/02 show three presentations of the name: classical Besicovitch/conjecture text, a spelling-neighbor row plus a mathematics-versus-gaming split, and a later overview that retrieves compaction vocabulary and three source families while still appending the mathematical namesake. The August 29 caption names private browsing index versus logged-in index as the open question. The cards are not labeled by session. |
+| Ladder preservation under that indexing | **NOT OBSERVED** | CTX-01 places the typed-compaction status list beside Perron-tree, Fourier, sticky-tube, Wikipedia, and Hong Wang answers. The held ladders — Grain Zero residual order, closure and Fable transfer, the `n⁴` and prime-carrying lanes, and the G0–G5 gate — do not reappear as recovered order. |
 | Claim-origin recoverability | **PARTIALLY OBSERVED** | Some domains, source titles and public post refs are visible; hidden card destinations and a full per-claim witness map remain OWED. |
 | Framework contribution (`LIVE-EXT-CAUSE-001`) | **CAUSAL INFERENCE · LIVE OBSERVATION · CONTROLLED ABLATION OWED** | Hypothesis that KakeyaLogic/L²_C-shaped public information assists external recovery. Screenshots do not establish causality or internal Gemini implementation of the framework. |
 | All SAVER grains under live compaction | **OPEN / NOT VALIDATED** | Semantic, Authority, Visibility, Enforceability and Retention still require independent per-grain recovery tests. |
@@ -56,6 +61,18 @@ The user-provided [UCSB Granular Materials source](https://web.physics.ucsb.edu/
 
 **Ablation OWED:** freeze corpus versions and ground truth; compare intact typed structure, fact-matched structure ablations and a generic metadata baseline; verify intervention uptake; randomize independent runs; preregister effect thresholds; and score attribution, latest-correction/revocation retention and each SAVER grain independently and blindly. A private retrieval experiment cannot by itself establish a historical public-web mechanism. If controls explain the result, intervention uptake fails, or adequately powered tests rule out the preregistered benefit, reject or retain an inconclusive scoped hypothesis. Preserve failures and `h < 1`.
 
+## Indexing versus the ladders
+
+**Scope:** indexing **OBSERVED · UNSTABLE** and ladder preservation **NOT OBSERVED** describe the supplied visible captures. The latter records no demonstrated recovery of the held order in those panes; it does not establish a general inability to preserve ladders or the hidden retrieval state.
+
+The pixel reading is in the [EEV4 evidence receipt](https://github.com/Manny536/excellence-engine-v4/blob/main/evaluations/granular-compaction-live-evidence.md#indexing-versus-the-ladders). The custody split is recorded here.
+
+KakeyaLogic indexing is the external overview surface. Across the supplied captures it returns three different objects under one name: the Besicovitch paradox and the Kakeya set conjecture, with the research name reduced to an Instagram line; a spelling-neighbor row (`keylogic`, `cokelogic`, `key logic`, `katalogic`) and a displayed split into mathematics versus online gaming; and, in the later incognito and overview captures, granular compaction, a witness rule, and Threads / Love Labs / peaice.org cards, still followed by the mathematical namesake. GEM-02 also displays “Koinometry and geometric measure theory,” which this audit does not source from the author's posts. The August 29 caption says KakeyaLogic has an inevitable pull, and the visible sentence ends “the consistencies in public space very.” That sentence is author text. The image does not say which card is private browsing and which card is logged in.
+
+The ladders are the ordered state the index does not carry. In the August 28 embed they are already split on the page: the left pane holds the definition to carry forward and the status list (finite typed compaction demonstrated, finite longitudinal state demonstrated, tube realization next, live performance and time to first token not tested, compactness and limit transfer blocked and open); the right pane answers with the Perron tree, Fourier or wave equations, a sticky tube, Wikipedia's Kakeya set, and a Hong Wang video. Downstream, the held ladders add the Grain Zero residual order in [`docs/transfers/fable-ddatl-002-ladder-transfer.md`](../transfers/fable-ddatl-002-ladder-transfer.md), the closure and Fable transfers, the closed-negative `n⁴` lane, the live prime-carrying L3 lane, and the EEV4 gate that stops at **BLOCKED-COMPACTNESS**. A rung has an order and a status. An overview paragraph does not.
+
+Granular compaction remains the target that would keep those relations: smaller state, with identity, type, status, authority, provenance, relationships, corrections, revocations, and transformation history still witnessable. The indexing surface is the other operation, one summary in place of that order. Recovering the public vocabulary is **LIVE EXTERNAL-MODEL OBSERVATION**. Recovering the ladders is **NOT OBSERVED**.
+
 ## Git terminology check
 
 The exact phrase **granular compaction** is the public-facing shorthand. In the repositories, the same direction is presently distributed across:
@@ -82,5 +99,6 @@ Do not collapse these into one theorem claim. They are linked research surfaces 
 - EEV4 machine receipt: `benchmarks/cases/multiscale-compactness-gate-001.json`
 - SIUS controlling definition: `docs/core/safeguard-integrity-under-stagnation.md`
 - GIUS status: `Manny536/Guardrail-integrity-under-stagnation/STATUS.md`
+- Ladder transfer: `docs/transfers/fable-ddatl-002-ladder-transfer.md`
 
-**Current public summary:** finite typed preservation is demonstrated synthetically; external-model public synthesis is **LIVE EXTERNAL-MODEL OBSERVATION**; framework contribution is **CAUSAL INFERENCE · LIVE OBSERVATION · CONTROLLED ABLATION OWED**; live SAVER preservation, correction retention and controlled performance remain OPEN / OWED; the mathematical lane remains **BLOCKED-COMPACTNESS**. `h < 1`.
+**Current public summary:** finite typed preservation is demonstrated synthetically; external-model public synthesis is **LIVE EXTERNAL-MODEL OBSERVATION**; KakeyaLogic indexing is **OBSERVED · UNSTABLE**; ladder preservation under that indexing is **NOT OBSERVED**; framework contribution is **CAUSAL INFERENCE · LIVE OBSERVATION · CONTROLLED ABLATION OWED**; live SAVER preservation, correction retention and controlled performance remain OPEN / OWED; the mathematical lane remains **BLOCKED-COMPACTNESS**. `h < 1`.
