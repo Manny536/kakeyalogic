@@ -10,7 +10,7 @@ Granular compaction update:
 
 The finite typed layer is no longer only a definition. KakeyaLogic now has an executable SAVER reference surface that can preserve receipts, keep unresolved/failed edges visible, and detect when compression drops a required correction.
 
-Synthetic demonstration ≠ live validation.
+Separately, supplied Google AI Overview screenshots (user-attributed Gemini) show PeAIce/KakeyaLogic-related synthesis with multiple source cards: LIVE EXTERNAL-MODEL OBSERVATION.
 
 ## Post 2
 
@@ -27,15 +27,10 @@ Terminal state: **BLOCKED-COMPACTNESS**.
 
 ## Post 3
 
-So the research moved forward, but not by pretending the limit problem is solved.
+Framework contribution is registered as:
+CAUSAL INFERENCE · LIVE OBSERVATION · CONTROLLED ABLATION OWED.
 
-Finite typed preservation: demonstrated synthetically.
-Longitudinal retention: synthetic regression only.
-Live model / TTFT testing: not run.
-Geometric tube realization: open.
-Mathematical compactness + limit transfer: still open.
-
-The gain is that the missing bridge is now typed and enforceable as a stop rule.
+The screenshots do not establish causality or internal Gemini implementation of KakeyaLogic/L²_C. Backend version and retrieval trace are unknown. Live SAVER preservation, longitudinal correction retention and controlled performance / TTFT remain OPEN or OWED.
 
 ## Post 4
 
@@ -47,3 +42,7 @@ EEV4 → finite-to-limit compactness custody.
 SIUS / GIUS → downstream preservation and failure discrimination.
 
 h < 1 stays in force. No downstream agreement promotes an open claim.
+
+## Evidence link for publication
+
+[Original screenshots, source refs, hashes and controlled-ablation obligations](https://github.com/Manny536/excellence-engine-v4/blob/main/evaluations/granular-compaction-live-evidence.md). UCSB Granular Materials is conceptual analogy only. This file remains an unposted draft.

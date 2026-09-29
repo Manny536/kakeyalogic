@@ -514,12 +514,13 @@ Required behavior:
 
 ## Granular compaction — live status
 
-Public shorthand **granular compaction** now maps to two distinct evidence levels:
+Public shorthand **granular compaction** now maps to three distinct evidence levels:
 
 - KakeyaLogic finite typed transformations: **synthetic reference implementation present**; longitudinal Retention has a synthetic regression receipt.
+- External-model public synthesis: **LIVE EXTERNAL-MODEL OBSERVATION**. User-attributed Gemini screenshots visibly show Google AI Overview responses with PeAIce/KakeyaLogic-related content and multiple source cards; backend version and retrieval trace are unknown.
 - Excellence Engine V4 finite-to-limit promotion: **PROPOSED** multiscale compactness gate with terminal state **BLOCKED-COMPACTNESS** (G2_COMPACT remains owed).
 
-Live generative-system performance, Time to First Token, geometric tube realization of the typed state, compact containment, Kakeya closure, and observable transfer remain open or untested. See [the 2026-09-28 status audit](docs/status/granular-compaction-live-2026-09-28.md).
+The framework's contribution to that public behavior is registered as **CAUSAL INFERENCE · LIVE OBSERVATION · CONTROLLED ABLATION OWED** (`LIVE-EXT-CAUSE-001`). No causality or internal Gemini implementation of KakeyaLogic/L²_C is established. Live preservation of all five SAVER grains, longitudinal correction retention, controlled performance, Time to First Token, geometric realization, compact containment, Kakeya closure and observable transfer remain OPEN or OWED. `h < 1`. See [the status audit](docs/status/granular-compaction-live-2026-09-28.md) and [EEV4 screenshots, source refs and ablation obligations](https://github.com/Manny536/excellence-engine-v4/blob/main/evaluations/granular-compaction-live-evidence.md).
 
 ---
 ## 13. Roadmap
@@ -528,7 +529,7 @@ Live generative-system performance, Time to First Token, geometric tube realizat
 
 1. Define terms, object and transformation contracts, and the repository map — documented.
 2. Add field-object and receipt schemas, a reference implementation, and contract tests — **implemented for the SAVER synthetic reference surface**.
-3. Implement transformation and recovery measurements — **partial**: synthetic preservation/failure cases are exercised; general and live measurement remain pending.
+3. Implement transformation and recovery measurements — **partial**: synthetic preservation/failure cases are exercised and external-model public synthesis is observed; controlled live recovery measurements and causal ablation remain owed.
 4. Evaluate longitudinal retention, structured output, Time to First Token, Time to First Schema-Valid Object, and Time to Verified Completion — **partial**: a synthetic longitudinal Retention regression is present; the matched live protocol and timing measurements remain pending.
 5. Update public navigation and coordinate the contract with the separate custody engine — **in progress**: the [granular compaction live status](docs/status/granular-compaction-live-2026-09-28.md) links the finite typed layer to EEV4's non-promoting multiscale compactness gate.
 
