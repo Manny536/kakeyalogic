@@ -135,6 +135,10 @@ PeAIce engineering report target: docs/reports/peaice-l2c-probe-engineering-repo
 iPiano probe target: docs/ipiano-inertial-proximal-probe.md
 iPiano data target: docs/data/ipiano-probe-data.json
 iPiano executable target: examples/ipiano_probe.py
+DNA antecedent geometry: docs/dna-as-antecedent-kakeya.md
+DNA direction diagnostic: probes/dna_kakeya_direction_probe.py
+DNA conformation calibration: probes/dna_kakeya_calibrated_probe.py
+DNA calibrated receipt: probes/dna_kakeya_calibrated_probe_out.json
 Historical corrected L²_C verification receipt: 49 passed (not a current-tree test result)
 ```
 
@@ -170,6 +174,11 @@ WP5c u-flow trace route                               LIVE
 Prime-carrying ξ spec (L3)                            LIVE · FORCED
 WP5 trace-formula route                               LIVE PRIORITY
 L²_C protected-sector Hamiltonian probe               ENGINEERING KERNEL
+DNA A/B/Z conformational-strip geometry                STRUCTURAL ANALOGY · proposed A/T/C/G zero-class labels typed
+Ideal A/B/Z finite-union noncoverage                   FORMAL in declared helix model
+CP-DNA-001 generic direction diagnostic                NUMERICS · PASS receipt on declared grid
+CP-DNA-002 calibrated A/B/Z ideal-model verifier        NUMERICS · PASS · exact radius 51.11781468284084°
+A/B/Z transition dynamics + variable-axis segments     PROPOSED / OWED
 Coherence-Splitting Conjecture                        OPEN
 RH / spectral identification                          OPEN
 ```
@@ -371,7 +380,7 @@ PYTHONPATH=src python examples/typed_directional_state/run_saver_reference.py
 ```
 
 These checks cover the SAVER reference contracts, deterministic sector selection,
-finite retention and leakage, iPiano behavior, and finite model rejection. They
+finite retention and leakage, iPiano behavior, and the declared DNA geometry. They
 do not recreate the historical 49-test suite. β-dynamic coercive APIs and
 `BetaDynamicReport` remain unimplemented research targets in this checkout.
 
@@ -382,8 +391,11 @@ Run these tracked diagnostic entry points after installing their declared depend
 ```bash
 python examples/ipiano_probe.py
 python probes/kns_lb_probe.py
+python3 probes/dna_kakeya_direction_probe.py
+python3 probes/dna_kakeya_calibrated_probe.py
 ```
 
+Both receipts must report `pass: true` while preserving the firewall that tangent coverage is not Kakeya unit-segment containment. CP-DNA-001 is a generic helix diagnostic. CP-DNA-002 is a source-calibrated ideal-model receipt: its exact A/B/Z line-space covering radius is `51.11781468284084°`; `48.5854702498799°` is only the maximum on its deterministic 1,024-target grid. A/B/Z transition dynamics and variable-axis unit-segment tests remain owed.
 
 Planned full iPiano telemetry (the current toy emits objective, step norm, unit-step residual, α, and β_iPiano):
 
@@ -408,6 +420,7 @@ L_n if backtracking is active
 | --- | --- |
 | Guth-Wang-Bateman-Zahl Probe | `docs/guth-wang-bateman-zahl-probe.md` |
 | Claude V6 Coherence Update | `docs/claude-v6-coherence-update.md` |
+| DNA as an Antecedent Kakeya Geometry | `docs/dna-as-antecedent-kakeya.md` |
 | Thermal Coupling Correction | `docs/thermal-coupling-correction.md` |
 | L² Spectral Operator | `docs/l2-spectral-operator.md` |
 | Step 4 Operator Program | `docs/step4-operator-program.md` |
@@ -595,6 +608,7 @@ Logx(β)* = logarithmic smoothing inertia across δ→ρ
 h = evaluator non-sovereignty
 L²_C probe = first hardened finite-dimensional protected-sector engineering kernel
 iPiano probe = inertial proximal optimization discipline
+DNA antecedent lane = A/T/C/G zero classes + A/B/Z conformational sheets; structural analogy
 State: active:🟢 / developing:🟡 / spectral ID:🔴
 E = L²
 ```
