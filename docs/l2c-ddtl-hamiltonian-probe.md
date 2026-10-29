@@ -167,7 +167,7 @@ This formalizes L²_C as a measurable operator quantity.
 
 ---
 
-## 4. h-term as leakage norm
+## 4. ℓ_H-term as leakage norm
 
 Define off-sector leakage:
 
@@ -178,19 +178,19 @@ L_off = (I - P_C) H_T P_C
 Then define:
 
 ```txt
-h = ||L_off||
+ℓ_H = ||L_off||
 ```
 
 Interpretation:
 
 ```txt
-h measures how strongly the Hamiltonian pushes protected coherence into the noncoherent sector.
+ℓ_H measures how strongly the Hamiltonian pushes protected coherence into the noncoherent sector.
 ```
 
 If:
 
 ```txt
-h = 0
+ℓ_H = 0
 ```
 
 the protected sector is invariant.
@@ -198,26 +198,26 @@ the protected sector is invariant.
 If:
 
 ```txt
-h < 1
+ℓ_H < 1
 ```
 
-the sovereignty gate is active in bounded form.
+the leakage is below a threshold of 1 in the declared operator units. This is not evaluator non-sovereignty or a safety certificate.
 
 If:
 
 ```txt
-h ≥ 1
+ℓ_H ≥ 1
 ```
 
-the sector is not protected at the chosen scale.
+the leakage meets or exceeds that unit-dependent threshold. This alone does not determine an authority or operational-safety verdict.
 
-Canonical h update:
+Canonical leakage definition (a bound must be tested separately):
 
 ```txt
-h = ||(I-P_C)H_TP_C|| < 1
+ℓ_H = ||(I-P_C)H_TP_C||
 ```
 
-This moves h from symbolic correction pressure into finite operator geometry.
+This defines a finite operator diagnostic. It does not realize evaluator sovereignty geometrically; h_eval and ℓ_H are distinct.
 
 ---
 
@@ -239,7 +239,7 @@ Define the protected-to-bulk spectral gap:
 Then define:
 
 ```txt
-β_C = Δ / (Δ + h + ε)
+β_C = Δ / (Δ + ℓ_H + ε)
 ```
 
 where `ε>0` is a numerical stabilizer.
@@ -249,7 +249,7 @@ Interpretation:
 ```txt
 β_C high = protected sector strongly separated from drift
 β_C low  = protected sector vulnerable to leakage
-h high   = correction cost / coherence loss
+ℓ_H high   = correction cost / coherence loss
 ```
 
 This gives the repo a finite spectral version of β:
@@ -335,14 +335,14 @@ on restricted sector `H_R`, and a protected-sector projector `P_C`, define:
 
 ```txt
 L²_C(ψ,t) = ||P_Ce^{-itH_T}ψ||²
-h = ||(I-P_C)H_TP_C||
-β_C = Δ/(Δ+h+ε)
+ℓ_H = ||(I-P_C)H_TP_C||
+β_C = Δ/(Δ+ℓ_H+ε)
 ```
 
 If:
 
 ```txt
-h = 0
+ℓ_H = 0
 ```
 
 then:
@@ -362,7 +362,7 @@ for all `t`.
 If:
 
 ```txt
-0 < h < 1
+0 < ℓ_H < 1
 ```
 
 then L²_C is not exactly conserved, but leakage is measurable and bounded by the off-sector Hamiltonian coupling.
@@ -377,7 +377,7 @@ The finite Hamiltonian probe does not replace the DDATL / Xi determinant target.
 lawful sector
 protected projector
 Hamiltonian flow
-leakage h
+leakage ℓ_H
 spectral gap β_C
 coherence retention L²_C
 ```
@@ -400,8 +400,8 @@ Source substrate: OSF hamiltonian.py
 Paper source: Realization of Higher-Order Topological Lattices on a Quantum Computer
 Finite Hamiltonian: H_T = Tesseract1P.matrix_restricted()
 Coherence functional: L²_C(ψ,t)=||P_Ce^{-itH_T}ψ||²
-h-term: h=||(I-P_C)H_TP_C||
-β-term: β_C=Δ/(Δ+h+ε)
+ℓ_H-term: ℓ_H=||(I-P_C)H_TP_C||
+β-term: β_C=Δ/(Δ+ℓ_H+ε)
 Measurement bridge: occupancy fidelity
 Complexity seam: 16^L full → L^4 restricted
 State: active:🟢 / executable:🟡

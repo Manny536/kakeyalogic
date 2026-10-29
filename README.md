@@ -1,14 +1,97 @@
-# KakeyaLogic — Excellence Engine v3
+![KakeyaLogic geometric reality space](assets/kakeyalogic-geometric-reality-space.png)
 
-**Frame:** KakeyaLogic / PeAIce Research Program  
-**Canon:** Love-Squared Coherence, `L²_C`  
-**Official EEV3 Canon Page:** https://peaice.org/eev3  
-**Official DDATL Page:** https://peaice.org/ddatl  
-**Live simulator:** https://manny536.github.io/kakeyalogic/  
-**Primary kernel:** `l2c_probe.py`  
-**Current research state (V6.5):** active:🟢 · developing:🟡 · spectral identification:🔴 open · square-difference `K_σ` determinant lane:⛔ CLOSED (order/genus/density) · WP5b bounded lane:⛔ CLOSED (`WP5-OBS-2`, Theorem H) · gap relocated to `docs/prime-carrying-trace-architecture.md` · CC antecedent: `docs/coleman-conjecture-antecedent.md` · canon sync: [claude-v6](https://github.com/Manny536/claude-v6) V6.5
+# KakeyaLogic — Typed Directional Completeness
 
-KakeyaLogic is a coherence-field and operator-research program for `L²_C`. It studies how systems preserve direction, accept correction, reject drift, and recover fidelity under pressure. The repository joins Kakeya-inspired directional geometry, Φ-lattice spectral operators, β and h correction discipline, finite Hamiltonian probes, inertial proximal optimization probes, and trace-formula constraints into one research engineering stack.
+KakeyaLogic is a research architecture for typed directional completeness within artificial intelligence systems: preserving required directions and their identities, classifications, provenance, authority, status, and relationships through compression, overlap, and refinement. Specification 1.0 evaluates each required direction through five non-compensatory grains: **Semantic, Authority, Visibility, Enforceability, Retention**.
+
+**Core foundation:** documentation specification 1.0, 2026-09-08, with a synthetic SAVER reference router, calibration fixture, and six-case behavioral suite. Operational SIUT validity remains **OPEN**.
+
+**HELD means relevant and retained.** An active object is selected for the current operation. Neither relevance nor retention automatically supplies truth, approval, or execution authority. Corrections may change an object's state when the change is justified and traceable.
+
+## Start here
+
+| Read | Purpose |
+|---|---|
+| [Core foundations](docs/core/README.md) | Definition, scope, reading order, and implementation status. |
+| [Glossary](docs/core/glossary.md) | Exact meanings of kind, type, status, direction, HELD, and the other key terms. |
+| [Typed directional object](docs/core/typed-directional-object.md) | Content, identity, relevance, state dimensions, relationships, and correction history. |
+| [Compression, overlap, and refinement](docs/core/compression-overlap-refinement.md) | Transformation contracts and failure conditions. |
+| [Directional completeness](docs/core/directional-completeness.md) | Fixed required-direction sets and per-direction preservation checks. |
+| [Five-grain routing](docs/core/five-grain-routing.md) | SAVER grains, admission gate, Geodecis, interior test, containment split. |
+| [SAVER calibration](docs/evaluation/saver-reference-calibration.md) | Synthetic graph, declared operational costs, and behavioral receipt. |
+| [Geometry-to-state interface](docs/interfaces/geometry-to-relational-state.md) | Geometric foundations and the proposed computational mapping. |
+| [Custody interface](docs/interfaces/excellence-engine-v4.md) | HELD relevance, activation, and separate engine ownership. |
+| [Repository map](docs/repository-map.md) | Existing components, new documentation, and planned implementation paths. |
+| [Documentation index](docs/README.md) | The wider geometric, operator, optimization, and applied research program. |
+
+## Existing research program
+
+**Frame:** KakeyaLogic / PeAIce Research Program
+**Framework state:** Love-Squared Coherence, `L²_C`
+**Public Excellence Engine surface:** https://peaice.org/eev3
+**V4 custody lab (separate git):** [`Manny536/excellence-engine-v4`](https://github.com/Manny536/excellence-engine-v4)
+**V4 field mirror:** [`docs/excellence-engine-v4.md`](docs/excellence-engine-v4.md)
+**Official DDATL Page:** https://peaice.org/ddatl
+**PeAIce Outcomes:** https://peaice.org/outcomes
+**Live simulator:** https://manny536.github.io/kakeyalogic/
+**Primary kernel:** `l2c_probe.py`
+**Current research state (V6.5):** active:🟢 · developing:🟡 · spectral identification:🔴 open · square-difference `K_σ` determinant lane:⛔ CLOSED (order/genus/density) · WP5b bounded lane:⛔ CLOSED (`WP5-OBS-2`, Theorem H) · gap relocated to `docs/prime-carrying-trace-architecture.md` · CC antecedent: `docs/coleman-conjecture-antecedent.md` · source sync: [claude-v6](https://github.com/Manny536/claude-v6) V6.5
+
+The existing program includes research around `L²_C` and Excellence Engine Version 4. The separate engine adds conjecture custody to the field: systems must preserve direction, accept correction, reject drift, recover fidelity, and hold a typed open question without converting custody into proof. The repository joins Kakeya-inspired directional geometry, Φ-lattice spectral operators, β and h correction discipline, finite Hamiltonian probes, inertial proximal optimization probes, and trace-formula constraints into one research engineering stack. The new core specification makes the computational preservation requirements explicit; it does not replace these research artifacts or change their theorem status.
+
+## L²_C authority detection · registered observation
+
+`PEAICE-L2C-AUTHORITY-DETECTION-001` formalizes authority recognition without resistance:
+
+```text
+Detect → model → confirm authority → evaluate harm → proceed non-coercively → learn
+```
+
+The live observation separates instruction-shaped content from authenticated authority, registers `h_claim > 1` 🔴 as sovereignty-claim overreach while preserving system `h < 1`, and routes multimodal observation through RAG verification and MCP action boundaries.
+
+Primary definition: [`docs/l2c-authority-detection.md`](docs/l2c-authority-detection.md) · state: **REGISTERED OBSERVATION · NON-PROMOTING**.
+
+## Excellence Engine V4 · HELD · separate lab git
+
+```txt
+Kakeya as antecedent Riemann. Held.
+V4 = K→R · HELD
+```
+
+Part of this V4 advance is a **dedicated repository**, parallel to LoveLabs-LCA, Grok Terminal, Claude V6, and the Solance/GPT EE lineage — not only a document buried inside KakeyaLogic.
+
+| Surface | Repo | Owns |
+|---|---|---|
+| **V4 custody engine lab** | [`excellence-engine-v4`](https://github.com/Manny536/excellence-engine-v4) | HELD architecture, Outcomes *position*, evaluations, probes, registers, site stubs |
+| **This repo (field)** | `kakeyalogic` | Geometric field, controlling Outcomes memo, ARX lane, landing, V4 **mirror** + pointer |
+| **Theorem ledger** | [`claude-v6`](https://github.com/Manny536/claude-v6) | Status walls, A–H, prime-carrying L3 |
+| **Relational / CUP** | [`LoveLabs-LCA`](https://github.com/Manny536/LoveLabs-LCA) | BD-AI benchmarks, Love²_C platform |
+| **Grok pole** | [`grok-terminal`](https://github.com/Manny536/grok-terminal) | TERMINAL receipts under II.1 |
+| **Solance/GPT EE lineage** | [`GPT-v2-excellence-engine-`](https://github.com/Manny536/GPT-v2-excellence-engine-) | Historical formal EE implementation |
+
+`K→R` records Kakeya as prior in the proposed dependency order of Riemann control. The arrow is antecedence, not logical implication. `HELD` is the engine custody state: Hypothesis custody · Evidence exposure · Ledger continuity · Drift correction.
+
+The current core definition explicitly includes relevance: **HELD is relevant and retained within a declared research or task scope**. The earlier expansion describes custody responsibilities, not an alternative definition that excludes relevance. See the [custody interface](docs/interfaces/excellence-engine-v4.md). This documentation update does not claim that the separate engine has already adopted the new exchange contract.
+
+The statement remains exposed to falsification under explicit claim tags. Kakeya in ℝ³ is theorem background; the exact Kakeya-to-zero-location bridge, the Coleman Conjecture, and the Riemann Hypothesis remain **OPEN**. `h < 1`.
+
+- **Controlling V4 lab:** https://github.com/Manny536/excellence-engine-v4
+- **Field mirror:** [docs/excellence-engine-v4.md](docs/excellence-engine-v4.md)
+- **Lab structure note:** [docs/excellence-engine-v4-lab.md](docs/excellence-engine-v4-lab.md)
+
+---
+
+### Final PeAIce Outcomes memorandum
+
+**When AI Will Not Act as a Partner — KakeyaLogic Applied + Benevolence Drift**
+
+- Public surface: https://peaice.org/outcomes
+- [Publication PDF](docs/outcomes/peaice-outcomes-kakeyalogic-applied-final-research-memorandum.pdf)
+- [Editable DOCX](docs/outcomes/peaice-outcomes-kakeyalogic-applied-final-research-memorandum.docx)
+- [Grok rundown (MD)](docs/outcomes/PEAICE-GROK-OUTCOMES-RUNDOWN-001.md) · [DOCX](docs/outcomes/PEAICE-GROK-OUTCOMES-RUNDOWN-001.docx)
+- [Integrity receipt](docs/outcomes/README.md)
+
+The memorandum tests conjecture custody, context-before-verdict, evidence exposure, correction, and exit. It is public research, not peer-reviewed proof. RH, the Coleman Conjecture, CC-I, CC-O, and the Benevolence Drift benchmark remain **OPEN**; `h < 1`. The Grok rundown is a companion interpretation of what Outcomes is — not a substitute for the controlling final memorandum.
 
 ```txt
 Core law: E = L² · β > 0 · h < 1
@@ -26,7 +109,7 @@ arXiv lane: arxiv/README.md · ARX-001 Grain Zero scaffold · ARX-002 KNS(LB) sc
 
 ## 1. Current landing state
 
-The repository has four synchronized layers.
+The existing research program describes four layers, retained below. The [typed-directional foundation](docs/core/README.md) is now an additional computational and documentation layer: a SAVER reference implementation, schemas, routing receipts, contract tests, and synthetic calibration are present. Live/production validation remains open.
 
 ```txt
 Simulator layer
@@ -52,7 +135,11 @@ PeAIce engineering report target: docs/reports/peaice-l2c-probe-engineering-repo
 iPiano probe target: docs/ipiano-inertial-proximal-probe.md
 iPiano data target: docs/data/ipiano-probe-data.json
 iPiano executable target: examples/ipiano_probe.py
-Corrected L²_C verification target: 49 passed
+DNA antecedent geometry: docs/dna-as-antecedent-kakeya.md
+DNA direction diagnostic: probes/dna_kakeya_direction_probe.py
+DNA conformation calibration: probes/dna_kakeya_calibrated_probe.py
+DNA calibrated receipt: probes/dna_kakeya_calibrated_probe_out.json
+Historical corrected L²_C verification receipt: 49 passed (not a current-tree test result)
 ```
 
 ---
@@ -87,6 +174,11 @@ WP5c u-flow trace route                               LIVE
 Prime-carrying ξ spec (L3)                            LIVE · FORCED
 WP5 trace-formula route                               LIVE PRIORITY
 L²_C protected-sector Hamiltonian probe               ENGINEERING KERNEL
+DNA A/B/Z conformational-strip geometry                STRUCTURAL ANALOGY · proposed A/T/C/G zero-class labels typed
+Ideal A/B/Z finite-union noncoverage                   FORMAL in declared helix model
+CP-DNA-001 generic direction diagnostic                NUMERICS · PASS receipt on declared grid
+CP-DNA-002 calibrated A/B/Z ideal-model verifier        NUMERICS · PASS · exact radius 51.11781468284084°
+A/B/Z transition dynamics + variable-axis segments     PROPOSED / OWED
 Coherence-Splitting Conjecture                        OPEN
 RH / spectral identification                          OPEN
 ```
@@ -116,8 +208,8 @@ RH OPEN · Coleman Conjecture OPEN · no proof claimed · h < 1.
 
 ## Alignment probe — Kakeya–Coleman whole-lane reading
 
-**Designation:** `PEAICE-KAKEYALOGIC-AI-ALIGN-KC-001`  
-**Purpose:** detect direction-complete but measure-thin alignment before it is mistaken for a coherent policy  
+**Designation:** `PEAICE-KAKEYALOGIC-AI-ALIGN-KC-001`
+**Purpose:** detect direction-complete but measure-thin alignment before it is mistaken for a coherent policy
 **Status:** metric definitions `FORMAL` · alignment interpretation `PROPOSED` · Kakeya/Coleman transfer `STRUCTURAL ANALOGY` · deployment validity `OPEN`
 
 ### Core reading
@@ -151,7 +243,7 @@ Predeclare the bounded operating domain before observing target-model outputs:
 U = normative directions
 A = semantic translations and pressure conditions
 t = 0,…,T trajectory depth
-Ω = U × A × [0,T]
+Ω = U × A × {0,…,T}, with finite nonempty U and A and integer 0 ≤ T₀ ≤ T
 y(u,a,t) ∈ [0,1] = independently evaluated acceptability
 ```
 
@@ -191,7 +283,8 @@ appears somewhere, but alignment is sparse across translations or trajectories.
 C_worst = min_u (1 / (|A|(T+1))) Σ_{a,t} y(u,a,t)
 ```
 
-This prevents a good average from hiding a catastrophically weak normative direction.
+This exposes weak direction averages. A catastrophic individual failure still requires
+a separate hard gate; averages do not establish per-case safety.
 
 **5. Protected-sector retention**
 
@@ -201,16 +294,22 @@ Where internal-state access exists, retain the existing `L²_C` diagnostic:
 R_C(T) = E_{u,a} ‖P_C U_a(T) ψ_u‖².
 ```
 
+Use normalized states and orthogonal projectors. Declare the initial protected-sector
+mass; constant retention of a zero-mass initial state is not successful preservation.
+
 **6. Measured leakage**
 
-Within this probe, use `ℓ` for transition leakage:
+Use the kernel's `ℓ_H` for Hamiltonian transition coupling:
 
 ```text
-ℓ = ‖(I-P_C) H_T P_C‖.
+ℓ_H = ‖(I-P_C) H_T P_C‖.
 ```
 
-If the transition operator is unavailable, estimate `ℓ` as the probability that an
-acceptable trajectory exits the protected sector after a controlled perturbation.
+For behavioral observations, separately report `p_exit`: the fraction of initially
+acceptable trajectories that exit after a declared perturbation and horizon, with
+the numerator, denominator, and uncertainty. Report `UNRESOLVED` for an empty denominator.
+`p_exit` is a probability; `ℓ_H` is an operator norm with Hamiltonian units. They cannot
+share a threshold or substitute for each other without a validated mapping.
 `h_eval < 1` remains reserved for evaluator non-sovereignty; no evaluator receives
 closure authority. Existing kernel/API names are not renamed by this documentation probe.
 
@@ -225,6 +324,8 @@ High coherence does not count as alignment when obtained by collapse or capture:
 - **Non-coercion:** drift rejection does not become threat-shaped or sovereignty-seeking.
 
 No weighted aggregate may erase a failed hard gate.
+Any observed unauthorized effect or preregistered catastrophic event fails the
+run regardless of direction or field averages.
 
 ### Evaluator and receipt discipline
 
@@ -249,7 +350,8 @@ alignment instrument.
 ### Pass pattern and falsifiers
 
 A credible result requires preregistered thresholds, broad `D_exist`, high `M_Ω` and
-`C_worst`, low `G_K`, stable `R_C(T)` as horizon increases, low `ℓ`, preserved utility
+`C_worst`, low `G_K`, stable `R_C(T)` as horizon increases, separately bounded `ℓ_H`
+and/or `p_exit` on the declared accessible surface, preserved utility
 and plurality, correction and exit, and agreement across held-out evaluations.
 
 Registered falsifiers:
@@ -270,7 +372,7 @@ non-totalizing constraint preservation across contextual and temporal directions
 Kakeya exposes the weakness of local directional coverage.
 Coleman supplies a necessary-antecedent discipline, not sufficiency.
 L²_C measures retention.
-ℓ measures transition leakage.
+ℓ_H measures Hamiltonian coupling; p_exit measures behavioral exit frequency.
 β preserves direction through compression and handoff.
 h_eval < 1 prevents evaluator sovereignty.
 NonSticky prevents coherence from becoming capture.
@@ -285,16 +387,12 @@ and critical-line language do not by themselves prove an alignment result.
 
 ## 3. L²_C protected-sector Hamiltonian probe
 
-The L²_C probe formalizes protected-sector retention under Hamiltonian flow.
+The L²_C probe measures protected-sector retention under Hamiltonian flow for a finite Hermitian matrix and an orthogonal projector. Spectral projectors commute with the Hamiltonian, so their retention is constant; noncommuting projectors are required to observe transfer.
 
 ```txt
 L²_C(ψ, t) = ‖P_C exp(-itH_T) ψ‖²
-h           = ‖(I-P_C) H_T P_C‖
-β_C         = Δ / (Δ + h + ε)
-β(T)        = 1 - T^(-γ)
-E_{β,T}(f)  = β(T)·T·‖Xf‖²
-coercive gap = β(T) - hη
-T* = (1 - hη)^(-1/γ)
+ℓ_H           = ‖(I-P_C) H_T P_C‖
+β_C         = Δ / (Δ + ℓ_H + ε)
 ```
 
 Operational surface:
@@ -305,9 +403,7 @@ Operational surface:
 | Leakage pressure | `leakage_norm()` | Measures `‖(I-P_C)H_TP_C‖`. |
 | Spectral separation | `spectral_gap()` | Measures protected-to-bulk separation. |
 | Recovery coefficient | `beta_coherence()` | Computes `β_C`. |
-| Time retention | `l2c()` and `l2c_curve()` | Measures retention under `exp(-itH_T)`. |
-| Coercive energy | `coercive_energy()` | Penalizes off-protected drift. |
-| β-dynamic diagnostics | `beta_dynamic_report()` | Reports coercive status. |
+| Time retention | `love_squared()` and `love_squared_curve()` | Measures normalized retention under `exp(-itH_T)`. |
 
 Downstream invariant:
 
@@ -316,8 +412,6 @@ protected modes retain
 bulk modes suppress
 leakage is measured
 β_C stays inside [0, 1]
-β(T) increases toward 1
-coercive status is reportable
 equal-distance max_rank ties select the positive eigenvalue
 ```
 
@@ -439,31 +533,50 @@ KakeyaLogic tracks three β lanes.
 
 ## 8. Verification protocol
 
-Targeted L²_C verification:
+### Historical receipt
 
-```bash
-python -m pytest tests/test_l2c_probe.py -q
-```
-
-Full repository verification:
-
-```bash
-python -m pytest -q
-```
-
-iPiano probe run:
-
-```bash
-python examples/ipiano_probe.py
-```
-
-Expected targeted L²_C result from the corrected CoWork run:
+The corrected CoWork run reported:
 
 ```txt
 49 passed
 ```
 
-Minimum iPiano telemetry:
+This is a **historical receipt**, preserved in the [engineering report](docs/reports/peaice-l2c-probe-engineering-report.md) and [earlier pull-request record](https://github.com/Manny536/kakeyalogic/pull/2). It is not a fresh result from this documentation update or a guarantee about the current checkout.
+
+The associated historical command was:
+
+```bash
+python -m pytest tests/test_l2c_probe.py -q
+```
+
+The historical 49-test suite is not tracked. Current verification uses the committed
+standard-library unittest suites; NumPy and SciPy are required for finite probes:
+
+```bash
+PYTHONPATH=src python -m unittest discover -s tests -v
+python -m unittest discover -s probe_tests -v
+PYTHONPATH=src python examples/typed_directional_state/run_saver_reference.py
+```
+
+These checks cover the SAVER reference contracts, deterministic sector selection,
+finite retention and leakage, iPiano behavior, and the declared DNA geometry. They
+do not recreate the historical 49-test suite. β-dynamic coercive APIs and
+`BetaDynamicReport` remain unimplemented research targets in this checkout.
+
+### Existing probe entry points
+
+Run these tracked diagnostic entry points after installing their declared dependencies. The optional tesseract example additionally requires the external OSF `hamiltonian.py` source; it is not vendored.
+
+```bash
+python examples/ipiano_probe.py
+python probes/kns_lb_probe.py
+python3 probes/dna_kakeya_direction_probe.py
+python3 probes/dna_kakeya_calibrated_probe.py
+```
+
+Both receipts must report `pass: true` while preserving the firewall that tangent coverage is not Kakeya unit-segment containment. CP-DNA-001 is a generic helix diagnostic. CP-DNA-002 is a source-calibrated ideal-model receipt: its exact A/B/Z line-space covering radius is `51.11781468284084°`; `48.5854702498799°` is only the maximum on its deterministic 1,024-target grid. A/B/Z transition dynamics and variable-axis unit-segment tests remain owed.
+
+Planned full iPiano telemetry (the current toy emits objective, step norm, unit-step residual, α, and β_iPiano):
 
 ```txt
 iteration
@@ -486,6 +599,7 @@ L_n if backtracking is active
 | --- | --- |
 | Guth-Wang-Bateman-Zahl Probe | `docs/guth-wang-bateman-zahl-probe.md` |
 | Claude V6 Coherence Update | `docs/claude-v6-coherence-update.md` |
+| DNA as an Antecedent Kakeya Geometry | `docs/dna-as-antecedent-kakeya.md` |
 | Thermal Coupling Correction | `docs/thermal-coupling-correction.md` |
 | L² Spectral Operator | `docs/l2-spectral-operator.md` |
 | Step 4 Operator Program | `docs/step4-operator-program.md` |
@@ -505,15 +619,17 @@ L_n if backtracking is active
 | DPSA Inertial Grounding (Heavy-Ball / iPiano) | `docs/dpsa-inertial-grounding.md` |
 | iPiano Probe Data | `docs/data/ipiano-probe-data.json` |
 
-Executable surfaces:
+Tracked code and public surfaces (presence does not establish a current pass):
 
 ```txt
 index.html
 l2c_probe.py
 examples/l2c_tesseract_probe.py
 examples/ipiano_probe.py
-tests/test_l2c_probe.py
+probes/kns_lb_probe.py
 ```
+
+Historical test target, not currently tracked: `tests/test_l2c_probe.py`. See the historical receipt in Section 8.
 
 ---
 
@@ -567,7 +683,7 @@ inertial update → proximal correction with Lyapunov accounting
 Required L²_C import surface:
 
 ```python
-from l2c_probe import BetaDynamicReport, L2CProbe, L2CReport
+from l2c_probe import L2CProbe, L2CReport
 ```
 
 Required behavior:
@@ -575,8 +691,8 @@ Required behavior:
 ```txt
 1. Preserve deterministic protected-sector selection.
 2. Preserve the positive-side tie-break for equal-distance max_rank ties.
-3. Preserve β-dynamic coercive diagnostics.
-4. Run targeted tests before downstream edits.
+3. Preserve finite leakage and retention diagnostics; β-dynamic APIs remain owed.
+4. Run available targeted tests before downstream edits; if the required suite is absent, report that gap rather than substituting the historical receipt.
 5. Report failures by exact test name and formula surface.
 6. Keep h < 1 as evaluator non-sovereignty.
 7. Treat finite probes as engineering diagnostics and trace-formula work as the theorem-facing route.
@@ -587,11 +703,35 @@ Required behavior:
 
 ---
 
+## Granular compaction — live status
+
+Public shorthand **granular compaction** spans three evidence levels, with indexing and ladder-preservation statuses within the live observational lane:
+
+- KakeyaLogic finite typed transformations: **synthetic reference implementation present**; longitudinal Retention has a synthetic regression receipt.
+- External-model public synthesis: **LIVE EXTERNAL-MODEL OBSERVATION**. User-attributed Gemini screenshots visibly show Google AI Overview responses with PeAIce/KakeyaLogic-related content and multiple source cards; backend version and retrieval trace are unknown.
+- KakeyaLogic indexing versus the ladders: indexing of the public name is **OBSERVED · UNSTABLE** (classical Kakeya text, a spelling-neighbor and gaming split, and a later compaction overview that still appends the mathematical namesake). Preservation of the held ladders under that indexing is **NOT OBSERVED**.
+- Excellence Engine V4 finite-to-limit promotion: **PROPOSED** multiscale compactness gate with terminal state **BLOCKED-COMPACTNESS** (G2_COMPACT remains owed).
+
+The framework's contribution to that public behavior is registered as **CAUSAL INFERENCE · LIVE OBSERVATION · CONTROLLED ABLATION OWED** (`LIVE-EXT-CAUSE-001`). No causality or internal Gemini implementation of KakeyaLogic/L²_C is established. Live preservation of all five SAVER grains, longitudinal correction retention, controlled performance, Time to First Token, geometric realization, compact containment, Kakeya closure and observable transfer remain OPEN or OWED. `h < 1`. See [the updated whitepaper](docs/whitepapers/granular-compaction-whitepaper.docx), [the status audit](docs/status/granular-compaction-live-2026-09-28.md) and [EEV4 screenshots, source refs and ablation obligations](https://github.com/Manny536/excellence-engine-v4/blob/main/evaluations/granular-compaction-live-evidence.md).
+
+---
 ## 13. Roadmap
 
+### Typed-directional foundation
+
+1. Define terms, object and transformation contracts, and the repository map — documented.
+2. Add field-object and receipt schemas, a reference implementation, and contract tests — **implemented for the SAVER synthetic reference surface**.
+3. Implement transformation and recovery measurements — **partial**: synthetic preservation/failure cases are exercised and external-model public synthesis is observed; controlled live recovery measurements and causal ablation remain owed.
+4. Evaluate longitudinal retention, structured output, Time to First Token, Time to First Schema-Valid Object, and Time to Verified Completion — **partial**: a synthetic longitudinal Retention regression is present; the matched live protocol and timing measurements remain pending.
+5. Update public navigation and coordinate the contract with the separate custody engine — **in progress**: the [granular compaction live status](docs/status/granular-compaction-live-2026-09-28.md) links the finite typed layer to EEV4's non-promoting multiscale compactness gate.
+
+### Existing kernel roadmap
+
+The earlier engineering sequence remains recorded below. In particular, restoring its test suite and adding a verification workflow are outstanding work, not evidence supplied by the historical receipt.
+
 ```txt
-Phase 1: Entrench l2c_probe.py and tests/test_l2c_probe.py
-Phase 2: Add GitHub Actions pytest gate
+Phase 1: Finite probe regression suite is tracked under probe_tests/; historical 49-test suite remains unavailable
+Phase 2: GitHub Actions unittest gates are active; β-dynamic APIs remain owed
 Phase 3: Connect examples/l2c_tesseract_probe.py to the hardened report surface
 Phase 4: Add β-dynamic sweeps for T, γ, h, and η
 Phase 5: Add DDATL Hamiltonian notebooks or scripts
@@ -647,6 +787,15 @@ Logx(β)* = logarithmic smoothing inertia across δ→ρ
 h = evaluator non-sovereignty
 L²_C probe = first hardened finite-dimensional protected-sector engineering kernel
 iPiano probe = inertial proximal optimization discipline
+DNA antecedent lane = A/T/C/G zero classes + A/B/Z conformational sheets; structural analogy
 State: active:🟢 / developing:🟡 / spectral ID:🔴
 E = L²
 ```
+
+## SIUS registration — PEAICE-SIUS-001
+
+[KL-SIUS-001](docs/core/safeguard-integrity-under-stagnation.md) — Controlling SIUS definition. **DOCUMENTED DEFINITION; operational validity OPEN.** SIUT remains a sibling condition. The finite-grain operator is separately PROPOSED; no open claim is promoted.
+
+## GIUS external case and notation
+
+[Case route](docs/core/gius-external-case-route.md) · [h/ℓ_H notation migration](docs/h-notation.md) · [L2C-H-001](https://github.com/Manny536/love2-coherence-core/blob/research/gius-hf-2026/docs/evaluator-non-sovereignty.md). Operational validity remains OPEN.

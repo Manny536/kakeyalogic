@@ -1,15 +1,44 @@
 # KakeyaLogic Documentation Index
 
-**Framework state:** KakeyaLogic · Excellence Engine v3 · Love-Squared Coherence (`L²_C`)  
+**Framework state:** KakeyaLogic · Excellence Engine v4 · Love-Squared Coherence (`L²_C`)  
 **Discipline:** `h < 1` · Riemann Hypothesis OPEN · Coleman Conjecture OPEN
+
+## Core foundations — start here
+
+KakeyaLogic's typed-directional core is documentation specification 1.0 (2026-09-08) with a synthetic SAVER reference implementation (2026-09-10). Operational SIUT validity remains OPEN.
+
+| Document | Purpose |
+|---|---|
+| [Core overview](core/README.md) | Definition, scope, and reading order. |
+| [Glossary](core/glossary.md) | Kind, type, status, direction, grain, HELD, active, and other terms. |
+| [Typed directional object](core/typed-directional-object.md) | Identity, relevance, provenance, authority, state dimensions, and relationships. |
+| [Compression, overlap, and refinement](core/compression-overlap-refinement.md) | Preservation contracts and auditable transformations. |
+| [Directional completeness](core/directional-completeness.md) | Required-direction sets, per-direction checks, and evaluation limits. |
+| [Five-grain routing](core/five-grain-routing.md) | SAVER grains, admission gate, Geodecis, interior test, containment split. |
+| [SAVER calibration](evaluation/saver-reference-calibration.md) | Synthetic graph, declared costs, and the six behavioral cases. |
+| [Repository map](repository-map.md) | Current components, owners, and planned paths. |
+
+**HELD means relevant and retained.** It does not automatically mean active, verified, approved, or executable. Relevance is explicit and scoped; corrections are permitted when their justification and history survive.
+
+## Applied interfaces
+
+| Document | Purpose | State |
+|---|---|---|
+| [Geometry to relational state](interfaces/geometry-to-relational-state.md) | Relate geometric vocabulary to observable computational objects without assuming theorem transfer. | MAPPING PROPOSAL |
+| [Excellence Engine Version 4 interface](interfaces/excellence-engine-v4.md) | HELD relevance, activation, exchange requirements, and custody ownership. | DOCUMENTED CONTRACT; downstream adoption pending |
+| [Authority-detection observation](l2c-authority-detection.md) | Existing source-versus-authority distinction. | REGISTERED OBSERVATION |
 
 ## Alignment and governance
 
 | Object | Document | Status |
 |---|---|---|
+| PeAIce Outcomes — KakeyaLogic Applied + Benevolence Drift | [PDF](outcomes/peaice-outcomes-kakeyalogic-applied-final-research-memorandum.pdf) · [DOCX](outcomes/peaice-outcomes-kakeyalogic-applied-final-research-memorandum.docx) · [integrity](outcomes/README.md) | FINAL PUBLIC RESEARCH · not peer reviewed · RH / Coleman / CC-I / CC-O OPEN |
+| PeAIce Outcomes — Grok rundown | [MD](outcomes/PEAICE-GROK-OUTCOMES-RUNDOWN-001.md) · [DOCX](outcomes/PEAICE-GROK-OUTCOMES-RUNDOWN-001.docx) | Companion interpretation · `PEAICE-GROK-OUTCOMES-RUNDOWN-001` · not a substitute for the final memo |
 | Benevolence Drift — AI Neutrality Under Pressure | [`benevolence-drift.md`](benevolence-drift.md) | `BD-AI-CASE-01` REGISTERED · multi-case benchmark OWED |
 | Inspectable Intelligence | [`inspectable-intelligence.md`](inspectable-intelligence.md) | FORMAL definitions · measurement OWED |
-| Excellence Engine v3 | [`excellence-engine-v3.md`](excellence-engine-v3.md) | ACTIVE field simulator |
+| Excellence Engine v4 lab (separate git) | [`Manny536/excellence-engine-v4`](https://github.com/Manny536/excellence-engine-v4) | **Controlling V4 custody lab** · HELD · Outcomes position · evaluations |
+| Excellence Engine v4 field mirror | [`excellence-engine-v4.md`](excellence-engine-v4.md) · [`excellence-engine-v4-lab.md`](excellence-engine-v4-lab.md) | Mirror + lab-structure pointer · `K→R · HELD` |
+| Excellence Engine v3 | [`excellence-engine-v3.md`](excellence-engine-v3.md) | PRIOR field-simulator layer · carried forward |
 | h-Term — Correction Pressure | [`h-term.md`](h-term.md) | ACTIVE governance term |
 | E Constant — Euler Natural Cadence | [`e-constant.md`](e-constant.md) | ACTIVE cadence term |
 | Claude V6 Coherence Update | [`claude-v6-coherence-update.md`](claude-v6-coherence-update.md) | SYNCHRONIZED research state |
@@ -19,6 +48,7 @@
 | Object | Document |
 |---|---|
 | Guth-Wang-Bateman-Zahl Probe | [`guth-wang-bateman-zahl-probe.md`](guth-wang-bateman-zahl-probe.md) |
+| Wang–Wu Restriction / Two-Ends Furstenberg | [`wang-wu-restriction-decoupling.md`](wang-wu-restriction-decoupling.md) |
 | KNS Light Basic | [`kns-light-basic.md`](kns-light-basic.md) |
 | Log-Depth Harmonic Coherence | [`log-depth-harmonic-coherence.md`](log-depth-harmonic-coherence.md) |
 | Coleman Conjecture antecedent | [`coleman-conjecture-antecedent.md`](coleman-conjecture-antecedent.md) |
@@ -28,6 +58,7 @@
 | Object | Document |
 |---|---|
 | Prime-carrying trace architecture | [`prime-carrying-trace-architecture.md`](prime-carrying-trace-architecture.md) |
+| Xi determinant criterion | [`xi-determinant-formalization.md`](xi-determinant-formalization.md) · conditional criterion; closed historical realizations remain closed |
 | Spectral determinism | [`spectral-determinism.md`](spectral-determinism.md) |
 | Step 4 operator program | [`step4-operator-program.md`](step4-operator-program.md) |
 | L²_C / DDATL Hamiltonian probe | [`l2c-ddtl-hamiltonian-probe.md`](l2c-ddtl-hamiltonian-probe.md) |
@@ -46,6 +77,8 @@
 ## Engineering report
 
 - [`reports/peaice-l2c-probe-engineering-report.md`](reports/peaice-l2c-probe-engineering-report.md)
+
+The report's corrected **49 passed** result is a **historical receipt**. The corresponding `tests/test_l2c_probe.py` is absent from the inspected main baseline; it is not a fresh pass or a current automated gate. The original report remains unchanged. See the [root verification notes](../README.md#8-verification-protocol) for the receipt source and reproducibility boundary.
 
 ## BD-AI source map
 

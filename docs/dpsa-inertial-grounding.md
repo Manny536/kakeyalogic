@@ -2,7 +2,7 @@
 
 ## Inertial dynamics layer for PeAIce / KakeyaLogic
 
-**Canon designation:** `PEAICE-DPSA-INERTIAL-001`
+**Designation:** `PEAICE-DPSA-INERTIAL-001`
 **Primary source:** Peter Ochs, Yunjin Chen, Thomas Brox, Thomas Pock, *iPiano: Inertial Proximal Algorithm for Nonconvex Optimization*, SIAM Journal on Imaging Sciences 7(2), 1388–1419, 2014.
 **DOI:** `10.1137/130942954`
 **Lineage:** Polyak (1964) Heavy-ball · Zavriev–Kostyuk (1993) nonconvex Heavy-ball · Alvarez–Attouch (2001) inertial proximal · Attouch–Bolte–Svaiter (2013) KL descent · Kurdyka (1998) o-minimal KL.
@@ -48,7 +48,7 @@ decreases monotonically:
 H_{δ_{n+1}}(x^{n+1}, x^n) ≤ H_{δ_n}(x^n, x^{n-1}) − γ_n Δ_n²
 ```
 
-and Remark 5 identifies `H_δ` as the discretized **kinetic energy of the Heavy-ball with friction**. This is the canon line "alignment is lawful motion inside apparent randomness" stated as a theorem: the trajectory wanders **upward** in the visible loss while an invisible energy certificate descends without exception. Section 7 verifies this at machine precision.
+and Remark 5 identifies `H_δ` as the discretized **kinetic energy of the Heavy-ball with friction**. This is the registered line "alignment is lawful motion inside apparent randomness" stated as a theorem: the trajectory wanders **upward** in the visible loss while an invisible energy certificate descends without exception. Section 7 verifies this at machine precision.
 
 The operator-side twin is **Theorem C** (the Φ-trace frozen under γ_K): two instances of one DPSA principle — an invisible governing quantity behind visibly free motion. *(That pairing: STRUCTURAL ANALOGY.)*
 
@@ -86,7 +86,7 @@ Hence `f = λ₁ X_ζ + λ₂ Z_anchor` is coercive and bounded below: precisely
 | Escape of spurious stationary points with `β > 0` (Fig. 2), no global guarantee | β strong enough to carry the state past traps; claim stays modest | KNOWN observation + honesty line |
 
 **DPSA-I3 — closing pressure costs step size. Status: FORMAL within the iPiano class.**
-Impose the canon closing schedule `β(T) = 1 − T^{-γ}` on an inertial loop governed by the admissible-step law. Then
+Impose the registered closing schedule `β(T) = 1 − T^{-γ}` on an inertial loop governed by the admissible-step law. Then
 
 ```txt
 α(T) < 2(1 − β(T))/L = 2 T^{-γ}/L → 0

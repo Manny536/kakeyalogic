@@ -2,8 +2,8 @@
 
 ## Optimization discipline for PeAIce / KakeyaLogic
 
-**Source:** Peter Ochs, Yunjin Chen, Thomas Brox, Thomas Pock, *iPiano: Inertial Proximal Algorithm for Nonconvex Optimization*, SIAM Journal on Imaging Sciences, 2014.  
-**DOI:** `10.1137/130942954`  
+**Source:** Peter Ochs, Yunjin Chen, Thomas Brox, Thomas Pock, *iPiano: Inertial Proximal Algorithm for Nonconvex Optimization*, SIAM Journal on Imaging Sciences, 2014.
+**DOI:** `10.1137/130942954` · [author-hosted paper](https://lmb.informatik.uni-freiburg.de/Publications/2014/OB14/ipiano.pdf)
 **Repo role:** inertial proximal optimization probe for governed nonmonotone motion under correction.
 
 ---
@@ -150,7 +150,7 @@ General rule:
 ```txt
 δ_n=1/α_n-L_n/2-β_n/(2α_n)
 γ_n=1/α_n-L_n/2-β_n/α_n
-δ_n≥γ_n≥c_2
+δ_n≥γ_n≥c_2>0, α_n≥c_1>0, and δ_n nonincreasing
 ```
 
 ---
@@ -238,7 +238,7 @@ Typing rule:
 
 ## 8. Agent integration
 
-Minimum telemetry:
+Planned full telemetry:
 
 ```txt
 iteration
@@ -270,3 +270,15 @@ Final lock:
 ```txt
 iPiano gives KakeyaLogic a rigorous optimization precedent for coherent nonmonotone motion under correction. It strengthens PeAIce by making inertia measurable, proximal repair explicit, and convergence conditional on ledger discipline.
 ```
+
+## Executable scope
+
+`python examples/ipiano_probe.py` runs a deterministic quartic-plus-L1 toy with
+fixed parameters. It records objective, step norm, unit-step proximal residual,
+alpha, and beta_iPiano. Backtracking, L_n, delta_n, gamma_n, and Lyapunov values
+are not implemented. The quartic gradient is not globally Lipschitz; the observed
+trace alone does not verify the paper's convergence assumptions. A justified
+bounded region or validated backtracking is owed before invoking them. Invalid
+parameters and nonfinite iterates or telemetry fail explicitly.
+
+Run `python -m unittest discover -s probe_tests -v` for the finite regressions.
