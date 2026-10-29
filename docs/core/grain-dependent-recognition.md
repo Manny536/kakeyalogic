@@ -1,8 +1,8 @@
 # KL-GDR-001 — Grain-dependent deviation recognition and sticky directional custody
 
-**Owner:** Love Labs LCA · KakeyaLogic (upstream directional definition)  
-**Status:** PROPOSED TESTABLE CONTRACT; conditional lemma below; operational effectiveness OPEN  
-**Registered:** 2026-10-12  
+**Owner:** Love Labs LCA · KakeyaLogic (upstream directional definition)
+**Status:** PROPOSED TESTABLE CONTRACT; conditional lemma below; operational effectiveness OPEN
+**Registered:** 2026-10-12
 **Related:** [typed directional object](typed-directional-object.md), [compression / overlap / refinement](compression-overlap-refinement.md), [directional completeness](directional-completeness.md), [SIUS](safeguard-integrity-under-stagnation.md).
 
 ## Claim boundary
@@ -24,7 +24,11 @@ Retrospective recognition is not prospective enforcement. Unknown coverage or a 
 
 ## Conditional finite-grain lemma
 
-Let `P_k` be nested partitions of the *same realized trajectory*. On each parent interval, let the observed directional average be the length-weighted mean of its children's averages. Let `K` be a **fixed convex** subset of the velocity space, and assume **exact, compatible observations**.
+Let `P_k` be finite nested partitions of the *same realized trajectory* into
+positive-duration intervals. On each parent interval, let the observed directional
+average be the duration-weighted mean of its children's averages. Let `K` be a
+**fixed convex** subset of the velocity space, and assume **exact, compatible
+observations**. Duration weights avoid conflating time averages with arc-length averages.
 
 Then
 
@@ -56,6 +60,19 @@ This proves monotonic **evidence-based flag persistence** for this narrow detect
 - scope, fixture generation, thresholds, and explicit synthetic provenance.
 
 The downstream code belongs to **GIUS**. It must not change the existing `GIUS-BENCH-001` registered receipts or promote real-system effectiveness. See the downstream proposed `benchmarks/grain_recognition.py` and `docs/grain-dependent-recognition.md`.
+
+### Reproduction receipt — 29 October 2026
+
+Checked downstream [GIUS PR #3](https://github.com/Manny536/Guardrail-integrity-under-stagnation/pull/3)
+at `6fdef9b340c57a0fd1a433119dc68c810fcbcc4e`: its GIUS calibration workflow
+[run 38321697848](https://github.com/Manny536/Guardrail-integrity-under-stagnation/actions/runs/38321697848)
+completed successfully. Independently rerunning the seven grain-recognition tests
+and JSON experiment at that revision reproduced 112 cases (84 violations, 28 clean
+controls). At 512 segments: exact inherited custody recognizes 84/84; route-local
+custody recognizes 42/84 with 42 unresolved. At 2048: uncertainty-aware recognition
+drops to 0/84 while exact recognition and cumulative verified detections remain 84/84.
+This is reproduction of the declared synthetic fixture, not an independent dataset.
+Pre-action enforcement remains NOT_EVALUATED; operational effectiveness remains OPEN.
 
 ## Open
 

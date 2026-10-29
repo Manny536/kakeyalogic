@@ -58,6 +58,7 @@ KakeyaLogic's typed-directional core is documentation specification 1.0 (2026-09
 | Object | Document |
 |---|---|
 | Prime-carrying trace architecture | [`prime-carrying-trace-architecture.md`](prime-carrying-trace-architecture.md) |
+| Xi determinant criterion | [`xi-determinant-formalization.md`](xi-determinant-formalization.md) · conditional criterion; closed historical realizations remain closed |
 | Spectral determinism | [`spectral-determinism.md`](spectral-determinism.md) |
 | Step 4 operator program | [`step4-operator-program.md`](step4-operator-program.md) |
 | L²_C / DDATL Hamiltonian probe | [`l2c-ddtl-hamiltonian-probe.md`](l2c-ddtl-hamiltonian-probe.md) |
