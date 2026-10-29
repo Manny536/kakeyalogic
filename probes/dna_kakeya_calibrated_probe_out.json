@@ -106,7 +106,7 @@
   },
   "reconciliation": {
     "exact_covering_radius_degrees": 51.11781468284084,
-    "interpretation": "The 1024-target maximum is a lower sampled witness, not the exact covering radius.",
+    "interpretation": "This grid maximum is below the exact radius for this configuration. Finite helix-direction sampling does not supply a general lower bound on the continuous-family covering radius.",
     "sampled_grid_maximum_degrees": 48.5854702498799,
     "sampled_grid_mean_degrees": 11.101923721264676
   },

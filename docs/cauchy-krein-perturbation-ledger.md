@@ -305,7 +305,7 @@ KakeyaLogic bridge:
 Kakeya grain        = local packetization of directional pressure
 Cauchy receipts     = countable spectral addresses
 Krein shift         = perturbation phase ledger
-L²_C h-gate         = leakage measurement
+L²_C ℓ_H-gate         = leakage measurement
 L²_C retention      = protected coherence check
 ```
 
@@ -390,13 +390,13 @@ L²_C(ψ,t) = ||P_C exp(-itH_T)ψ||²
 Leakage gate:
 
 ```txt
-h = ||(I-P_C)H_TP_C||
+ℓ_H = ||(I-P_C)H_TP_C||
 ```
 
 Recovery coefficient:
 
 ```txt
-β_C = Δ/(Δ+h+ε)
+β_C = Δ/(Δ+ℓ_H+ε)
 ```
 
 Cauchy-Krein add:

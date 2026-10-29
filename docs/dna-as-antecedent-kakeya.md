@@ -469,7 +469,13 @@ sampled mean gap    = 11.101923721264676°
 exact covering radius = 51.11781468284084°
 ```
 
-The first two values are grid statistics, not exact invariants. In particular, the sampled maximum is a lower witness because the Fibonacci grid does not contain the exact axial worst case. The independently derived one-dimensional formula is the publication value for the declared ideal model. “Exact” here is conditional on the declared ideal circular-helix model and decimal calibration inputs; it is not a claim of physically exact DNA dimensions.
+The first two values are grid statistics, not exact invariants. The sampled maximum
+is below the exact radius for this configuration because the target grid misses the
+axial worst case. Sampling helix directions introduces a separate discretization
+error, so this is not a general lower-bound theorem for arbitrary grids or models.
+The one-dimensional formula gives the exact model radius; the displayed decimal is
+its floating-point approximation. The decimal calibration inputs define an ideal
+circular-helix model, not physically exact DNA dimensions.
 
 CP-DNA-002 discharges the source-calibrated ideal-helix direction receipt. It does not discharge transition dynamics or segment containment:
 

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Manny536/kakeyalogic/schemas/calibration-fixture.schema.json",
+  "title": "SAVER calibration fixture",
+  "type": "object",
+  "required": [
+    "specification_version",
+    "fixture_id",
+    "cost_model",
+    "source",
+    "goal",
+    "nodes",
+    "directions",
+    "edges",
+    "expected"
+  ],
+  "properties": {
+    "specification_version": { "type": "string" },
+    "fixture_id": { "type": "string" },
+    "cost_model": {
+      "type": "object",
+      "required": ["name", "unit"],
+      "properties": {
+        "name": { "type": "string" },
+        "unit": { "type": "string" },
+        "not": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "source": { "type": "string" },
+    "goal": { "type": "string" },
+    "nodes": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "directions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["direction_id"],
+        "properties": { "direction_id": { "type": "string" } }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["edge_id", "src", "dst", "cost", "grains"],
+        "properties": {
+          "edge_id": { "type": "string" },
+          "src": { "type": "string" },
+          "dst": { "type": "string" },
+          "cost": { "type": "number", "exclusiveMinimum": 0 },
+          "claimed_interior_scale": { "type": "boolean" },
+          "grains": { "type": "object" },
+          "interior": { "type": "array" }
+        }
+      }
+    },
+    "expected": { "type": "object" }
+  }
+}

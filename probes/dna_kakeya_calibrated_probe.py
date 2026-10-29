@@ -62,8 +62,8 @@ def normalize(vector: Vec3) -> Vec3:
 def tangent_latitude_degrees(radius: float, pitch: float) -> float:
     """Return the latitude of an ideal-helix tangent above the equator."""
 
-    if radius <= 0.0 or pitch <= 0.0:
-        raise ValueError("radius and pitch must be positive")
+    if not math.isfinite(radius) or not math.isfinite(pitch) or radius <= 0.0 or pitch <= 0.0:
+        raise ValueError("radius and pitch must be finite and positive")
     return math.degrees(math.atan2(pitch, 2.0 * math.pi * radius))
 
 
@@ -77,7 +77,7 @@ def exact_covering_report(latitudes: Sequence[float]) -> dict[str, object]:
     """
 
     ordered = sorted(abs(latitude) for latitude in latitudes)
-    if not ordered or ordered[-1] > 90.0:
+    if not ordered or any(not math.isfinite(v) or v > 90.0 for v in ordered):
         raise ValueError("latitudes must be nonempty and lie in [-90, 90]")
 
     candidates: list[tuple[str, float]] = [("equator", ordered[0])]
@@ -219,8 +219,9 @@ def build_report() -> dict[str, object]:
             "sampled_grid_maximum_degrees": sampled_maximum,
             "sampled_grid_mean_degrees": sampled_union["mean_gap_degrees"],
             "interpretation": (
-                "The 1024-target maximum is a lower sampled witness, not the exact "
-                "covering radius."
+                "This grid maximum is below the exact radius for this configuration. "
+                "Finite helix-direction sampling does not supply a general lower bound "
+                "on the continuous-family covering radius."
             ),
         },
         "checks": checks,
