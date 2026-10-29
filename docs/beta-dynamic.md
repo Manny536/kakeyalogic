@@ -1,9 +1,11 @@
 # β-Dynamic Operator Layer — EEV3 Step 4
 
+**Notation correction (2026-09-24):** a_C is an analytic correction weight, distinct from evaluator h_eval and Hamiltonian leakage ℓ_H. Identifying a_C with ℓ_H requires an additional normalized model; it is not established here. Existing analytic claims are not re-proved by this notation migration. See [notation custody](h-notation.md).
+
 **Repo:** KakeyaLogic — Excellence Engine v3  
 **Canon page:** https://peaice.org/eev3  
 **Status:** 🟡 framework developing · 🟢 β-dynamic research lane active  
-**Core:** E = L² · β > 0 · h < 1 · e ≈ 2.718
+**Core:** E = L² · β > 0 · h_eval < 1 · e ≈ 2.718
 
 ## 0. Purpose
 
@@ -22,8 +24,8 @@ The clean EEV3 realization is:
 
 ```txt
 β(T) = dynamic closing pressure
-hη = correction-cost pressure
-β(T) - hη = coercive gap
+a_C η = correction-cost pressure
+β(T) - a_C η = coercive gap
 ```
 
 ---
@@ -138,9 +140,9 @@ The β term is positive, coercive, and self-adjoint-compatible when treated as a
 
 ---
 
-## 4. h-Correction Cost
+## 4. a_C-Correction Cost
 
-Let `C` be the h-correction operator.
+Let `C` be the a_C-correction operator.
 
 The correction is admissible if it is relatively form-bounded against the defect energy:
 
@@ -153,31 +155,31 @@ where:
 ```txt
 η ≥ 0
 b ≥ 0
-0 ≤ h < 1
+0 ≤ a_C < 1
 ```
 
-Then the full β/h quadratic form becomes:
+Then the full β/a_C quadratic form becomes:
 
 ```txt
-q_{β,h,T}[f]
+q_{β,a_C,T}[f]
   = q_0[f]
   + β(T)T⟨X²f,f⟩
-  + h⟨Cf,f⟩
+  + a_C⟨Cf,f⟩
 ```
 
 Using the form bound:
 
 ```txt
-q_{β,h,T}[f]
+q_{β,a_C,T}[f]
 ≥ q_0[f]
-  + (β(T) - hη)T⟨X²f,f⟩
-  - hb||f||²
+  + (β(T) - a_C η)T⟨X²f,f⟩
+  - a_C b||f||²
 ```
 
 The effective coercive gap is:
 
 ```txt
-δ_β,h(T) = β(T) - hη
+δ_{β,C}(T) = β(T) - a_C η
 ```
 
 ---
@@ -187,7 +189,7 @@ The effective coercive gap is:
 Suppression requires:
 
 ```txt
-β(T) - hη > 0
+β(T) - a_C η > 0
 ```
 
 Substitute:
@@ -199,30 +201,30 @@ Substitute:
 Then:
 
 ```txt
-1 - T^(-γ) - hη > 0
+1 - T^(-γ) - a_C η > 0
 ```
 
 Equivalently:
 
 ```txt
-T > (1 - hη)^(-1/γ)
+T > (1 - a_C η)^(-1/γ)
 ```
 
 provided:
 
 ```txt
-hη < 1
+a_C η < 1
 ```
 
-This is the first explicit β/h threshold condition inside the EEV3 Step 4 program.
+This is the first explicit β/a_C threshold condition inside the EEV3 Step 4 program.
 
 Interpretation:
 
 ```txt
 β supplies closing pressure.
-h measures correction-cost gate.
+a_C measures correction-cost gate.
 η measures how expensive correction is relative to off-axis defect.
-The theorem lives in the gap β(T) - hη.
+The theorem lives in the gap β(T) - a_C η.
 ```
 
 ---
@@ -238,24 +240,24 @@ For `f ∈ Ran(P_σ)`, the spectral projection inequality gives:
 Thus:
 
 ```txt
-q_{β,h,T}[f]
+q_{β,a_C,T}[f]
 ≥ q_0[f]
-  + (β(T) - hη)T|σ - 1/2|²||f||²
-  - hb||f||²
+  + (β(T) - a_C η)T|σ - 1/2|²||f||²
+  - a_C b||f||²
 ```
 
 After shifting the spectral floor so `q_0 ≥ 0`, the semigroup estimate becomes:
 
 ```txt
-||P_σ exp(-tA_{β,h,T}) P_σ||
-≤ exp( -t(β(T)-hη)T|σ - 1/2|² + thb )
+||P_σ exp(-tA_{β,a_C,T}) P_σ||
+≤ exp( -t(β(T)-a_C η)T|σ - 1/2|² + t a_C b )
 ```
 
 When `b = 0`, or after renormalization by the spectral floor, the EEV3 suppression target is:
 
 ```txt
 ρ_off(T,σ)
-≤ exp( -(β(T)-hη)T|σ - 1/2|² )
+≤ exp( -(β(T)-a_C η)T|σ - 1/2|² )
 ```
 
 This refines the earlier heuristic:
@@ -264,10 +266,10 @@ This refines the earlier heuristic:
 ρ_off(T,σ) ≤ exp( -β(T)T|σ - 1/2|² )
 ```
 
-The h-aware form is stronger and more honest:
+The a_C-aware form is stronger and more honest:
 
 ```txt
-ρ_off(T,σ) ≤ exp( -(β(T)-hη)T|σ - 1/2|² )
+ρ_off(T,σ) ≤ exp( -(β(T)-a_C η)T|σ - 1/2|² )
 ```
 
 ---
@@ -303,14 +305,14 @@ The β-dynamic layer fails if any of the following are shown:
 ```txt
 Fβ1. No self-adjoint defect observable X can be defined.
 Fβ2. ker(X) cannot be identified with the critical-line symmetry sector.
-Fβ3. The h-correction C is not relatively form-bounded against X².
-Fβ4. hη ≥ 1 in the intended regime.
-Fβ5. β(T)-hη does not become positive above any usable T threshold.
+Fβ3. The a_C-correction C is not relatively form-bounded against X².
+Fβ4. a_C η ≥ 1 in the intended regime.
+Fβ5. β(T)-a_C η does not become positive above any usable T threshold.
 Fβ6. The resulting semigroup estimate does not control the intended ρ_off.
 Fβ7. β cannot be connected to the candidate operator's energy, norm, spectral leakage, or semigroup behavior.
 ```
 
-Falsification is h functioning correctly.
+Falsification preserves correction discipline; it is not a measurement of h_eval.
 
 ---
 
@@ -319,9 +321,9 @@ Falsification is h functioning correctly.
 ```txt
 β-dynamic: coercive positive penalty / energy term
 β(T): 1 - T^(-γ)
-hη: correction-cost pressure
-δ_β,h(T): β(T) - hη
-Suppression target: ρ_off(T,σ) ≤ exp(-(β(T)-hη)T|σ-1/2|²)
+a_C η: correction-cost pressure
+δ_{β,C}(T): β(T) - a_C η
+Suppression target: ρ_off(T,σ) ≤ exp(-(β(T)-a_C η)T|σ-1/2|²)
 State: 🟡 / 🟢
 E = L²
 ```

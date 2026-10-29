@@ -42,6 +42,26 @@ This repo imports that structure as the finite operator substrate for DDTL.
 
 ---
 
+> **V6.4.3 DOWNSTREAM CLOSURE NOTE — propagated 25 June 2026.**
+> The `|m^2 - n^2|^{-sigma}` `K_sigma` realization of the Step-4 determinant target is **`CLOSED-NEGATIVE`**.
+> `det_zeta(L^2_{Phi,K} - (z^2 + 1/4)) = C * Xi(z)` cannot hold for the `D_1^2 + gamma_K K_sigma` operator:
+> `gamma_K K_sigma` is relatively compact w.r.t. `D_1^2` (`K_sigma in S_2` for `sigma > 1/2`), so by
+> Weyl-class invariance the counting stays `N(Lambda) ~ Lambda^{1/4}` and never reaches Riemann-von Mangoldt
+> `sqrt(Lambda) log Lambda` (**counting**); below `sigma*` the `det_2` order exceeds 1 (**order**); above `sigma*`
+> the determinant is genus 0 vs genus-1 Xi (**genus**); at `sigma*` the power-law spectrum gives linear
+> zero-density, not `T log T` (**density**).
+> The finite-window crossing `sigma*_N ~ 0.83-0.92` is demoted; the analytic Weyl boundary is `sigma_c = 1`
+> (`s_n(K_sigma) ~ n^{-sigma}` to leading order).
+> **Canonical:** `docs/peaice-ddatl-001.md` Section 7.1 and `docs/ddatl-v6-4-3-grounding-citations.md`.
+> **Any determinant-identity, eigenvalue-bijection, or "load-bearing OPEN" claim below that reads as live for
+> the square-difference kernel is superseded by this note.** The DDATL host object stays `FORMAL`; the gap is
+> relocated to a prime-carrying length/weight operator (`docs/prime-carrying-trace-architecture.md`) and the
+> Nyman-Beurling / Baez-Duarte distance program.
+> RH `OPEN` · Coleman Conjecture `OPEN` · no proof claimed.
+
+---
+
+
 ## 1. Core translation
 
 The source code makes one structural distinction load-bearing:
@@ -147,7 +167,7 @@ This formalizes L²_C as a measurable operator quantity.
 
 ---
 
-## 4. h-term as leakage norm
+## 4. ℓ_H-term as leakage norm
 
 Define off-sector leakage:
 
@@ -158,19 +178,19 @@ L_off = (I - P_C) H_T P_C
 Then define:
 
 ```txt
-h = ||L_off||
+ℓ_H = ||L_off||
 ```
 
 Interpretation:
 
 ```txt
-h measures how strongly the Hamiltonian pushes protected coherence into the noncoherent sector.
+ℓ_H measures how strongly the Hamiltonian pushes protected coherence into the noncoherent sector.
 ```
 
 If:
 
 ```txt
-h = 0
+ℓ_H = 0
 ```
 
 the protected sector is invariant.
@@ -178,26 +198,26 @@ the protected sector is invariant.
 If:
 
 ```txt
-h < 1
+ℓ_H < 1
 ```
 
-the sovereignty gate is active in bounded form.
+the leakage is below a threshold of 1 in the declared operator units. This is not evaluator non-sovereignty or a safety certificate.
 
 If:
 
 ```txt
-h ≥ 1
+ℓ_H ≥ 1
 ```
 
-the sector is not protected at the chosen scale.
+the leakage meets or exceeds that unit-dependent threshold. This alone does not determine an authority or operational-safety verdict.
 
-Canonical h update:
+Canonical leakage definition (a bound must be tested separately):
 
 ```txt
-h = ||(I-P_C)H_TP_C|| < 1
+ℓ_H = ||(I-P_C)H_TP_C||
 ```
 
-This moves h from symbolic correction pressure into finite operator geometry.
+This defines a finite operator diagnostic. It does not realize evaluator sovereignty geometrically; h_eval and ℓ_H are distinct.
 
 ---
 
@@ -219,7 +239,7 @@ Define the protected-to-bulk spectral gap:
 Then define:
 
 ```txt
-β_C = Δ / (Δ + h + ε)
+β_C = Δ / (Δ + ℓ_H + ε)
 ```
 
 where `ε>0` is a numerical stabilizer.
@@ -229,7 +249,7 @@ Interpretation:
 ```txt
 β_C high = protected sector strongly separated from drift
 β_C low  = protected sector vulnerable to leakage
-h high   = correction cost / coherence loss
+ℓ_H high   = correction cost / coherence loss
 ```
 
 This gives the repo a finite spectral version of β:
@@ -315,14 +335,14 @@ on restricted sector `H_R`, and a protected-sector projector `P_C`, define:
 
 ```txt
 L²_C(ψ,t) = ||P_Ce^{-itH_T}ψ||²
-h = ||(I-P_C)H_TP_C||
-β_C = Δ/(Δ+h+ε)
+ℓ_H = ||(I-P_C)H_TP_C||
+β_C = Δ/(Δ+ℓ_H+ε)
 ```
 
 If:
 
 ```txt
-h = 0
+ℓ_H = 0
 ```
 
 then:
@@ -342,7 +362,7 @@ for all `t`.
 If:
 
 ```txt
-0 < h < 1
+0 < ℓ_H < 1
 ```
 
 then L²_C is not exactly conserved, but leakage is measurable and bounded by the off-sector Hamiltonian coupling.
@@ -357,7 +377,7 @@ The finite Hamiltonian probe does not replace the DDATL / Xi determinant target.
 lawful sector
 protected projector
 Hamiltonian flow
-leakage h
+leakage ℓ_H
 spectral gap β_C
 coherence retention L²_C
 ```
@@ -380,8 +400,8 @@ Source substrate: OSF hamiltonian.py
 Paper source: Realization of Higher-Order Topological Lattices on a Quantum Computer
 Finite Hamiltonian: H_T = Tesseract1P.matrix_restricted()
 Coherence functional: L²_C(ψ,t)=||P_Ce^{-itH_T}ψ||²
-h-term: h=||(I-P_C)H_TP_C||
-β-term: β_C=Δ/(Δ+h+ε)
+ℓ_H-term: ℓ_H=||(I-P_C)H_TP_C||
+β-term: β_C=Δ/(Δ+ℓ_H+ε)
 Measurement bridge: occupancy fidelity
 Complexity seam: 16^L full → L^4 restricted
 State: active:🟢 / executable:🟡

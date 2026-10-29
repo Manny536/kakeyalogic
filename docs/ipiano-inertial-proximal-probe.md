@@ -1,26 +1,29 @@
 # iPiano Inertial Proximal Probe
 
-## PeAIce / KakeyaLogic research engineering note
+## Optimization discipline for PeAIce / KakeyaLogic
 
-**Source:** Peter Ochs, Yunjin Chen, Thomas Brox, Thomas Pock, *iPiano: Inertial Proximal Algorithm for Nonconvex Optimization*, SIAM Journal on Imaging Sciences, 2014.  
-**DOI:** `10.1137/130942954`  
-**Repo role:** inertial proximal optimization probe for the PeAIce / KakeyaLogic / `L²_C` engineering lane.  
-**Status:** registered probe data, not a replacement for the Step 4 trace-formula program.
+**Source:** Peter Ochs, Yunjin Chen, Thomas Brox, Thomas Pock, *iPiano: Inertial Proximal Algorithm for Nonconvex Optimization*, SIAM Journal on Imaging Sciences, 2014.
+**DOI:** `10.1137/130942954` · [author-hosted paper](https://lmb.informatik.uni-freiburg.de/Publications/2014/OB14/ipiano.pdf)
+**Repo role:** inertial proximal optimization probe for governed nonmonotone motion under correction.
 
 ---
 
-## 1. Why iPiano belongs in KakeyaLogic
+## 1. Placement
 
-KakeyaLogic needs a disciplined way to talk about motion under correction. The iPiano paper gives a rigorous optimization reference for exactly that pattern:
+iPiano gives KakeyaLogic a rigorous optimization precedent for a motion pattern already present in the PeAIce stack.
 
 ```txt
-forward motion + inertial memory + proximal correction
+forward motion
++ inertial memory
++ proximal correction
++ Lyapunov accounting
++ residual discipline
 ```
 
-The algorithm solves composite objectives of the form:
+The algorithm solves composite objectives:
 
 ```txt
-min_x h(x) = f(x) + g(x)
+min_x h(x)=f(x)+g(x)
 ```
 
 where:
@@ -30,22 +33,20 @@ f = differentiable, possibly nonconvex
 g = convex, possibly nonsmooth
 ```
 
-iPiano combines forward-backward splitting with an inertial force. In PeAIce language, it is a rigor anchor for update dynamics that do not require visible monotone descent at every step, while still admitting convergence under explicit structure.
-
-This is directly useful for the `L²_C` lane because `L²_C` is not simply static coherence. It is coherence under motion, pressure, correction, and retention.
+This matters because L²_C is a dynamic object. It is coherence under pressure, motion, correction, and retention.
 
 ---
 
-## 2. Core algorithm
+## 2. Algorithm
 
 Generic iPiano update:
 
 ```txt
 x_{n+1}
 =
-(I + α_n∂g)^(-1)
+(I+α_n∂g)^(-1)
 (
-  x_n - α_n∇f(x_n) + β_n(x_n - x_{n-1})
+  x_n - α_n∇f(x_n) + β_n(x_n-x_{n-1})
 )
 ```
 
@@ -53,219 +54,142 @@ Term typing:
 
 | Term | Optimization meaning | PeAIce reading |
 | --- | --- | --- |
-| `x_n - α_n∇f(x_n)` | Forward gradient step on smooth part `f`. | Directional correction toward lower energy. |
-| `β_n(x_n - x_{n-1})` | Inertial term / two-step memory. | Momentum, cadence, persistence under correction. |
-| `(I + α_n∂g)^(-1)` | Proximal backward step for convex nonsmooth `g`. | Constraint gate, projection, repair, admissibility operator. |
+| `x_n-α_n∇f(x_n)` | Forward step on smooth `f`. | Directional correction. |
+| `β_n(x_n-x_{n-1})` | Inertial force. | Motion memory. |
+| `(I+α_n∂g)^(-1)` | Proximal step for `g`. | Constraint gate and repair. |
 | `α_n` | Step size. | Correction amplitude. |
-| `β_n` | Inertia parameter. | Inertial retention coefficient. |
+| `β_iPiano` | Momentum parameter. | Typed optimizer inertia. |
 
 Special cases:
 
 ```txt
-g ≡ 0        → Heavy-ball method
-β = 0        → forward-backward splitting
-β > 0, g ≠ 0 → inertial proximal forward-backward splitting
+g ≡ 0        -> Heavy-ball method
+β_iPiano = 0 -> forward-backward splitting
+β_iPiano > 0 -> inertial proximal forward-backward splitting
 ```
 
-Heavy-ball with friction continuous analogy:
+Heavy-ball with friction analogy:
 
 ```txt
-x¨(t) + γx˙(t) + ∇f(x(t)) = 0
+x¨(t)+γx˙(t)+∇f(x(t))=0
 ```
 
-PeAIce translation:
+PeAIce lock:
 
 ```txt
 Motion is allowed.
 Correction is required.
 Inertia is typed.
 Constraint is proximal.
+Residual is measured.
 ```
 
 ---
 
-## 3. Nonmonotone descent and the h-discipline
+## 3. Convergence spine
 
-A core iPiano lesson is that inertial motion can prevent monotone decrease of the raw objective values. This is not a defect by itself. The paper builds convergence through a Lyapunov-style majorizing structure rather than demanding visible monotonic descent of `h(x_n)` at every step.
+iPiano permits nonmonotone visible objective behavior while still governing the process through a Lyapunov ledger.
 
-For KakeyaLogic, this is a major fit:
+Lyapunov object:
 
 ```txt
-visible motion may oscillate
-hidden energy must remain governed
+H_δ(x,y)=h(x)+δ‖x-y‖²
 ```
 
-The Lyapunov object used in the convergence analysis is:
+Step displacement:
 
 ```txt
-H_δ(x, y) = h(x) + δ‖x-y‖²
+Δ_n=‖x_n-x_{n-1}‖
 ```
 
-with:
+Ledger descent:
 
 ```txt
-Δ_n = ‖x_n - x_{n-1}‖
-```
-
-The descent relation is:
-
-```txt
-H_{δ_{n+1}}(x_{n+1}, x_n)
+H_{δ_{n+1}}(x_{n+1},x_n)
 ≤
-H_{δ_n}(x_n, x_{n-1}) - γ_nΔ_n²
+H_{δ_n}(x_n,x_{n-1})-γ_nΔ_n²
 ```
 
-PeAIce interpretation:
+Abstract sequence object:
 
 ```txt
-Raw output can move.
-Energy accounting must close.
-Momentum is legal only when the Lyapunov ledger remains decreasing.
+z_n=(x_n,x_{n-1})
 ```
 
-This aligns with `h < 1` as evaluator non-sovereignty: no single visible step gets to certify the whole process.
+Structural hypotheses:
+
+```txt
+(H1) F(z_{n+1})+aΔ_n²≤F(z_n)
+(H2) ∃w_{n+1}∈∂F(z_{n+1}) with ‖w_{n+1}‖≤(b/2)(Δ_n+Δ_{n+1})
+(H3) ∃z_{n_j}→z~ and F(z_{n_j})→F(z~)
+```
+
+With the Kurdyka-Lojasiewicz property, the sequence has finite length and converges to a critical point.
 
 ---
 
-## 4. Abstract convergence spine
+## 4. Step-size regimes
 
-The paper proves an abstract convergence theorem for a two-step sequence:
-
-```txt
-z_n = (x_n, x_{n-1})
-```
-
-with three structural hypotheses.
+Constant parameter rule:
 
 ```txt
-(H1) Sufficient decrease:
-F(z_{n+1}) + aΔ_n² ≤ F(z_n)
-
-(H2) Relative error:
-there exists w_{n+1} ∈ ∂F(z_{n+1}) such that
-‖w_{n+1}‖ ≤ (b/2)(Δ_n + Δ_{n+1})
-
-(H3) Continuity along a convergent subsequence:
-z_{n_j} → z~ and F(z_{n_j}) → F(z~)
+β_iPiano ∈ [0,1)
+α < 2(1-β_iPiano)/L
 ```
 
-Under the Kurdyka-Lojasiewicz property, the generated sequence has finite length and converges to a critical point.
-
-PeAIce agent rule:
-
-```txt
-Do not judge inertial updates by one-step monotonicity alone.
-Judge them by descent ledger, relative error, subsequence continuity, and KL-compatible closure.
-```
-
----
-
-## 5. Step-size regimes
-
-The paper gives several parameter regimes.
-
-### Constant parameter iPiano
-
-```txt
-β ∈ [0,1)
-α < 2(1-β)/L
-```
-
-where `L` is the Lipschitz constant of `∇f`.
-
-### Backtracking iPiano
-
-Backtracking estimates a local Lipschitz constant `L_n` satisfying:
+Backtracking condition:
 
 ```txt
 f(x_{n+1})
 ≤
-f(x_n) + <∇f(x_n), x_{n+1}-x_n>
-+ (L_n/2)‖x_{n+1}-x_n‖²
+f(x_n)+<∇f(x_n),x_{n+1}-x_n>+(L_n/2)‖x_{n+1}-x_n‖²
 ```
 
-### General rule
-
-The general rule chooses `α_n ≥ c_1`, `β_n ≥ 0`, and `δ_n ≥ γ_n ≥ c_2` with:
+General rule:
 
 ```txt
-δ_n = 1/α_n - L_n/2 - β_n/(2α_n)
-γ_n = 1/α_n - L_n/2 - β_n/α_n
+δ_n=1/α_n-L_n/2-β_n/(2α_n)
+γ_n=1/α_n-L_n/2-β_n/α_n
+δ_n≥γ_n≥c_2>0, α_n≥c_1>0, and δ_n nonincreasing
 ```
-
-and requires `δ_n` to be monotonically decreasing.
-
-PeAIce typing:
-
-| iPiano parameter | PeAIce analogue |
-| --- | --- |
-| `α_n` | correction step amplitude |
-| `β_n` | inertial memory coefficient |
-| `L_n` | local curvature / environment stiffness estimate |
-| `δ_n` | Lyapunov ledger weight |
-| `γ_n` | active positivity margin |
-| `c_1`, `c_2` | minimum admissibility floors |
 
 ---
 
-## 6. Convergence and rate facts
-
-The paper establishes:
-
-```txt
-1. The sequence of objective values h(x_n) converges.
-2. A converging subsequence of arguments exists.
-3. Every limit point is a critical point.
-4. With the Kurdyka-Lojasiewicz property, the full sequence converges to a critical point.
-5. A convergence rate is given through the proximal residual and successive-iterate error.
-```
+## 5. Residual and rate surface
 
 Proximal residual:
 
 ```txt
-r(x) = x - (I + ∂g)^(-1)(x - ∇f(x))
+r(x)=x-(I+∂g)^(-1)(x-∇f(x))
 ```
 
-Rate surface:
+Rate terms:
 
 ```txt
-μ_N  = min_{0≤n≤N} ‖x_n - x_{n-1}‖²
-μ'_N = min_{0≤n≤N} ‖r(x_n)‖²
+μ_N=min_{0≤n≤N}‖x_n-x_{n-1}‖²
+μ'_N=min_{0≤n≤N}‖r(x_n)‖²
+```
 
-μ'_N ≤ (2/c_1) μ_N
-μ_N ≤ c_2^(-1)(h(x_0)-h*)/(N+1)
+Bounds:
+
+```txt
+μ'_N≤(2/c_1)μ_N
+μ_N≤c_2^(-1)(h(x_0)-h*)/(N+1)
 ```
 
 PeAIce reading:
 
 ```txt
 Residual collapse is measured.
-Motion length becomes finite.
+Motion length becomes finite under the stated assumptions.
 Criticality is approached through controlled inertial correction.
 ```
 
 ---
 
-## 7. Probe data from the paper
+## 6. Probe data
 
-The paper demonstrates iPiano on nonconvex computer vision tasks, including image denoising with learned priors and diffusion-based image compression.
-
-The image compression probe rewrites the inpainting-mask optimization into a composite objective:
-
-```txt
-min_c 1/2 ‖A^{-1}Cu_0 - u_0‖² + λ‖c‖_1
-```
-
-with:
-
-```txt
-f(c) = 1/2 ‖A^{-1}Cu_0 - u_0‖²
-g(c) = λ‖c‖_1
-```
-
-The proximal map for `g` is a pointwise shrinkage operator.
-
-Table data registered from the iPiano image-compression experiment:
+The paper includes image compression experiments. The table below is registered as probe data because it separates energy optimization from reconstruction metrics.
 
 | Test image | Algorithm | Iterations | Energy | Density | MSE | MSE with GVO |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
@@ -276,69 +200,45 @@ Table data registered from the iPiano image-compression experiment:
 | walter | iPiano | 1000 | 10.246041 | 4.82% | 8.29 | 8.03 |
 | walter | SPD | 200/4000 | 10.278874 | 4.93% | 8.01 | 7.72 |
 
-Interpretation registered for KakeyaLogic:
+Registered reading:
 
 ```txt
-iPiano reaches lower energy in 1000 iterations on all three listed compression probes.
-SPD reports slightly lower MSE after gray value optimization in the listed table.
-The comparison separates energy optimization from final reconstruction error.
+iPiano reaches lower energy in the listed 1000-iteration compression probes.
+SPD reports slightly lower MSE after gray-value optimization in the listed table.
+Metric names must stay explicit.
 ```
 
-This distinction matters for PeAIce: an energy win is not automatically an all-metric win. Agent reports must name the metric being optimized.
+PeAIce reporting rule:
+
+```txt
+An energy win is an energy win.
+A reconstruction win is a reconstruction win.
+Do not collapse metrics.
+```
 
 ---
 
-## 8. Mapping into L²_C and β discipline
+## 7. β typing
 
-KakeyaLogic already separates two β lanes.
+KakeyaLogic tracks three β lanes.
 
-```txt
-β = ρ/δ              geometric scale ratio for Logx(β)*
-β_close(T)=1-T^(-γ) suppression / closing pressure
-```
-
-iPiano introduces a third typed β:
-
-```txt
-β_iPiano = inertial memory coefficient in a two-step proximal update
-```
+| β lane | Meaning | Placement |
+| --- | --- | --- |
+| `β=ρ/δ` | Geometric scale ratio. | `Logx(β)*`. |
+| `β_close(T)=1-T^(-γ)` | Suppression closing pressure. | β-dynamic coercive layer. |
+| `β_iPiano` | Inertial memory coefficient. | iPiano update. |
 
 Typing rule:
 
 ```txt
-β_iPiano must not be collapsed into β = ρ/δ or β_close(T).
+β_iPiano must not be collapsed into β=ρ/δ or β_close(T).
 ```
-
-PeAIce transfer map:
-
-| KakeyaLogic / PeAIce term | iPiano anchor |
-| --- | --- |
-| `Logx(β)*` | scale-passage inertia, not the iPiano β itself |
-| `β_iPiano` | optimizer momentum coefficient |
-| `h < 1` | no one-step evaluator sovereignty; use Lyapunov ledger |
-| `D_drift` | residual / off-constraint motion pressure |
-| `C²_Ω` | preserved structure under update motion |
-| `E_{β,T}` | coercive penalty surface analogous to governed energy descent |
-| `P_C` retention | protected-sector analogue of proximal admissibility |
 
 ---
 
-## 9. Agent ecosystem integration
+## 8. Agent integration
 
-Add iPiano to the agent ecosystem as an optimization probe, not as a spectral proof object.
-
-Agent roles:
-
-| Agent role | iPiano task |
-| --- | --- |
-| Optimization Agent | Use iPiano for nonconvex composite objectives `f + g`. |
-| Probe Agent | Track objective, Lyapunov energy, residual, step norm, and β_iPiano. |
-| Documentation Agent | Distinguish β_iPiano, β_close, and geometric β. |
-| Verification Agent | Check step-size admissibility and residual trend. |
-| Report Agent | Separate energy improvement from downstream metric improvement. |
-| Governance Agent | Prevent proof inflation or metric conflation. |
-
-Minimum probe telemetry:
+Planned full telemetry:
 
 ```txt
 iteration
@@ -348,43 +248,37 @@ step_norm ‖x_n-x_{n-1}‖
 proximal_residual ‖r(x_n)‖
 α_n
 β_iPiano
-L_n if backtracking is active
+L_n
 δ_n
 γ_n
 ```
 
----
-
-## 10. Falsification gates for PeAIce use
-
-| Gate | Failure condition | Meaning |
-| --- | --- | --- |
-| IP-1 | `β_iPiano` is treated as `β = ρ/δ`. | Typing failure. |
-| IP-2 | Objective decrease is claimed every step despite inertial nonmonotonicity. | Dynamics misread. |
-| IP-3 | Energy improvement is reported as universal metric improvement. | Metric conflation. |
-| IP-4 | KL convergence is invoked without checking assumptions. | Theorem misuse. |
-| IP-5 | Step-size constraints are omitted. | Governance failure. |
-| IP-6 | Residual is not tracked. | Criticality is unmeasured. |
-| IP-7 | iPiano is used as RH evidence. | Category error. |
-
----
-
-## 11. Canonical repository placement
+Falsification gates:
 
 ```txt
-docs/ipiano-inertial-proximal-probe.md
-docs/data/ipiano-probe-data.json
-examples/ipiano_probe.py
-```
-
-README registration phrase:
-
-```txt
-iPiano is registered as the inertial proximal optimization probe for PeAIce: forward motion, inertial memory, proximal correction, Lyapunov accounting, and residual-based convergence discipline for nonconvex composite objectives.
+IP-1 β_iPiano is treated as geometric β
+IP-2 objective decrease is claimed every step
+IP-3 energy improvement is reported as universal metric improvement
+IP-4 KL convergence is invoked without checking assumptions
+IP-5 step-size constraints are omitted
+IP-6 residual is not tracked
+IP-7 iPiano is used as spectral identification evidence
 ```
 
 Final lock:
 
 ```txt
-iPiano gives KakeyaLogic a rigorous optimization precedent for coherent nonmonotone motion under correction. It does not collapse β typing. It strengthens PeAIce by making inertia measurable, proximal repair explicit, and convergence conditional on ledger discipline rather than aesthetic smoothness.
+iPiano gives KakeyaLogic a rigorous optimization precedent for coherent nonmonotone motion under correction. It strengthens PeAIce by making inertia measurable, proximal repair explicit, and convergence conditional on ledger discipline.
 ```
+
+## Executable scope
+
+`python examples/ipiano_probe.py` runs a deterministic quartic-plus-L1 toy with
+fixed parameters. It records objective, step norm, unit-step proximal residual,
+alpha, and beta_iPiano. Backtracking, L_n, delta_n, gamma_n, and Lyapunov values
+are not implemented. The quartic gradient is not globally Lipschitz; the observed
+trace alone does not verify the paper's convergence assumptions. A justified
+bounded region or validated backtracking is owed before invoking them. Invalid
+parameters and nonfinite iterates or telemetry fail explicitly.
+
+Run `python -m unittest discover -s probe_tests -v` for the finite regressions.

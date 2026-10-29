@@ -2,11 +2,40 @@
 
 **Repo:** KakeyaLogic — Excellence Engine v3  
 **Frame:** PeAIce Research Program · L²_C Framework  
-**Status:** 🟡 V6 canon update · 🟢 operator corrected · 🔴 RH / spectral identification open  
+**Status:** 🟡 V6 canon update · 🟢 operator corrected · 🔴 RH / spectral identification open · ⛔ K_σ determinant lane CLOSED (V6.4.3) · ⛔ WP5b bounded lane CLOSED (V6.5)  
 **Canonical name:** V6 = Trace-Neutral Kakeya Operator  
 **Primary downstream:** `docs/l2-spectral-operator.md`, `docs/thermal-coupling-correction.md`, `docs/step4-operator-program.md`
 
 ---
+
+> **V6.5 DOWNSTREAM CLOSURE NOTE — propagated 1 July 2026.**
+> WP5b bounded-coupling relative-determinant route is **CLOSED-NEGATIVE** (`WP5-OBS-2`).
+> Theorem H (Weyl-window law): Krein SSF `ξ(λ) = N_D(λ) − N_A(λ)` is uniformly bounded with
+> thin support; heat · relative zeta · perturbation det = Laplace · Mellin · Cauchy transforms of `ξ`.
+> **Load-bearing qualifier:** operator-boundedness (`γ_K K_σ^{reg}`, `σ > ½`). Does NOT close
+> unbounded mods (L1), WP5c u-flow (L2), or changed free operator. Prime-carrying L3 is **forced**.
+> Canon: [claude-v6](https://github.com/Manny536/claude-v6) `docs/canon/v6-theorems.md` ·
+> `docs/research/wp5b-bounded-lane-closure.md`. RH `OPEN` · Coleman `OPEN` · no proof claimed.
+
+> **V6.4.3 DOWNSTREAM CLOSURE NOTE — propagated 25 June 2026.**
+> The `|m^2 - n^2|^{-sigma}` `K_sigma` realization of the Step-4 determinant target is **`CLOSED-NEGATIVE`**.
+> `det_zeta(L^2_{Phi,K} - (z^2 + 1/4)) = C * Xi(z)` cannot hold for the `D_1^2 + gamma_K K_sigma` operator:
+> `gamma_K K_sigma` is relatively compact w.r.t. `D_1^2` (`K_sigma in S_2` for `sigma > 1/2`), so by
+> Weyl-class invariance the counting stays `N(Lambda) ~ Lambda^{1/4}` and never reaches Riemann-von Mangoldt
+> `sqrt(Lambda) log Lambda` (**counting**); below `sigma*` the `det_2` order exceeds 1 (**order**); above `sigma*`
+> the determinant is genus 0 vs genus-1 Xi (**genus**); at `sigma*` the power-law spectrum gives linear
+> zero-density, not `T log T` (**density**).
+> The finite-window crossing `sigma*_N ~ 0.83-0.92` is demoted; the analytic Weyl boundary is `sigma_c = 1`
+> (`s_n(K_sigma) ~ n^{-sigma}` to leading order).
+> **Canonical:** `docs/peaice-ddatl-001.md` Section 7.1 and `docs/ddatl-v6-4-3-grounding-citations.md`.
+> **Any determinant-identity, eigenvalue-bijection, or "load-bearing OPEN" claim below that reads as live for
+> the square-difference kernel is superseded by this note.** The DDATL host object stays `FORMAL`; the gap is
+> relocated to a prime-carrying length/weight operator (`docs/prime-carrying-trace-architecture.md`) and the
+> Nyman-Beurling / Baez-Duarte distance program.
+> RH `OPEN` · Coleman Conjecture `OPEN` · no proof claimed.
+
+---
+
 
 ## 0. Canonical claim discipline
 

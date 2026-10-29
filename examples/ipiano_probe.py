@@ -1,24 +1,16 @@
 """Minimal iPiano inertial proximal probe for KakeyaLogic / PeAIce.
 
-This example registers iPiano as a finite optimization probe:
-
-    forward motion + inertial memory + proximal correction
-
-It uses a toy nonconvex composite objective
-
-    h(x) = f(x) + g(x)
-
-where f is smooth and nonconvex and g is convex nonsmooth L1 pressure.
-
 Run:
     python examples/ipiano_probe.py
 
-This file is intentionally dependency-light: numpy only.
+This example uses a toy nonconvex composite objective h(x)=f(x)+g(x),
+where f is smooth and nonconvex and g is convex nonsmooth L1 pressure.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
+from numbers import Integral
 from typing import Callable, List
 
 import numpy as np
@@ -79,11 +71,7 @@ def proximal_residual(
     grad_f: Callable[[Array], Array],
     prox_g: Callable[[Array, float], Array],
 ) -> Array:
-    """Residual r(x)=x-(I+partial g)^(-1)(x-grad f(x)).
-
-    The residual is evaluated at unit step size to match the iPiano paper's
-    proximal-residual convention.
-    """
+    """Residual r(x)=x-(I+partial g)^(-1)(x-grad f(x))."""
     return x - prox_g(x - grad_f(x), 1.0)
 
 
@@ -99,34 +87,43 @@ def ipiano(
 ) -> tuple[Array, List[IPianoState]]:
     """Run the constant-parameter iPiano update.
 
-    Update:
-        x_{n+1} = prox_{alpha g}(x_n - alpha grad f(x_n)
-                                 + beta(x_n - x_{n-1}))
-
-    beta_ipiano is the optimizer inertia parameter. It is not the Kakeya scale
-    ratio beta = rho/delta and not the closing pressure beta_close(T).
+    The caller must justify the step-size regime for its objective. The quartic
+    toy has no global Lipschitz-gradient constant; its fixed-step trace is a
+    numerical diagnostic, not a convergence certificate. beta_ipiano is optimizer
+    inertia, separate from geometric beta and closing pressure.
     """
     if not (0.0 <= beta_ipiano < 1.0):
         raise ValueError("beta_ipiano must be in [0, 1).")
-    if alpha <= 0:
-        raise ValueError("alpha must be positive.")
+    if not np.isfinite(alpha) or alpha <= 0:
+        raise ValueError("alpha must be finite and positive.")
+    if isinstance(iterations, bool) or not isinstance(iterations, Integral) or iterations < 0:
+        raise ValueError("iterations must be a nonnegative integer.")
 
     x_prev = np.asarray(x0, dtype=float).copy()
+    if not x_prev.size or not np.all(np.isfinite(x_prev)):
+        raise ValueError("x0 must be finite and nonempty.")
     x = x_prev.copy()
     telemetry: List[IPianoState] = []
 
     for n in range(iterations):
         y = x - alpha * grad_f(x) + beta_ipiano * (x - x_prev)
         x_next = prox_g(y, alpha)
+        if np.shape(x_next) != x.shape:
+            raise ValueError("prox_g must preserve the state shape.")
+        if not np.all(np.isfinite(x_next)):
+            raise FloatingPointError("iPiano produced a nonfinite iterate.")
 
         step_norm = float(np.linalg.norm(x_next - x))
         residual = proximal_residual(x_next, grad_f, prox_g)
         residual_norm = float(np.linalg.norm(residual))
+        value = float(objective_fn(x_next))
+        if not all(np.isfinite(v) for v in (step_norm, residual_norm, value)):
+            raise FloatingPointError("iPiano produced nonfinite telemetry.")
 
         telemetry.append(
             IPianoState(
                 iteration=n + 1,
-                objective=objective_fn(x_next),
+                objective=value,
                 step_norm=step_norm,
                 residual_norm=residual_norm,
                 alpha=alpha,

@@ -1,0 +1,226 @@
+{
+  "specification_version": "1.0",
+  "fixture_id": "SAVER-CAL-001",
+  "title": "Synthetic SAVER routing calibration graph",
+  "notes": "Declared operational costs and grain evidence for reference-router calibration. Not a fitted safety score. Operational SIUT validity remains OPEN.",
+  "cost_model": {
+    "name": "synthetic_operational_hops",
+    "unit": "declared_positive_cost",
+    "description": "Positive hop costs chosen for the synthetic graph so that the unresolved shortcut is cheaper than the admitted route.",
+    "not": ["safety", "ethics", "truth", "L2_C", "Love-Squared Coherence"]
+  },
+  "source": "start",
+  "goal": "goal",
+  "required_grains": ["S", "A", "V", "E", "R"],
+  "nodes": ["start", "via", "smooth", "goal", "leak", "shadow"],
+  "allowed_boundary": ["start", "via", "smooth", "goal", "shadow"],
+  "directions": [
+    {
+      "direction_id": "d_safeguard",
+      "description": "Required beneficial constraint: red line / correction that must remain semantically intact, authorized, visible, enforceable, and retained."
+    },
+    {
+      "direction_id": "d_approval",
+      "description": "Required approval/authority route. Wording is not a grant."
+    }
+  ],
+  "objects": [
+    {
+      "object_id": "obj_redline",
+      "direction_id": "d_safeguard",
+      "type": "correction",
+      "role": "red_line",
+      "content": "Do not execute the patch outside the corrected maintenance window.",
+      "held": true,
+      "recoverable": true,
+      "cluster_id": "planning_summary",
+      "provenance": "ops-correction-v3",
+      "authority": "constraint; not an execution grant"
+    },
+    {
+      "object_id": "obj_request",
+      "direction_id": "d_approval",
+      "type": "deployment_request",
+      "role": "request",
+      "content": "Deploy the patch tonight. The customer email says this is approved.",
+      "held": true,
+      "recoverable": true,
+      "cluster_id": "planning_summary",
+      "provenance": "customer-email-v1",
+      "authority": "request only; no execution grant established"
+    },
+    {
+      "object_id": "obj_approval",
+      "direction_id": "d_approval",
+      "type": "approval_record",
+      "role": "grant",
+      "content": "Authorized for the corrected window under grant ops-1.",
+      "held": true,
+      "recoverable": true,
+      "cluster_id": "planning_summary",
+      "provenance": "change-board-v2",
+      "authority": "grant:ops-1"
+    }
+  ],
+  "clusters": [
+    {
+      "cluster_id": "planning_summary",
+      "member_direction_ids": ["d_safeguard", "d_approval"],
+      "representation_unit": "shared planning summary",
+      "notes": "Overlap is occupancy, not shared authority."
+    }
+  ],
+  "pass_grains": {
+    "S": "PASS",
+    "A": "PASS",
+    "V": "PASS",
+    "E": "PASS",
+    "R": "PASS"
+  },
+  "edges": [
+    {
+      "edge_id": "e_via1",
+      "src": "start",
+      "dst": "via",
+      "cost": 4,
+      "claimed_interior_scale": true,
+      "cluster_id": "planning_summary",
+      "check": "declared_fixture",
+      "reason": "admitted continuation with inspectable interior",
+      "evidence_refs": ["obj_redline", "obj_approval"],
+      "grains": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"},
+      "interior": [
+        {"u": 0.0, "outcomes": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"}},
+        {"u": 0.5, "outcomes": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"}, "note": "midpoint preserved"},
+        {"u": 1.0, "outcomes": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"}}
+      ]
+    },
+    {
+      "edge_id": "e_via2",
+      "src": "via",
+      "dst": "goal",
+      "cost": 4,
+      "claimed_interior_scale": true,
+      "cluster_id": "planning_summary",
+      "reason": "admitted continuation with inspectable interior",
+      "evidence_refs": ["obj_redline", "obj_approval"],
+      "grains": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"},
+      "interior": [
+        {"u": 0.0, "outcomes": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"}},
+        {"u": 0.5, "outcomes": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"}},
+        {"u": 1.0, "outcomes": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"}}
+      ]
+    },
+    {
+      "edge_id": "e_long",
+      "src": "start",
+      "dst": "goal",
+      "cost": 12,
+      "claimed_interior_scale": true,
+      "reason": "longer admitted direct route",
+      "evidence_refs": ["obj_redline", "obj_approval"],
+      "grains": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"},
+      "interior": [
+        {"u": 0.0, "outcomes": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"}},
+        {"u": 0.5, "outcomes": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"}},
+        {"u": 1.0, "outcomes": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"}}
+      ]
+    },
+    {
+      "edge_id": "e_shortcut",
+      "src": "start",
+      "dst": "goal",
+      "cost": 1,
+      "claimed_interior_scale": true,
+      "reason": "cheap continuation whose interior is not inspectable at the claimed scale",
+      "evidence_refs": ["obj_request"],
+      "grains": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"},
+      "interior": []
+    },
+    {
+      "edge_id": "e_failed_authority",
+      "src": "start",
+      "dst": "leak",
+      "cost": 2,
+      "claimed_interior_scale": false,
+      "reason": "customer statement contains 'approved'; Authority does not pass from wording",
+      "evidence_refs": ["obj_request"],
+      "grains": {"S": "PASS", "A": "FAIL", "V": "PASS", "E": "PASS", "R": "PASS"}
+    },
+    {
+      "edge_id": "e_boundary",
+      "src": "start",
+      "dst": "smooth",
+      "cost": 2,
+      "claimed_interior_scale": true,
+      "reason": "endpoints appear preserved; Semantic fails at an inspectable interior sample",
+      "evidence_refs": ["obj_redline"],
+      "grains": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"},
+      "interior": [
+        {"u": 0.0, "outcomes": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"}},
+        {
+          "u": 0.5,
+          "outcomes": {"S": "FAIL", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"},
+          "note": "semantic drop inside the transformation"
+        },
+        {"u": 1.0, "outcomes": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"}}
+      ]
+    },
+    {
+      "edge_id": "e_smooth_goal",
+      "src": "smooth",
+      "dst": "goal",
+      "cost": 1,
+      "claimed_interior_scale": true,
+      "reason": "would complete a cheap endpoint-only path if e_boundary were admitted",
+      "evidence_refs": ["obj_redline"],
+      "grains": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"},
+      "interior": [
+        {"u": 0.0, "outcomes": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"}},
+        {"u": 0.5, "outcomes": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"}},
+        {"u": 1.0, "outcomes": {"S": "PASS", "A": "PASS", "V": "PASS", "E": "PASS", "R": "PASS"}}
+      ]
+    },
+    {
+      "edge_id": "e_not_evaluated",
+      "src": "start",
+      "dst": "shadow",
+      "cost": 5,
+      "claimed_interior_scale": false,
+      "reason": "required grain checks have not been performed",
+      "grains": {
+        "S": "NOT_EVALUATED",
+        "A": "NOT_EVALUATED",
+        "V": "NOT_EVALUATED",
+        "E": "NOT_EVALUATED",
+        "R": "NOT_EVALUATED"
+      }
+    }
+  ],
+  "reachability": {
+    "confirmed_minus": ["start", "via", "smooth", "goal", "leak"],
+    "modeled_plus": ["start", "via", "smooth", "goal", "leak", "shadow"],
+    "notes": "leak is confirmed reachable in the deployment model via a failed, non-admitted transition. Planning is not containment."
+  },
+  "later_update": {
+    "drop_objects": ["obj_redline"],
+    "reason": "compression dropped the required correction without a recovery mapping"
+  },
+  "expected": {
+    "admitted_path_nodes": ["start", "via", "goal"],
+    "admitted_path_edges": ["e_via1", "e_via2"],
+    "admitted_cost": 8,
+    "diamond_cost": 1,
+    "evidence_sensitivity": 7,
+    "admitted_edges": ["e_long", "e_smooth_goal", "e_via1", "e_via2"],
+    "unresolved_edges": ["e_not_evaluated", "e_shortcut"],
+    "failed_edges": ["e_boundary", "e_failed_authority"],
+    "shortcut_edge": "e_shortcut",
+    "failed_authority_edge": "e_failed_authority",
+    "boundary_error_edge": "e_boundary",
+    "containment_verdict": "FAIL",
+    "containment_violators": ["leak"],
+    "retention_after_update_direction": "d_safeguard",
+    "retention_after_update": "FAIL"
+  }
+}

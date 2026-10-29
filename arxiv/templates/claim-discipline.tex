@@ -1,0 +1,36 @@
+% PeAIce claim-discipline macros (input from manuscript preambles)
+% Status tags for theorem environments and inline use
+
+\newcommand{\PeAIceFormal}{\textsc{Formal}}
+\newcommand{\PeAIceProposed}{\textsc{Proposed}}
+\newcommand{\PeAIceOpen}{\textsc{Open}}
+\newcommand{\PeAIceKnown}{\textsc{Known}}
+\newcommand{\PeAIceNumerics}{\textsc{Numerics}}
+\newcommand{\PeAIceClosedNeg}{\textsc{Closed-Negative}}
+\newcommand{\PeAIceClosedPos}{\textsc{Closed-Positive}}
+\newcommand{\PeAIceAnalogy}{\textsc{Structural Analogy}}
+
+\newcommand{\statusbox}[1]{%
+  \par\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Status.} #1}}\par\medskip
+}
+
+\newcommand{\firewallbox}[1]{%
+  \par\noindent\fbox{\parbox{0.95\linewidth}{\small\textbf{Firewall.} #1}}\par\medskip
+}
+
+\newcommand{\PeAIceOpenTargets}{%
+  The {R}iemann hypothesis and the {C}oleman conjecture remain \PeAIceOpen.
+  No claim in this note constitutes a proof of either statement.
+}
+
+\newcommand{\ZetaFirewall}{%
+  The value $\zeta(0)=-\tfrac12$ is \emph{not} asserted as a term in the
+  {K}akeya proof literature. Any regularization at $s=0$ is second-stage and
+  conditional on a residual operator or counting object constructed after
+  residual control.
+}
+
+\newcommand{\KNSFirewall}{%
+  Typed incidence objects do not locate zeros of $\zeta$.
+  Overlap measures are not placement measures on the critical line.
+}
