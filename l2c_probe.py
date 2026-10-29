@@ -9,8 +9,8 @@ occupancy_fidelity().
 Canonical definitions:
 
     L²_C(psi,t) = || P_C exp(-i t H_T) psi ||²
-    h           = || (I - P_C) H_T P_C ||
-    beta_C      = Delta / (Delta + h + eps)
+    ell_H           = || (I - P_C) H_T P_C ||
+    beta_C      = Delta / (Delta + ell_H + eps)
 
 This file is a finite-dimensional analytic probe. It does not assert a final
 infinite-dimensional spectral identification with zeta zeros.
@@ -35,17 +35,22 @@ class L2CReport:
 
     dimension: int
     protected_rank: int
-    leakage_h: float
+    leakage_ell_H: float
     spectral_gap_delta: float
     beta_c: float
     target_energy: float
     tolerance_delta: float
 
+    @property
+    def leakage_h(self) -> float:
+        """Deprecated read alias for leakage_ell_H; never evaluator h_eval."""
+        return self.leakage_ell_H
+
     def as_dict(self) -> Dict[str, float]:
         return {
             "dimension": float(self.dimension),
             "protected_rank": float(self.protected_rank),
-            "leakage_h": self.leakage_h,
+            "leakage_ell_H": self.leakage_ell_H,
             "spectral_gap_delta": self.spectral_gap_delta,
             "beta_c": self.beta_c,
             "target_energy": self.target_energy,
@@ -143,7 +148,7 @@ class L2CProbe:
         return (I - P) @ self.H @ P
 
     def leakage_norm(self, ord: Optional[int] = 2) -> float:
-        """Return h = ||(I-P_C) H P_C||."""
+        """Return ell_H = ||(I-P_C) H P_C||."""
         return float(la.norm(self.leakage_operator(), ord=ord))
 
     def spectral_gap(self) -> float:
@@ -162,10 +167,10 @@ class L2CProbe:
         return float(np.min(distances)) if distances.size else 0.0
 
     def beta_coherence(self) -> float:
-        """Return beta_C = Delta / (Delta + h + eps)."""
+        """Return beta_C = Delta / (Delta + ell_H + eps)."""
         gap = self.spectral_gap()
-        h = self.leakage_norm()
-        return float(gap / (gap + h + self.eps))
+        ell_H = self.leakage_norm()
+        return float(gap / (gap + ell_H + self.eps))
 
     def evolve(self, psi: ArrayLike, t: float) -> np.ndarray:
         """Return exp(-itH) psi in the restricted sector."""
@@ -204,7 +209,7 @@ class L2CProbe:
         return L2CReport(
             dimension=self.dimension,
             protected_rank=self.protected_rank(),
-            leakage_h=self.leakage_norm(),
+            leakage_ell_H=self.leakage_norm(),
             spectral_gap_delta=self.spectral_gap(),
             beta_c=self.beta_coherence(),
             target_energy=self.target_energy,

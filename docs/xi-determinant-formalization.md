@@ -1,10 +1,18 @@
 # Xi Determinant Formalization — Step 1 / Step 2
 
-**Repo:** KakeyaLogic — Excellence Engine v3  
-**Companion:** `docs/spectral-determinism.md`, `docs/spectral-equivalence-target.md`, `docs/l2-spectral-operator.md`  
-**Status:** 🟡 proof-lane formalization · 🟢 research active  
-**Core objects:** ζ, ξ, Ξ, D_A, μ_off, self-adjointness, determinant identity  
+**Repo:** KakeyaLogic — Excellence Engine v3
+**Companion:** `docs/spectral-determinism.md`, `docs/spectral-equivalence-target.md`, `docs/l2-spectral-operator.md`
+**Status:** CONDITIONAL CRITERION · operator construction OPEN · historical square-difference realization CLOSED-NEGATIVE
+**Core objects:** ζ, ξ, Ξ, D_A, μ_off, self-adjointness, determinant identity
 **Canon flag:** Gödel → h
+
+> **Current scope, reviewed 29 October 2026.** This note states a conditional
+> determinant criterion, not a reopened construction lane. The square-difference
+> realization is CLOSED-NEGATIVE under V6.4.3, and the bounded WP5b lane is
+> CLOSED-NEGATIVE under V6.5. The controlling relocation is
+> [prime-carrying trace architecture](prime-carrying-trace-architecture.md), with
+> [spectral-equivalence closure](spectral-equivalence-target.md). A new Dirac lift
+> must independently meet those counting, domain, and arithmetic obligations.
 
 ## 0. Purpose
 
@@ -104,7 +112,12 @@ This should be read as an equality of entire functions after regularization, or 
 
 with multiplicity.
 
-The source support for using determinant language is the standard spectral determinant principle: eigenvalues of an operator are recovered as zeros of its determinant; for flows the spectral condition is written as `det(s-A)=0`; determinants are preferred over traces because traces may diverge at the spectral point while the determinant vanishes there and can remain analytic nearby.
+The finite-dimensional determinant principle motivates this target. In infinite
+dimensions, compact resolvent alone does not define a zeta determinant: a spectral
+cut, meromorphic continuation, regularity at the determinant parameter, and the
+zero-divisor property must be established for the chosen realization. A signed
+self-adjoint spectrum needs explicit branch conventions. No regularization is
+supplied by this note.
 
 ---
 
@@ -152,7 +165,13 @@ or, depending on normalization,
 L^2_{Φ,K}-\frac14I=B_{Φ,K}^{2}.
 ```
 
-Then the squared determinant relation may be treated as a consequence of the Dirac-level identity, not the primary proof object.
+Squaring is not automatically a determinant identity. For a symmetric signed
+spectrum, the pair +γ and -γ gives B² an eigenvalue γ² of twice the individual
+multiplicity. Even in finite dimensions det(B²-z²I) is proportional to
+det(B-zI)det(B+zI), so an even Dirac determinant gives a squared zero divisor.
+Regularized products can require further normalization. A positive-spectrum
+restriction or another justified multiplicity prescription is owed before any
+squared determinant can be derived.
 
 **Rule:** prove the linear `z` determinant before relying on the `z²+1/4` determinant.
 
@@ -225,7 +244,10 @@ Assume:
 D_B(z)=\det_ζ(B_{Φ,K}-zI)
 ```
 
-is well-defined as an entire function up to a nonzero normalization factor.
+is well-defined as an entire function up to a nowhere-zero entire factor, and
+its zeros are exactly the discrete eigenvalues with their spectral multiplicities.
+This zero-divisor property is an explicit hypothesis, not a consequence of
+self-adjointness alone.
 
 3. There exists `C≠0` such that
 
@@ -247,7 +269,7 @@ Since `B_{Φ,K}` is self-adjoint, its spectrum is real. The zeros of the ζ-regu
 
 ## 6. What remains open
 
-The formal lane is viable, but the proof remains open until the following obligations are closed:
+The abstract criterion remains conditional. Any new realization owes:
 
 ```txt
 XD-1. Define H_{Φ,K} rigorously.
@@ -304,7 +326,7 @@ spectral determinant identity second
 ξ → Ξ coordinate transform:        YES
 Ξ as spectral target:              YES
 Linear determinant target:         FORMALIZED
-Squared determinant target:        SECONDARY / DERIVED
+Squared determinant target:        SECONDARY / MULTIPLICITY DERIVATION OWED
 Self-adjoint operator built:        OPEN
 D_B(z)=CΞ(z) proved:                OPEN
 μ_off=0 derived:                   TARGET
@@ -320,3 +342,13 @@ B_{Φ,K} self-adjoint
 → μ_off=0
 → Re(ρ)=1/2
 ```
+
+## Sources and rejection conditions
+
+The completion and reflection formulas are standard background:
+[NIST DLMF §25.4](https://dlmf.nist.gov/25.4), with the zero-location question in
+[§25.10](https://dlmf.nist.gov/25.10). The determinant identity is a proposed
+construction obligation. Reject a candidate if it has a mismatched zero divisor,
+uncontrolled spectral cut, incorrect multiplicities, incompatible counting, or
+requires insertion of the desired zero ordinates. RH and Coleman remain OPEN;
+`h_eval < 1` remains active.
