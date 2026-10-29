@@ -19,6 +19,7 @@ infinite-dimensional spectral identification with zeta zeros.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from numbers import Integral
 from typing import Any, Dict, Iterable, Optional, Tuple
 
 import numpy as np
@@ -98,15 +99,27 @@ class L2CProbe:
         self.delta = float(delta)
         self.eps = float(eps)
         self.max_rank = max_rank
+        if not np.isfinite(self.target_energy) or not np.isfinite(self.delta) or self.delta < 0:
+            raise ValueError("target_energy must be finite and delta finite and nonnegative.")
+        if not np.isfinite(self.eps) or self.eps <= 0:
+            raise ValueError("eps must be finite and positive.")
 
         H = ham.matrix_restricted()
         self.H = H.toarray() if sparse.issparse(H) else np.asarray(H, dtype=complex)
+        if self.H.ndim != 2 or self.H.shape[0] != self.H.shape[1] or not self.H.size:
+            raise ValueError("Restricted Hamiltonian must be a nonempty square matrix.")
+        if not np.all(np.isfinite(self.H)):
+            raise ValueError("Restricted Hamiltonian must be finite.")
         self.dimension = int(self.H.shape[0])
-        if self.H.shape[0] != self.H.shape[1]:
-            raise ValueError("Restricted Hamiltonian must be square.")
+        if max_rank is not None and (
+            isinstance(max_rank, bool) or not isinstance(max_rank, Integral)
+            or not 0 <= max_rank <= self.dimension
+        ):
+            raise ValueError("max_rank must be an integer between zero and dimension.")
 
-        # Symmetrize at numerical precision. The source Hamiltonians are
-        # constructed as mat + mat.conj().T, but this keeps the probe robust.
+        if not np.allclose(self.H, self.H.conj().T, rtol=0.0, atol=1e-10):
+            raise ValueError("Restricted Hamiltonian must be Hermitian.")
+        # Remove numerical roundoff only after checking the model assumption.
         self.H = 0.5 * (self.H + self.H.conj().T)
 
         self.evals, self.evecs = la.eigh(self.H)
@@ -116,13 +129,18 @@ class L2CProbe:
         P = projector.toarray() if sparse.issparse(projector) else np.asarray(projector, dtype=complex)
         if P.shape != self.H.shape:
             raise ValueError("Projector shape must match restricted Hamiltonian shape.")
-        return 0.5 * (P + P.conj().T)
+        if not np.all(np.isfinite(P)) or not np.allclose(P, P.conj().T, rtol=0.0, atol=1e-10):
+            raise ValueError("Projector must be finite and Hermitian.")
+        P = 0.5 * (P + P.conj().T)
+        if not np.allclose(P @ P, P, rtol=0.0, atol=1e-10):
+            raise ValueError("Projector must be idempotent.")
+        return P
 
     def protected_indices(self) -> np.ndarray:
         """Return eigenvector indices selected as protected."""
         distances = np.abs(self.evals - self.target_energy)
         if self.max_rank is not None:
-            order = np.argsort(distances)
+            order = np.lexsort((-self.evals, distances))
             return order[: int(self.max_rank)]
         return np.flatnonzero(distances <= self.delta)
 
@@ -175,6 +193,10 @@ class L2CProbe:
     def evolve(self, psi: ArrayLike, t: float) -> np.ndarray:
         """Return exp(-itH) psi in the restricted sector."""
         vec = self._column(psi)
+        if vec.shape[0] != self.dimension:
+            raise ValueError("State dimension must match the Hamiltonian.")
+        if not np.isfinite(t):
+            raise ValueError("Evolution time must be finite.")
         U = la.expm(-1j * self.H * float(t))
         return U @ vec
 
@@ -183,7 +205,7 @@ class L2CProbe:
         P = self.protected_projector()
         evolved = self.evolve(psi, t)
         retained = P @ evolved
-        return float(np.real(retained.conj().T @ retained))
+        return float(np.real(retained.conj().T @ retained).item())
 
     def love_squared_curve(self, psi: ArrayLike, times: Iterable[float]) -> np.ndarray:
         """Return L²_C over a sequence of times."""
@@ -220,9 +242,11 @@ class L2CProbe:
     def _column(psi: ArrayLike) -> np.ndarray:
         arr = psi.toarray() if sparse.issparse(psi) else np.asarray(psi, dtype=complex)
         arr = arr.reshape((-1, 1))
-        norm = np.sqrt(np.real(arr.conj().T @ arr))[0, 0]
-        if norm == 0:
-            raise ValueError("State vector must be nonzero.")
+        if not arr.size or not np.all(np.isfinite(arr)):
+            raise ValueError("State vector must be finite and nonempty.")
+        norm = la.norm(arr)
+        if not np.isfinite(norm) or norm == 0:
+            raise ValueError("State vector must have finite nonzero norm.")
         return arr / norm
 
     @staticmethod

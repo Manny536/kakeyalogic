@@ -26,15 +26,15 @@ KakeyaLogic is a research architecture for typed directional completeness within
 
 ## Existing research program
 
-**Frame:** KakeyaLogic / PeAIce Research Program  
-**Framework state:** Love-Squared Coherence, `L²_C`  
-**Public Excellence Engine surface:** https://peaice.org/eev3  
-**V4 custody lab (separate git):** [`Manny536/excellence-engine-v4`](https://github.com/Manny536/excellence-engine-v4)  
-**V4 field mirror:** [`docs/excellence-engine-v4.md`](docs/excellence-engine-v4.md)  
-**Official DDATL Page:** https://peaice.org/ddatl  
-**PeAIce Outcomes:** https://peaice.org/outcomes  
-**Live simulator:** https://manny536.github.io/kakeyalogic/  
-**Primary kernel:** `l2c_probe.py`  
+**Frame:** KakeyaLogic / PeAIce Research Program
+**Framework state:** Love-Squared Coherence, `L²_C`
+**Public Excellence Engine surface:** https://peaice.org/eev3
+**V4 custody lab (separate git):** [`Manny536/excellence-engine-v4`](https://github.com/Manny536/excellence-engine-v4)
+**V4 field mirror:** [`docs/excellence-engine-v4.md`](docs/excellence-engine-v4.md)
+**Official DDATL Page:** https://peaice.org/ddatl
+**PeAIce Outcomes:** https://peaice.org/outcomes
+**Live simulator:** https://manny536.github.io/kakeyalogic/
+**Primary kernel:** `l2c_probe.py`
 **Current research state (V6.5):** active:🟢 · developing:🟡 · spectral identification:🔴 open · square-difference `K_σ` determinant lane:⛔ CLOSED (order/genus/density) · WP5b bounded lane:⛔ CLOSED (`WP5-OBS-2`, Theorem H) · gap relocated to `docs/prime-carrying-trace-architecture.md` · CC antecedent: `docs/coleman-conjecture-antecedent.md` · source sync: [claude-v6](https://github.com/Manny536/claude-v6) V6.5
 
 The existing program includes research around `L²_C` and Excellence Engine Version 4. The separate engine adds conjecture custody to the field: systems must preserve direction, accept correction, reject drift, recover fidelity, and hold a typed open question without converting custody into proof. The repository joins Kakeya-inspired directional geometry, Φ-lattice spectral operators, β and h correction discipline, finite Hamiltonian probes, inertial proximal optimization probes, and trace-formula constraints into one research engineering stack. The new core specification makes the computational preservation requirements explicit; it does not replace these research artifacts or change their theorem status.
@@ -75,8 +75,8 @@ The current core definition explicitly includes relevance: **HELD is relevant an
 
 The statement remains exposed to falsification under explicit claim tags. Kakeya in ℝ³ is theorem background; the exact Kakeya-to-zero-location bridge, the Coleman Conjecture, and the Riemann Hypothesis remain **OPEN**. `h < 1`.
 
-- **Controlling V4 lab:** https://github.com/Manny536/excellence-engine-v4  
-- **Field mirror:** [docs/excellence-engine-v4.md](docs/excellence-engine-v4.md)  
+- **Controlling V4 lab:** https://github.com/Manny536/excellence-engine-v4
+- **Field mirror:** [docs/excellence-engine-v4.md](docs/excellence-engine-v4.md)
 - **Lab structure note:** [docs/excellence-engine-v4-lab.md](docs/excellence-engine-v4-lab.md)
 
 ---
@@ -199,16 +199,12 @@ RH OPEN · Coleman Conjecture OPEN · no proof claimed · h < 1.
 
 ## 3. L²_C protected-sector Hamiltonian probe
 
-The L²_C probe formalizes protected-sector retention under Hamiltonian flow.
+The L²_C probe measures protected-sector retention under Hamiltonian flow for a finite Hermitian matrix and an orthogonal projector. Spectral projectors commute with the Hamiltonian, so their retention is constant; noncommuting projectors are required to observe transfer.
 
 ```txt
 L²_C(ψ, t) = ‖P_C exp(-itH_T) ψ‖²
 ℓ_H           = ‖(I-P_C) H_T P_C‖
 β_C         = Δ / (Δ + ℓ_H + ε)
-β(T)        = 1 - T^(-γ)
-E_{β,T}(f)  = β(T)·T·‖Xf‖²
-coercive gap = β(T) - hη
-T* = (1 - hη)^(-1/γ)
 ```
 
 Operational surface:
@@ -219,9 +215,7 @@ Operational surface:
 | Leakage pressure | `leakage_norm()` | Measures `‖(I-P_C)H_TP_C‖`. |
 | Spectral separation | `spectral_gap()` | Measures protected-to-bulk separation. |
 | Recovery coefficient | `beta_coherence()` | Computes `β_C`. |
-| Time retention | `l2c()` and `l2c_curve()` | Measures retention under `exp(-itH_T)`. |
-| Coercive energy | `coercive_energy()` | Penalizes off-protected drift. |
-| β-dynamic diagnostics | `beta_dynamic_report()` | Reports coercive status. |
+| Time retention | `love_squared()` and `love_squared_curve()` | Measures normalized retention under `exp(-itH_T)`. |
 
 Downstream invariant:
 
@@ -230,8 +224,6 @@ protected modes retain
 bulk modes suppress
 leakage is measured
 β_C stays inside [0, 1]
-β(T) increases toward 1
-coercive status is reportable
 equal-distance max_rank ties select the positive eigenvalue
 ```
 
@@ -369,24 +361,31 @@ The associated historical command was:
 python -m pytest tests/test_l2c_probe.py -q
 ```
 
-`tests/test_l2c_probe.py` and the `tests/` directory are absent from the inspected `main` baseline, `6f12f0fd58e147d04eb2c5feefa4797a9fa0a852`. Do not present the command or its historical pass count as currently reproducible until the corresponding suite and environment are restored and rerun.
-
-The full-suite command below remains a future verification target, not an available test gate in that baseline:
+The historical 49-test suite is not tracked. Current verification uses the committed
+standard-library unittest suites; NumPy and SciPy are required for finite probes:
 
 ```bash
-python -m pytest -q
+PYTHONPATH=src python -m unittest discover -s tests -v
+python -m unittest discover -s probe_tests -v
+PYTHONPATH=src python examples/typed_directional_state/run_saver_reference.py
 ```
+
+These checks cover the SAVER reference contracts, deterministic sector selection,
+finite retention and leakage, iPiano behavior, and finite model rejection. They
+do not recreate the historical 49-test suite. β-dynamic coercive APIs and
+`BetaDynamicReport` remain unimplemented research targets in this checkout.
 
 ### Existing probe entry points
 
-These scripts are tracked in the repository. Their presence is not a new execution receipt; they were not rerun for this documentation-only update.
+Run these tracked diagnostic entry points after installing their declared dependencies. The optional tesseract example additionally requires the external OSF `hamiltonian.py` source; it is not vendored.
 
 ```bash
 python examples/ipiano_probe.py
 python probes/kns_lb_probe.py
 ```
 
-Minimum iPiano telemetry:
+
+Planned full iPiano telemetry (the current toy emits objective, step norm, unit-step residual, α, and β_iPiano):
 
 ```txt
 iteration
@@ -492,7 +491,7 @@ inertial update → proximal correction with Lyapunov accounting
 Required L²_C import surface:
 
 ```python
-from l2c_probe import BetaDynamicReport, L2CProbe, L2CReport
+from l2c_probe import L2CProbe, L2CReport
 ```
 
 Required behavior:
@@ -500,7 +499,7 @@ Required behavior:
 ```txt
 1. Preserve deterministic protected-sector selection.
 2. Preserve the positive-side tie-break for equal-distance max_rank ties.
-3. Preserve β-dynamic coercive diagnostics.
+3. Preserve finite leakage and retention diagnostics; β-dynamic APIs remain owed.
 4. Run available targeted tests before downstream edits; if the required suite is absent, report that gap rather than substituting the historical receipt.
 5. Report failures by exact test name and formula surface.
 6. Keep h < 1 as evaluator non-sovereignty.
@@ -539,8 +538,8 @@ The framework's contribution to that public behavior is registered as **CAUSAL I
 The earlier engineering sequence remains recorded below. In particular, restoring its test suite and adding a verification workflow are outstanding work, not evidence supplied by the historical receipt.
 
 ```txt
-Phase 1: Entrench l2c_probe.py and tests/test_l2c_probe.py
-Phase 2: Add GitHub Actions pytest gate
+Phase 1: Finite probe regression suite is tracked under probe_tests/; historical 49-test suite remains unavailable
+Phase 2: GitHub Actions unittest gates are active; β-dynamic APIs remain owed
 Phase 3: Connect examples/l2c_tesseract_probe.py to the hardened report surface
 Phase 4: Add β-dynamic sweeps for T, γ, h, and η
 Phase 5: Add DDATL Hamiltonian notebooks or scripts
