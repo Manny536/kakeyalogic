@@ -89,6 +89,7 @@ Custody, epistemic standing, activation, approval, and lifecycle remain separate
 | [Typed directional object](typed-directional-object.md) | What must an object and its relationships record? |
 | [Transformation contracts](compression-overlap-refinement.md) | What can change, and what must survive? |
 | [Directional completeness](directional-completeness.md) | How are required directions and per-direction checks assessed? |
+| [Grain-dependent recognition](grain-dependent-recognition.md) | When does finer evidence preserve recognition, and why does sticky custody matter? |
 | [Five-grain routing](five-grain-routing.md) | How do SAVER grains gate transitions and expose Geodecis routing? |
 | [Geometry-to-state interface](../interfaces/geometry-to-relational-state.md) | What connects the geometric and computational layers? |
 | [Custody interface](../interfaces/excellence-engine-v4.md) | How does the field exchange relevant retained objects with the engine? |
