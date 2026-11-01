@@ -14,7 +14,8 @@ from __future__ import annotations
 
 import numpy as np
 
-from hamiltonian import Tesseract1P
+# Optional external OSF source; see provenance above. Keep other imports checked.
+from hamiltonian import Tesseract1P  # pylint: disable=import-error
 from l2c_probe import L2CProbe
 
 
