@@ -23,6 +23,9 @@ jobs:
           python -m pip install --no-deps --target "$RUNNER_TEMP/saver-installed" "$RUNNER_TEMP"/saver-wheels/*.whl
           cd "$RUNNER_TEMP"
           PYTHONPATH="$RUNNER_TEMP/saver-installed" python -c 'from kakeyalogic.calibration import load_fixture; from kakeyalogic.routing import KakeyaRouter; f = load_fixture(); r = KakeyaRouter(f.state).run(); assert r.geodecis.admitted.cost == 8; print(f.fixture_id, r.selected_nodes)'
+          PYTHONPATH="$RUNNER_TEMP/saver-installed" "$RUNNER_TEMP/saver-installed/bin/frontier-math-rework" prove '(P -> Q) -> (~Q -> ~P)' --out contraposition.json
+          PYTHONPATH="$RUNNER_TEMP/saver-installed" "$RUNNER_TEMP/saver-installed/bin/frontier-math-rework" check contraposition.json --expect '(P -> Q) -> (~Q -> ~P)' --kind logic
+          PYTHONPATH="$RUNNER_TEMP/saver-installed" "$RUNNER_TEMP/saver-installed/bin/frontier-math-rework" solve '2*x+y=7;x-y=2'
 
   hamiltonian-notation:
     name: Finite probe regression

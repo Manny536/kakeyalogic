@@ -5,6 +5,9 @@ description = "KakeyaLogic typed-directional field and SAVER grain routing refer
 requires-python = ">=3.9"
 readme = "README.md"
 
+[project.scripts]
+frontier-math-rework = "kakeyalogic.prover.__main__:main"
+
 [build-system]
 requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
