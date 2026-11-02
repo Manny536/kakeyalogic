@@ -12,9 +12,10 @@ Source provenance:
 
 from __future__ import annotations
 
+from importlib import import_module
+
 import numpy as np
 
-from hamiltonian import Tesseract1P
 from l2c_probe import L2CProbe
 
 
@@ -30,9 +31,10 @@ def alternating_hot_params(ncoeff: int = 32):
 
 
 def main() -> None:
+    tesseract_1p = import_module("hamiltonian").Tesseract1P
     L = 2
     vs, vps = alternating_hot_params()
-    ham = Tesseract1P(vs=vs, vps=vps, L=L)
+    ham = tesseract_1p(vs=vs, vps=vps, L=L)
 
     probe = L2CProbe(ham, target_energy=0.0, delta=1e-8, max_rank=2)
     report = probe.report()
