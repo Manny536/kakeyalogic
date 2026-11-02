@@ -130,4 +130,6 @@ Riemann Hypothesis OPEN; Coleman Conjecture OPEN; operational SIUT validity OPEN
 
 The [finite-grain Del/curl note](../operators/finite-grain-del.md) (`KL-SIUS-OP-001`) is separately PROPOSED. Registration of the definition does not validate the operator or deployment behavior.
 
+[Internal protected tokens protocol](internal-protected-tokens-protocol.md) — `KL-SIUS-PTP-001`, draft internal meaning/use preservation and causal admission contract; runtime enforcement and evaluation pending.
+
 [GIUS external-case route](gius-external-case-route.md) — non-validating downstream case; SIUS definition unchanged.
