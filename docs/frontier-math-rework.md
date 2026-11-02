@@ -175,7 +175,7 @@ preserve the timestamps he shared.
 
 | Reference | Starting point |
 |---|---|
-| [Lean study video](https://www.youtube.com/watch?v=I2zaPoj3G50&t=300s) | 5:00 |
+| [How Mathematicians can Get Started with Lean](https://www.youtube.com/watch?v=I2zaPoj3G50&t=300s) | 5:00 |
 | [Is This the End of Handwritten Math? Introducing Lean](https://www.youtube.com/watch?v=0QZI_m8WZ0Q) | Beginning |
 | [I tried Lean and instantly got PhD in Math](https://www.youtube.com/watch?v=l9hUGoN6BLM&t=2116s) | 35:16 |
 
@@ -183,7 +183,12 @@ The second video's accompanying source repository is
 [AnkYog/LeanTutorial1](https://github.com/AnkYog/LeanTutorial1). Its README links
 to that video and identifies `LeanTutorial.lean` as the example source.
 
-These are recorded study references. The video pages/captions could not be
-retrieved during this update, so technical takeaways from the videos remain
-for a later source review. The last two titles are retained as Manuel supplied
-them; the first uses a descriptive label.
+English auto-generated speech captions have now been reviewed directly from
+YouTube. See the [timestamped quotations and engineering interpretation](research/frontier-math-rework-video-notes.md)
+and the [source-provenance record](research/sources/frontier-math-rework-video-quotes.json).
+The starting points above preserve the shared URL timestamps; the reviewed
+quotations have their own independently selected cue locations.
+
+Manuel’s stated motivation is to reduce setup difficulty while retaining the
+power of mechanically checked mathematics. The research references do not
+attribute a commentator’s views about Lean’s creators to Manuel.

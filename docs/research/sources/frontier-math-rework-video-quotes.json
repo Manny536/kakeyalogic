@@ -1,0 +1,133 @@
+{
+  "schema": "frontier-math-rework/video-quotes-v1",
+  "excerpt_document": "../frontier-math-rework-video-notes.md",
+  "timing_basis": "First and last containing caption cues; not word-aligned audio timestamps.",
+  "text_normalization": "Whitespace collapsed between caption cues; quoted words, case, and punctuation retained.",
+  "sources": [
+    {
+      "video_id": "l9hUGoN6BLM",
+      "source_url": "https://www.youtube.com/watch?v=l9hUGoN6BLM",
+      "retrieved_on": "2026-11-02",
+      "caption_track": {
+        "language": "English (auto-generated)",
+        "language_code": "en",
+        "is_generated": true
+      },
+      "excluded_tracks": [
+        "English - Twitch Chat - Simple"
+      ],
+      "caption_segments": 4240,
+      "caption_first_start_seconds": 2.399,
+      "caption_last_end_seconds": 11711.12,
+      "caption_snapshot_sha256": "3571a6177c9f906c3c457b401c74cc5736a475433ba6898235e38b443b7a9fb8",
+      "excerpts": [
+        {
+          "id": "TS-BUILD",
+          "caption_start_seconds": 2116.96,
+          "caption_end_seconds": 2123.68,
+          "display_time": "35:16",
+          "url": "https://www.youtube.com/watch?v=l9hUGoN6BLM&t=2116s",
+          "word_count": 7,
+          "quote_sha256": "a838bd0365168274a6f4ad2baf633d00614394ba5e4632accee0de7596ccbd87"
+        },
+        {
+          "id": "TS-DOC",
+          "caption_start_seconds": 10926.479,
+          "caption_end_seconds": 10932.72,
+          "display_time": "3:02:06",
+          "url": "https://www.youtube.com/watch?v=l9hUGoN6BLM&t=10926s",
+          "word_count": 4,
+          "quote_sha256": "e581532828760b2d44a4308a8854db3cbd6f5fde1660c7dfe53d809f83d7d91a"
+        },
+        {
+          "id": "TS-TYPE",
+          "caption_start_seconds": 11400.479,
+          "caption_end_seconds": 11410.0,
+          "display_time": "3:10:00",
+          "url": "https://www.youtube.com/watch?v=l9hUGoN6BLM&t=11400s",
+          "word_count": 8,
+          "quote_sha256": "b4e1071396e67e46fe159e7652442beb9eb082f913f1070235eb8f1ee090a151"
+        },
+        {
+          "id": "TS-AUTO",
+          "caption_start_seconds": 11686.239,
+          "caption_end_seconds": 11693.439,
+          "display_time": "3:14:46",
+          "url": "https://www.youtube.com/watch?v=l9hUGoN6BLM&t=11686s",
+          "word_count": 6,
+          "quote_sha256": "10c9ff0295c4e3a1dbf9be7751e605977c168249e3480f837a5bd069d15638ea"
+        }
+      ]
+    },
+    {
+      "video_id": "I2zaPoj3G50",
+      "source_url": "https://www.youtube.com/watch?v=I2zaPoj3G50",
+      "retrieved_on": "2026-11-02",
+      "caption_track": {
+        "language": "English (auto-generated)",
+        "language_code": "en",
+        "is_generated": true
+      },
+      "excluded_tracks": [],
+      "caption_segments": 770,
+      "caption_first_start_seconds": 0.799,
+      "caption_last_end_seconds": 1908.08,
+      "caption_snapshot_sha256": "d29518e9e8d8c86a71fda7c44a4293340588d699a4a5ec2354f8ccaa4cfee2d2",
+      "excerpts": [
+        {
+          "id": "AK-GOAL",
+          "caption_start_seconds": 433.919,
+          "caption_end_seconds": 442.52,
+          "display_time": "7:13",
+          "url": "https://www.youtube.com/watch?v=I2zaPoj3G50&t=433s",
+          "word_count": 10,
+          "quote_sha256": "27763126a40ef4779d52cb7a350d29313b498271194412306ae576804f5cdc86"
+        },
+        {
+          "id": "AK-CHECK",
+          "caption_start_seconds": 1350.2,
+          "caption_end_seconds": 1354.44,
+          "display_time": "22:30",
+          "url": "https://www.youtube.com/watch?v=I2zaPoj3G50&t=1350s",
+          "word_count": 5,
+          "quote_sha256": "fd526b936ecd96ddb31f9a58467157d18bea32439c9c391b3ab4582e7f5e122d"
+        }
+      ]
+    },
+    {
+      "video_id": "0QZI_m8WZ0Q",
+      "source_url": "https://www.youtube.com/watch?v=0QZI_m8WZ0Q",
+      "retrieved_on": "2026-11-02",
+      "caption_track": {
+        "language": "English (auto-generated)",
+        "language_code": "en",
+        "is_generated": true
+      },
+      "excluded_tracks": [],
+      "caption_segments": 648,
+      "caption_first_start_seconds": 0.4,
+      "caption_last_end_seconds": 2076.159,
+      "caption_snapshot_sha256": "bf8cc4cf10760c755d517165a4174062ff354b20346d26c5346aceaa9a16f19e",
+      "excerpts": [
+        {
+          "id": "AY-TYPES",
+          "caption_start_seconds": 154.48,
+          "caption_end_seconds": 163.36,
+          "display_time": "2:34",
+          "url": "https://www.youtube.com/watch?v=0QZI_m8WZ0Q&t=154s",
+          "word_count": 9,
+          "quote_sha256": "fd6ce70691625d2ca0f883bac34413f1a127fcc57bf58154a94ee611aaaab5d6"
+        },
+        {
+          "id": "AY-TACTIC",
+          "caption_start_seconds": 216.159,
+          "caption_end_seconds": 226.08,
+          "display_time": "3:36",
+          "url": "https://www.youtube.com/watch?v=0QZI_m8WZ0Q&t=216s",
+          "word_count": 13,
+          "quote_sha256": "498ac7456d62ff5df2b4ddb06084b775e8d11cd1537f67925f29cbd8eeccc36c"
+        }
+      ]
+    }
+  ]
+}
