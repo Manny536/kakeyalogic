@@ -1,4 +1,4 @@
-"""Execute and independently verify the first Love Labs Prover examples."""
+"""Execute and independently verify the first Frontier Math Rework examples."""
 
 import json
 

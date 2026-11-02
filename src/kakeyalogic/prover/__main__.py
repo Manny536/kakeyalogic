@@ -32,11 +32,11 @@ def _describe(receipt):
                 print("  + " + parameter + " * (" + ", ".join(vector) + ")")
         else:
             print("Replayed row operations establish 0 = 1; no rational solution.")
-    print("Certificate checked by Love Labs Prover 0.1.")
+    print("Certificate checked by Frontier Math Rework.")
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="Love Labs Prover — independent exact proof checker and solver")
+    parser = argparse.ArgumentParser(description="Frontier Math Rework — independent exact proof checker and solver")
     commands = parser.add_subparsers(dest="command", required=True)
     for command, help_text in (("prove", "Classical propositional theorem proving"),
                                ("identity", "Polynomial identities over Q"),

@@ -6,7 +6,9 @@ import json
 from . import kernel
 from .syntax import BudgetExceeded, InvalidProblem
 
-SCHEMA = "love-labs-prover/0.1"
+SCHEMA = "frontier-math-rework/certificate-v1"
+# Retain replay of previously saved records; new output uses the current name.
+_PREVIOUS_SCHEMA = "love-labs-prover/0.1"
 
 
 def fingerprint(problem):
@@ -57,7 +59,7 @@ def verify(receipt, *, expected_problem=None):
         required = {"schema", "problem", "problem_sha256", "status", "certificate", "statistics"}
         if not required.issubset(receipt) or not set(receipt).issubset(required | {"reason"}):
             raise InvalidProblem("Malformed proof receipt.")
-        if receipt["schema"] != SCHEMA:
+        if receipt["schema"] not in (SCHEMA, _PREVIOUS_SCHEMA):
             raise InvalidProblem("Unsupported proof receipt version.")
         problem = receipt["problem"]
         kernel.validate_problem(problem)

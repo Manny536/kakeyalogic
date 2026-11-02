@@ -1,9 +1,9 @@
-# Love Labs Prover 0.1
+# Frontier Math Rework
 
-Love Labs LCA's executable mathematics prover and solver, with an independent
-Python certificate checker. This replaces the Lean-oriented application idea
-with our own bounded proof language, search engine, exact solver, and replay
-format. It runs locally with Python 3.9 or later and no runtime dependencies.
+An executable mathematics prover and solver with an independent Python
+certificate checker, our own bounded proof language, search engine, exact
+solver, and replay format. It runs locally with Python 3.9 or later and no
+runtime dependencies.
 
 ## Implemented mathematics
 
@@ -14,7 +14,7 @@ format. It runs locally with Python 3.9 or later and no runtime dependencies.
 | `solve` | Affine equations over the rational field, separated by semicolons | Reversible row operations establishing a unique solution, a complete parametric family, or inconsistency |
 | `check` | A saved versioned JSON receipt | Independent replay against its exact problem, assumptions, and declared variables |
 
-This release is a terminal application and Python API. Its supported language
+The application provides a terminal interface and Python API. Its supported language
 is finite propositional logic and rational polynomial/linear algebra. Predicate
 quantifiers, induction, inequalities, transcendental functions, general nonlinear
 equation solving, and analysis require further kernel rules and solvers.
@@ -27,14 +27,14 @@ From a checkout:
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -e .
-love-prover prove '(P -> Q) -> (~Q -> ~P)' --out contraposition.json
-love-prover check contraposition.json --expect '(P -> Q) -> (~Q -> ~P)' --kind logic
-love-prover prove 'Q' --given 'P' --given 'P -> Q'
-love-prover identity '(x+y)^2 = x^2 + 2*x*y + y^2'
-love-prover identity '(x+y)^2 = x^2 + y^2'
-love-prover solve '2*x+y=7; x-y=2'
-love-prover solve 'x+2*y-z=3' --variables x y z
-love-prover solve 'x=1; x=2'
+frontier-math-rework prove '(P -> Q) -> (~Q -> ~P)' --out contraposition.json
+frontier-math-rework check contraposition.json --expect '(P -> Q) -> (~Q -> ~P)' --kind logic
+frontier-math-rework prove 'Q' --given 'P' --given 'P -> Q'
+frontier-math-rework identity '(x+y)^2 = x^2 + 2*x*y + y^2'
+frontier-math-rework identity '(x+y)^2 = x^2 + y^2'
+frontier-math-rework solve '2*x+y=7; x-y=2'
+frontier-math-rework solve 'x+2*y-z=3' --variables x y z
+frontier-math-rework solve 'x=1; x=2'
 ```
 
 `python -m kakeyalogic.prover` exposes the same commands. Before installation,
@@ -122,8 +122,8 @@ assert verify(receipt, expected_problem=problem)["valid"]
 The command-line equivalent is:
 
 ```bash
-love-prover prove 'Q' --given 'P' --given 'P -> Q' --out modus-ponens.json
-love-prover check modus-ponens.json --expect 'Q' --kind logic --given 'P' --given 'P -> Q'
+frontier-math-rework prove 'Q' --given 'P' --given 'P -> Q' --out modus-ponens.json
+frontier-math-rework check modus-ponens.json --expect 'Q' --kind logic --given 'P' --given 'P -> Q'
 ```
 
 `PROVED` and `DISPROVED` refer to the complete formal problem including its
@@ -166,3 +166,24 @@ zero denominators, altered counterexamples, and source-bound CLI replay.
 The next kernel extension is explicit first-order terms and quantifier rules,
 with inference-rule tests preceding automated search. Induction and analysis
 then require their own declared foundations and certificate formats.
+
+## Research references
+
+Manuel Coleman supplied these links as the material he studied while working
+in this Lean and mathematics-prover research lane. The linked starting points
+preserve the timestamps he shared.
+
+| Reference | Starting point |
+|---|---|
+| [Lean study video](https://www.youtube.com/watch?v=I2zaPoj3G50&t=300s) | 5:00 |
+| [Is This the End of Handwritten Math? Introducing Lean](https://www.youtube.com/watch?v=0QZI_m8WZ0Q) | Beginning |
+| [I tried Lean and instantly got PhD in Math](https://www.youtube.com/watch?v=l9hUGoN6BLM&t=2116s) | 35:16 |
+
+The second video's accompanying source repository is
+[AnkYog/LeanTutorial1](https://github.com/AnkYog/LeanTutorial1). Its README links
+to that video and identifies `LeanTutorial.lean` as the example source.
+
+These are recorded study references. The video pages/captions could not be
+retrieved during this update, so technical takeaways from the videos remain
+for a later source review. The last two titles are retained as Manuel supplied
+them; the first uses a descriptive label.

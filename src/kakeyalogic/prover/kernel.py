@@ -2,7 +2,7 @@
 
 The trusted base is this checker, syntax.py, algebra.py, Python's integers and
 fractions. The supported logical theory is classical propositional logic;
-algebra is over the rational field. No extra axioms can be loaded in v0.1.
+algebra is over the rational field. No extra axioms can be loaded.
 """
 
 from . import algebra

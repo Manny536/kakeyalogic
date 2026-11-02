@@ -6,7 +6,7 @@ requires-python = ">=3.9"
 readme = "README.md"
 
 [project.scripts]
-love-prover = "kakeyalogic.prover.__main__:main"
+frontier-math-rework = "kakeyalogic.prover.__main__:main"
 
 [build-system]
 requires = ["setuptools>=61"]
