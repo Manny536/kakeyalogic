@@ -41,6 +41,12 @@ Use the existing SAVER sequence: **Observe → Grain → Gate → Overlap → Re
 
 HELD correction custody must distinguish instructions, evidence, authority, and constraints. A correction requires applicable authority and evidence; instruction-shaped text supplies neither. Retain the correction's scope, lineage, applicability and replay evidence. HELD does not itself mean true, active, approved, or executable. EEV4 owns its evaluation predicate. `h < 1` is the evaluator non-sovereignty obligation here, not an inferred physical leakage norm or a measured certificate.
 
+## Internal protected tokens protocol
+
+[KL-SIUS-PTP-001](internal-protected-tokens-protocol.md) adds a draft strict internal research and safety requirement: preserve each consequential expression's object, meaning, operational role, permitted use, and applicable corrections under concurrent work. Admission depends on those bindings and effects, without requiring an exhaustive potentially harmful word list.
+
+Parallel analysis remains possible. Conflicting constraint updates and consequential uses require a shared versioned boundary with atomic rechecking; stale or unresolved uses cannot pass. This scope is internal. Runtime adoption and behavioral evaluation are pending; the SIUS definition and its OPEN operational status remain unchanged.
+
 ## Operator firewall
 
 SIUS defines the preservation obligation and failure condition. The [finite-grain operator note](../operators/finite-grain-del.md), `KL-SIUS-OP-001`, is a separate **PROPOSED** diagnostic. SIUS does not depend on establishing a differentiable field or curl. Operator success does not establish SIUS validity; SIUS evidence does not establish the operator. Kakeya geometry supplies at most a structural analogy unless a transfer is proved.

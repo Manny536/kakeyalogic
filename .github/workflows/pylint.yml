@@ -2,7 +2,26 @@ name: Pylint
 
 on:
   push:
+    branches: [main]
+    paths:
+      - "**/*.py"
+      - "pyproject.toml"
+      - "requirements*.txt"
+      - "requirements/**"
+      - ".pylintrc"
+      - "pylintrc"
+      - "setup.cfg"
+      - ".github/workflows/pylint.yml"
   pull_request:
+    paths:
+      - "**/*.py"
+      - "pyproject.toml"
+      - "requirements*.txt"
+      - "requirements/**"
+      - ".pylintrc"
+      - "pylintrc"
+      - "setup.cfg"
+      - ".github/workflows/pylint.yml"
 
 permissions:
   contents: read
@@ -22,9 +41,10 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install project and lint dependencies
-        run: python -m pip install -e . numpy scipy "pylint==4.1.3"
+        run: python -m pip install -e . numpy scipy "pylint==3.3.9"
       - name: Check Python errors
         shell: bash
         run: |
           mapfile -d '' files < <(git ls-files -z '*.py')
-          python -m pylint --errors-only --py-version=3.12 "${files[@]}"
+          # Preserve the error gate, including imports, targeting the Python 3.9 floor.
+          python -m pylint --errors-only --py-version=3.9 "${files[@]}"
