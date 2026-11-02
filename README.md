@@ -19,6 +19,7 @@ KakeyaLogic is a research architecture for typed directional completeness within
 | [Directional completeness](docs/core/directional-completeness.md) | Fixed required-direction sets and per-direction preservation checks. |
 | [Five-grain routing](docs/core/five-grain-routing.md) | SAVER grains, admission gate, Geodecis, interior test, containment split. |
 | [SAVER calibration](docs/evaluation/saver-reference-calibration.md) | Synthetic graph, declared operational costs, and behavioral receipt. |
+| [Love Labs Prover](docs/independent-math-prover.md) | Independent mathematics checker, propositional prover, exact polynomial identities, and rational linear solver. |
 | [Geometry-to-state interface](docs/interfaces/geometry-to-relational-state.md) | Geometric foundations and the proposed computational mapping. |
 | [Custody interface](docs/interfaces/excellence-engine-v4.md) | HELD relevance, activation, and separate engine ownership. |
 | [Repository map](docs/repository-map.md) | Existing components, new documentation, and planned implementation paths. |
