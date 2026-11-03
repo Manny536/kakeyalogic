@@ -7,7 +7,7 @@ variant; scripts/oa_mutation_smoke.py counts kills. Keys are synthetic ids (h<1)
 import math
 import os
 
-import pytest
+import pytest  # pylint: disable=import-error  # pytest is a test-only dep, not installed in the lint job
 
 from probes.oa import causal as C
 from probes.oa import oa_probe as O
