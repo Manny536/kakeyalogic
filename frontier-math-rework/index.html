@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Frontier Math Rework: browser-based proof checking and exact mathematics.">
+  <title>Frontier Math Rework</title>
+  <style>body{max-width:900px;margin:64px auto;padding:24px;font:17px system-ui;background:#f5f4ee;color:#142725}textarea{display:block;width:100%;min-height:130px;margin:24px 0;font:18px monospace}button{padding:12px 24px;background:#1c5549;color:white;border:0;border-radius:8px}pre{white-space:pre-wrap;overflow-wrap:anywhere}small{display:block;margin-top:20px}</style>
+</head>
+<body>
+  <h1>Frontier Math Rework</h1>
+  <p>Propositional proofs, polynomial identities, and rational linear systems. Checks run in your browser.</p>
+  <p id="status" role="status">Preparing the checker…</p>
+  <label for="statement">Proposition</label>
+  <textarea id="statement">(P -&gt; Q) -&gt; (~Q -&gt; ~P)</textarea>
+  <button id="run" disabled>Prove and check</button>
+  <pre id="result" aria-live="polite"></pre>
+  <small><a href="../">KakeyaLogic research</a></small>
+  <script>
+    const engine = new Worker("./worker.js");
+    const status = document.getElementById("status");
+    const run = document.getElementById("run");
+    engine.onmessage = ({data}) => {
+      if(data.type === "progress") status.textContent = data.message;
+      if(data.type === "ready") run.disabled = false;
+      if(data.type === "result") { document.getElementById("result").textContent = JSON.stringify(data,null,2); run.disabled=false; }
+      if(data.type === "error") { status.textContent=data.message; run.disabled=false; }
+    };
+    engine.postMessage({id:"boot",type:"initialize"});
+    run.onclick = () => { run.disabled=true; engine.postMessage({id:"run",type:"run",problem:{kind:"logic",statement:document.getElementById("statement").value,assumptions:[]}}); };
+  </script>
+</body>
+</html>
