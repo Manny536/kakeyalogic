@@ -2,8 +2,9 @@
 
 Solance owns the Python bundle, worker, validation, and GitHub Pages pipeline.
 Copilot owns the complete responsive interface in `frontier-math-rework/index.html`,
-`app.js`, and `styles.css`. The existing repository-root `index.html` is retained;
-the application is published at `/kakeyalogic/frontier-math-rework/`.
+`app.js`, and `styles.css`. The root `index.html` opens the application at
+`/kakeyalogic/frontier-math-rework/`. The original research landing page is
+preserved at `research.html`, alongside the copy moved aside on main.
 
 ## Engine protocol
 
