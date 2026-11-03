@@ -9,7 +9,8 @@ runtime dependencies.
 
 Open [Frontier Math Rework](https://manny536.github.io/kakeyalogic/frontier-math-rework/)
 to use the checker and solver in the browser. The application lives in
-`frontier-math-rework/index.html`; the repository-root research page links to it.
+`frontier-math-rework/index.html`. The root `index.html` opens the application;
+the original research landing page remains available at `research.html`.
 
 The Python package runs inside a dedicated module worker. Proof search, exact
 algebra, and independent certificate replay happen on the visitor's device.
