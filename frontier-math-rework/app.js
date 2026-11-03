@@ -143,6 +143,35 @@ let currentVerification = null;
 let currentOperation = null;
 let savedSessions = [];
 let storageAvailable = true;
+let idSequence = 0;
+let requestTimer = null;
+
+function requestToken() {
+  // Request/session identifiers are local record keys, not authentication tokens.
+  if (typeof self.crypto?.randomUUID === "function") return self.crypto.randomUUID();
+  return `${Date.now().toString(36)}-${++idSequence}`;
+}
+
+function clearRequestTimer() {
+  if (requestTimer !== null) clearTimeout(requestTimer);
+  requestTimer = null;
+}
+
+function boundRequest(milliseconds) {
+  clearRequestTimer();
+  requestTimer = setTimeout(() => {
+    if (!pendingRequest) return;
+    const wasInitializing = pendingRequest.type === "initialize";
+    pendingRequest = null;
+    workerGeneration += 1;
+    if (worker) worker.terminate();
+    worker = null;
+    showOperationError(wasInitializing ? "The checker took too long to load. Retry when the connection is ready."
+      : "This request reached the browser time limit. No result was accepted.");
+    setEngineState("error", "Checker stopped · retry to start a fresh engine");
+    clearRequestTimer();
+  }, milliseconds);
+}
 
 function node(tag, className, text) {
   const result = document.createElement(tag);
@@ -184,13 +213,17 @@ function clearResult() {
 function updateControls() {
   const isBusy = Boolean(pendingRequest && pendingRequest.type !== "initialize");
   elements.runButton.disabled = !engineReady || isBusy;
+  for (const control of [elements.mode, elements.statement, elements.assumptions, elements.variables,
+    elements.clearButton, elements.receiptInput, elements.receiptFile, elements.matchProblem]) {
+    control.disabled = isBusy;
+  }
   elements.stopButton.hidden = !isBusy;
   elements.retryEngine.disabled = Boolean(pendingRequest);
   elements.verifyButton.disabled = !engineReady || isBusy || !elements.receiptInput.value.trim();
   const hasReceipt = Boolean(currentReceipt);
-  elements.copyReceipt.disabled = !hasReceipt;
-  elements.downloadReceipt.disabled = !hasReceipt;
-  elements.saveSession.disabled = !hasReceipt || currentVerification?.valid !== true;
+  elements.copyReceipt.disabled = !hasReceipt || isBusy;
+  elements.downloadReceipt.disabled = !hasReceipt || isBusy;
+  elements.saveSession.disabled = !hasReceipt || isBusy || currentVerification?.valid !== true;
 }
 
 function makeWorker() {
@@ -206,6 +239,7 @@ function makeWorker() {
       return;
     }
     if (!pendingRequest || data.id !== pendingRequest.id) return;
+    clearRequestTimer();
     if (data.type === "ready" && pendingRequest.type === "initialize") {
       pendingRequest = null;
       setEngineState("ready", "Ready · checks run in your browser");
@@ -237,6 +271,7 @@ function makeWorker() {
   worker.onerror = (event) => {
     if (generation !== workerGeneration) return;
     event.preventDefault();
+    clearRequestTimer();
     const request = pendingRequest;
     pendingRequest = null;
     const message = "The checker stopped unexpectedly. Retry to start a fresh worker.";
@@ -252,12 +287,14 @@ function initializeEngine() {
   if (pendingRequest) return;
   try {
     if (!worker) makeWorker();
-    const id = `initialize-${workerGeneration}-${crypto.randomUUID()}`;
+    const id = `initialize-${workerGeneration}-${requestToken()}`;
     pendingRequest = { id, type: "initialize" };
     setEngineState("loading", "Starting the local checker…");
     elements.shortcutHelp.textContent = "Loading the browser mathematics engine. The first load needs a network connection.";
     worker.postMessage({ id, type: "initialize" });
+    boundRequest(120_000);
   } catch (error) {
+    clearRequestTimer();
     pendingRequest = null;
     if (worker) worker.terminate();
     worker = null;
@@ -297,7 +334,7 @@ function modeProblem() {
 
 function sendOperation(type, payload) {
   if (!engineReady || pendingRequest || !worker) return;
-  const id = `${type}-${workerGeneration}-${crypto.randomUUID()}`;
+  const id = `${type}-${workerGeneration}-${requestToken()}`;
   pendingRequest = { id, type };
   currentOperation = type;
   setResultState("busy", type === "run" ? "Checking" : "Replaying", type === "run" ? "The checker is working through your problem…" : "The checker is independently replaying this receipt…");
@@ -306,6 +343,7 @@ function sendOperation(type, payload) {
   elements.resultFeedback.textContent = "";
   updateControls();
   worker.postMessage({ id, type, ...payload });
+  boundRequest(20_000);
 }
 
 function runProblem(event) {
@@ -349,6 +387,7 @@ function verifyReceipt() {
 function stopOperation() {
   if (!pendingRequest || pendingRequest.type === "initialize") return;
   const wasBusy = pendingRequest.type;
+  clearRequestTimer();
   pendingRequest = null;
   workerGeneration += 1;
   if (worker) worker.terminate();
@@ -372,6 +411,7 @@ function showOperationError(message) {
   elements.resultEmpty.textContent = message;
   setResultState("error", "Error", message);
   elements.resultFeedback.textContent = message;
+  if (currentOperation === "verify") elements.importMessage.textContent = "The receipt could not be replayed. See the error above.";
   updateControls();
 }
 
@@ -446,16 +486,20 @@ function renderResult(data) {
     elements.resultSummary.append(banner);
     renderCheckedTrace(currentReceipt, status);
   } else {
+    const invalidInput = currentOperation === "run" && currentReceipt?.status === "INVALID";
     const message = currentReceipt?.status === "UNKNOWN"
       ? "The search budget was exhausted. No certificate or mathematical conclusion is available."
+      : currentOperation === "run" && currentReceipt?.status === "INVALID" && typeof currentReceipt.reason === "string"
+        ? currentReceipt.reason
       : typeof currentVerification?.reason === "string"
         ? currentVerification.reason
         : "The independent checker did not accept this receipt. No mathematical conclusion is shown.";
-    setResultState("rejected", "Not accepted", message);
+    setResultState("rejected", invalidInput ? "Check input" : "Not accepted", message);
     const banner = node("div", "verification-banner verification-rejected");
     banner.append(node("span", "verification-mark", "!"));
     const text = node("div");
-    text.append(node("strong", "", currentReceipt?.status === "UNKNOWN" ? "No checked conclusion" : "Certificate not accepted"));
+    text.append(node("strong", "", currentReceipt?.status === "UNKNOWN" ? "No checked conclusion"
+      : invalidInput ? "Input needs revision" : "Certificate not accepted"));
     text.append(node("p", "", message));
     banner.append(text);
     elements.resultSummary.append(banner);
@@ -464,7 +508,15 @@ function renderResult(data) {
       elements.resultSummary.append(note);
     }
   }
+  if (currentOperation === "verify") {
+    elements.importMessage.textContent = currentVerification?.valid === true
+      ? "Certificate replay completed successfully."
+      : "Certificate replay completed; the checker rejected this receipt.";
+  }
   updateControls();
+  if (!document.getElementById("panel-workspace").hidden) {
+    document.getElementById("result-section").scrollIntoView({ block: "start", behavior: "smooth" });
+  }
 }
 
 function safeProblemPreview(source) {
@@ -516,8 +568,10 @@ function renderLogicTrace(certificate) {
   if (certificate.method !== "sequent" || !Array.isArray(certificate.nodes)) return;
   const labels = {
     id: "Identity · matching proposition",
-    false_left: "False on the left",
-    true_right: "True on the right",
+    bottom_left: "False on the left",
+    top_right: "True on the right",
+    true_left: "True on the left",
+    false_right: "False on the right",
     not_left: "Negation on the left",
     not_right: "Negation on the right",
     and_left: "Conjunction on the left",
@@ -765,7 +819,7 @@ function saveSession() {
   }
   const problem = currentReceipt.problem;
   const created = {
-    id: crypto.randomUUID(),
+    id: requestToken(),
     savedAt: new Date().toISOString(),
     status: currentVerification.status,
     problem,
@@ -822,8 +876,8 @@ function saveReceiptFile() {
   document.body.append(link);
   link.click();
   link.remove();
-  URL.revokeObjectURL(url);
-  elements.resultFeedback.textContent = "Receipt JSON downloaded.";
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  elements.resultFeedback.textContent = "Receipt download requested.";
 }
 
 async function copyReceipt() {
@@ -872,6 +926,7 @@ elements.mode.addEventListener("change", updateModeFields);
 document.getElementById("problem-form").addEventListener("submit", runProblem);
 elements.stopButton.addEventListener("click", stopOperation);
 elements.retryEngine.addEventListener("click", () => {
+  clearRequestTimer();
   if (worker) worker.terminate();
   worker = null;
   pendingRequest = null;

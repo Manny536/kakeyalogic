@@ -7,7 +7,7 @@ the application is published at `/kakeyalogic/frontier-math-rework/`.
 
 ## Engine protocol
 
-Create `new Worker('./worker.js')`. Send unique string IDs; match responses to the
+Create `new Worker('./worker.js', {type:'module'})`. Send unique string IDs; match responses to the
 current request and ignore messages from cancelled/terminated workers.
 
 ```js
@@ -73,5 +73,6 @@ Use the existing Python documentation for these shapes; do not invent results.
   feedback. User strings must use textContent, not unsanitized innerHTML.
 
 The worker loads the pinned Pyodide runtime and the exact repository Python
-package. It sends no problem or certificate to a remote computation service.
-The first load needs a network connection for those static runtime assets.
+package from this site's own assets. It sends no problem or certificate to a
+remote computation service. The first load needs a network connection for those
+static runtime assets. Runtime files are generated during the Pages build.

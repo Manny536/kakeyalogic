@@ -27,6 +27,9 @@ KakeyaLogic is a research architecture for typed directional completeness within
 
 ## Existing research program
 
+[Open the Frontier Math Rework browser application](https://manny536.github.io/kakeyalogic/frontier-math-rework/)
+for local proof checking, exact solving, certificate replay, and saved sessions.
+
 **Frame:** KakeyaLogic / PeAIce Research Program
 **Framework state:** Love-Squared Coherence, `L²_C`
 **Public Excellence Engine surface:** https://peaice.org/eev3
