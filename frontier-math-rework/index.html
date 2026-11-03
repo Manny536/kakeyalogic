@@ -2,32 +2,198 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Frontier Math Rework: browser-based proof checking and exact mathematics.">
-  <title>Frontier Math Rework</title>
-  <style>body{max-width:900px;margin:64px auto;padding:24px;font:17px system-ui;background:#f5f4ee;color:#142725}textarea{display:block;width:100%;min-height:130px;margin:24px 0;font:18px monospace}button{padding:12px 24px;background:#1c5549;color:white;border:0;border-radius:8px}pre{white-space:pre-wrap;overflow-wrap:anywhere}small{display:block;margin-top:20px}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A browser-based workspace for checked propositional proofs, polynomial identities, and rational linear systems.">
+  <meta name="theme-color" content="#f4f1e8">
+  <title>Frontier Math Rework · KakeyaLogic</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
 </head>
 <body>
-  <h1>Frontier Math Rework</h1>
-  <p>Propositional proofs, polynomial identities, and rational linear systems. Checks run in your browser.</p>
-  <p id="status" role="status">Preparing the checker…</p>
-  <label for="statement">Proposition</label>
-  <textarea id="statement">(P -&gt; Q) -&gt; (~Q -&gt; ~P)</textarea>
-  <button id="run" disabled>Prove and check</button>
-  <pre id="result" aria-live="polite"></pre>
-  <small><a href="../">KakeyaLogic research</a></small>
-  <script>
-    const engine = new Worker("./worker.js");
-    const status = document.getElementById("status");
-    const run = document.getElementById("run");
-    engine.onmessage = ({data}) => {
-      if(data.type === "progress") status.textContent = data.message;
-      if(data.type === "ready") run.disabled = false;
-      if(data.type === "result") { document.getElementById("result").textContent = JSON.stringify(data,null,2); run.disabled=false; }
-      if(data.type === "error") { status.textContent=data.message; run.disabled=false; }
-    };
-    engine.postMessage({id:"boot",type:"initialize"});
-    run.onclick = () => { run.disabled=true; engine.postMessage({id:"run",type:"run",problem:{kind:"logic",statement:document.getElementById("statement").value,assumptions:[]}}); };
-  </script>
+  <a class="skip-link" href="#main">Skip to workspace</a>
+  <header class="site-header">
+    <a class="wordmark" href="./" aria-label="Frontier Math Rework home">
+      <span class="wordmark-mark" aria-hidden="true">∴</span>
+      <span><span class="wordmark-title">Frontier Math Rework</span><span class="wordmark-subtitle">A checked mathematics workspace</span></span>
+    </a>
+    <div class="engine-indicator" aria-live="polite">
+      <span id="engine-dot" class="engine-dot" aria-hidden="true"></span>
+      <span id="engine-status">Preparing the checker…</span>
+      <button id="retry-engine" class="text-button" type="button" hidden>Retry</button>
+    </div>
+  </header>
+
+  <nav class="primary-nav" role="tablist" aria-label="Workspace sections">
+    <button id="tab-workspace" class="nav-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-workspace" tabindex="0" data-view="workspace">Workspace</button>
+    <button id="tab-examples" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-examples" tabindex="-1" data-view="examples">Examples</button>
+    <button id="tab-research" class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-research" tabindex="-1" data-view="research">Research &amp; help</button>
+  </nav>
+
+  <main id="main">
+    <section id="panel-workspace" class="view-panel" role="tabpanel" aria-labelledby="tab-workspace">
+      <div class="page-intro">
+        <p class="eyebrow">Formal input · independent replay</p>
+        <h1>Make a claim. Check the certificate.</h1>
+        <p class="intro-copy">Explore a bounded mathematics language and inspect the exact evidence the checker replays. Computation stays in this browser.</p>
+      </div>
+
+      <div class="workspace-grid">
+        <section class="work-card input-card" aria-labelledby="input-heading">
+          <div class="card-heading">
+            <div><p class="eyebrow">01 · Set up</p><h2 id="input-heading">Your problem</h2></div>
+            <span class="key-hint"><kbd>⌘</kbd>/<kbd>Ctrl</kbd> + <kbd>Enter</kbd></span>
+          </div>
+          <form id="problem-form">
+            <label class="field-label" for="mode-select">Mathematics mode</label>
+            <select id="mode-select" name="mode">
+              <option value="logic">Prove a proposition</option>
+              <option value="identity">Check a polynomial identity</option>
+              <option value="linear">Solve a linear system</option>
+            </select>
+
+            <div id="assumptions-field" class="field-group">
+              <label class="field-label" for="assumptions-input">Hypotheses <span class="optional-note">one per line · optional</span></label>
+              <textarea id="assumptions-input" rows="3" spellcheck="false" placeholder="P&#10;P -&gt; Q"></textarea>
+              <p class="field-help">Every line is an explicit assumption used by this proof.</p>
+            </div>
+
+            <div class="field-group">
+              <label id="statement-label" class="field-label" for="statement-input">Proposition</label>
+              <textarea id="statement-input" rows="4" spellcheck="false" required aria-describedby="syntax-help">(P -&gt; Q) -&gt; (~Q -&gt; ~P)</textarea>
+              <p id="syntax-help" class="field-help"></p>
+            </div>
+
+            <div id="variables-field" class="field-group" hidden>
+              <label class="field-label" for="variables-input">Variable order <span class="optional-note">optional</span></label>
+              <input id="variables-input" type="text" autocomplete="off" spellcheck="false" placeholder="x, y, z">
+              <p class="field-help">Declare a comma- or space-separated order, including free variables.</p>
+            </div>
+
+            <div class="form-actions">
+              <button id="run-button" class="button button-primary" type="submit" disabled>Run and check</button>
+              <button id="stop-button" class="button button-stop" type="button" hidden>Stop</button>
+              <button id="clear-button" class="button button-quiet" type="button">Clear</button>
+            </div>
+            <p id="shortcut-help" class="shortcut-note">Checks may take a moment while the browser engine starts.</p>
+          </form>
+        </section>
+
+        <aside class="work-card sessions-card" aria-labelledby="sessions-heading">
+          <div class="card-heading">
+            <div><p class="eyebrow">On this device</p><h2 id="sessions-heading">Saved sessions</h2></div>
+            <span id="session-count" class="count-badge">0</span>
+          </div>
+          <p class="muted-copy">Saved receipts stay in this browser. Restoring a session replays its certificate again.</p>
+          <p id="sessions-message" class="inline-message" role="status" aria-live="polite"></p>
+          <ul id="session-list" class="session-list" aria-label="Saved sessions"></ul>
+          <p id="sessions-empty" class="empty-note">No saved sessions yet. Run a problem, then save its receipt.</p>
+        </aside>
+      </div>
+
+      <section id="result-section" class="work-card result-card" aria-labelledby="result-heading" aria-live="polite">
+        <div class="card-heading">
+          <div><p class="eyebrow">02 · Independent checker</p><h2 id="result-heading">Result and trace</h2></div>
+          <span id="result-state" class="state-pill state-idle">Waiting</span>
+        </div>
+        <p id="result-empty" class="empty-note">Choose a mode and enter a formal problem to begin.</p>
+        <div id="result-content" hidden>
+          <div id="result-summary"></div>
+          <div id="problem-summary" class="problem-summary" hidden></div>
+          <div id="trace-section" class="trace-section" hidden>
+            <h3 id="trace-heading">Checked trace</h3>
+            <div id="trace-content"></div>
+          </div>
+          <div class="result-actions">
+            <button id="copy-receipt" class="button button-secondary" type="button" disabled>Copy receipt JSON</button>
+            <button id="download-receipt" class="button button-secondary" type="button" disabled>Download receipt</button>
+            <button id="save-session" class="button button-secondary" type="button" disabled>Save session</button>
+          </div>
+          <p id="result-feedback" class="inline-message" role="status" aria-live="polite"></p>
+          <details id="receipt-details" class="receipt-details">
+            <summary>Inspect certificate JSON</summary>
+            <pre id="receipt-json" class="json-view"></pre>
+          </details>
+        </div>
+      </section>
+
+      <section class="work-card import-card" aria-labelledby="import-heading">
+        <div class="card-heading">
+          <div><p class="eyebrow">03 · Replay independently</p><h2 id="import-heading">Import a certificate</h2></div>
+        </div>
+        <p class="muted-copy">Load a receipt from this device or paste its JSON. Files are limited to 4 MB. A saved status is never accepted without replay.</p>
+        <div class="import-controls">
+          <label class="file-picker" for="receipt-file">Choose JSON file</label>
+          <input id="receipt-file" type="file" accept=".json,application/json">
+          <span id="file-name" class="file-name">No file selected</span>
+        </div>
+        <label class="field-label" for="receipt-input">Receipt JSON</label>
+        <textarea id="receipt-input" class="receipt-input" rows="5" spellcheck="false" placeholder="Paste a complete receipt JSON object here"></textarea>
+        <div class="import-footer">
+          <label class="check-label"><input id="match-problem" type="checkbox"> Require a match with my current problem</label>
+          <button id="verify-button" class="button button-secondary" type="button" disabled>Replay certificate</button>
+        </div>
+        <p id="import-message" class="inline-message" role="status" aria-live="polite"></p>
+      </section>
+    </section>
+
+    <section id="panel-examples" class="view-panel" role="tabpanel" aria-labelledby="tab-examples" hidden>
+      <div class="page-intro">
+        <p class="eyebrow">Runnable starting points</p>
+        <h1>Examples in the supported language</h1>
+        <p class="intro-copy">Load any example into the workspace to edit it, run it, and inspect its independently checked certificate.</p>
+      </div>
+      <div id="examples-list" class="examples-grid"></div>
+    </section>
+
+    <section id="panel-research" class="view-panel" role="tabpanel" aria-labelledby="tab-research" hidden>
+      <div class="page-intro">
+        <p class="eyebrow">Scope · method · references</p>
+        <h1>Research &amp; help</h1>
+        <p class="intro-copy">A small, explicit formal language with a separate checker—not a general-purpose theorem prover.</p>
+      </div>
+      <div class="help-grid">
+        <article class="work-card help-card">
+          <p class="eyebrow">What is checked</p>
+          <h2>Supported mathematics</h2>
+          <ul class="scope-list">
+            <li><strong>Propositional logic:</strong> classical propositions with explicit hypotheses, checked by sequent replay or a Boolean countermodel.</li>
+            <li><strong>Polynomial identities:</strong> exact rational polynomial normalization or a rational counterexample.</li>
+            <li><strong>Linear systems:</strong> affine equations over the rationals, with reversible row operations and exact solution families.</li>
+          </ul>
+          <p>Quantifiers, induction, inequalities, transcendental functions, general nonlinear solving, and analysis are outside the current language. An unsupported input is not a mathematical result.</p>
+          <p>Results are accepted only when the independent checker reports <code>verification.valid</code>. <strong>UNKNOWN</strong> means no conclusion was reached; it does not mean false.</p>
+        </article>
+        <article class="work-card help-card">
+          <p class="eyebrow">Input syntax</p>
+          <h2>Write formal expressions</h2>
+          <ul class="scope-list">
+            <li>Logic: <code>~</code>, <code>&amp;</code>, <code>|</code>, <code>-&gt;</code>, and <code>&lt;-&gt;</code>; place each hypothesis on its own line.</li>
+            <li>Algebra: write multiplication explicitly (<code>2*x</code>), use exact fractions (<code>1/2</code>) and powers (<code>^</code>).</li>
+            <li>Linear systems: write one equation per line or separate them with semicolons. Declare variable order when it matters.</li>
+          </ul>
+          <p>Whitespace in the problem statement is part of the receipt identity. A match check uses the exact current input and hypotheses.</p>
+        </article>
+        <article class="work-card help-card">
+          <p class="eyebrow">Certificate workflow</p>
+          <h2>Replay before relying</h2>
+          <p>A receipt includes its declared problem and a certificate. On import, this page asks the local checker to validate the certificate, problem digest, saved status, and—if you opt in—an expected problem you entered yourself. Imported files are not treated as proof based on their own status label.</p>
+          <p>The first engine load needs an internet connection to fetch pinned static runtime assets. The mathematical input and certificate are processed in this browser; no separate computation service receives them.</p>
+        </article>
+        <article class="work-card help-card">
+          <p class="eyebrow">Further reading</p>
+          <h2>Research references</h2>
+          <p><a href="../docs/frontier-math-rework.md">Application guide and certificate architecture</a></p>
+          <p><a href="../docs/research/frontier-math-rework-video-notes.md">Research notes and engineering interpretation</a></p>
+          <p><a href="../">KakeyaLogic research home</a></p>
+          <p class="muted-copy">The research notes provide context and interface motivation; the implemented scope is the formal language described above.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Exact input. Independently checked evidence.</span>
+    <a href="../">KakeyaLogic research</a>
+  </footer>
 </body>
 </html>
