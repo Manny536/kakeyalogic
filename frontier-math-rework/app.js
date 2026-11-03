@@ -196,7 +196,7 @@ function updateControls() {
 function makeWorker() {
   workerGeneration += 1;
   const generation = workerGeneration;
-  worker = new Worker("./worker.js");
+  worker = new Worker("./worker.js", { type: "module" });
   worker.onmessage = ({ data }) => {
     if (generation !== workerGeneration || !data || typeof data !== "object") return;
     if (data.type === "progress") {
