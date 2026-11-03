@@ -5,6 +5,35 @@ certificate checker, our own bounded proof language, search engine, exact
 solver, and replay format. It runs locally with Python 3.9 or later and no
 runtime dependencies.
 
+## Browser application
+
+Open [Frontier Math Rework](https://manny536.github.io/kakeyalogic/frontier-math-rework/)
+to use the checker and solver in the browser. The application lives in
+`frontier-math-rework/index.html`. The root `index.html` opens the application;
+the original research landing page remains available at `research.html`.
+
+The Python package runs inside a dedicated module worker. Proof search, exact
+algebra, and independent certificate replay happen on the visitor's device.
+The initial load downloads the pinned runtime from this same GitHub Pages site.
+Sessions are saved in the current browser; JSON export supplies a portable record.
+
+The Pages workflow verifies that `engine-sources.json` matches `src/kakeyalogic`,
+checks the application JavaScript, stages the research site, and downloads the
+official Pyodide core archive using a pinned release SHA-256 digest. Runtime
+binaries are included in the deployment artifact rather than the Git repository.
+Pull requests build and validate; pushes to `main` deploy through GitHub Pages.
+
+After changing the Python package, regenerate its browser source bundle:
+
+```bash
+python tools/build_frontier_web.py
+python tools/build_frontier_pages.py --output _site
+python -m http.server 8000 --directory _site
+```
+
+Then open `/frontier-math-rework/` on that local server. The native terminal
+application below remains available with the same proof and solver behavior.
+
 ## Implemented mathematics
 
 | Command | Theory and input | Checked result |
