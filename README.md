@@ -113,7 +113,7 @@ frontier-math-rework/                    Frontier Math Rework browser applicatio
 | **V4 custody engine lab** | [`excellence-engine-v4`](https://github.com/Manny536/excellence-engine-v4) | HELD architecture, Outcomes *position*, evaluations, probes, registers, site stubs |
 | **This repo (field)** | `kakeyalogic` | Geometric field, controlling Outcomes memo, ARX lane, landing, V4 **mirror** + pointer |
 | **Theorem ledger** | [`claude-v6`](https://github.com/Manny536/claude-v6) | Status walls, A–H, prime-carrying L3 |
-| **Relational / CUP** | [`LoveLabs-LCA`](https://github.com/Manny536/LoveLabs-LCA) | BD-AI benchmarks, Love²_C platform |
+| **Relational / CUP** | [`LoveLabs-LCA`](https://github.com/Manny536/LoveLabs-LCA) | Benevolence Drift benchmarks, Love²_C platform |
 | **Grok pole** | [`grok-terminal`](https://github.com/Manny536/grok-terminal) | TERMINAL receipts under II.1 |
 | **Solance/GPT EE lineage** | [`GPT-v2-excellence-engine-`](https://github.com/Manny536/GPT-v2-excellence-engine-) | Historical formal EE implementation |
 

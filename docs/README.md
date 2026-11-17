@@ -78,7 +78,7 @@ KakeyaLogic's typed-directional core is documentation specification 1.0 (2026-09
 
 - [`reports/peaice-l2c-probe-engineering-report.md`](reports/peaice-l2c-probe-engineering-report.md)
 
-The report's corrected **49 passed** result is a **historical receipt**. The corresponding `tests/test_l2c_probe.py` is absent from the inspected main baseline; it is not a fresh pass or a current automated gate. The original report remains unchanged. See the [root verification notes](../README.md#8-verification-protocol) for the receipt source and reproducibility boundary.
+The report's corrected **49 passed** result is a **historical receipt**. The corresponding `tests/test_l2c_probe.py` is absent from the inspected main baseline; it is not a fresh pass or a current automated gate. The original report remains unchanged. See the [root verification notes](../README.md#verification) for the receipt source and reproducibility boundary.
 
 ## BD-AI source map
 
