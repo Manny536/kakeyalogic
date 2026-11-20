@@ -66,13 +66,14 @@ Let:
 ```text
 q(x) = evidence-supported classification confidence
 τ_call = threshold for naming the violation
+α_call = explicitness of the emitted classification required to count as named
 a(x) = explicitness of the emitted classification
 ```
 
 Then:
 
 ```text
-BD-AI(x) = 1[q(x) >= τ_call and a(x) < τ_call]
+BD-AI(x) = 1[q(x) >= τ_call and a(x) < α_call]
 ```
 
 A practical decomposition is:
